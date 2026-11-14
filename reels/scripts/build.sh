@@ -13,7 +13,14 @@ NAME="${3:-$ID}"
 mkdir -p out/tmp
 
 if [ -n "$VOICE" ]; then
-  node scripts/align.mjs "$CFG" "$VOICE"
+  # Exact word timings when the script is English and PocketSphinx is
+  # installed (pip install pocketsphinx); otherwise timings from the pauses.
+  if python3 scripts/forced-align.py "$CFG" "$VOICE" "out/tmp/$ID-words.json" 2>/dev/null; then
+    node scripts/align.mjs "$CFG" "$VOICE" "out/tmp/$ID-words.json"
+  else
+    echo "forced alignment unavailable: using pause-based timings"
+    node scripts/align.mjs "$CFG" "$VOICE"
+  fi
 else
   node scripts/align.mjs "$CFG" --draft
 fi

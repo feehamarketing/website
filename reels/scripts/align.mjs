@@ -5,12 +5,15 @@
 //
 //   node scripts/align.mjs configs/feeha.json voice.mp3   -> real timings
 //   node scripts/align.mjs configs/feeha.json --draft     -> estimated timings (layout tests only)
+//   node scripts/align.mjs configs/feeha.json voice.mp3 words.json
+//        -> exact word timings from scripts/forced-align.py are used as-is
 import {execFileSync, spawnSync} from 'node:child_process';
 import {readFileSync, writeFileSync} from 'node:fs';
 
 const FPS = 30;
 const cfgPath = process.argv[2];
 const arg = process.argv[3];
+const exactWords = process.argv[4] ? JSON.parse(readFileSync(process.argv[4])) : null;
 if (!cfgPath || !arg) throw new Error('usage: align.mjs <config.json> <voice file | --draft>');
 const cfg = JSON.parse(readFileSync(cfgPath));
 // With "tailSeconds" the reel ends that long after the last word
@@ -99,8 +102,8 @@ tokens.forEach((t, i) => {
 anchors.push({idx: tokens.length - 1, end: speechEnd, next: speechEnd});
 
 // 3) inside each anchored span, spread words over that span's voiced time
-const words = [];
-for (let a = 1; a < anchors.length; a++) {
+let words = [];
+for (let a = 1; a < anchors.length && !exactWords; a++) {
   const from = anchors[a - 1].idx + 1;
   const to = anchors[a].idx;
   const t0 = anchors[a - 1].next;
@@ -123,6 +126,10 @@ for (let a = 1; a < anchors.length; a++) {
   }
 }
 
+if (exactWords) {
+  if (exactWords.length !== tokens.length) throw new Error('word list does not match the script');
+  words = exactWords;
+}
 const f = (s) => Math.round(s * FPS);
 if (cfg.tailSeconds) TOTAL_FRAMES = Math.min(cfg.totalFrames, f(speechEnd + cfg.tailSeconds));
 
@@ -142,10 +149,11 @@ const out = {
   voiceDuration: +duration.toFixed(3),
   pausesDetected: inner.length,
   anchorsUsed: anchors.length - 2,
+  timing: exactWords ? 'forced-alignment' : arg === '--draft' ? 'draft' : 'pauses',
   words,
   scenes,
 };
 writeFileSync(cfg.timeline, JSON.stringify(out, null, 1));
-console.log(`voice ${duration.toFixed(2)}s, ${words.length} words, ${inner.length} pauses, ${anchors.length - 2} anchored`);
+console.log(`voice ${duration.toFixed(2)}s, ${words.length} words, timing: ${out.timing}`);
 console.log(scenes.map((s) => `${s.id}:${s.from}-${s.to}`).join('  '));
 if (duration > TOTAL_FRAMES / FPS - 0.2) console.warn('WARNING: voice-over is longer than the reel');
