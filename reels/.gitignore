@@ -1,5 +1,4 @@
 node_modules/
 out/
-public/mix.wav
-public/voice.*
+public/*-mix.wav
 .remotion/

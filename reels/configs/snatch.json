@@ -1,0 +1,46 @@
+{
+  "id": "snatch",
+  "composition": "Reel",
+  "totalFrames": 450,
+  "timeline": "src/timeline.json",
+  "draftVoiceDuration": 13.6,
+  "music": {
+    "transpose": 0
+  },
+  "script": "Envie d'un fast-food d'élite à Montréal ? Chez Snatch, tacos français, smash burgers et riz crousty, cuisinés avec passion. Halal certifié, noté 4,7 sur Google. Snatch Restaurant, sur le Plateau-Mont-Royal. Commande maintenant !",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Envie"
+    },
+    {
+      "id": "brand",
+      "startsAt": "Chez"
+    },
+    {
+      "id": "tacos",
+      "startsAt": "tacos"
+    },
+    {
+      "id": "burger",
+      "startsAt": "smash"
+    },
+    {
+      "id": "riz",
+      "startsAt": "et"
+    },
+    {
+      "id": "passion",
+      "startsAt": "cuisinés"
+    },
+    {
+      "id": "proof",
+      "startsAt": "Halal"
+    },
+    {
+      "id": "outro",
+      "startsAt": "Snatch",
+      "after": 20
+    }
+  ]
+}

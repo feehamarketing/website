@@ -1,0 +1,317 @@
+{
+ "fps": 30,
+ "totalFrames": 825,
+ "draft": true,
+ "voiceDuration": 25,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "words": [
+  {
+   "text": "Big",
+   "start": 0,
+   "end": 0.348
+  },
+  {
+   "text": "news,",
+   "start": 0.348,
+   "end": 0.773
+  },
+  {
+   "text": "Montréal!",
+   "start": 0.773,
+   "end": 1.507
+  },
+  {
+   "text": "The",
+   "start": 1.507,
+   "end": 1.855
+  },
+  {
+   "text": "new",
+   "start": 1.855,
+   "end": 2.202
+  },
+  {
+   "text": "feeha.ca",
+   "start": 2.202,
+   "end": 3.323
+  },
+  {
+   "text": "is",
+   "start": 3.323,
+   "end": 3.593
+  },
+  {
+   "text": "coming",
+   "start": 3.594,
+   "end": 4.173
+  },
+  {
+   "text": "soon.",
+   "start": 4.173,
+   "end": 4.598
+  },
+  {
+   "text": "Step",
+   "start": 4.598,
+   "end": 5.023
+  },
+  {
+   "text": "inside",
+   "start": 5.023,
+   "end": 5.603
+  },
+  {
+   "text": "our",
+   "start": 5.603,
+   "end": 5.95
+  },
+  {
+   "text": "studio.",
+   "start": 5.951,
+   "end": 6.53
+  },
+  {
+   "text": "Print",
+   "start": 6.53,
+   "end": 7.032
+  },
+  {
+   "text": "it:",
+   "start": 7.032,
+   "end": 7.303
+  },
+  {
+   "text": "flyers,",
+   "start": 7.303,
+   "end": 7.882
+  },
+  {
+   "text": "cards",
+   "start": 7.883,
+   "end": 8.385
+  },
+  {
+   "text": "and",
+   "start": 8.385,
+   "end": 8.733
+  },
+  {
+   "text": "posters.",
+   "start": 8.733,
+   "end": 9.389
+  },
+  {
+   "text": "Grow",
+   "start": 9.389,
+   "end": 9.814
+  },
+  {
+   "text": "it:",
+   "start": 9.815,
+   "end": 10.085
+  },
+  {
+   "text": "websites,",
+   "start": 10.085,
+   "end": 10.819
+  },
+  {
+   "text": "SEO",
+   "start": 10.819,
+   "end": 11.167
+  },
+  {
+   "text": "and",
+   "start": 11.167,
+   "end": 11.515
+  },
+  {
+   "text": "ads.",
+   "start": 11.515,
+   "end": 11.862
+  },
+  {
+   "text": "Light",
+   "start": 11.862,
+   "end": 12.365
+  },
+  {
+   "text": "it",
+   "start": 12.365,
+   "end": 12.635
+  },
+  {
+   "text": "up,",
+   "start": 12.635,
+   "end": 12.906
+  },
+  {
+   "text": "with",
+   "start": 12.906,
+   "end": 13.331
+  },
+  {
+   "text": "custom",
+   "start": 13.331,
+   "end": 13.91
+  },
+  {
+   "text": "neon",
+   "start": 13.91,
+   "end": 14.335
+  },
+  {
+   "text": "signs.",
+   "start": 14.335,
+   "end": 14.838
+  },
+  {
+   "text": "Customize",
+   "start": 14.838,
+   "end": 15.649
+  },
+  {
+   "text": "every",
+   "start": 15.649,
+   "end": 16.151
+  },
+  {
+   "text": "detail,",
+   "start": 16.151,
+   "end": 16.731
+  },
+  {
+   "text": "see",
+   "start": 16.731,
+   "end": 17.079
+  },
+  {
+   "text": "your",
+   "start": 17.079,
+   "end": 17.504
+  },
+  {
+   "text": "price,",
+   "start": 17.504,
+   "end": 18.006
+  },
+  {
+   "text": "and",
+   "start": 18.006,
+   "end": 18.354
+  },
+  {
+   "text": "order",
+   "start": 18.354,
+   "end": 18.856
+  },
+  {
+   "text": "online",
+   "start": 18.856,
+   "end": 19.436
+  },
+  {
+   "text": "in",
+   "start": 19.436,
+   "end": 19.706
+  },
+  {
+   "text": "seconds.",
+   "start": 19.706,
+   "end": 20.363
+  },
+  {
+   "text": "feeha.ca.",
+   "start": 20.363,
+   "end": 21.484
+  },
+  {
+   "text": "Print",
+   "start": 21.484,
+   "end": 21.986
+  },
+  {
+   "text": "it.",
+   "start": 21.986,
+   "end": 22.256
+  },
+  {
+   "text": "Grow",
+   "start": 22.257,
+   "end": 22.682
+  },
+  {
+   "text": "it.",
+   "start": 22.682,
+   "end": 22.952
+  },
+  {
+   "text": "Light",
+   "start": 22.952,
+   "end": 23.454
+  },
+  {
+   "text": "it",
+   "start": 23.454,
+   "end": 23.725
+  },
+  {
+   "text": "up.",
+   "start": 23.725,
+   "end": 23.995
+  },
+  {
+   "text": "Coming",
+   "start": 23.995,
+   "end": 24.575
+  },
+  {
+   "text": "soon!",
+   "start": 24.575,
+   "end": 25
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 42
+  },
+  {
+   "id": "home",
+   "from": 42,
+   "to": 135
+  },
+  {
+   "id": "studio",
+   "from": 135,
+   "to": 193
+  },
+  {
+   "id": "print",
+   "from": 193,
+   "to": 279
+  },
+  {
+   "id": "grow",
+   "from": 279,
+   "to": 353
+  },
+  {
+   "id": "light",
+   "from": 353,
+   "to": 442
+  },
+  {
+   "id": "order",
+   "from": 442,
+   "to": 608
+  },
+  {
+   "id": "outro",
+   "from": 608,
+   "to": 825
+  }
+ ]
+}

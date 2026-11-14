@@ -1,0 +1,22 @@
+{
+  "id": "feeha",
+  "composition": "Feeha",
+  "totalFrames": 900,
+  "tailSeconds": 2.5,
+  "timeline": "src/feeha/timeline.json",
+  "draftVoiceDuration": 25,
+  "music": {"transpose": 5},
+  "script": "Big news, Montréal! The new feeha.ca is coming soon. Step inside our studio. Print it: flyers, cards and posters. Grow it: websites, SEO and ads. Light it up, with custom neon signs. Customize every detail, see your price, and order online in seconds. feeha.ca. Print it. Grow it. Light it up. Coming soon!",
+  "tts": "Big news, Montreal! The new Feeha dot C A is coming soon. Step inside our studio. Print it: flyers, cards and posters. Grow it: websites, S E O and ads. Light it up, with custom neon signs. Customize every detail, see your price, and order online in seconds. Feeha dot C A. Print it. Grow it. Light it up. Coming soon!",
+  "voice": {"name": "Noah - Confident Canadian Narrator", "id": "9hb1f7xQcMLB90qbYSY3"},
+  "scenes": [
+    {"id": "hook", "startsAt": "Big"},
+    {"id": "home", "startsAt": "The"},
+    {"id": "studio", "startsAt": "Step"},
+    {"id": "print", "startsAt": "Print"},
+    {"id": "grow", "startsAt": "Grow"},
+    {"id": "light", "startsAt": "Light"},
+    {"id": "order", "startsAt": "Customize"},
+    {"id": "outro", "startsAt": "feeha.ca", "after": 40}
+  ]
+}

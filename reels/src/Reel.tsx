@@ -465,7 +465,7 @@ export const Reel = ({audio}: {audio: boolean}) => {
           background: C.yellow,
         }}
       />
-      {audio ? <Audio src={staticFile('mix.wav')} /> : null}
+      {audio ? <Audio src={staticFile('snatch-mix.wav')} /> : null}
     </AbsoluteFill>
   );
 };

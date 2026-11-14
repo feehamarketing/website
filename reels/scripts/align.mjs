@@ -3,15 +3,19 @@
 // the script's punctuation is anchored on them; words in between are spread
 // over the voiced time in proportion to their length.
 //
-//   node scripts/align.mjs public/voice.mp3     -> real timings
-//   node scripts/align.mjs --draft              -> estimated timings (layout tests only)
+//   node scripts/align.mjs configs/feeha.json voice.mp3   -> real timings
+//   node scripts/align.mjs configs/feeha.json --draft     -> estimated timings (layout tests only)
 import {execFileSync, spawnSync} from 'node:child_process';
 import {readFileSync, writeFileSync} from 'node:fs';
 
 const FPS = 30;
-const TOTAL_FRAMES = 450;
-const cfg = JSON.parse(readFileSync(new URL('../reel.config.json', import.meta.url)));
-const arg = process.argv[2];
+const cfgPath = process.argv[2];
+const arg = process.argv[3];
+if (!cfgPath || !arg) throw new Error('usage: align.mjs <config.json> <voice file | --draft>');
+const cfg = JSON.parse(readFileSync(cfgPath));
+// With "tailSeconds" the reel ends that long after the last word
+// (never longer than totalFrames); otherwise it is exactly totalFrames.
+let TOTAL_FRAMES = cfg.totalFrames;
 
 const tokens = cfg.script
   .split(/\s+/)
@@ -22,14 +26,17 @@ const tokens = cfg.script
   }, []);
 
 // Spoken length of a token: digits are read out as whole words.
+// A web address such as feeha.ca is read out as "feeha dot C A".
 const weight = (t) =>
-  t.replace(/[^\p{L}\p{N}]/gu, '').replace(/\d/g, 'xxxxx').length + 1.5;
+  t.replace(/[^\p{L}\p{N}]/gu, '').replace(/\d/g, 'xxxxx').length +
+  1.5 +
+  (/\p{L}\.\p{L}/u.test(t) ? 6 : 0);
 const endsClause = (t) => /[?!.,;:]$/.test(t);
 
 let duration;
 let silences = [];
 if (arg === '--draft') {
-  duration = 13.6;
+  duration = cfg.draftVoiceDuration;
   // fake pauses after each punctuation mark, for layout tests
 } else {
   const probe = execFileSync('ffprobe', [
@@ -116,8 +123,10 @@ for (let a = 1; a < anchors.length; a++) {
   }
 }
 
-// Scene cuts: each scene starts slightly before its first word.
 const f = (s) => Math.round(s * FPS);
+if (cfg.tailSeconds) TOTAL_FRAMES = Math.min(cfg.totalFrames, f(speechEnd + cfg.tailSeconds));
+
+// Scene cuts: each scene starts slightly before its first word.
 const scenes = cfg.scenes.map((sc) => {
   const i = tokens.findIndex((t, k) => k >= (sc.after ?? 0) && t.toLowerCase().startsWith(sc.startsAt.toLowerCase()));
   if (i < 0) throw new Error('scene word not found: ' + sc.startsAt);
@@ -136,7 +145,7 @@ const out = {
   words,
   scenes,
 };
-writeFileSync(new URL('../src/timeline.json', import.meta.url), JSON.stringify(out, null, 1));
+writeFileSync(cfg.timeline, JSON.stringify(out, null, 1));
 console.log(`voice ${duration.toFixed(2)}s, ${words.length} words, ${inner.length} pauses, ${anchors.length - 2} anchored`);
 console.log(scenes.map((s) => `${s.id}:${s.from}-${s.to}`).join('  '));
 if (duration > TOTAL_FRAMES / FPS - 0.2) console.warn('WARNING: voice-over is longer than the reel');

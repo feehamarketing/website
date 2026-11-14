@@ -1,19 +1,22 @@
 // Synthesises the music bed and the transition sound effects, in code.
 // Nothing is downloaded and nothing is licensed: the track is original and
-// free to use. Output: out/tmp/music.wav and out/tmp/sfx.wav (44.1 kHz stereo).
+// free to use. Output: out/tmp/<id>-music.wav and out/tmp/<id>-sfx.wav
+// (44.1 kHz stereo).   node scripts/make-audio.mjs configs/feeha.json
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 
+const cfg = JSON.parse(readFileSync(process.argv[2]));
+const tl = JSON.parse(readFileSync(cfg.timeline));
+const TR = cfg.music?.transpose ?? 0;
 const SR = 44100;
-const DUR = 15;
+const DUR = tl.totalFrames / tl.fps;
 const N = SR * DUR;
 const BPM = 120;
 const BEAT = 60 / BPM;
-const tl = JSON.parse(readFileSync(new URL('../src/timeline.json', import.meta.url)));
 
 const buf = () => [new Float32Array(N), new Float32Array(N)];
 let seed = 7;
 const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2 ** 32) * 2 - 1;
-const midi = (n) => 440 * 2 ** ((n - 69) / 12);
+const midi = (n) => 440 * 2 ** ((n + TR - 69) / 12);
 
 function add(out, t, len, fn, pan = 0) {
   const s0 = Math.floor(t * SR);
@@ -105,8 +108,9 @@ const chords = [
   {root: 36, notes: [55, 60, 64]}, // C
   {root: 31, notes: [55, 59, 62]}, // G
 ];
-const DROP = 4; // beats of intro before the full groove
-const LAST = 28; // final hit on beat 28 (14.0 s)
+// Full groove starts on the beat nearest the first cut; final hit 1 s before the end.
+const DROP = Math.max(2, Math.round(tl.scenes[1].from / (tl.fps * BEAT)));
+const LAST = Math.floor(DUR / BEAT) - 2;
 for (let b = 0; b < LAST; b++) {
   const t = b * BEAT;
   const ch = chords[Math.floor(b / 4) % 4];
@@ -153,7 +157,7 @@ function writeWav(path, ch, gain) {
   }
   writeFileSync(path, data);
 }
-mkdirSync(new URL('../out/tmp/', import.meta.url), {recursive: true});
-writeWav(new URL('../out/tmp/music.wav', import.meta.url), music, 0.9);
-writeWav(new URL('../out/tmp/sfx.wav', import.meta.url), sfx, 0.9);
-console.log('music.wav + sfx.wav written');
+mkdirSync('out/tmp', {recursive: true});
+writeWav(`out/tmp/${cfg.id}-music.wav`, music, 0.9);
+writeWav(`out/tmp/${cfg.id}-sfx.wav`, sfx, 0.9);
+console.log(`out/tmp/${cfg.id}-music.wav + sfx written (${DUR}s)`);
