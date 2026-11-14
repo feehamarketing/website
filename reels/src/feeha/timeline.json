@@ -1,358 +1,358 @@
 {
  "fps": 30,
- "totalFrames": 765,
- "draft": true,
- "voiceDuration": 23,
- "pausesDetected": 0,
- "anchorsUsed": 0,
- "timing": "draft",
+ "totalFrames": 760,
+ "draft": false,
+ "voiceDuration": 23.066,
+ "pausesDetected": 10,
+ "anchorsUsed": 4,
+ "timing": "forced-alignment",
  "words": [
   {
    "text": "Still",
-   "start": 0,
-   "end": 0.386
+   "start": 0.1,
+   "end": 0.47
   },
   {
    "text": "emailing",
-   "start": 0.386,
-   "end": 0.951
+   "start": 0.47,
+   "end": 0.84
   },
   {
    "text": "back",
-   "start": 0.951,
-   "end": 1.278
+   "start": 0.84,
+   "end": 1.16
   },
   {
    "text": "and",
-   "start": 1.278,
-   "end": 1.545
+   "start": 1.16,
+   "end": 1.26
   },
   {
    "text": "forth",
-   "start": 1.545,
-   "end": 1.931
+   "start": 1.26,
+   "end": 1.67
   },
   {
    "text": "just",
-   "start": 1.932,
-   "end": 2.258
+   "start": 1.67,
+   "end": 1.89
   },
   {
    "text": "to",
-   "start": 2.258,
-   "end": 2.466
+   "start": 1.89,
+   "end": 1.96
   },
   {
    "text": "get",
-   "start": 2.466,
-   "end": 2.734
+   "start": 1.96,
+   "end": 2.09
   },
   {
    "text": "a",
-   "start": 2.734,
-   "end": 2.882
+   "start": 2.09,
+   "end": 2.14
   },
   {
    "text": "print",
-   "start": 2.882,
-   "end": 3.269
+   "start": 2.14,
+   "end": 2.46
   },
   {
    "text": "quote?",
-   "start": 3.269,
-   "end": 3.655
+   "start": 2.46,
+   "end": 2.87
   },
   {
    "text": "Meet",
-   "start": 3.655,
-   "end": 3.982
+   "start": 3.25,
+   "end": 3.53
   },
   {
    "text": "the",
-   "start": 3.982,
-   "end": 4.249
+   "start": 3.53,
+   "end": 3.59
   },
   {
    "text": "new",
-   "start": 4.249,
-   "end": 4.517
+   "start": 3.59,
+   "end": 3.88
   },
   {
    "text": "feeha.ca.",
-   "start": 4.517,
-   "end": 5.378
+   "start": 3.88,
+   "end": 5.17
   },
   {
    "text": "Walk",
-   "start": 5.379,
-   "end": 5.705
+   "start": 5.5,
+   "end": 5.75
   },
   {
    "text": "through",
-   "start": 5.705,
-   "end": 6.21
+   "start": 5.75,
+   "end": 5.9
   },
   {
    "text": "our",
-   "start": 6.211,
-   "end": 6.478
+   "start": 5.9,
+   "end": 6.03
   },
   {
    "text": "studio,",
-   "start": 6.478,
-   "end": 6.924
+   "start": 6.03,
+   "end": 6.6
   },
   {
    "text": "browse",
-   "start": 6.924,
-   "end": 7.369
+   "start": 6.79,
+   "end": 7.21
   },
   {
    "text": "every",
-   "start": 7.37,
-   "end": 7.756
+   "start": 7.21,
+   "end": 7.53
   },
   {
    "text": "product,",
-   "start": 7.756,
-   "end": 8.261
+   "start": 7.53,
+   "end": 8.17
   },
   {
    "text": "then",
-   "start": 8.261,
-   "end": 8.588
+   "start": 8.17,
+   "end": 8.42
   },
   {
    "text": "pick",
-   "start": 8.588,
-   "end": 8.915
+   "start": 8.42,
+   "end": 8.65
   },
   {
    "text": "what",
-   "start": 8.915,
-   "end": 9.242
+   "start": 8.65,
+   "end": 8.75
   },
   {
    "text": "you",
-   "start": 9.242,
-   "end": 9.509
+   "start": 8.75,
+   "end": 8.9
   },
   {
    "text": "need",
-   "start": 9.509,
-   "end": 9.836
+   "start": 8.9,
+   "end": 9.23
   },
   {
    "text": "and",
-   "start": 9.836,
-   "end": 10.103
+   "start": 9.23,
+   "end": 9.34
   },
   {
    "text": "see",
-   "start": 10.103,
-   "end": 10.371
+   "start": 9.34,
+   "end": 9.53
   },
   {
    "text": "your",
-   "start": 10.371,
-   "end": 10.698
+   "start": 9.53,
+   "end": 9.68
   },
   {
    "text": "price",
-   "start": 10.698,
-   "end": 11.084
+   "start": 9.68,
+   "end": 10.15
   },
   {
    "text": "instantly.",
-   "start": 11.084,
-   "end": 11.708
+   "start": 10.15,
+   "end": 10.8
   },
   {
    "text": "Spin",
-   "start": 11.708,
-   "end": 12.035
+   "start": 11.11,
+   "end": 11.39
   },
   {
    "text": "your",
-   "start": 12.035,
-   "end": 12.362
+   "start": 11.39,
+   "end": 11.51
   },
   {
    "text": "flyer",
-   "start": 12.362,
-   "end": 12.748
+   "start": 11.51,
+   "end": 11.91
   },
   {
    "text": "in",
-   "start": 12.748,
-   "end": 12.956
+   "start": 11.91,
+   "end": 12.04
   },
   {
    "text": "3D",
-   "start": 12.956,
-   "end": 13.402
+   "start": 12.04,
+   "end": 12.65
   },
   {
    "text": "before",
-   "start": 13.402,
-   "end": 13.847
+   "start": 12.65,
+   "end": 13.1
   },
   {
    "text": "you",
-   "start": 13.848,
-   "end": 14.115
+   "start": 13.1,
+   "end": 13.26
   },
   {
    "text": "order.",
-   "start": 14.115,
-   "end": 14.501
+   "start": 13.26,
+   "end": 13.65
   },
   {
    "text": "Flyers",
-   "start": 14.501,
-   "end": 14.947
+   "start": 13.93,
+   "end": 14.28
   },
   {
    "text": "start",
-   "start": 14.947,
-   "end": 15.333
+   "start": 14.28,
+   "end": 14.63
   },
   {
    "text": "at",
-   "start": 15.333,
-   "end": 15.541
+   "start": 14.63,
+   "end": 14.76
   },
   {
    "text": "$21.99,",
-   "start": 15.541,
-   "end": 16.819
+   "start": 14.76,
+   "end": 15.89
   },
   {
    "text": "with",
-   "start": 16.819,
-   "end": 17.146
+   "start": 15.94,
+   "end": 16.07
   },
   {
    "text": "a",
-   "start": 17.146,
-   "end": 17.294
+   "start": 16.07,
+   "end": 16.11
   },
   {
    "text": "free",
-   "start": 17.295,
-   "end": 17.621
+   "start": 16.11,
+   "end": 16.39
   },
   {
    "text": "file",
-   "start": 17.621,
-   "end": 17.948
+   "start": 16.39,
+   "end": 16.7
   },
   {
    "text": "check.",
-   "start": 17.948,
-   "end": 18.335
+   "start": 16.7,
+   "end": 17.05
   },
   {
    "text": "Plus",
-   "start": 18.335,
-   "end": 18.661
+   "start": 17.25,
+   "end": 17.49
   },
   {
    "text": "websites,",
-   "start": 18.661,
-   "end": 19.226
+   "start": 17.49,
+   "end": 18.32
   },
   {
    "text": "ads,",
-   "start": 19.226,
-   "end": 19.493
+   "start": 18.32,
+   "end": 18.89
   },
   {
    "text": "even",
-   "start": 19.494,
-   "end": 19.82
+   "start": 18.89,
+   "end": 19.13
   },
   {
    "text": "custom",
-   "start": 19.82,
-   "end": 20.266
+   "start": 19.13,
+   "end": 19.57
   },
   {
    "text": "neon",
-   "start": 20.266,
-   "end": 20.593
+   "start": 19.57,
+   "end": 19.89
   },
   {
    "text": "signs.",
-   "start": 20.593,
-   "end": 20.979
+   "start": 19.89,
+   "end": 20.45
   },
   {
    "text": "Launching",
-   "start": 20.979,
-   "end": 21.603
+   "start": 20.7,
+   "end": 21.08
   },
   {
    "text": "soon",
-   "start": 21.603,
-   "end": 21.93
+   "start": 21.08,
+   "end": 21.46
   },
   {
    "text": "at",
-   "start": 21.93,
-   "end": 22.138
+   "start": 21.46,
+   "end": 21.69
   },
   {
    "text": "feeha.ca.",
-   "start": 22.138,
-   "end": 23
+   "start": 21.69,
+   "end": 23.06
   }
  ],
  "scenes": [
   {
    "id": "hook",
    "from": 0,
-   "to": 107
+   "to": 95
   },
   {
    "id": "reveal",
-   "from": 107,
-   "to": 158
+   "from": 95,
+   "to": 162
   },
   {
    "id": "gallery",
-   "from": 158,
-   "to": 245
+   "from": 162,
+   "to": 242
   },
   {
    "id": "price",
-   "from": 245,
-   "to": 348
+   "from": 242,
+   "to": 330
   },
   {
    "id": "spin",
-   "from": 348,
-   "to": 432
+   "from": 330,
+   "to": 415
   },
   {
    "id": "flyers",
-   "from": 432,
-   "to": 547
+   "from": 415,
+   "to": 515
   },
   {
    "id": "grow",
-   "from": 547,
-   "to": 582
+   "from": 515,
+   "to": 564
   },
   {
    "id": "light",
-   "from": 582,
-   "to": 626
+   "from": 564,
+   "to": 618
   },
   {
    "id": "outro",
-   "from": 626,
-   "to": 765
+   "from": 618,
+   "to": 760
   }
  ]
 }
