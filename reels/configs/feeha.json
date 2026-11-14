@@ -4,19 +4,52 @@
   "totalFrames": 900,
   "tailSeconds": 2.5,
   "timeline": "src/feeha/timeline.json",
-  "draftVoiceDuration": 25,
-  "music": {"transpose": 5},
-  "script": "Big news, Montréal! The new feeha.ca is coming soon. Step inside our studio. Print it: flyers, cards and posters. Grow it: websites, SEO and ads. Light it up, with custom neon signs. Customize every detail, see your price, and order online in seconds. feeha.ca. Print it. Grow it. Light it up. Coming soon!",
-  "tts": "Big news, Montreal! The new Feeha dot C A is coming soon. Step inside our studio. Print it: flyers, cards and posters. Grow it: websites, S E O and ads. Light it up, with custom neon signs. Customize every detail, see your price, and order online in seconds. Feeha dot C A. Print it. Grow it. Light it up. Coming soon!",
-  "voice": {"name": "Noah - Confident Canadian Narrator", "id": "9hb1f7xQcMLB90qbYSY3"},
+  "draftVoiceDuration": 21,
+  "music": {
+    "transpose": 5
+  },
+  "voice": {
+    "name": "Noah - Engaging American Ads & News Pro",
+    "id": "eY7L7u95SA4iCJN5wCSV"
+  },
+  "script": "Still emailing back and forth just to get a print quote? On feeha.ca, pick your size and paper, and the price updates instantly. Spin your flyer in 3D before you order. Every file gets a free check. Flyers start at $21.99. And it's not just print: websites, ads, even custom neon signs. Launching soon at feeha.ca.",
+  "spokenAs": {
+    "feeha.ca": "Feeha dot C A",
+    "$21.99": "twenty-one ninety-nine",
+    "3D": "three D"
+  },
   "scenes": [
-    {"id": "hook", "startsAt": "Big"},
-    {"id": "home", "startsAt": "The"},
-    {"id": "studio", "startsAt": "Step"},
-    {"id": "print", "startsAt": "Print"},
-    {"id": "grow", "startsAt": "Grow"},
-    {"id": "light", "startsAt": "Light"},
-    {"id": "order", "startsAt": "Customize"},
-    {"id": "outro", "startsAt": "feeha.ca", "after": 40}
+    {
+      "id": "hook",
+      "startsAt": "Still"
+    },
+    {
+      "id": "price",
+      "startsAt": "On"
+    },
+    {
+      "id": "spin",
+      "startsAt": "Spin"
+    },
+    {
+      "id": "check",
+      "startsAt": "Every"
+    },
+    {
+      "id": "flyers",
+      "startsAt": "Flyers"
+    },
+    {
+      "id": "grow",
+      "startsAt": "And"
+    },
+    {
+      "id": "light",
+      "startsAt": "even"
+    },
+    {
+      "id": "outro",
+      "startsAt": "Launching"
+    }
   ]
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   AbsoluteFill,
   Audio,
+  Freeze,
   Img,
   OffthreadVideo,
   Sequence,
@@ -16,7 +17,7 @@ import {BEAT, F, MONO, wide} from './theme';
 import timeline from './timeline.json';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-type SceneId = 'hook' | 'home' | 'studio' | 'print' | 'grow' | 'light' | 'order' | 'outro';
+type SceneId = 'hook' | 'price' | 'spin' | 'check' | 'flyers' | 'grow' | 'light' | 'outro';
 
 // ---- footage: the screen of the phone in the supplied video ----------------
 const SRC = staticFile('feeha/source.mp4');
@@ -29,28 +30,40 @@ const PHONE_TOP = 420;
 
 // Seconds of the source video used for each scene.
 const SEGMENTS: Partial<Record<SceneId, [number, number]>> = {
-  home: [0.5, 4.4],
-  studio: [4.5, 9.9],
-  print: [10.05, 13.9],
+  price: [24.3, 25.95], // Half letter -> Postcard: total drops from $65.99 to $52.99
+  spin: [19.85, 24.0], // 3D flyer and tri-fold leaflet turning
+  check: [24.15, 24.7], // "Free file check" on the order page
+  flyers: [10.05, 13.9], // flyers page, "From $21.99"
   grow: [14.05, 16.9],
   light: [17.05, 19.9],
-  order: [20.05, 25.9],
 };
 
 const TITLES: Partial<Record<SceneId, {label: string; a: string; b: string; accent?: string}>> = {
-  home: {label: 'NEW WEBSITE', a: 'Coming soon', b: 'feeha.ca'},
-  studio: {label: '01 / THE STUDIO', a: 'Step inside', b: 'our studio.'},
-  print: {label: '02 / PRINT', a: 'Print it.', b: 'Every format.'},
-  grow: {label: '03 / GROW', a: 'Grow it.', b: 'Get seen.', accent: F.blue},
-  light: {label: '04 / ILLUMINATE', a: 'Light it up.', b: 'In neon.', accent: F.amber},
-  order: {label: '05 / ORDER ONLINE', a: 'Your price,', b: 'in seconds.'},
+  price: {label: '01 / LIVE PRICING', a: 'Pick it.', b: 'Priced instantly.'},
+  spin: {label: '02 / 3D PREVIEW', a: 'Spin it', b: 'before you print.'},
+  check: {label: '03 / FILE CHECK', a: 'Every file.', b: 'Checked. Free.'},
+  flyers: {label: '04 / FLYERS', a: 'Flyers from', b: '$21.99'},
+  grow: {label: '05 / BEYOND PRINT', a: 'Websites.', b: 'Ads.', accent: F.blue},
+  light: {label: '06 / ILLUMINATED', a: 'Even', b: 'neon signs.', accent: F.amber},
 };
 
 const CHIPS: Partial<Record<SceneId, {t: string; bg: string; fg: string}[]>> = {
-  print: [
-    {t: 'Flyers', bg: F.coral, fg: F.white},
-    {t: 'Business cards', bg: F.white, fg: F.ink},
-    {t: 'Posters', bg: F.red, fg: F.white},
+  price: [
+    {t: 'Choose size', bg: F.white, fg: F.ink},
+    {t: 'Choose paper', bg: F.coral, fg: F.white},
+    {t: 'Total updates live', bg: F.red, fg: F.white},
+  ],
+  spin: [
+    {t: 'Drag to rotate', bg: F.white, fg: F.ink},
+    {t: 'Unfold the leaflet', bg: F.coral, fg: F.white},
+  ],
+  check: [
+    {t: '✓ Free file check', bg: F.coral, fg: F.white},
+    {t: '✓ CMYK colour', bg: F.white, fg: F.ink},
+  ],
+  flyers: [
+    {t: 'Double-sided', bg: F.white, fg: F.ink},
+    {t: 'Tri-fold', bg: F.coral, fg: F.white},
   ],
   grow: [
     {t: 'Websites', bg: F.blue, fg: F.white},
@@ -60,10 +73,6 @@ const CHIPS: Partial<Record<SceneId, {t: string; bg: string; fg: string}[]>> = {
   light: [
     {t: 'Custom neon', bg: F.amber, fg: F.ink},
     {t: 'LED panels', bg: F.white, fg: F.ink},
-  ],
-  order: [
-    {t: 'Instant price', bg: F.white, fg: F.ink},
-    {t: 'Order online', bg: F.coral, fg: F.white},
   ],
 };
 
@@ -160,6 +169,7 @@ const Reveal = ({children, delay, style}: {children: React.ReactNode; delay: num
 
 const Title = ({id}: {id: SceneId}) => {
   const t = TITLES[id]!;
+  const size = Math.min(96, 980 / (Math.max(t.a.length, t.b.length) * 0.62));
   const frame = useCurrentFrame();
   const label = interpolate(frame, [0, 8], [0, 1], clamp);
   return (
@@ -177,10 +187,10 @@ const Title = ({id}: {id: SceneId}) => {
       >
         — {t.label} —
       </div>
-      <Reveal delay={1} style={{...wide, fontSize: 96, lineHeight: 1.02, color: F.white, letterSpacing: -2}}>
+      <Reveal delay={1} style={{...wide, fontSize: size, lineHeight: 1.02, color: F.white, letterSpacing: -2}}>
         {t.a}
       </Reveal>
-      <Reveal delay={5} style={{...wide, fontSize: 96, lineHeight: 1.02, color: t.accent ?? F.coral, letterSpacing: -2}}>
+      <Reveal delay={5} style={{...wide, fontSize: size, lineHeight: 1.02, color: t.accent ?? F.coral, letterSpacing: -2}}>
         {t.b}
       </Reveal>
     </div>
@@ -273,24 +283,38 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
           const seg = SEGMENTS[s.id as SceneId]!;
           const len = s.to - s.from;
           const segFrames = (seg[1] - seg[0]) * fps;
-          const rate = Math.min(2, Math.max(0.6, segFrames / len));
+          // Fit the clip to the scene: speed up (max 2x) or slow down (min 0.35x);
+          // if it is still too short, hold its last frame instead of running
+          // into the next part of the source.
+          const rate = Math.min(2, Math.max(0.35, segFrames / len));
+          const playFrames = Math.min(len, Math.floor(segFrames / rate) - 1);
+          const video = (
+            <OffthreadVideo
+              src={SRC}
+              muted
+              trimBefore={Math.round(seg[0] * fps)}
+              playbackRate={rate}
+              style={{
+                position: 'absolute',
+                width: 1080 * K,
+                height: 1920 * K,
+                left: -SCREEN.x * K,
+                top: -SCREEN.y * K,
+                maxWidth: 'none',
+              }}
+            />
+          );
           return (
-            <Sequence key={s.id} from={s.from - first} durationInFrames={len} layout="none">
-              <OffthreadVideo
-                src={SRC}
-                muted
-                trimBefore={Math.round(seg[0] * fps)}
-                playbackRate={rate}
-                style={{
-                  position: 'absolute',
-                  width: 1080 * K,
-                  height: 1920 * K,
-                  left: -SCREEN.x * K,
-                  top: -SCREEN.y * K,
-                  maxWidth: 'none',
-                }}
-              />
-            </Sequence>
+            <React.Fragment key={s.id}>
+              <Sequence from={s.from - first} durationInFrames={playFrames} layout="none">
+                {video}
+              </Sequence>
+              {playFrames < len ? (
+                <Sequence from={s.from - first + playFrames} durationInFrames={len - playFrames} layout="none">
+                  <Freeze frame={playFrames - 1}>{video}</Freeze>
+                </Sequence>
+              ) : null}
+            </React.Fragment>
           );
         })}
         {/* glass sheen */}
@@ -308,66 +332,119 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
 };
 
 // ---- hook & outro -----------------------------------------------------------
+/** The problem, told as a chat that goes nowhere. */
 const Hook = ({wordAt}: {wordAt: (w: string) => number}) => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const line = (text: string, at: number, color: string, size: number, rot: number) => {
-    const p = spring({frame: frame - at, fps, config: {damping: 11, stiffness: 230, mass: 0.6}});
+  const {fps, durationInFrames} = useVideoConfig();
+  const end = durationInFrames; // length of the hook
+  const at = (share: number) => Math.round(end * share);
+  const bubble = (text: string, from: number, me: boolean, extra?: React.CSSProperties) => {
+    const p = spring({frame: frame - from, fps, config: {damping: 13, stiffness: 240, mass: 0.6}});
     return (
       <div
         style={{
+          alignSelf: me ? 'flex-end' : 'flex-start',
+          maxWidth: 700,
           ...wide,
-          fontWeight: 900,
-          fontSize: size,
-          lineHeight: 0.95,
-          letterSpacing: -4,
-          color,
-          transform: `scale(${interpolate(p, [0, 1], [2.2, 1])}) rotate(${rot}deg)`,
-          opacity: Math.min(1, p * 2.5),
-          textShadow: '0 20px 60px rgba(0,0,0,.6)',
+          fontWeight: 650,
+          fontStretch: '100%',
+          fontSize: 50,
+          lineHeight: 1.2,
+          color: me ? F.white : F.ink,
+          background: me ? F.coral : F.paper,
+          padding: '26px 36px',
+          borderRadius: 40,
+          borderBottomRightRadius: me ? 10 : 40,
+          borderBottomLeftRadius: me ? 40 : 10,
+          boxShadow: '0 20px 50px rgba(0,0,0,.45)',
+          transform: `translateY(${interpolate(p, [0, 1], [60, 0])}px) scale(${interpolate(p, [0, 1], [0.8, 1])})`,
+          transformOrigin: me ? 'bottom right' : 'bottom left',
+          opacity: frame < from ? 0 : Math.min(1, p * 2),
+          ...extra,
         }}
       >
         {text}
       </div>
     );
   };
-  const burst = spring({frame: frame - wordAt('montr'), fps, config: {damping: 20, stiffness: 120}});
+  const typingFrom = at(0.2);
+  const replyAt = at(0.38);
+  const laterAt = at(0.56);
+  const nudgeAt = at(0.7);
+  const dots = frame >= typingFrom && frame < replyAt;
+  const later = spring({frame: frame - laterAt, fps, config: {damping: 14, stiffness: 200}});
+  // the thread drifts up and blurs out as the answer arrives
+  const out = interpolate(frame, [end - 10, end], [0, 1], clamp);
   return (
-    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', transform: `scale(${1 + frame * 0.002})`}}>
+    <AbsoluteFill style={{alignItems: 'center'}}>
       <div
         style={{
+          position: 'absolute',
+          top: 150,
           fontFamily: MONO,
           fontWeight: 700,
-          fontSize: 32,
+          fontSize: 30,
           letterSpacing: 8,
           color: F.coral,
-          marginBottom: 40,
-          opacity: interpolate(frame, [0, 10], [0, 1], clamp),
+          opacity: interpolate(frame, [0, 8], [0, 1], clamp),
         }}
       >
-        — NEW WEBSITE —
+        — SOUND FAMILIAR? —
       </div>
-      {line('BIG', wordAt('big'), F.white, 250, -3)}
-      {line('NEWS,', wordAt('news'), F.white, 196, 2)}
-      {line('MONTRÉAL!', wordAt('montr'), F.coral, 112, -2)}
-      {[0, 1, 2, 3, 4, 5].map((i) => {
-        const a = (i / 6) * Math.PI * 2 + 0.4;
-        const r = interpolate(burst, [0, 1], [60, 430 + (i % 2) * 70]);
-        return (
-          <Sparkle
-            key={i}
-            size={i % 2 ? 44 : 70}
-            color={i % 3 === 0 ? F.white : F.coral}
-            style={{
-              position: 'absolute',
-              left: 540 + Math.cos(a) * r - 35,
-              top: 1060 + Math.sin(a) * r * 0.8 - 35,
-              opacity: burst * interpolate(frame - wordAt('montr'), [10, 40], [1, 0.4], clamp),
-              transform: `rotate(${frame * 3}deg)`,
-            }}
-          />
-        );
-      })}
+      <div
+        style={{
+          position: 'absolute',
+          top: 330,
+          left: 70,
+          right: 70,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 30,
+          transform: `translateY(${-out * 140}px) scale(${1 - out * 0.08})`,
+          filter: `blur(${out * 14}px)`,
+          opacity: 1 - out * 0.8,
+        }}
+      >
+        {bubble('Hi! How much for 500 flyers?', 2, true)}
+        {dots ? (
+          <div style={{alignSelf: 'flex-start', background: F.paper, borderRadius: 40, padding: '30px 38px', display: 'flex', gap: 12}}>
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                style={{
+                  width: 18,
+                  height: 18,
+                  borderRadius: 9,
+                  background: '#8a8080',
+                  transform: `translateY(${Math.sin((frame - i * 4) / 3) * 6}px)`,
+                }}
+              />
+            ))}
+          </div>
+        ) : null}
+        {bubble("We'll send you a quote.", replyAt, false)}
+        <div
+          style={{
+            alignSelf: 'center',
+            fontFamily: MONO,
+            fontWeight: 700,
+            fontSize: 34,
+            letterSpacing: 6,
+            color: F.white,
+            background: 'rgba(255,255,255,.08)',
+            border: '2px solid rgba(255,255,255,.25)',
+            borderRadius: 999,
+            padding: '12px 30px',
+            margin: '10px 0',
+            opacity: frame < laterAt ? 0 : later,
+            transform: `scale(${interpolate(later, [0, 1], [1.6, 1])})`,
+          }}
+        >
+          3 DAYS LATER
+        </div>
+        {bubble('Hello??', nudgeAt, true)}
+        {bubble('Still waiting on that price…', nudgeAt + 8, true, {background: F.red})}
+      </div>
     </AbsoluteFill>
   );
 };
@@ -379,11 +456,11 @@ const Outro = ({wordAt}: {wordAt: (w: string, nth?: number) => number}) => {
   const url = spring({frame: frame - 6, fps, config: {damping: 12, stiffness: 200, mass: 0.6}});
   const beat = interpolate(frame % BEAT, [0, 3, BEAT], [1.05, 1.02, 1]);
   const tags: [string, number, string][] = [
-    ['Print it.', wordAt('print', 1), F.white],
-    ['Grow it.', wordAt('grow', 1), F.white],
-    ['Light it up.', wordAt('light', 1), F.coral],
+    ['Print it.', 12, F.white],
+    ['Grow it.', 18, F.white],
+    ['Light it up.', 24, F.coral],
   ];
-  const soonAt = wordAt('coming', 1);
+  const soonAt = wordAt('launching');
   const soon = spring({frame: frame - soonAt, fps, config: {damping: 9, stiffness: 240, mass: 0.7}});
   return (
     <AbsoluteFill style={{alignItems: 'center'}}>
@@ -466,7 +543,7 @@ const Outro = ({wordAt}: {wordAt: (w: string, nth?: number) => number}) => {
           top: 1380,
           ...wide,
           fontWeight: 900,
-          fontSize: 74,
+          fontSize: 60,
           letterSpacing: -1,
           color: F.white,
           background: F.coral,
@@ -478,7 +555,7 @@ const Outro = ({wordAt}: {wordAt: (w: string, nth?: number) => number}) => {
           whiteSpace: 'nowrap',
         }}
       >
-        COMING SOON
+        LAUNCHING SOON
       </div>
       <div
         style={{
@@ -541,7 +618,7 @@ export const Feeha = ({audio}: {audio: boolean}) => {
       <Sequence from={outro.from} durationInFrames={outro.to - outro.from}>
         <Outro wordAt={(w, n) => wordAtIn('outro')(w, n ?? 0)} />
       </Sequence>
-      <Captions words={words} top={1690} hidden={(f) => f < hook.to || f >= outro.from} />
+      <Captions words={words} top={1690} hidden={(f) => f >= outro.from} />
       <AbsoluteFill style={{background: '#fff3ef', opacity: flash, pointerEvents: 'none'}} />
       <Grain />
       <div

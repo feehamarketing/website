@@ -134,9 +134,15 @@ const f = (s) => Math.round(s * FPS);
 if (cfg.tailSeconds) TOTAL_FRAMES = Math.min(cfg.totalFrames, f(speechEnd + cfg.tailSeconds));
 
 // Scene cuts: each scene starts slightly before its first word.
+// Scenes are looked up in order: each one starts at the first matching word
+// after the previous scene's start.
+let prev = -1;
 const scenes = cfg.scenes.map((sc) => {
-  const i = tokens.findIndex((t, k) => k >= (sc.after ?? 0) && t.toLowerCase().startsWith(sc.startsAt.toLowerCase()));
+  const i = tokens.findIndex(
+    (t, k) => k > prev && k >= (sc.after ?? 0) && t.toLowerCase().startsWith(sc.startsAt.toLowerCase()),
+  );
   if (i < 0) throw new Error('scene word not found: ' + sc.startsAt);
+  prev = i;
   return {id: sc.id, from: Math.max(0, f(words[i].start) - 3)};
 });
 scenes[0].from = 0;

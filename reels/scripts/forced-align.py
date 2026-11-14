@@ -5,9 +5,9 @@ model ships inside the package, nothing else is downloaded).
 
     python3 scripts/forced-align.py configs/feeha.json voice.mp3 out.json
 
-Reads the on-screen script ("script") and the text that was spoken ("tts")
-from the config, aligns the spoken words, then maps them back onto the
-on-screen tokens (e.g. "feeha dot c a" -> "feeha.ca", "s e o" -> "SEO").
+Reads the on-screen script and "spokenAs" from the config (the text pasted
+into ElevenLabs is printed by scripts/tts-text.mjs), aligns the spoken words,
+then maps them back onto the on-screen tokens ("feeha dot c a" -> "feeha.ca").
 """
 import json
 import re
@@ -30,26 +30,19 @@ def norm(w):
     return re.sub(r"[^a-z0-9']", "", w)
 
 
+# Each on-screen token and the words actually spoken for it
+# ("spokenAs" in the config: "feeha.ca" -> "Feeha dot C A").
+spoken_as = cfg.get("spokenAs", {})
 display = [t for t in cfg["script"].split() if not re.fullmatch(r"[?!:;.,]+", t)]
-spoken = [norm(w) for w in cfg["tts"].split() if norm(w)]
-
-# Map each spoken word to the display token it belongs to, by walking both
-# texts: a display token absorbs spoken words until their letters match.
+spoken = []
 owner = []
-si = 0
 for di, tok in enumerate(display):
-    # letters of the token as spoken: "feeha.ca" -> "feehadotca"
-    target = norm(tok.strip(".!?,:;").replace(".", "dot"))
-    got = ""
-    start = si
-    while si < len(spoken) and len(got) < len(target):
-        got += spoken[si]
-        si += 1
-    if got != target:
-        sys.exit(f"cannot match display token {tok!r} with spoken {spoken[start:si]}")
-    owner += [di] * (si - start)
-if si != len(spoken):
-    sys.exit("spoken text is longer than the on-screen script")
+    core = re.sub(r"[?!.,:;]+$", "", tok)
+    said = spoken_as.get(core, core)
+    for w in re.split(r"[\s-]+", said):
+        if norm(w):
+            spoken.append(norm(w))
+            owner.append(di)
 
 pcm = subprocess.run(
     ["ffmpeg", "-v", "error", "-i", voice, "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],

@@ -1,318 +1,333 @@
 {
  "fps": 30,
- "totalFrames": 813,
- "draft": false,
- "voiceDuration": 24.842,
- "pausesDetected": 19,
- "anchorsUsed": 14,
- "timing": "forced-alignment",
+ "totalFrames": 705,
+ "draft": true,
+ "voiceDuration": 21,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
  "words": [
   {
-   "text": "Big",
+   "text": "Still",
    "start": 0,
-   "end": 0.36
+   "end": 0.381
   },
   {
-   "text": "news,",
-   "start": 0.36,
-   "end": 0.85
+   "text": "emailing",
+   "start": 0.381,
+   "end": 0.938
   },
   {
-   "text": "Montréal!",
-   "start": 0.85,
-   "end": 1.73
-  },
-  {
-   "text": "The",
-   "start": 1.89,
-   "end": 2.02
-  },
-  {
-   "text": "new",
-   "start": 2.02,
-   "end": 2.3
-  },
-  {
-   "text": "feeha.ca",
-   "start": 2.3,
-   "end": 3.48
-  },
-  {
-   "text": "is",
-   "start": 3.48,
-   "end": 3.68
-  },
-  {
-   "text": "coming",
-   "start": 3.68,
-   "end": 4.02
-  },
-  {
-   "text": "soon.",
-   "start": 4.02,
-   "end": 4.58
-  },
-  {
-   "text": "Step",
-   "start": 4.83,
-   "end": 5.13
-  },
-  {
-   "text": "inside",
-   "start": 5.13,
-   "end": 5.5
-  },
-  {
-   "text": "our",
-   "start": 5.5,
-   "end": 5.6
-  },
-  {
-   "text": "studio.",
-   "start": 5.6,
-   "end": 6.19
-  },
-  {
-   "text": "Print",
-   "start": 6.44,
-   "end": 6.74
-  },
-  {
-   "text": "it:",
-   "start": 6.74,
-   "end": 6.98
-  },
-  {
-   "text": "flyers,",
-   "start": 7.13,
-   "end": 7.82
-  },
-  {
-   "text": "cards",
-   "start": 7.82,
-   "end": 8.35
+   "text": "back",
+   "start": 0.939,
+   "end": 1.261
   },
   {
    "text": "and",
-   "start": 8.35,
-   "end": 8.54
+   "start": 1.261,
+   "end": 1.525
   },
   {
-   "text": "posters.",
-   "start": 8.54,
-   "end": 9.21
+   "text": "forth",
+   "start": 1.525,
+   "end": 1.906
   },
   {
-   "text": "Grow",
-   "start": 9.46,
-   "end": 9.83
+   "text": "just",
+   "start": 1.906,
+   "end": 2.229
   },
   {
-   "text": "it:",
-   "start": 9.83,
-   "end": 10.07
+   "text": "to",
+   "start": 2.229,
+   "end": 2.434
   },
   {
-   "text": "websites,",
-   "start": 10.25,
-   "end": 10.97
+   "text": "get",
+   "start": 2.434,
+   "end": 2.698
   },
   {
-   "text": "SEO",
-   "start": 11.06,
-   "end": 11.71
+   "text": "a",
+   "start": 2.698,
+   "end": 2.845
   },
   {
-   "text": "and",
-   "start": 11.71,
-   "end": 11.89
+   "text": "print",
+   "start": 2.845,
+   "end": 3.226
   },
   {
-   "text": "ads.",
-   "start": 11.89,
-   "end": 12.43
+   "text": "quote?",
+   "start": 3.226,
+   "end": 3.607
   },
   {
-   "text": "Light",
-   "start": 12.63,
-   "end": 12.93
+   "text": "On",
+   "start": 3.608,
+   "end": 3.813
   },
   {
-   "text": "it",
-   "start": 12.93,
-   "end": 13.08
+   "text": "feeha.ca,",
+   "start": 3.813,
+   "end": 4.663
   },
   {
-   "text": "up,",
-   "start": 13.08,
-   "end": 13.34
-  },
-  {
-   "text": "with",
-   "start": 13.48,
-   "end": 13.64
-  },
-  {
-   "text": "custom",
-   "start": 13.64,
-   "end": 14.11
-  },
-  {
-   "text": "neon",
-   "start": 14.11,
-   "end": 14.51
-  },
-  {
-   "text": "signs.",
-   "start": 14.51,
-   "end": 15.12
-  },
-  {
-   "text": "Customize",
-   "start": 15.31,
-   "end": 15.95
-  },
-  {
-   "text": "every",
-   "start": 15.95,
-   "end": 16.37
-  },
-  {
-   "text": "detail,",
-   "start": 16.37,
-   "end": 16.93
-  },
-  {
-   "text": "see",
-   "start": 17.06,
-   "end": 17.24
+   "text": "pick",
+   "start": 4.663,
+   "end": 4.986
   },
   {
    "text": "your",
-   "start": 17.24,
-   "end": 17.39
+   "start": 4.986,
+   "end": 5.309
   },
   {
-   "text": "price,",
-   "start": 17.39,
-   "end": 17.9
+   "text": "size",
+   "start": 5.309,
+   "end": 5.631
   },
   {
    "text": "and",
-   "start": 17.9,
-   "end": 18.11
+   "start": 5.631,
+   "end": 5.895
   },
   {
-   "text": "order",
-   "start": 18.11,
-   "end": 18.46
+   "text": "paper,",
+   "start": 5.895,
+   "end": 6.276
   },
   {
-   "text": "online",
-   "start": 18.46,
-   "end": 18.94
+   "text": "and",
+   "start": 6.277,
+   "end": 6.54
+  },
+  {
+   "text": "the",
+   "start": 6.541,
+   "end": 6.804
+  },
+  {
+   "text": "price",
+   "start": 6.804,
+   "end": 7.186
+  },
+  {
+   "text": "updates",
+   "start": 7.186,
+   "end": 7.684
+  },
+  {
+   "text": "instantly.",
+   "start": 7.684,
+   "end": 8.3
+  },
+  {
+   "text": "Spin",
+   "start": 8.3,
+   "end": 8.623
+  },
+  {
+   "text": "your",
+   "start": 8.623,
+   "end": 8.945
+  },
+  {
+   "text": "flyer",
+   "start": 8.946,
+   "end": 9.327
   },
   {
    "text": "in",
-   "start": 18.94,
-   "end": 19.15
+   "start": 9.327,
+   "end": 9.532
   },
   {
-   "text": "seconds.",
-   "start": 19.15,
-   "end": 19.89
+   "text": "3D",
+   "start": 9.532,
+   "end": 9.972
+  },
+  {
+   "text": "before",
+   "start": 9.972,
+   "end": 10.412
+  },
+  {
+   "text": "you",
+   "start": 10.412,
+   "end": 10.676
+  },
+  {
+   "text": "order.",
+   "start": 10.676,
+   "end": 11.057
+  },
+  {
+   "text": "Every",
+   "start": 11.057,
+   "end": 11.438
+  },
+  {
+   "text": "file",
+   "start": 11.439,
+   "end": 11.761
+  },
+  {
+   "text": "gets",
+   "start": 11.761,
+   "end": 12.084
+  },
+  {
+   "text": "a",
+   "start": 12.084,
+   "end": 12.23
+  },
+  {
+   "text": "free",
+   "start": 12.23,
+   "end": 12.553
+  },
+  {
+   "text": "check.",
+   "start": 12.553,
+   "end": 12.934
+  },
+  {
+   "text": "Flyers",
+   "start": 12.934,
+   "end": 13.374
+  },
+  {
+   "text": "start",
+   "start": 13.374,
+   "end": 13.755
+  },
+  {
+   "text": "at",
+   "start": 13.756,
+   "end": 13.961
+  },
+  {
+   "text": "$21.99.",
+   "start": 13.961,
+   "end": 15.222
+  },
+  {
+   "text": "And",
+   "start": 15.222,
+   "end": 15.486
+  },
+  {
+   "text": "it's",
+   "start": 15.486,
+   "end": 15.75
+  },
+  {
+   "text": "not",
+   "start": 15.75,
+   "end": 16.014
+  },
+  {
+   "text": "just",
+   "start": 16.014,
+   "end": 16.336
+  },
+  {
+   "text": "print:",
+   "start": 16.337,
+   "end": 16.718
+  },
+  {
+   "text": "websites,",
+   "start": 16.718,
+   "end": 17.275
+  },
+  {
+   "text": "ads,",
+   "start": 17.275,
+   "end": 17.539
+  },
+  {
+   "text": "even",
+   "start": 17.539,
+   "end": 17.862
+  },
+  {
+   "text": "custom",
+   "start": 17.862,
+   "end": 18.302
+  },
+  {
+   "text": "neon",
+   "start": 18.302,
+   "end": 18.624
+  },
+  {
+   "text": "signs.",
+   "start": 18.624,
+   "end": 19.005
+  },
+  {
+   "text": "Launching",
+   "start": 19.006,
+   "end": 19.621
+  },
+  {
+   "text": "soon",
+   "start": 19.622,
+   "end": 19.944
+  },
+  {
+   "text": "at",
+   "start": 19.944,
+   "end": 20.149
   },
   {
    "text": "feeha.ca.",
-   "start": 20.1,
-   "end": 21.38
-  },
-  {
-   "text": "Print",
-   "start": 21.38,
-   "end": 21.78
-  },
-  {
-   "text": "it.",
-   "start": 21.78,
-   "end": 22.03
-  },
-  {
-   "text": "Grow",
-   "start": 22.18,
-   "end": 22.54
-  },
-  {
-   "text": "it.",
-   "start": 22.54,
-   "end": 22.78
-  },
-  {
-   "text": "Light",
-   "start": 22.87,
-   "end": 23.19
-  },
-  {
-   "text": "it",
-   "start": 23.19,
-   "end": 23.32
-  },
-  {
-   "text": "up.",
-   "start": 23.32,
-   "end": 23.64
-  },
-  {
-   "text": "Coming",
-   "start": 23.79,
-   "end": 24.13
-  },
-  {
-   "text": "soon!",
-   "start": 24.13,
-   "end": 24.7
+   "start": 20.149,
+   "end": 21
   }
  ],
  "scenes": [
   {
    "id": "hook",
    "from": 0,
-   "to": 54
+   "to": 105
   },
   {
-   "id": "home",
-   "from": 54,
-   "to": 142
+   "id": "price",
+   "from": 105,
+   "to": 246
   },
   {
-   "id": "studio",
-   "from": 142,
-   "to": 190
+   "id": "spin",
+   "from": 246,
+   "to": 329
   },
   {
-   "id": "print",
-   "from": 190,
-   "to": 281
+   "id": "check",
+   "from": 329,
+   "to": 385
+  },
+  {
+   "id": "flyers",
+   "from": 385,
+   "to": 454
   },
   {
    "id": "grow",
-   "from": 281,
-   "to": 376
+   "from": 454,
+   "to": 523
   },
   {
    "id": "light",
-   "from": 376,
-   "to": 456
-  },
-  {
-   "id": "order",
-   "from": 456,
-   "to": 600
+   "from": 523,
+   "to": 567
   },
   {
    "id": "outro",
-   "from": 600,
-   "to": 813
+   "from": 567,
+   "to": 705
   }
  ]
 }
