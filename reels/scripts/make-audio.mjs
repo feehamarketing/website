@@ -100,8 +100,89 @@ const impact = (out, t, g = 0.9) => {
   });
 };
 
-// ---------- music: A minor, 120 BPM (one beat = 15 frames) ----------
+// ---------- music (120 BPM: one beat = 15 frames) ----------
+// Full groove starts on the beat nearest the first cut; final hit 1 s before the end.
 const music = buf();
+const DROP = Math.max(2, Math.round(tl.scenes[1].from / (tl.fps * BEAT)));
+const LAST = Math.floor(DUR / BEAT) - 2;
+const STYLE = cfg.music?.style ?? 'pluck';
+
+// Electric-piano voice: a few sine partials, bright attack, soft tremolo.
+const keys = (out, t, len, notes, g = 0.08) => {
+  notes.forEach((note, k) => {
+    const f = midi(note);
+    add(out, t, len, (x) => {
+      const env = Math.min(1, x * 300) * Math.exp(-x * 2.2) * Math.min(1, (len - x) * 30);
+      const bell = Math.sin(2 * Math.PI * f * 2 * x + Math.sin(2 * Math.PI * f * x) * 1.6 * Math.exp(-x * 9));
+      const v = Math.sin(2 * Math.PI * f * x) + 0.35 * bell * Math.exp(-x * 6) + 0.12 * Math.sin(2 * Math.PI * f * 3 * x) * Math.exp(-x * 4);
+      return v * env * g * (1 + 0.15 * Math.sin(2 * Math.PI * 5 * x));
+    }, (k - 1.5) * 0.35);
+  });
+};
+const openHat = (out, t, g = 0.13) => {
+  let prev = 0;
+  add(out, t, 0.22, (x) => {
+    const n = rnd();
+    const hp = n - prev;
+    prev = n;
+    return hp * Math.exp(-x * 16) * g;
+  }, 0.15);
+};
+const sub = (out, t, len, note, g = 0.5) => {
+  const f = midi(note);
+  add(out, t, len, (x) => {
+    const env = Math.min(1, x * 150) * Math.min(1, (len - x) * 40);
+    return (Math.sin(2 * Math.PI * f * x) + 0.25 * Math.sin(4 * Math.PI * f * x)) * env * g;
+  });
+};
+
+if (STYLE === 'house') {
+  // Bright deep-house groove: Fmaj7 - Em7 - Dm7 - Cmaj7.
+  const prog = [
+    {root: 29, notes: [57, 60, 64, 65]},
+    {root: 28, notes: [55, 59, 62, 64]},
+    {root: 26, notes: [53, 57, 60, 62]},
+    {root: 24, notes: [52, 55, 59, 60]},
+  ];
+  for (let b = 0; b < LAST; b++) {
+    const t = b * BEAT;
+    const ch = prog[Math.floor(b / 4) % 4];
+    const full = b >= DROP;
+    // piano stabs: on the beat at the start of each bar, then syncopated
+    if (b % 4 === 0) keys(music, t, BEAT * 1.4, ch.notes, 0.085);
+    if (b % 4 === 1) keys(music, t + BEAT * 0.5, BEAT * 0.9, ch.notes, 0.07);
+    if (b % 4 === 2) keys(music, t + BEAT * 0.75, BEAT * 1.1, ch.notes, 0.075);
+    kick(music, t, full ? 1 : 0.8);
+    openHat(music, t + BEAT / 2, full ? 0.14 : 0.08);
+    if (full) {
+      hat(music, t + BEAT * 0.25, 0.05, -0.3);
+      hat(music, t + BEAT * 0.75, 0.06, 0.3);
+      if (b % 2 === 1) clap(music, t, 0.45);
+      sub(music, t + BEAT / 2, BEAT * 0.4, ch.root + 12);
+      if (b % 4 === 3) sub(music, t + BEAT * 0.75, BEAT * 0.2, ch.root + 24, 0.3);
+    }
+  }
+  noiseSweep(music, (DROP - 2) * BEAT, 2 * BEAT, 0.45);
+  impact(music, DROP * BEAT, 0.6);
+  impact(music, LAST * BEAT, 0.8);
+  keys(music, LAST * BEAT, 1.0, [53, 57, 60, 64, 69], 0.11);
+
+  // Before the drop the track sounds muffled, as if behind a wall; the filter
+  // opens on the drop (one-pole low-pass with a moving cut-off).
+  const dropS = DROP * BEAT * SR;
+  for (const ch of music) {
+    let y = 0;
+    for (let i = 0; i < N; i++) {
+      const open = Math.min(1, Math.max(0, (i - (dropS - SR * 0.5)) / (SR * 0.5)));
+      const fc = 380 * Math.pow(18000 / 380, open);
+      const a = 1 - Math.exp((-2 * Math.PI * fc) / SR);
+      y += a * (ch[i] - y);
+      ch[i] = i < dropS ? y * 1.25 : ch[i];
+    }
+  }
+  // headroom: keep the bed clean (it is levelled again in the final mix)
+  for (const ch of music) for (let i = 0; i < N; i++) ch[i] *= 0.5;
+} else {
 const chords = [
   {root: 33, notes: [57, 60, 64]}, // Am
   {root: 29, notes: [57, 60, 65]}, // F
@@ -132,6 +213,7 @@ noiseSweep(music, (LAST - 2) * BEAT, 2 * BEAT, 0.4); // riser into the last hit
 impact(music, DROP * BEAT, 0.7);
 impact(music, LAST * BEAT, 0.9);
 pluck(music, LAST * BEAT, [57, 60, 64, 69], 0.2);
+}
 
 // ---------- sfx: whoosh on every cut ----------
 const sfx = buf();

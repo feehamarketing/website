@@ -6,7 +6,8 @@
   "timeline": "src/feeha/timeline.json",
   "draftVoiceDuration": 23,
   "music": {
-    "transpose": 5
+    "style": "house",
+    "transpose": 0
   },
   "voice": {
     "name": "Noah - Engaging American Ads & News Pro",
