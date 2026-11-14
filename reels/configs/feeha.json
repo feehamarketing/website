@@ -4,7 +4,7 @@
   "totalFrames": 900,
   "tailSeconds": 2.5,
   "timeline": "src/feeha/timeline.json",
-  "draftVoiceDuration": 21,
+  "draftVoiceDuration": 23,
   "music": {
     "transpose": 5
   },
@@ -12,7 +12,7 @@
     "name": "Noah - Engaging American Ads & News Pro",
     "id": "eY7L7u95SA4iCJN5wCSV"
   },
-  "script": "Still emailing back and forth just to get a print quote? On feeha.ca, pick your size and paper, and the price updates instantly. Spin your flyer in 3D before you order. Every file gets a free check. Flyers start at $21.99. And it's not just print: websites, ads, even custom neon signs. Launching soon at feeha.ca.",
+  "script": "Still emailing back and forth just to get a print quote? Meet the new feeha.ca. Walk through our studio, browse every product, then pick what you need and see your price instantly. Spin your flyer in 3D before you order. Flyers start at $21.99, with a free file check. Plus websites, ads, even custom neon signs. Launching soon at feeha.ca.",
   "spokenAs": {
     "feeha.ca": "Feeha dot C A",
     "$21.99": "twenty-one ninety-nine",
@@ -24,16 +24,20 @@
       "startsAt": "Still"
     },
     {
+      "id": "reveal",
+      "startsAt": "Meet"
+    },
+    {
+      "id": "gallery",
+      "startsAt": "Walk"
+    },
+    {
       "id": "price",
-      "startsAt": "On"
+      "startsAt": "then"
     },
     {
       "id": "spin",
       "startsAt": "Spin"
-    },
-    {
-      "id": "check",
-      "startsAt": "Every"
     },
     {
       "id": "flyers",
@@ -41,7 +45,7 @@
     },
     {
       "id": "grow",
-      "startsAt": "And"
+      "startsAt": "Plus"
     },
     {
       "id": "light",

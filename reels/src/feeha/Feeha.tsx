@@ -17,7 +17,7 @@ import {BEAT, F, MONO, wide} from './theme';
 import timeline from './timeline.json';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-type SceneId = 'hook' | 'price' | 'spin' | 'check' | 'flyers' | 'grow' | 'light' | 'outro';
+type SceneId = 'hook' | 'reveal' | 'gallery' | 'price' | 'spin' | 'flyers' | 'grow' | 'light' | 'outro';
 
 // ---- footage: the screen of the phone in the supplied video ----------------
 const SRC = staticFile('feeha/source.mp4');
@@ -30,18 +30,20 @@ const PHONE_TOP = 420;
 
 // Seconds of the source video used for each scene.
 const SEGMENTS: Partial<Record<SceneId, [number, number]>> = {
+  reveal: [0.5, 4.4], // home page
+  gallery: [4.5, 7.2], // walk through the 3D studio gallery (shown large, not in the phone)
   price: [24.3, 25.95], // Half letter -> Postcard: total drops from $65.99 to $52.99
   spin: [19.85, 24.0], // 3D flyer and tri-fold leaflet turning
-  check: [24.15, 24.7], // "Free file check" on the order page
   flyers: [10.05, 13.9], // flyers page, "From $21.99"
   grow: [14.05, 16.9],
   light: [17.05, 19.9],
 };
 
 const TITLES: Partial<Record<SceneId, {label: string; a: string; b: string; accent?: string}>> = {
-  price: {label: '01 / LIVE PRICING', a: 'Pick it.', b: 'Priced instantly.'},
-  spin: {label: '02 / 3D PREVIEW', a: 'Spin it', b: 'before you print.'},
-  check: {label: '03 / FILE CHECK', a: 'Every file.', b: 'Checked. Free.'},
+  reveal: {label: 'THE FIX', a: 'Meet the new', b: 'feeha.ca'},
+  gallery: {label: '01 / THE STUDIO', a: 'Walk through', b: 'our studio.'},
+  price: {label: '02 / LIVE PRICING', a: 'Pick it.', b: 'Priced instantly.'},
+  spin: {label: '03 / 3D PREVIEW', a: 'Spin it', b: 'before you print.'},
   flyers: {label: '04 / FLYERS', a: 'Flyers from', b: '$21.99'},
   grow: {label: '05 / BEYOND PRINT', a: 'Websites.', b: 'Ads.', accent: F.blue},
   light: {label: '06 / ILLUMINATED', a: 'Even', b: 'neon signs.', accent: F.amber},
@@ -57,13 +59,10 @@ const CHIPS: Partial<Record<SceneId, {t: string; bg: string; fg: string}[]>> = {
     {t: 'Drag to rotate', bg: F.white, fg: F.ink},
     {t: 'Unfold the leaflet', bg: F.coral, fg: F.white},
   ],
-  check: [
-    {t: '✓ Free file check', bg: F.coral, fg: F.white},
-    {t: '✓ CMYK colour', bg: F.white, fg: F.ink},
-  ],
   flyers: [
+    {t: '✓ Free file check', bg: F.coral, fg: F.white},
     {t: 'Double-sided', bg: F.white, fg: F.ink},
-    {t: 'Tri-fold', bg: F.coral, fg: F.white},
+    {t: 'Tri-fold', bg: F.red, fg: F.white},
   ],
   grow: [
     {t: 'Websites', bg: F.blue, fg: F.white},
@@ -253,6 +252,7 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
   const idx = scenes.findIndex((s) => abs >= s.from && abs < s.to);
   const sway = Math.sin(frame / 38) * 2.2;
   const push = 1 + interpolate(abs - (scenes[idx]?.from ?? 0), [0, 120], [0, 0.03], clamp);
+  const hidden = scenes[idx]?.id === 'gallery';
   return (
     <div
       style={{
@@ -264,6 +264,7 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
         borderRadius: 74,
         background: 'linear-gradient(145deg, #2a2626, #0b0909 45%, #1d1a1a)',
         boxShadow: `0 0 0 2px #3a3434, 0 60px 120px rgba(0,0,0,.75), 0 0 160px rgba(165,15,20,.45)`,
+        opacity: hidden ? 0 : 1,
         transform: `perspective(2200px) translateY(${interpolate(enter, [0, 1], [900, 0])}px) rotateX(${interpolate(enter, [0, 1], [24, 0])}deg) rotateY(${sway}deg) rotateZ(${interpolate(enter, [0, 1], [-8, 0]) + sway * 0.4}deg) scale(${punch * push})`,
       }}
     >
@@ -279,7 +280,7 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
           background: F.paper,
         }}
       >
-        {scenes.map((s) => {
+        {scenes.filter((s) => s.id !== 'gallery').map((s) => {
           const seg = SEGMENTS[s.id as SceneId]!;
           const len = s.to - s.from;
           const segFrames = (seg[1] - seg[0]) * fps;
@@ -328,6 +329,78 @@ const Phone = ({scenes, cuts}: {scenes: {id: string; from: number; to: number}[]
         />
       </div>
     </div>
+  );
+};
+
+/** The 3D studio from the site, shown large. */
+const GalleryCard = ({len}: {len: number}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const seg = SEGMENTS.gallery!;
+  const rate = Math.min(2, Math.max(0.35, ((seg[1] - seg[0]) * fps) / len));
+  const p = spring({frame, fps, config: {damping: 14, stiffness: 150, mass: 0.8}});
+  const G = {x: SCREEN.x, y: SCREEN.y + 120, w: SCREEN.w, h: 560}; // the 3D room
+  const S = 1.36;
+  const chips = ['Business cards', 'Stickers', 'Large format'];
+  return (
+    <>
+    <div style={{position: 'absolute', top: 1330, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 14}}>
+      {chips.map((t, i) => {
+        const c = spring({frame: frame - 10 - i * 6, fps, config: {damping: 11, stiffness: 240, mass: 0.6}});
+        return (
+          <div
+            key={t}
+            style={{
+              ...wide,
+              fontWeight: 750,
+              fontSize: 31,
+              color: i === 1 ? F.white : F.ink,
+              background: i === 1 ? F.coral : F.white,
+              padding: '14px 26px 12px',
+              borderRadius: 999,
+              boxShadow: '0 16px 36px rgba(0,0,0,.5)',
+              transform: `scale(${c}) rotate(${(i - 1) * 3}deg)`,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {t}
+          </div>
+        );
+      })}
+    </div>
+    <div
+      style={{
+        position: 'absolute',
+        left: (1080 - G.w * S) / 2,
+        top: 500,
+        width: G.w * S,
+        height: G.h * S,
+        borderRadius: 48,
+        overflow: 'hidden',
+        border: `8px solid ${F.white}`,
+        boxShadow: '0 60px 120px rgba(0,0,0,.7), 0 0 160px rgba(165,15,20,.45)',
+        transform: `perspective(2000px) rotateX(${interpolate(p, [0, 1], [35, 0])}deg) scale(${interpolate(p, [0, 1], [0.6, 1])}) rotate(${Math.sin(frame / 30) * 1.2}deg)`,
+        opacity: Math.min(1, p * 2),
+      }}
+    >
+      <div style={{position: 'absolute', inset: 0, transform: `scale(${1.02 + frame * 0.0015})`}}>
+        <OffthreadVideo
+          src={SRC}
+          muted
+          trimBefore={Math.round(seg[0] * fps)}
+          playbackRate={rate}
+          style={{
+            position: 'absolute',
+            width: 1080 * S,
+            height: 1920 * S,
+            left: -G.x * S,
+            top: -G.y * S,
+            maxWidth: 'none',
+          }}
+        />
+      </div>
+    </div>
+    </>
   );
 };
 
@@ -611,6 +684,7 @@ export const Feeha = ({audio}: {audio: boolean}) => {
       </Sequence>
       {phoneScenes.map((s) => (
         <Sequence key={s.id} from={s.from} durationInFrames={s.to - s.from}>
+          {s.id === 'gallery' ? <GalleryCard len={s.to - s.from} /> : null}
           <Title id={s.id as SceneId} />
           <Chips id={s.id as SceneId} />
         </Sequence>
