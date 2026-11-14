@@ -177,7 +177,7 @@ if (STYLE === 'house') {
       const fc = 380 * Math.pow(18000 / 380, open);
       const a = 1 - Math.exp((-2 * Math.PI * fc) / SR);
       y += a * (ch[i] - y);
-      ch[i] = i < dropS ? y * 1.25 : ch[i];
+      ch[i] = i < dropS ? y * 0.75 : ch[i];
     }
   }
   // headroom: keep the bed clean (it is levelled again in the final mix)
@@ -223,6 +223,54 @@ tl.scenes.slice(1).forEach((s, i) => {
   noiseSweep(sfx, t, 0.22, 0.4, false);
   if (i === 0 || s.id === 'outro') impact(sfx, t, 0.35);
 });
+
+// ---------- sfx: messaging sounds for the opening chat (config "chat") ----------
+// Original sounds in the spirit of a phone messaging app (not Apple's files).
+const sendSound = (t) => {
+  let lp = 0;
+  add(sfx, t - 0.02, 0.16, (x) => {
+    const p = x / 0.16;
+    lp += (0.05 + 0.5 * p) * (rnd() - lp);
+    return lp * Math.sin(Math.PI * p) * 0.5;
+  }, 0.2);
+  add(sfx, t + 0.04, 0.12, (x) => {
+    const f = 900 + 700 * Math.min(1, x / 0.05);
+    return Math.sin(2 * Math.PI * f * x) * Math.exp(-x * 30) * 0.32;
+  }, 0.2);
+};
+const receiveSound = (t) => {
+  [[1175, 0], [1568, 0.1]].forEach(([f, d]) =>
+    add(sfx, t + d, 0.5, (x) => {
+      const env = Math.min(1, x * 600) * Math.exp(-x * 7);
+      return (Math.sin(2 * Math.PI * f * x) + 0.25 * Math.sin(2 * Math.PI * f * 2.76 * x) * Math.exp(-x * 20)) * env * 0.3;
+    }, -0.15),
+  );
+};
+const keyTaps = (tEnd, n) => {
+  let t = tEnd - 0.08;
+  for (let k = 0; k < n; k++) {
+    t -= 0.055 + Math.abs(rnd()) * 0.04;
+    let prev = 0;
+    add(sfx, t, 0.03, (x) => {
+      const v = rnd();
+      const hp = v - prev;
+      prev = v;
+      return (hp * 0.5 + Math.sin(2 * Math.PI * 2200 * x) * 0.3) * Math.exp(-x * 260) * 0.45;
+    }, 0.1 * (k % 2 ? 1 : -1));
+  }
+};
+if (cfg.chat) {
+  const hook = tl.scenes[0];
+  const len = hook.to - hook.from;
+  const time = (share) => (hook.from + Math.round(share * len)) / tl.fps;
+  cfg.chat.messages.forEach((m, i) => {
+    if (m.type === 'sent') {
+      if (m.at > 0) keyTaps(time(m.at), Math.min(9, 3 + Math.round(m.text.length / 6)));
+      sendSound(time(m.at));
+    }
+    if (m.type === 'received') receiveSound(time(m.at));
+  });
+}
 
 function writeWav(path, ch, gain) {
   const data = Buffer.alloc(44 + N * 4);

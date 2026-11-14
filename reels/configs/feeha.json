@@ -56,5 +56,47 @@
       "id": "outro",
       "startsAt": "Launching"
     }
-  ]
+  ],
+  "chat": {
+    "contact": "Print Shop",
+    "messages": [
+      {
+        "type": "time",
+        "day": "Monday",
+        "text": "9:41 AM",
+        "at": 0
+      },
+      {
+        "type": "sent",
+        "text": "Hi! How much for 500 flyers?",
+        "at": 0
+      },
+      {
+        "type": "typing",
+        "at": 0.16,
+        "until": 0.36
+      },
+      {
+        "type": "received",
+        "text": "We'll get back to you with a quote.",
+        "at": 0.36
+      },
+      {
+        "type": "time",
+        "day": "Thursday",
+        "text": "2:14 PM",
+        "at": 0.54
+      },
+      {
+        "type": "sent",
+        "text": "Hello??",
+        "at": 0.64
+      },
+      {
+        "type": "sent",
+        "text": "Still waiting on that price…",
+        "at": 0.76
+      }
+    ]
+  }
 }

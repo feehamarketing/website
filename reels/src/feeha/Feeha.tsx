@@ -13,6 +13,8 @@ import {
   useVideoConfig,
 } from 'remotion';
 import {Captions} from './Captions';
+import {Chat, ChatMessage} from './Chat';
+import config from '../../configs/feeha.json';
 import {BEAT, F, MONO, wide} from './theme';
 import timeline from './timeline.json';
 
@@ -405,123 +407,6 @@ const GalleryCard = ({len}: {len: number}) => {
 };
 
 // ---- hook & outro -----------------------------------------------------------
-/** The problem, told as a chat that goes nowhere. */
-const Hook = ({wordAt}: {wordAt: (w: string) => number}) => {
-  const frame = useCurrentFrame();
-  const {fps, durationInFrames} = useVideoConfig();
-  const end = durationInFrames; // length of the hook
-  const at = (share: number) => Math.round(end * share);
-  const bubble = (text: string, from: number, me: boolean, extra?: React.CSSProperties) => {
-    const p = spring({frame: frame - from, fps, config: {damping: 13, stiffness: 240, mass: 0.6}});
-    return (
-      <div
-        style={{
-          alignSelf: me ? 'flex-end' : 'flex-start',
-          maxWidth: 700,
-          ...wide,
-          fontWeight: 650,
-          fontStretch: '100%',
-          fontSize: 50,
-          lineHeight: 1.2,
-          color: me ? F.white : F.ink,
-          background: me ? F.coral : F.paper,
-          padding: '26px 36px',
-          borderRadius: 40,
-          borderBottomRightRadius: me ? 10 : 40,
-          borderBottomLeftRadius: me ? 40 : 10,
-          boxShadow: '0 20px 50px rgba(0,0,0,.45)',
-          transform: `translateY(${interpolate(p, [0, 1], [60, 0])}px) scale(${interpolate(p, [0, 1], [0.8, 1])})`,
-          transformOrigin: me ? 'bottom right' : 'bottom left',
-          opacity: frame < from ? 0 : Math.min(1, p * 2),
-          ...extra,
-        }}
-      >
-        {text}
-      </div>
-    );
-  };
-  const typingFrom = at(0.2);
-  const replyAt = at(0.38);
-  const laterAt = at(0.56);
-  const nudgeAt = at(0.7);
-  const dots = frame >= typingFrom && frame < replyAt;
-  const later = spring({frame: frame - laterAt, fps, config: {damping: 14, stiffness: 200}});
-  // the thread drifts up and blurs out as the answer arrives
-  const out = interpolate(frame, [end - 10, end], [0, 1], clamp);
-  return (
-    <AbsoluteFill style={{alignItems: 'center'}}>
-      <div
-        style={{
-          position: 'absolute',
-          top: 150,
-          fontFamily: MONO,
-          fontWeight: 700,
-          fontSize: 30,
-          letterSpacing: 8,
-          color: F.coral,
-          opacity: interpolate(frame, [0, 8], [0, 1], clamp),
-        }}
-      >
-        — SOUND FAMILIAR? —
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          top: 330,
-          left: 70,
-          right: 70,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 30,
-          transform: `translateY(${-out * 140}px) scale(${1 - out * 0.08})`,
-          filter: `blur(${out * 14}px)`,
-          opacity: 1 - out * 0.8,
-        }}
-      >
-        {bubble('Hi! How much for 500 flyers?', 2, true)}
-        {dots ? (
-          <div style={{alignSelf: 'flex-start', background: F.paper, borderRadius: 40, padding: '30px 38px', display: 'flex', gap: 12}}>
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                style={{
-                  width: 18,
-                  height: 18,
-                  borderRadius: 9,
-                  background: '#8a8080',
-                  transform: `translateY(${Math.sin((frame - i * 4) / 3) * 6}px)`,
-                }}
-              />
-            ))}
-          </div>
-        ) : null}
-        {bubble("We'll send you a quote.", replyAt, false)}
-        <div
-          style={{
-            alignSelf: 'center',
-            fontFamily: MONO,
-            fontWeight: 700,
-            fontSize: 34,
-            letterSpacing: 6,
-            color: F.white,
-            background: 'rgba(255,255,255,.08)',
-            border: '2px solid rgba(255,255,255,.25)',
-            borderRadius: 999,
-            padding: '12px 30px',
-            margin: '10px 0',
-            opacity: frame < laterAt ? 0 : later,
-            transform: `scale(${interpolate(later, [0, 1], [1.6, 1])})`,
-          }}
-        >
-          3 DAYS LATER
-        </div>
-        {bubble('Hello??', nudgeAt, true)}
-        {bubble('Still waiting on that price…', nudgeAt + 8, true, {background: F.red})}
-      </div>
-    </AbsoluteFill>
-  );
-};
-
 const Outro = ({wordAt}: {wordAt: (w: string, nth?: number) => number}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -677,7 +562,7 @@ export const Feeha = ({audio}: {audio: boolean}) => {
     <AbsoluteFill style={{background: F.ink}}>
       <Background />
       <Sequence from={hook.from} durationInFrames={hook.to - hook.from}>
-        <Hook wordAt={wordAtIn('hook')} />
+        <Chat messages={config.chat.messages as ChatMessage[]} contact={config.chat.contact} />
       </Sequence>
       <Sequence from={phoneFrom} durationInFrames={phoneTo - phoneFrom}>
         <Phone scenes={phoneScenes} cuts={cuts} />
@@ -692,7 +577,7 @@ export const Feeha = ({audio}: {audio: boolean}) => {
       <Sequence from={outro.from} durationInFrames={outro.to - outro.from}>
         <Outro wordAt={(w, n) => wordAtIn('outro')(w, n ?? 0)} />
       </Sequence>
-      <Captions words={words} top={1690} hidden={(f) => f >= outro.from} />
+      <Captions words={words} top={1690} hidden={(f) => f < hook.to || f >= outro.from} />
       <AbsoluteFill style={{background: '#fff3ef', opacity: flash, pointerEvents: 'none'}} />
       <Grain />
       <div

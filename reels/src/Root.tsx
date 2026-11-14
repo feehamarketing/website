@@ -1,4 +1,6 @@
 import '@fontsource/bebas-neue/400.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
 import '@fontsource-variable/archivo/wdth.css';
@@ -12,6 +14,8 @@ import feeha from './feeha/timeline.json';
 const fontsReady = delayRender('fonts');
 Promise.all([
   document.fonts.load('400 100px "Bebas Neue"'),
+  document.fonts.load('400 40px "Inter"'),
+  document.fonts.load('500 40px "Inter"'),
   document.fonts.load('600 40px "Inter"'),
   document.fonts.load('800 40px "Inter"'),
   document.fonts.load('850 100px "Archivo Variable"'),
