@@ -75,92 +75,73 @@ const Logo = ({width}: {width: number}) => (
   </div>
 );
 
-// ---- the street ---------------------------------------------------------------
-const SHOPS = [
-  {w: 520, wall: '#C9B8A6', awning: '#2F5D50', name: 'BOULANGERIE'},
-  {w: 560, wall: '#B9B2AC', awning: '#7A6A5A', name: 'TON COMMERCE', you: true},
-  {w: 500, wall: '#A7B4BE', awning: '#3B4F6B', name: 'NETTOYEUR'},
-  {w: 520, wall: '#D2C2B0', awning: '#8A3B2E', name: 'CAFÉ'},
-  {w: 540, wall: '#BEB6C4', awning: '#4D3F5E', name: 'PHARMACIE'},
-];
-const STREET_W = SHOPS.reduce((s, x) => s + x.w, 0);
-const YOU_X = SHOPS[0].w + SHOPS[1].w / 2; // centre of "your" shop on the street
+// ---- the real storefront (client photo, shot from a car at night) -------------
+// Photo upscaled 2x to 1082x1490; lit panels measured on the original.
+const PHOTO = {w: 1082, h: 1490, top: 215};
+const PANELS = [
+  {x: 22, y: 195, w: 85, h: 156},
+  {x: 348, y: 150, w: 142, h: 198}, // "TENDERS"
+].map((b) => ({x: b.x * 2, y: b.y * 2, w: b.w * 2, h: b.h * 2}));
+// their reflections on the wet car hood (they go dark with the panels)
+const REFLECTIONS = [
+  {x: 27, y: 457, w: 87, h: 47},
+  {x: 338, y: 467, w: 129, h: 79},
+].map((b) => ({x: b.x * 2, y: b.y * 2, w: b.w * 2, h: b.h * 2}));
 
-/** A row of storefronts; `poster` is what hangs in your window. */
-const Street = ({x, lit = 0, dim = 0, highlight = 0}: {x: number; lit?: number; dim?: number; highlight?: number}) => {
+/**
+ * The storefront. `on` 0..1 lights the panels (0 = switched off, like a paper
+ * poster in the dark); `night` 0..1 darkens the whole street.
+ */
+const Storefront = ({on, night, pan = 0, zoom = 1, focus}: {on: number; night: number; pan?: number; zoom?: number; focus?: {x: number; y: number}}) => {
   const frame = useCurrentFrame();
-  let left = 0;
+  const fx = focus?.x ?? 541;
+  const fy = focus?.y ?? 745;
   return (
-    <div style={{position: 'absolute', top: 420, left: 0, width: 1080, height: 1000, overflow: 'hidden'}}>
-      <div style={{position: 'absolute', inset: 0, background: `linear-gradient(180deg, #2a3240 0%, #3a4352 60%, #20242b 100%)`}} />
-      <div style={{position: 'absolute', left: 540 - x, top: 0, width: STREET_W, height: 1000}}>
-        {SHOPS.map((s, i) => {
-          const x0 = left;
-          left += s.w;
-          return (
-            <div key={i} style={{position: 'absolute', left: x0, top: 60, width: s.w - 14, height: 780, background: s.wall, filter: `saturate(${1 - dim * 0.8}) brightness(${1 - dim * 0.45})`}}>
-              {/* sign band */}
-              <div style={{position: 'absolute', left: 0, right: 0, top: 40, height: 90, background: '#2b2b2b', color: '#d9d9d9', fontFamily: COND, fontSize: 58, textAlign: 'center', lineHeight: '96px', letterSpacing: 4}}>
-                {s.name}
-              </div>
-              {/* awning */}
-              <div
-                style={{
-                  position: 'absolute',
-                  left: -10,
-                  right: -10,
-                  top: 150,
-                  height: 80,
-                  background: `repeating-linear-gradient(90deg, ${s.awning} 0 50px, #e9e2d6 50px 100px)`,
-                  clipPath: 'polygon(0 0, 100% 0, 96% 100%, 4% 100%)',
-                }}
-              />
-              {/* window */}
-              <div style={{position: 'absolute', left: 30, top: 260, width: s.w - 200, height: 420, background: 'linear-gradient(160deg, #1d2633, #0e131a)', border: '10px solid #3a3a3a'}}>
-                {s.you ? (
-                  <div style={{position: 'absolute', left: 70, top: 40, width: 200, height: 290}}>
-                    {/* plain paper poster */}
-                    <div style={{position: 'absolute', inset: 0, background: '#cfcac0', opacity: 1 - lit, padding: 16, fontFamily: COND, fontSize: 40, color: '#8d867a', textAlign: 'center'}}>
-                      SPÉCIAL
-                      <br />
-                      DU MOIS
-                    </div>
-                    {/* the lit Feeha panel */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        inset: -26,
-                        opacity: lit,
-                        boxShadow: `0 0 ${60 + 40 * Math.sin(frame / 6)}px ${P.glow}, 0 0 140px rgba(255,231,168,.6)`,
-                        border: '8px solid #0c0c0c',
-                        background: '#fff',
-                      }}
-                    >
-                      <Img src={staticFile('panels/icecream.png')} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-                    </div>
-                    {/* "did you see it?" circle */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        inset: -44,
-                        borderRadius: '50%',
-                        border: `10px solid ${P.red}`,
-                        transform: `scale(${highlight})`,
-                        opacity: highlight,
-                      }}
-                    />
-                  </div>
-                ) : null}
-              </div>
-              {/* door */}
-              <div style={{position: 'absolute', right: 30, top: 300, width: 130, height: 480, background: '#2f2f2f', border: '8px solid #444'}} />
-            </div>
-          );
-        })}
+    <AbsoluteFill style={{background: '#050505', overflow: 'hidden'}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: -1 + pan,
+          top: PHOTO.top,
+          width: PHOTO.w,
+          height: PHOTO.h,
+          transform: `scale(${zoom})`,
+          transformOrigin: `${fx}px ${fy}px`,
+        }}
+      >
+        <Img
+          src={staticFile('panels/vitrine-nuit-2x.jpg')}
+          style={{width: '100%', height: '100%', display: 'block', filter: `brightness(${1 - night * 0.7}) saturate(${1 - night * 0.5}) blur(${night * 2}px)`}}
+        />
+        {REFLECTIONS.map((b, i) => (
+          <div
+            key={'r' + i}
+            style={{position: 'absolute', left: b.x - 10, top: b.y - 10, width: b.w + 20, height: b.h + 20, background: '#141210', borderRadius: 30, filter: 'blur(12px)', opacity: (1 - on) * 0.9}}
+          />
+        ))}
+        {PANELS.map((b, i) => (
+          <React.Fragment key={i}>
+            {/* switched-off panel: a dull grey sheet */}
+            <div style={{position: 'absolute', left: b.x, top: b.y, width: b.w, height: b.h, background: '#2a2724', opacity: 1 - on, boxShadow: 'inset 0 0 30px rgba(0,0,0,.6)'}} />
+            {/* glow when on */}
+            <div
+              style={{
+                position: 'absolute',
+                left: b.x - 20,
+                top: b.y - 20,
+                width: b.w + 40,
+                height: b.h + 40,
+                borderRadius: 20,
+                boxShadow: `0 0 ${70 + 25 * Math.sin(frame / 7)}px rgba(255,170,60,${0.55 * on})`,
+                pointerEvents: 'none',
+              }}
+            />
+          </React.Fragment>
+        ))}
       </div>
-      {/* sidewalk */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 840, height: 160, background: 'linear-gradient(180deg, #6d6d6d, #3c3c3c)'}} />
-    </div>
+      {/* soft fade into the black bands above and below the photo */}
+      <AbsoluteFill style={{background: `linear-gradient(180deg, #050505 0, transparent ${PHOTO.top + 120}px, transparent ${PHOTO.top + PHOTO.h - 160}px, #050505 ${PHOTO.top + PHOTO.h}px)`}} />
+    </AbsoluteFill>
   );
 };
 
@@ -191,22 +172,23 @@ const Test = () => {
 const Drive = ({beats}: {beats: number[]}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
-  const x = interpolate(frame, [0, durationInFrames], [STREET_W - 300, YOU_X], {...clamp, easing: (t) => 1 - (1 - t) ** 2});
+  const pan = interpolate(frame, [0, durationInFrames], [90, -40], clamp);
   const count = beats.filter((b) => frame >= b).length;
   const since = count ? frame - beats[count - 1] : 0;
   return (
-    <AbsoluteFill style={{background: P.ink}}>
-      <Street x={x} />
-      {/* motion streaks while driving */}
-      <AbsoluteFill style={{background: 'repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 2px, transparent 2px 60px)', opacity: interpolate(frame, [0, durationInFrames], [1, 0], clamp)}} />
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
-        <Big size={96}>PASSE DEVANT TON COMMERCE</Big>
+    <AbsoluteFill>
+      <Storefront on={0} night={1} pan={pan} zoom={1.12} />
+      <div style={{position: 'absolute', top: 110, left: 0, right: 0}}>
+        <Big size={104}>CE SOIR, PASSE DEVANT</Big>
+        <Big size={104} delay={3} color={P.red} style={{textShadow: '0 0 30px rgba(0,0,0,.7)'}}>
+          TON COMMERCE
+        </Big>
       </div>
       {count > 0 ? (
         <div
           style={{
             position: 'absolute',
-            top: 1450,
+            top: 1420,
             left: 0,
             right: 0,
             textAlign: 'center',
@@ -226,14 +208,29 @@ const Drive = ({beats}: {beats: number[]}) => {
 };
 
 const Question = () => {
-  const frame = useCurrentFrame();
+  const ring = useSpr(4);
+  const b = PANELS[1];
   return (
-    <AbsoluteFill style={{background: P.ink}}>
-      <Street x={YOU_X} dim={interpolate(frame, [0, 12], [0, 0.6], clamp)} highlight={useSpr(6)} />
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
-        <Big size={120}>T'AS REMARQUÉ</Big>
-        <Big size={150} delay={3} color={P.red} style={{textShadow: '0 0 30px rgba(0,0,0,.6)'}}>
-          TON AFFICHE ?
+    <AbsoluteFill>
+      <Storefront on={0} night={1} pan={-40} zoom={1.12} />
+      {/* circle the switched-off "TENDERS" panel */}
+      <div
+        style={{
+          position: 'absolute',
+          left: b.x - 40 - 40 + 541 - 541 * 1.12 + b.x * 0.12,
+          top: PHOTO.top + b.y - 50 + (745 - 745 * 1.12) + b.y * 0.12,
+          width: b.w * 1.12 + 80,
+          height: b.h * 1.12 + 100,
+          borderRadius: '50%',
+          border: `10px solid ${P.red}`,
+          transform: `scale(${ring})`,
+          opacity: ring,
+        }}
+      />
+      <div style={{position: 'absolute', top: 110, left: 0, right: 0}}>
+        <Big size={130}>TON AFFICHE</Big>
+        <Big size={150} delay={3} color={P.red} style={{textShadow: '0 0 30px rgba(0,0,0,.7)'}}>
+          PAPIER ?
         </Big>
       </div>
     </AbsoluteFill>
@@ -243,20 +240,20 @@ const Question = () => {
 const Miss = () => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{background: P.ink}}>
-      <Street x={YOU_X} dim={0.85} />
-      <AbsoluteFill style={{background: 'rgba(17,17,17,.55)'}} />
-      <div style={{position: 'absolute', top: 640, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20}}>
-        <svg width="220" height="140" viewBox="0 0 110 70" style={{opacity: interpolate(frame, [0, 8], [0, 1], clamp)}}>
+    <AbsoluteFill>
+      <Storefront on={0} night={1} pan={-40} zoom={1.12} />
+      <AbsoluteFill style={{background: 'rgba(5,5,5,.35)'}} />
+      <div style={{position: 'absolute', top: 110, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
+        <svg width="200" height="128" viewBox="0 0 110 70" style={{opacity: interpolate(frame, [0, 8], [0, 1], clamp)}}>
           <path d="M5 35 Q55 -10 105 35 Q55 80 5 35Z" fill="none" stroke={P.white} strokeWidth="6" />
           <circle cx="55" cy="35" r="13" fill={P.white} />
           <line x1="15" y1="62" x2="95" y2="8" stroke={P.red} strokeWidth="9" strokeLinecap="round" />
         </svg>
-        <Big size={150} delay={4}>
-          TES CLIENTS
+        <Big size={120} delay={3}>
+          DANS LE NOIR,
         </Big>
-        <Tag delay={10} size={110}>
-          AUSSI.
+        <Tag delay={9} size={96}>
+          PERSONNE LA VOIT.
         </Tag>
       </div>
     </AbsoluteFill>
@@ -265,18 +262,27 @@ const Miss = () => {
 
 const Reveal = () => {
   const frame = useCurrentFrame();
-  // the panel flickers on, like a real light box
-  const flick = [0, 0, 1, 0.2, 1, 0.5, 1];
-  const lit = frame < 14 ? flick[Math.floor(frame / 2)] ?? 1 : 1;
-  const logo = useSpr(18, {damping: 13, stiffness: 180, mass: 0.7});
+  const {durationInFrames} = useVideoConfig();
+  // the panels flicker on like a real light box, then the street lights up
+  const flick = [0, 0, 1, 0.15, 1, 0.4, 1];
+  const on = frame < 14 ? flick[Math.floor(frame / 2)] ?? 1 : 1;
+  const night = interpolate(frame, [10, 26], [1, 0], clamp);
+  const b = PANELS[1];
+  const zoom = interpolate(frame, [30, durationInFrames], [1.05, 1.45], {...clamp, easing: (t) => t * (2 - t)});
+  const logo = useSpr(20, {damping: 13, stiffness: 180, mass: 0.7});
   return (
-    <AbsoluteFill style={{background: P.ink}}>
-      <Street x={YOU_X} lit={lit} />
-      <div style={{position: 'absolute', top: 130, left: 0, right: 0}}>
-        <Big size={110}>PANNEAUX LUMINEUX</Big>
+    <AbsoluteFill>
+      <Storefront on={on} night={night} zoom={zoom} focus={{x: b.x + b.w / 2, y: b.y + b.h / 2}} />
+      <div style={{position: 'absolute', top: 110, left: 0, right: 0}}>
+        <Big size={110} delay={8}>
+          PANNEAUX LUMINEUX
+        </Big>
+        <Big size={130} delay={12} color={P.red} style={{textShadow: '0 0 30px rgba(0,0,0,.7)'}}>
+          JOUR ET NUIT
+        </Big>
       </div>
-      <div style={{position: 'absolute', top: 1270, left: 0, right: 0, display: 'flex', justifyContent: 'center', transform: `scale(${logo})`}}>
-        <Logo width={420} />
+      <div style={{position: 'absolute', top: 1500, left: 0, right: 0, display: 'flex', justifyContent: 'center', transform: `scale(${logo})`}}>
+        <Logo width={380} />
       </div>
     </AbsoluteFill>
   );
@@ -405,7 +411,7 @@ export const Panels = ({audio}: {audio: boolean}) => {
         accent={P.red}
         edge={P.deep}
         font={{fontFamily: COND, letterSpacing: 1}}
-        hidden={(f) => f < scene('question').from || onLight(f) || f >= scene('cta').from}
+        hidden={(f) => f < scene('question').from || (f >= scene('reveal').from && f < scene('reveal').to) || onLight(f) || f >= scene('cta').from}
       />
       <AbsoluteFill style={{background: '#fff', opacity: flash, pointerEvents: 'none'}} />
       <div style={{position: 'absolute', top: 0, left: 0, height: 8, width: `${(frame / durationInFrames) * 100}%`, background: P.white, opacity: 0.85}} />
