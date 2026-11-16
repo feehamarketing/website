@@ -1,0 +1,69 @@
+{
+  "id": "hiver",
+  "composition": "Hiver",
+  "totalFrames": 1050,
+  "tailSeconds": 2.5,
+  "timeline": "src/hiver/timeline.json",
+  "draftVoiceDuration": 29,
+  "music": {
+    "style": "house",
+    "transpose": -2
+  },
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "script": "En hiver, au Québec, il fait noir avant cinq heures. Ton affiche collée avec du tape ? Après cinq heures, plus personne la voit. Ta pub travaille juste la moitié de la journée. Le panneau lumineux Feeha, lui, se voit le jour, et encore plus le soir. Tu glisses ton poster dans le cadre, et il s'illumine. Pas un écran : un vrai poster, qui se change en un clin d'œil. Durée de vie : sept à dix ans. En ce moment, l'offre groupée : deux panneaux, posters inclus, matériel d'installation et tutoriel pas à pas. Moins de dix minutes à installer. À partir de 599 $. Commande sur feehapanels.com.",
+  "spokenAs": {
+    "599 $": "cinq cent quatre-vingt-dix-neuf dollars",
+    "feehapanels.com": "Feeha panels point com"
+  },
+  "scenes": [
+    {
+      "id": "dark",
+      "startsAt": "En"
+    },
+    {
+      "id": "tape",
+      "startsAt": "Ton"
+    },
+    {
+      "id": "invisible",
+      "startsAt": "Après"
+    },
+    {
+      "id": "half",
+      "startsAt": "Ta"
+    },
+    {
+      "id": "solution",
+      "startsAt": "Le"
+    },
+    {
+      "id": "insert",
+      "startsAt": "Tu"
+    },
+    {
+      "id": "poster",
+      "startsAt": "Pas"
+    },
+    {
+      "id": "life",
+      "startsAt": "Durée"
+    },
+    {
+      "id": "bundle",
+      "startsAt": "En",
+      "after": 76
+    },
+    {
+      "id": "install",
+      "startsAt": "Moins"
+    },
+    {
+      "id": "cta",
+      "startsAt": "À",
+      "after": 98
+    }
+  ]
+}

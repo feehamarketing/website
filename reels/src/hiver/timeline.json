@@ -1,0 +1,598 @@
+{
+ "fps": 30,
+ "totalFrames": 945,
+ "draft": true,
+ "voiceDuration": 29,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
+ "words": [
+  {
+   "text": "En",
+   "start": 0,
+   "end": 0.22
+  },
+  {
+   "text": "hiver,",
+   "start": 0.22,
+   "end": 0.578
+  },
+  {
+   "text": "au",
+   "start": 0.578,
+   "end": 0.799
+  },
+  {
+   "text": "Québec,",
+   "start": 0.799,
+   "end": 1.157
+  },
+  {
+   "text": "il",
+   "start": 1.157,
+   "end": 1.377
+  },
+  {
+   "text": "fait",
+   "start": 1.377,
+   "end": 1.597
+  },
+  {
+   "text": "noir",
+   "start": 1.597,
+   "end": 1.818
+  },
+  {
+   "text": "avant",
+   "start": 1.818,
+   "end": 2.176
+  },
+  {
+   "text": "cinq",
+   "start": 2.176,
+   "end": 2.396
+  },
+  {
+   "text": "heures.",
+   "start": 2.396,
+   "end": 2.616
+  },
+  {
+   "text": "Ton",
+   "start": 2.616,
+   "end": 2.837
+  },
+  {
+   "text": "affiche",
+   "start": 2.837,
+   "end": 3.195
+  },
+  {
+   "text": "collée",
+   "start": 3.195,
+   "end": 3.415
+  },
+  {
+   "text": "avec",
+   "start": 3.415,
+   "end": 3.773
+  },
+  {
+   "text": "du",
+   "start": 3.773,
+   "end": 3.993
+  },
+  {
+   "text": "tape ?",
+   "start": 3.993,
+   "end": 4.214
+  },
+  {
+   "text": "Après",
+   "start": 4.214,
+   "end": 4.572
+  },
+  {
+   "text": "cinq",
+   "start": 4.572,
+   "end": 4.792
+  },
+  {
+   "text": "heures,",
+   "start": 4.792,
+   "end": 5.012
+  },
+  {
+   "text": "plus",
+   "start": 5.012,
+   "end": 5.233
+  },
+  {
+   "text": "personne",
+   "start": 5.233,
+   "end": 5.591
+  },
+  {
+   "text": "la",
+   "start": 5.591,
+   "end": 5.811
+  },
+  {
+   "text": "voit.",
+   "start": 5.811,
+   "end": 6.031
+  },
+  {
+   "text": "Ta",
+   "start": 6.031,
+   "end": 6.252
+  },
+  {
+   "text": "pub",
+   "start": 6.252,
+   "end": 6.472
+  },
+  {
+   "text": "travaille",
+   "start": 6.472,
+   "end": 6.83
+  },
+  {
+   "text": "juste",
+   "start": 6.83,
+   "end": 7.05
+  },
+  {
+   "text": "la",
+   "start": 7.05,
+   "end": 7.271
+  },
+  {
+   "text": "moitié",
+   "start": 7.271,
+   "end": 7.629
+  },
+  {
+   "text": "de",
+   "start": 7.629,
+   "end": 7.849
+  },
+  {
+   "text": "la",
+   "start": 7.849,
+   "end": 8.069
+  },
+  {
+   "text": "journée.",
+   "start": 8.069,
+   "end": 8.29
+  },
+  {
+   "text": "Le",
+   "start": 8.29,
+   "end": 8.51
+  },
+  {
+   "text": "panneau",
+   "start": 8.51,
+   "end": 8.868
+  },
+  {
+   "text": "lumineux",
+   "start": 8.868,
+   "end": 9.364
+  },
+  {
+   "text": "Feeha,",
+   "start": 9.364,
+   "end": 9.722
+  },
+  {
+   "text": "lui,",
+   "start": 9.722,
+   "end": 9.942
+  },
+  {
+   "text": "se",
+   "start": 9.942,
+   "end": 10.162
+  },
+  {
+   "text": "voit",
+   "start": 10.162,
+   "end": 10.383
+  },
+  {
+   "text": "le",
+   "start": 10.383,
+   "end": 10.603
+  },
+  {
+   "text": "jour,",
+   "start": 10.603,
+   "end": 10.823
+  },
+  {
+   "text": "et",
+   "start": 10.823,
+   "end": 11.044
+  },
+  {
+   "text": "encore",
+   "start": 11.044,
+   "end": 11.402
+  },
+  {
+   "text": "plus",
+   "start": 11.402,
+   "end": 11.622
+  },
+  {
+   "text": "le",
+   "start": 11.622,
+   "end": 11.842
+  },
+  {
+   "text": "soir.",
+   "start": 11.842,
+   "end": 12.063
+  },
+  {
+   "text": "Tu",
+   "start": 12.063,
+   "end": 12.283
+  },
+  {
+   "text": "glisses",
+   "start": 12.283,
+   "end": 12.503
+  },
+  {
+   "text": "ton",
+   "start": 12.503,
+   "end": 12.724
+  },
+  {
+   "text": "poster",
+   "start": 12.724,
+   "end": 13.082
+  },
+  {
+   "text": "dans",
+   "start": 13.082,
+   "end": 13.302
+  },
+  {
+   "text": "le",
+   "start": 13.302,
+   "end": 13.522
+  },
+  {
+   "text": "cadre,",
+   "start": 13.522,
+   "end": 13.743
+  },
+  {
+   "text": "et",
+   "start": 13.743,
+   "end": 13.963
+  },
+  {
+   "text": "il",
+   "start": 13.963,
+   "end": 14.183
+  },
+  {
+   "text": "s'illumine.",
+   "start": 14.183,
+   "end": 14.679
+  },
+  {
+   "text": "Pas",
+   "start": 14.679,
+   "end": 14.899
+  },
+  {
+   "text": "un",
+   "start": 14.899,
+   "end": 15.12
+  },
+  {
+   "text": "écran :",
+   "start": 15.12,
+   "end": 15.478
+  },
+  {
+   "text": "un",
+   "start": 15.478,
+   "end": 15.698
+  },
+  {
+   "text": "vrai",
+   "start": 15.698,
+   "end": 15.918
+  },
+  {
+   "text": "poster,",
+   "start": 15.918,
+   "end": 16.276
+  },
+  {
+   "text": "qui",
+   "start": 16.276,
+   "end": 16.497
+  },
+  {
+   "text": "se",
+   "start": 16.497,
+   "end": 16.717
+  },
+  {
+   "text": "change",
+   "start": 16.717,
+   "end": 16.937
+  },
+  {
+   "text": "en",
+   "start": 16.937,
+   "end": 17.158
+  },
+  {
+   "text": "un",
+   "start": 17.158,
+   "end": 17.378
+  },
+  {
+   "text": "clin",
+   "start": 17.378,
+   "end": 17.598
+  },
+  {
+   "text": "d'œil.",
+   "start": 17.598,
+   "end": 17.819
+  },
+  {
+   "text": "Durée",
+   "start": 17.819,
+   "end": 18.039
+  },
+  {
+   "text": "de",
+   "start": 18.039,
+   "end": 18.259
+  },
+  {
+   "text": "vie :",
+   "start": 18.259,
+   "end": 18.479
+  },
+  {
+   "text": "sept",
+   "start": 18.48,
+   "end": 18.7
+  },
+  {
+   "text": "à",
+   "start": 18.7,
+   "end": 18.92
+  },
+  {
+   "text": "dix",
+   "start": 18.92,
+   "end": 19.14
+  },
+  {
+   "text": "ans.",
+   "start": 19.141,
+   "end": 19.361
+  },
+  {
+   "text": "En",
+   "start": 19.361,
+   "end": 19.581
+  },
+  {
+   "text": "ce",
+   "start": 19.581,
+   "end": 19.801
+  },
+  {
+   "text": "moment,",
+   "start": 19.802,
+   "end": 20.159
+  },
+  {
+   "text": "l'offre",
+   "start": 20.16,
+   "end": 20.38
+  },
+  {
+   "text": "groupée :",
+   "start": 20.38,
+   "end": 20.6
+  },
+  {
+   "text": "deux",
+   "start": 20.6,
+   "end": 20.82
+  },
+  {
+   "text": "panneaux,",
+   "start": 20.821,
+   "end": 21.178
+  },
+  {
+   "text": "posters",
+   "start": 21.179,
+   "end": 21.536
+  },
+  {
+   "text": "inclus,",
+   "start": 21.537,
+   "end": 21.894
+  },
+  {
+   "text": "matériel",
+   "start": 21.895,
+   "end": 22.39
+  },
+  {
+   "text": "d'installation",
+   "start": 22.39,
+   "end": 23.024
+  },
+  {
+   "text": "et",
+   "start": 23.024,
+   "end": 23.244
+  },
+  {
+   "text": "tutoriel",
+   "start": 23.244,
+   "end": 23.74
+  },
+  {
+   "text": "pas",
+   "start": 23.74,
+   "end": 23.96
+  },
+  {
+   "text": "à",
+   "start": 23.96,
+   "end": 24.18
+  },
+  {
+   "text": "pas.",
+   "start": 24.18,
+   "end": 24.401
+  },
+  {
+   "text": "Moins",
+   "start": 24.401,
+   "end": 24.621
+  },
+  {
+   "text": "de",
+   "start": 24.621,
+   "end": 24.841
+  },
+  {
+   "text": "dix",
+   "start": 24.841,
+   "end": 25.062
+  },
+  {
+   "text": "minutes",
+   "start": 25.062,
+   "end": 25.42
+  },
+  {
+   "text": "à",
+   "start": 25.42,
+   "end": 25.64
+  },
+  {
+   "text": "installer.",
+   "start": 25.64,
+   "end": 26.136
+  },
+  {
+   "text": "À",
+   "start": 26.136,
+   "end": 26.356
+  },
+  {
+   "text": "partir",
+   "start": 26.356,
+   "end": 26.714
+  },
+  {
+   "text": "de",
+   "start": 26.714,
+   "end": 26.934
+  },
+  {
+   "text": "599",
+   "start": 26.934,
+   "end": 27.43
+  },
+  {
+   "text": "$.",
+   "start": 27.43,
+   "end": 27.513
+  },
+  {
+   "text": "Commande",
+   "start": 27.513,
+   "end": 27.871
+  },
+  {
+   "text": "sur",
+   "start": 27.871,
+   "end": 28.091
+  },
+  {
+   "text": "feehapanels.com.",
+   "start": 28.091,
+   "end": 29
+  }
+ ],
+ "scenes": [
+  {
+   "id": "dark",
+   "from": 0,
+   "to": 75
+  },
+  {
+   "id": "tape",
+   "from": 75,
+   "to": 123
+  },
+  {
+   "id": "invisible",
+   "from": 123,
+   "to": 178
+  },
+  {
+   "id": "half",
+   "from": 178,
+   "to": 246
+  },
+  {
+   "id": "solution",
+   "from": 246,
+   "to": 359
+  },
+  {
+   "id": "insert",
+   "from": 359,
+   "to": 437
+  },
+  {
+   "id": "poster",
+   "from": 437,
+   "to": 532
+  },
+  {
+   "id": "life",
+   "from": 532,
+   "to": 578
+  },
+  {
+   "id": "bundle",
+   "from": 578,
+   "to": 729
+  },
+  {
+   "id": "install",
+   "from": 729,
+   "to": 781
+  },
+  {
+   "id": "cta",
+   "from": 781,
+   "to": 945
+  }
+ ]
+}
