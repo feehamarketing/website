@@ -1,3 +1,4 @@
+import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {F, wide} from './theme';
 
@@ -30,10 +31,16 @@ export const Captions = ({
   words,
   hidden,
   top,
+  accent = F.coral,
+  edge = F.red,
+  font = wide,
 }: {
   words: Word[];
   hidden: (frame: number) => boolean;
   top: number;
+  accent?: string; // background of the word being spoken
+  edge?: string; // its hard shadow
+  font?: React.CSSProperties;
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -72,17 +79,17 @@ export const Captions = ({
           <span
             key={i}
             style={{
-              ...wide,
+              ...font,
               fontSize: 66,
               lineHeight: 1.15,
               textTransform: 'uppercase',
               color: active ? F.white : t >= w.start ? F.white : 'rgba(255,255,255,.45)',
-              background: active ? F.coral : 'transparent',
+              background: active ? accent : 'transparent',
               padding: '2px 16px 0',
               borderRadius: 12,
               transform: `scale(${active ? interpolate(wp, [0, 1], [0.85, 1.05]) : 1})`,
               textShadow: active ? 'none' : '0 4px 18px rgba(0,0,0,.9)',
-              boxShadow: active ? `0 8px 0 ${F.red}` : 'none',
+              boxShadow: active ? `0 8px 0 ${edge}` : 'none',
               whiteSpace: 'nowrap',
             }}
           >

@@ -1,0 +1,273 @@
+{
+ "fps": 30,
+ "totalFrames": 675,
+ "draft": true,
+ "voiceDuration": 20,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
+ "words": [
+  {
+   "text": "Le",
+   "start": 0,
+   "end": 0.192
+  },
+  {
+   "text": "1er",
+   "start": 0.192,
+   "end": 0.659
+  },
+  {
+   "text": "décembre,",
+   "start": 0.659,
+   "end": 1.181
+  },
+  {
+   "text": "les",
+   "start": 1.181,
+   "end": 1.428
+  },
+  {
+   "text": "pneus",
+   "start": 1.429,
+   "end": 1.786
+  },
+  {
+   "text": "d'hiver",
+   "start": 1.786,
+   "end": 2.198
+  },
+  {
+   "text": "deviennent",
+   "start": 2.198,
+   "end": 2.83
+  },
+  {
+   "text": "obligatoires",
+   "start": 2.83,
+   "end": 3.571
+  },
+  {
+   "text": "au",
+   "start": 3.571,
+   "end": 3.764
+  },
+  {
+   "text": "Québec.",
+   "start": 3.764,
+   "end": 4.176
+  },
+  {
+   "text": "T'es",
+   "start": 4.176,
+   "end": 4.423
+  },
+  {
+   "text": "prêt ?",
+   "start": 4.423,
+   "end": 4.725
+  },
+  {
+   "text": "Chez",
+   "start": 4.725,
+   "end": 5.027
+  },
+  {
+   "text": "M.A.",
+   "start": 5.027,
+   "end": 5.549
+  },
+  {
+   "text": "Auto",
+   "start": 5.549,
+   "end": 5.852
+  },
+  {
+   "text": "Distribution,",
+   "start": 5.852,
+   "end": 6.593
+  },
+  {
+   "text": "ton",
+   "start": 6.593,
+   "end": 6.841
+  },
+  {
+   "text": "fournisseur",
+   "start": 6.841,
+   "end": 7.527
+  },
+  {
+   "text": "fiable,",
+   "start": 7.527,
+   "end": 7.939
+  },
+  {
+   "text": "des",
+   "start": 7.94,
+   "end": 8.187
+  },
+  {
+   "text": "pneus",
+   "start": 8.187,
+   "end": 8.544
+  },
+  {
+   "text": "de",
+   "start": 8.544,
+   "end": 8.736
+  },
+  {
+   "text": "qualité,",
+   "start": 8.736,
+   "end": 9.203
+  },
+  {
+   "text": "garantis.",
+   "start": 9.203,
+   "end": 9.725
+  },
+  {
+   "text": "À",
+   "start": 9.725,
+   "end": 9.863
+  },
+  {
+   "text": "l'achat",
+   "start": 9.863,
+   "end": 10.275
+  },
+  {
+   "text": "de",
+   "start": 10.275,
+   "end": 10.467
+  },
+  {
+   "text": "pneus",
+   "start": 10.467,
+   "end": 10.824
+  },
+  {
+   "text": "et",
+   "start": 10.824,
+   "end": 11.016
+  },
+  {
+   "text": "jantes,",
+   "start": 11.016,
+   "end": 11.428
+  },
+  {
+   "text": "l'installation",
+   "start": 11.429,
+   "end": 12.225
+  },
+  {
+   "text": "est",
+   "start": 12.225,
+   "end": 12.472
+  },
+  {
+   "text": "gratuite.",
+   "start": 12.473,
+   "end": 12.994
+  },
+  {
+   "text": "Et",
+   "start": 12.995,
+   "end": 13.187
+  },
+  {
+   "text": "la",
+   "start": 13.187,
+   "end": 13.379
+  },
+  {
+   "text": "livraison",
+   "start": 13.379,
+   "end": 13.956
+  },
+  {
+   "text": "aussi !",
+   "start": 13.956,
+   "end": 14.313
+  },
+  {
+   "text": "Appelle",
+   "start": 14.313,
+   "end": 14.78
+  },
+  {
+   "text": "maintenant",
+   "start": 14.78,
+   "end": 15.412
+  },
+  {
+   "text": "au",
+   "start": 15.412,
+   "end": 15.604
+  },
+  {
+   "text": "438-368-6865.",
+   "start": 15.604,
+   "end": 18.434
+  },
+  {
+   "text": "M.A.",
+   "start": 18.434,
+   "end": 18.956
+  },
+  {
+   "text": "Auto",
+   "start": 18.956,
+   "end": 19.258
+  },
+  {
+   "text": "Distribution.",
+   "start": 19.258,
+   "end": 20
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 122
+  },
+  {
+   "id": "ready",
+   "from": 122,
+   "to": 139
+  },
+  {
+   "id": "brand",
+   "from": 139,
+   "to": 235
+  },
+  {
+   "id": "quality",
+   "from": 235,
+   "to": 289
+  },
+  {
+   "id": "install",
+   "from": 289,
+   "to": 387
+  },
+  {
+   "id": "delivery",
+   "from": 387,
+   "to": 426
+  },
+  {
+   "id": "call",
+   "from": 426,
+   "to": 550
+  },
+  {
+   "id": "outro",
+   "from": 550,
+   "to": 675
+  }
+ ]
+}

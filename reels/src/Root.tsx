@@ -4,12 +4,15 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
 import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/archivo/wdth-italic.css';
 import '@fontsource/space-mono/700.css';
 import {Composition, continueRender, delayRender} from 'remotion';
 import {Reel} from './Reel';
 import {Feeha} from './feeha/Feeha';
+import {MA} from './ma/MA';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
+import ma from './ma/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -19,11 +22,21 @@ Promise.all([
   document.fonts.load('600 40px "Inter"'),
   document.fonts.load('800 40px "Inter"'),
   document.fonts.load('850 100px "Archivo Variable"'),
+  document.fonts.load('italic 900 100px "Archivo Variable"'),
   document.fonts.load('700 30px "Space Mono"'),
 ]).then(() => continueRender(fontsReady));
 
 export const Root = () => (
   <>
+    <Composition
+      id="MA"
+      component={MA}
+      width={1080}
+      height={1920}
+      fps={ma.fps}
+      durationInFrames={ma.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="Feeha"
       component={Feeha}

@@ -1,0 +1,57 @@
+{
+  "id": "ma",
+  "composition": "MA",
+  "totalFrames": 900,
+  "tailSeconds": 2.5,
+  "timeline": "src/ma/timeline.json",
+  "draftVoiceDuration": 20,
+  "music": {
+    "style": "pluck",
+    "transpose": -2
+  },
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "script": "Le 1er décembre, les pneus d'hiver deviennent obligatoires au Québec. T'es prêt ? Chez M.A. Auto Distribution, ton fournisseur fiable, des pneus de qualité, garantis. À l'achat de pneus et jantes, l'installation est gratuite. Et la livraison aussi ! Appelle maintenant au 438-368-6865. M.A. Auto Distribution.",
+  "spokenAs": {
+    "1er": "premier",
+    "438-368-6865": "quatre-trente-huit, trois-soixante-huit, soixante-huit, soixante-cinq"
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Le"
+    },
+    {
+      "id": "ready",
+      "startsAt": "T'es"
+    },
+    {
+      "id": "brand",
+      "startsAt": "Chez"
+    },
+    {
+      "id": "quality",
+      "startsAt": "des"
+    },
+    {
+      "id": "install",
+      "startsAt": "À"
+    },
+    {
+      "id": "delivery",
+      "startsAt": "Et",
+      "after": 33
+    },
+    {
+      "id": "call",
+      "startsAt": "Appelle"
+    },
+    {
+      "id": "outro",
+      "startsAt": "M.A.",
+      "after": 40
+    }
+  ]
+}
