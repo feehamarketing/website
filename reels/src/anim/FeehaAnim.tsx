@@ -268,7 +268,7 @@ const Bundle = () => {
       </div>
       <div style={{position: 'absolute', top: 960, left: 90, right: 60, display: 'flex', flexDirection: 'column', gap: 22}}>
         {ITEMS.map((it, i) => {
-          const at = 16 + i * 10;
+          const at = [38, 64, 70, 76][i];
           const p = spring({frame: frame - at, fps, config: {damping: 12, stiffness: 240, mass: 0.6}});
           return (
             <div key={it} style={{display: 'flex', alignItems: 'center', gap: 26, opacity: frame < at ? 0 : 1, transform: `translateX(${interpolate(p, [0, 1], [-60, 0])}px)`}}>
@@ -278,7 +278,7 @@ const Bundle = () => {
           );
         })}
       </div>
-      <div style={{position: 'absolute', top: 1410, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 64, color: A.red, opacity: frame >= 62 ? 1 : 0}}>INSTALLÉ EN MOINS DE 10 MINUTES</div>
+      <div style={{position: 'absolute', top: 1410, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 64, color: A.red, opacity: frame >= 94 ? 1 : 0}}>INSTALLÉ EN MOINS DE 10 MINUTES</div>
     </AbsoluteFill>
   );
 };
@@ -286,12 +286,12 @@ const Bundle = () => {
 const Price = () => {
   const frame = useCurrentFrame();
   const p = useSpr(0, {damping: 9, stiffness: 260, mass: 0.6});
-  const q = useSpr(26, {damping: 9, stiffness: 260, mass: 0.6});
+  const q = useSpr(54, {damping: 9, stiffness: 260, mass: 0.6});
   return (
     <RedBackdrop>
       <div style={{position: 'absolute', top: 420, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 8, color: A.warm}}>2 PANNEAUX · TOUT INCLUS</div>
       <div style={{position: 'absolute', top: 480, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 330, lineHeight: 1, color: A.white, transform: `scale(${interpolate(p, [0, 1], [1.6, 1])})`}}>599 $</div>
-      <div style={{position: 'absolute', top: 860, left: 0, right: 0, textAlign: 'center', opacity: frame >= 26 ? 1 : 0, transform: `scale(${interpolate(q, [0, 1], [1.5, 1])})`}}>
+      <div style={{position: 'absolute', top: 860, left: 0, right: 0, textAlign: 'center', opacity: frame >= 54 ? 1 : 0, transform: `scale(${interpolate(q, [0, 1], [1.5, 1])})`}}>
         <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 34, letterSpacing: 8, color: A.warm}}>SUR 7 ANS, ÇA REVIENT À</div>
         <div style={{display: 'inline-block', marginTop: 16, fontFamily: COND, fontSize: 150, color: A.red, background: A.white, padding: '10px 40px 0', borderRadius: 18}}>&lt; 8 $ / MOIS</div>
       </div>

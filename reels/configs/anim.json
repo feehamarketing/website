@@ -54,5 +54,75 @@
     "30": "trente",
     "599 $": "cinq cent quatre-vingt-dix-neuf dollars",
     "feehapanels.com": "Feeha panels point com"
-  }
+  },
+  "pins": [
+    {
+      "word": "vitrine",
+      "at": 1.47
+    },
+    {
+      "word": "30",
+      "at": 3.06
+    },
+    {
+      "word": "disparaît",
+      "at": 4.74
+    },
+    {
+      "word": "feeha",
+      "at": 6.69
+    },
+    {
+      "word": "brille",
+      "at": 8.08
+    },
+    {
+      "word": "s'arrêtent",
+      "at": 9.47
+    },
+    {
+      "word": "écran",
+      "at": 10.62
+    },
+    {
+      "word": "poster",
+      "at": 11.95
+    },
+    {
+      "word": "glisses",
+      "at": 12.95
+    },
+    {
+      "word": "tout",
+      "at": 13.54
+    },
+    {
+      "word": "secondes",
+      "at": 15.65
+    },
+    {
+      "word": "groupée",
+      "at": 16.93
+    },
+    {
+      "word": "panneaux",
+      "at": 17.96
+    },
+    {
+      "word": "inclus",
+      "at": 18.98
+    },
+    {
+      "word": "minutes",
+      "at": 20.44
+    },
+    {
+      "word": "$",
+      "at": 22.29
+    },
+    {
+      "word": "mois",
+      "at": 24.0
+    }
+  ]
 }

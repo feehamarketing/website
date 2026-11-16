@@ -1,336 +1,336 @@
 {
  "fps": 30,
- "totalFrames": 795,
- "draft": true,
- "voiceDuration": 24,
- "pausesDetected": 0,
- "anchorsUsed": 0,
- "timing": "draft",
+ "totalFrames": 882,
+ "draft": false,
+ "voiceDuration": 27.246,
+ "pausesDetected": 19,
+ "anchorsUsed": 17,
+ "timing": "pauses",
  "words": [
   {
    "text": "Personne",
    "start": 0,
-   "end": 0.449
+   "end": 0.348
   },
   {
    "text": "ne",
-   "start": 0.449,
-   "end": 0.725
+   "start": 0.348,
+   "end": 0.562
   },
   {
    "text": "regarde",
-   "start": 0.725,
-   "end": 1.174
+   "start": 0.562,
+   "end": 0.91
   },
   {
    "text": "ta",
-   "start": 1.174,
-   "end": 1.45
+   "start": 0.91,
+   "end": 1.124
   },
   {
    "text": "vitrine ?",
-   "start": 1.45,
-   "end": 1.899
+   "start": 1.124,
+   "end": 1.472
   },
   {
    "text": "Après",
-   "start": 1.899,
-   "end": 2.348
+   "start": 1.895,
+   "end": 2.303
   },
   {
    "text": "16",
-   "start": 2.348,
-   "end": 2.624
+   "start": 2.303,
+   "end": 2.554
   },
   {
    "text": "h",
-   "start": 2.624,
-   "end": 2.901
+   "start": 2.554,
+   "end": 2.805
   },
   {
    "text": "30,",
-   "start": 2.901,
-   "end": 3.35
+   "start": 2.805,
+   "end": 3.056
   },
   {
    "text": "ton",
-   "start": 3.35,
-   "end": 3.626
+   "start": 3.235,
+   "end": 3.466
   },
   {
    "text": "affiche",
-   "start": 3.626,
-   "end": 4.075
+   "start": 3.466,
+   "end": 3.841
   },
   {
    "text": "papier",
-   "start": 4.075,
-   "end": 4.524
+   "start": 3.841,
+   "end": 4.216
   },
   {
    "text": "disparaît.",
-   "start": 4.524,
-   "end": 5.145
+   "start": 4.216,
+   "end": 4.735
   },
   {
    "text": "Avec",
-   "start": 5.145,
-   "end": 5.594
+   "start": 5.155,
+   "end": 5.462
   },
   {
    "text": "un",
-   "start": 5.594,
-   "end": 5.87
+   "start": 5.462,
+   "end": 5.651
   },
   {
    "text": "panneau",
-   "start": 5.871,
-   "end": 6.319
+   "start": 5.651,
+   "end": 5.958
   },
   {
    "text": "lumineux",
-   "start": 6.319,
-   "end": 6.941
+   "start": 5.958,
+   "end": 6.383
   },
   {
    "text": "Feeha,",
-   "start": 6.941,
-   "end": 7.39
+   "start": 6.383,
+   "end": 6.69
   },
   {
    "text": "ton",
-   "start": 7.39,
-   "end": 7.666
+   "start": 7.006,
+   "end": 7.365
   },
   {
    "text": "offre",
-   "start": 7.666,
-   "end": 7.942
+   "start": 7.365,
+   "end": 7.724
   },
   {
    "text": "brille,",
-   "start": 7.942,
-   "end": 8.219
+   "start": 7.724,
+   "end": 8.083
   },
   {
    "text": "et",
-   "start": 8.219,
-   "end": 8.495
+   "start": 8.349,
+   "end": 8.564
   },
   {
    "text": "les",
-   "start": 8.495,
-   "end": 8.771
+   "start": 8.564,
+   "end": 8.78
   },
   {
    "text": "clients",
-   "start": 8.771,
-   "end": 9.047
+   "start": 8.78,
+   "end": 8.995
   },
   {
    "text": "s'arrêtent.",
-   "start": 9.047,
-   "end": 9.496
+   "start": 8.995,
+   "end": 9.467
   },
   {
    "text": "Pas",
-   "start": 9.496,
-   "end": 9.773
+   "start": 9.939,
+   "end": 10.126
   },
   {
    "text": "un",
-   "start": 9.773,
-   "end": 10.049
+   "start": 10.127,
+   "end": 10.314
   },
   {
    "text": "écran :",
-   "start": 10.049,
-   "end": 10.498
+   "start": 10.314,
+   "end": 10.618
   },
   {
    "text": "un",
-   "start": 10.498,
-   "end": 10.774
+   "start": 10.995,
+   "end": 11.258
   },
   {
    "text": "vrai",
-   "start": 10.774,
-   "end": 11.05
+   "start": 11.258,
+   "end": 11.521
   },
   {
    "text": "poster.",
-   "start": 11.05,
-   "end": 11.499
+   "start": 11.521,
+   "end": 11.948
   },
   {
    "text": "Tu",
-   "start": 11.499,
-   "end": 11.775
+   "start": 12.382,
+   "end": 12.572
   },
   {
    "text": "le",
-   "start": 11.776,
-   "end": 12.052
+   "start": 12.573,
+   "end": 12.763
   },
   {
    "text": "glisses,",
-   "start": 12.052,
-   "end": 12.328
+   "start": 12.763,
+   "end": 12.954
   },
   {
    "text": "c'est",
-   "start": 12.328,
-   "end": 12.604
+   "start": 13.211,
+   "end": 13.374
   },
   {
    "text": "tout.",
-   "start": 12.604,
-   "end": 12.88
+   "start": 13.374,
+   "end": 13.537
   },
   {
    "text": "Change",
-   "start": 12.881,
-   "end": 13.157
+   "start": 13.967,
+   "end": 14.199
   },
   {
    "text": "ta",
-   "start": 13.157,
-   "end": 13.433
+   "start": 14.199,
+   "end": 14.43
   },
   {
    "text": "promo",
-   "start": 13.433,
-   "end": 13.882
+   "start": 14.43,
+   "end": 14.807
   },
   {
    "text": "en",
-   "start": 13.882,
-   "end": 14.158
+   "start": 14.807,
+   "end": 15.038
   },
   {
    "text": "deux",
-   "start": 14.158,
-   "end": 14.434
+   "start": 15.038,
+   "end": 15.27
   },
   {
    "text": "secondes.",
-   "start": 14.435,
-   "end": 14.883
+   "start": 15.27,
+   "end": 15.646
   },
   {
    "text": "L'offre",
-   "start": 14.883,
-   "end": 15.16
+   "start": 16.056,
+   "end": 16.493
   },
   {
    "text": "groupée :",
-   "start": 15.16,
-   "end": 15.436
+   "start": 16.493,
+   "end": 16.929
   },
   {
    "text": "deux",
-   "start": 15.436,
-   "end": 15.712
+   "start": 17.312,
+   "end": 17.559
   },
   {
    "text": "panneaux,",
-   "start": 15.712,
-   "end": 16.161
+   "start": 17.559,
+   "end": 17.961
   },
   {
    "text": "posters",
-   "start": 16.161,
-   "end": 16.61
+   "start": 18.183,
+   "end": 18.584
   },
   {
    "text": "inclus,",
-   "start": 16.61,
-   "end": 17.059
+   "start": 18.584,
+   "end": 18.985
   },
   {
    "text": "installés",
-   "start": 17.059,
-   "end": 17.68
+   "start": 19.144,
+   "end": 19.59
   },
   {
    "text": "en",
-   "start": 17.681,
-   "end": 17.957
+   "start": 19.59,
+   "end": 19.788
   },
   {
    "text": "dix",
-   "start": 17.957,
-   "end": 18.233
+   "start": 19.788,
+   "end": 19.985
   },
   {
    "text": "minutes.",
-   "start": 18.233,
-   "end": 18.682
+   "start": 19.986,
+   "end": 20.435
   },
   {
    "text": "599",
-   "start": 18.682,
-   "end": 19.303
+   "start": 20.82,
+   "end": 22.082
   },
   {
    "text": "$ :",
-   "start": 19.304,
-   "end": 19.407
+   "start": 22.082,
+   "end": 22.292
   },
   {
    "text": "moins",
-   "start": 19.407,
-   "end": 19.683
+   "start": 22.623,
+   "end": 22.831
   },
   {
    "text": "de",
-   "start": 19.683,
-   "end": 19.96
+   "start": 22.831,
+   "end": 23.04
   },
   {
    "text": "huit",
-   "start": 19.96,
-   "end": 20.236
+   "start": 23.04,
+   "end": 23.248
   },
   {
    "text": "dollars",
-   "start": 20.236,
-   "end": 20.685
+   "start": 23.248,
+   "end": 23.586
   },
   {
    "text": "par",
-   "start": 20.685,
-   "end": 20.961
+   "start": 23.586,
+   "end": 23.795
   },
   {
    "text": "mois.",
-   "start": 20.961,
-   "end": 21.237
+   "start": 23.795,
+   "end": 24.003
   },
   {
    "text": "Illumine",
-   "start": 21.237,
-   "end": 21.859
+   "start": 24.441,
+   "end": 24.996
   },
   {
    "text": "ta",
-   "start": 21.859,
-   "end": 22.135
+   "start": 24.996,
+   "end": 25.243
   },
   {
    "text": "vitrine",
-   "start": 22.135,
-   "end": 22.584
+   "start": 25.243,
+   "end": 25.643
   },
   {
    "text": "sur",
-   "start": 22.584,
-   "end": 22.86
+   "start": 25.643,
+   "end": 25.89
   },
   {
    "text": "feehapanels.com.",
-   "start": 22.86,
-   "end": 24
+   "start": 25.89,
+   "end": 26.907
   }
  ],
  "scenes": [
@@ -342,37 +342,37 @@
   {
    "id": "problem",
    "from": 54,
-   "to": 151
+   "to": 152
   },
   {
    "id": "solution",
-   "from": 151,
-   "to": 282
+   "from": 152,
+   "to": 295
   },
   {
    "id": "real",
-   "from": 282,
-   "to": 383
+   "from": 295,
+   "to": 416
   },
   {
    "id": "swap",
-   "from": 383,
-   "to": 443
+   "from": 416,
+   "to": 479
   },
   {
    "id": "bundle",
-   "from": 443,
-   "to": 557
+   "from": 479,
+   "to": 622
   },
   {
    "id": "price",
-   "from": 557,
-   "to": 634
+   "from": 622,
+   "to": 730
   },
   {
    "id": "cta",
-   "from": 634,
-   "to": 795
+   "from": 730,
+   "to": 882
   }
  ]
 }
