@@ -12,11 +12,13 @@ import {Feeha} from './feeha/Feeha';
 import {MA} from './ma/MA';
 import {MA2} from './ma2/MA2';
 import {Panels} from './panels/Panels';
+import {Expo} from './expo/Expo';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
 import ma2 from './ma2/timeline.json';
 import panels from './panels/timeline.json';
+import expo from './expo/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -32,6 +34,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="Expo"
+      component={Expo}
+      width={1080}
+      height={1920}
+      fps={expo.fps}
+      durationInFrames={expo.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="Panels"
       component={Panels}

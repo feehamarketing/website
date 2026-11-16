@@ -49,5 +49,51 @@
       "id": "cta",
       "startsAt": "Commande"
     }
+  ],
+  "pins": [
+    {
+      "word": "commerce",
+      "at": 3.81
+    },
+    {
+      "word": "Un",
+      "at": 4.59
+    },
+    {
+      "word": "deux",
+      "at": 5.4
+    },
+    {
+      "word": "trois",
+      "at": 6.18
+    },
+    {
+      "word": "papier",
+      "at": 7.45
+    },
+    {
+      "word": "noir",
+      "at": 8.53
+    },
+    {
+      "word": "voit",
+      "at": 9.59
+    },
+    {
+      "word": "Feeha",
+      "at": 11.64
+    },
+    {
+      "word": "nuit",
+      "at": 13.44
+    },
+    {
+      "word": "groupées",
+      "at": 14.85
+    },
+    {
+      "word": "inclus",
+      "at": 17.36
+    }
   ]
 }

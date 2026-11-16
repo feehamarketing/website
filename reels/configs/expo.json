@@ -1,0 +1,47 @@
+{
+  "id": "expo",
+  "composition": "Expo",
+  "totalFrames": 900,
+  "tailSeconds": 2.5,
+  "timeline": "src/expo/timeline.json",
+  "draftVoiceDuration": 22,
+  "music": {
+    "style": "house",
+    "transpose": -2
+  },
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "script": "Bienvenue dans la galerie Feeha. Ici, chaque offre est une œuvre. Un panneau lumineux attire l'œil, de jour comme de soir. Clinique, immobilier, resto : ton message brille. Nos offres groupées : deux panneaux, suspension et rallonges inclus, à partir de 599 $. Expose ton commerce. Commande sur feehapanels.com.",
+  "spokenAs": {
+    "599 $": "cinq cent quatre-vingt-dix-neuf dollars",
+    "feehapanels.com": "Feeha panels point com"
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "startsAt": "Bienvenue"
+    },
+    {
+      "id": "art",
+      "startsAt": "Ici"
+    },
+    {
+      "id": "glow",
+      "startsAt": "Un"
+    },
+    {
+      "id": "wall",
+      "startsAt": "Clinique"
+    },
+    {
+      "id": "bundles",
+      "startsAt": "Nos"
+    },
+    {
+      "id": "cta",
+      "startsAt": "Expose"
+    }
+  ]
+}

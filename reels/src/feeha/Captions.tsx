@@ -34,6 +34,8 @@ export const Captions = ({
   accent = F.coral,
   edge = F.red,
   font = wide,
+  ink = F.white,
+  shadow = '0 4px 18px rgba(0,0,0,.9)',
 }: {
   words: Word[];
   hidden: (frame: number) => boolean;
@@ -41,6 +43,8 @@ export const Captions = ({
   accent?: string; // background of the word being spoken
   edge?: string; // its hard shadow
   font?: React.CSSProperties;
+  ink?: string; // colour of words not being spoken (dark on light backgrounds)
+  shadow?: string;
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -83,12 +87,13 @@ export const Captions = ({
               fontSize: 66,
               lineHeight: 1.15,
               textTransform: 'uppercase',
-              color: active ? F.white : t >= w.start ? F.white : 'rgba(255,255,255,.45)',
+              color: active ? F.white : ink,
+              opacity: active || t >= w.start ? 1 : 0.45,
               background: active ? accent : 'transparent',
               padding: '2px 16px 0',
               borderRadius: 12,
               transform: `scale(${active ? interpolate(wp, [0, 1], [0.85, 1.05]) : 1})`,
-              textShadow: active ? 'none' : '0 4px 18px rgba(0,0,0,.9)',
+              textShadow: active ? 'none' : shadow,
               boxShadow: active ? `0 8px 0 ${edge}` : 'none',
               whiteSpace: 'nowrap',
             }}

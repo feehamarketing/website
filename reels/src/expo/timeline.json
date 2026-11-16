@@ -1,0 +1,278 @@
+{
+ "fps": 30,
+ "totalFrames": 735,
+ "draft": true,
+ "voiceDuration": 22,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
+ "words": [
+  {
+   "text": "Bienvenue",
+   "start": 0,
+   "end": 0.732
+  },
+  {
+   "text": "dans",
+   "start": 0.732,
+   "end": 1.057
+  },
+  {
+   "text": "la",
+   "start": 1.057,
+   "end": 1.383
+  },
+  {
+   "text": "galerie",
+   "start": 1.383,
+   "end": 2.115
+  },
+  {
+   "text": "Feeha.",
+   "start": 2.115,
+   "end": 2.643
+  },
+  {
+   "text": "Ici,",
+   "start": 2.643,
+   "end": 3.172
+  },
+  {
+   "text": "chaque",
+   "start": 3.172,
+   "end": 3.7
+  },
+  {
+   "text": "offre",
+   "start": 3.701,
+   "end": 4.026
+  },
+  {
+   "text": "est",
+   "start": 4.026,
+   "end": 4.351
+  },
+  {
+   "text": "une",
+   "start": 4.351,
+   "end": 4.676
+  },
+  {
+   "text": "œuvre.",
+   "start": 4.677,
+   "end": 5.002
+  },
+  {
+   "text": "Un",
+   "start": 5.002,
+   "end": 5.327
+  },
+  {
+   "text": "panneau",
+   "start": 5.327,
+   "end": 5.856
+  },
+  {
+   "text": "lumineux",
+   "start": 5.856,
+   "end": 6.588
+  },
+  {
+   "text": "attire",
+   "start": 6.588,
+   "end": 7.116
+  },
+  {
+   "text": "l'œil,",
+   "start": 7.116,
+   "end": 7.442
+  },
+  {
+   "text": "de",
+   "start": 7.442,
+   "end": 7.767
+  },
+  {
+   "text": "jour",
+   "start": 7.767,
+   "end": 8.092
+  },
+  {
+   "text": "comme",
+   "start": 8.092,
+   "end": 8.418
+  },
+  {
+   "text": "de",
+   "start": 8.418,
+   "end": 8.743
+  },
+  {
+   "text": "soir.",
+   "start": 8.743,
+   "end": 9.068
+  },
+  {
+   "text": "Clinique,",
+   "start": 9.068,
+   "end": 9.8
+  },
+  {
+   "text": "immobilier,",
+   "start": 9.8,
+   "end": 10.736
+  },
+  {
+   "text": "resto :",
+   "start": 10.736,
+   "end": 11.264
+  },
+  {
+   "text": "ton",
+   "start": 11.264,
+   "end": 11.59
+  },
+  {
+   "text": "message",
+   "start": 11.59,
+   "end": 12.118
+  },
+  {
+   "text": "brille.",
+   "start": 12.118,
+   "end": 12.444
+  },
+  {
+   "text": "Nos",
+   "start": 12.444,
+   "end": 12.769
+  },
+  {
+   "text": "offres",
+   "start": 12.769,
+   "end": 13.094
+  },
+  {
+   "text": "groupées :",
+   "start": 13.094,
+   "end": 13.419
+  },
+  {
+   "text": "deux",
+   "start": 13.42,
+   "end": 13.745
+  },
+  {
+   "text": "panneaux,",
+   "start": 13.745,
+   "end": 14.273
+  },
+  {
+   "text": "suspension",
+   "start": 14.274,
+   "end": 15.005
+  },
+  {
+   "text": "et",
+   "start": 15.006,
+   "end": 15.331
+  },
+  {
+   "text": "rallonges",
+   "start": 15.331,
+   "end": 15.859
+  },
+  {
+   "text": "inclus,",
+   "start": 15.86,
+   "end": 16.388
+  },
+  {
+   "text": "à",
+   "start": 16.388,
+   "end": 16.713
+  },
+  {
+   "text": "partir",
+   "start": 16.713,
+   "end": 17.242
+  },
+  {
+   "text": "de",
+   "start": 17.242,
+   "end": 17.567
+  },
+  {
+   "text": "599",
+   "start": 17.567,
+   "end": 18.299
+  },
+  {
+   "text": "$.",
+   "start": 18.299,
+   "end": 18.421
+  },
+  {
+   "text": "Expose",
+   "start": 18.421,
+   "end": 18.95
+  },
+  {
+   "text": "ton",
+   "start": 18.95,
+   "end": 19.275
+  },
+  {
+   "text": "commerce.",
+   "start": 19.275,
+   "end": 19.804
+  },
+  {
+   "text": "Commande",
+   "start": 19.804,
+   "end": 20.333
+  },
+  {
+   "text": "sur",
+   "start": 20.333,
+   "end": 20.658
+  },
+  {
+   "text": "feehapanels.com.",
+   "start": 20.658,
+   "end": 22
+  }
+ ],
+ "scenes": [
+  {
+   "id": "intro",
+   "from": 0,
+   "to": 76
+  },
+  {
+   "id": "art",
+   "from": 76,
+   "to": 128
+  },
+  {
+   "id": "glow",
+   "from": 128,
+   "to": 269
+  },
+  {
+   "id": "wall",
+   "from": 269,
+   "to": 370
+  },
+  {
+   "id": "bundles",
+   "from": 370,
+   "to": 550
+  },
+  {
+   "id": "cta",
+   "from": 550,
+   "to": 735
+  }
+ ]
+}

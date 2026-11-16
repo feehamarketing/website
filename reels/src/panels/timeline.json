@@ -1,307 +1,307 @@
 {
  "fps": 30,
  "totalFrames": 735,
- "draft": true,
- "voiceDuration": 22,
- "pausesDetected": 0,
- "anchorsUsed": 0,
- "timing": "draft",
+ "draft": false,
+ "voiceDuration": 22.204,
+ "pausesDetected": 14,
+ "anchorsUsed": 14,
+ "timing": "pauses",
  "words": [
   {
    "text": "Fais",
    "start": 0,
-   "end": 0.328
+   "end": 0.243
   },
   {
    "text": "le",
-   "start": 0.328,
-   "end": 0.657
+   "start": 0.243,
+   "end": 0.486
   },
   {
    "text": "test",
-   "start": 0.657,
-   "end": 0.985
+   "start": 0.486,
+   "end": 0.728
   },
   {
    "text": "des",
-   "start": 0.985,
-   "end": 1.313
+   "start": 0.729,
+   "end": 0.971
   },
   {
    "text": "3",
-   "start": 1.313,
-   "end": 1.642
+   "start": 0.971,
+   "end": 1.214
   },
   {
    "text": "secondes.",
-   "start": 1.642,
-   "end": 2.175
+   "start": 1.214,
+   "end": 1.609
   },
   {
    "text": "Ce",
-   "start": 2.175,
-   "end": 2.504
+   "start": 2.037,
+   "end": 2.27
   },
   {
    "text": "soir,",
-   "start": 2.504,
-   "end": 2.832
+   "start": 2.27,
+   "end": 2.503
   },
   {
    "text": "passe",
-   "start": 2.832,
-   "end": 3.16
+   "start": 2.807,
+   "end": 2.999
   },
   {
    "text": "devant",
-   "start": 3.16,
-   "end": 3.694
+   "start": 2.999,
+   "end": 3.311
   },
   {
    "text": "ton",
-   "start": 3.694,
-   "end": 4.022
+   "start": 3.311,
+   "end": 3.503
   },
   {
    "text": "commerce.",
-   "start": 4.022,
-   "end": 4.556
+   "start": 3.503,
+   "end": 3.814
   },
   {
    "text": "Un,",
-   "start": 4.556,
-   "end": 4.884
+   "start": 4.329,
+   "end": 4.588
   },
   {
    "text": "deux,",
-   "start": 4.884,
-   "end": 5.213
+   "start": 5.042,
+   "end": 5.404
   },
   {
    "text": "trois.",
-   "start": 5.213,
-   "end": 5.541
+   "start": 5.896,
+   "end": 6.185
   },
   {
    "text": "Ton",
-   "start": 5.541,
-   "end": 5.869
+   "start": 6.69,
+   "end": 6.868
   },
   {
    "text": "affiche",
-   "start": 5.869,
-   "end": 6.403
+   "start": 6.868,
+   "end": 7.158
   },
   {
    "text": "papier ?",
-   "start": 6.403,
-   "end": 6.936
+   "start": 7.158,
+   "end": 7.448
   },
   {
    "text": "Dans",
-   "start": 6.937,
-   "end": 7.265
+   "start": 7.905,
+   "end": 8.112
   },
   {
    "text": "le",
-   "start": 7.265,
-   "end": 7.593
+   "start": 8.112,
+   "end": 8.32
   },
   {
    "text": "noir,",
-   "start": 7.593,
-   "end": 7.922
+   "start": 8.32,
+   "end": 8.527
   },
   {
    "text": "personne",
-   "start": 7.922,
-   "end": 8.455
+   "start": 8.783,
+   "end": 9.145
   },
   {
    "text": "la",
-   "start": 8.455,
-   "end": 8.783
+   "start": 9.145,
+   "end": 9.367
   },
   {
    "text": "voit.",
-   "start": 8.784,
-   "end": 9.112
+   "start": 9.368,
+   "end": 9.59
   },
   {
    "text": "Avec",
-   "start": 9.112,
-   "end": 9.645
+   "start": 10.162,
+   "end": 10.458
   },
   {
    "text": "un",
-   "start": 9.646,
-   "end": 9.974
+   "start": 10.458,
+   "end": 10.641
   },
   {
    "text": "panneau",
-   "start": 9.974,
-   "end": 10.507
+   "start": 10.641,
+   "end": 10.937
   },
   {
    "text": "lumineux",
-   "start": 10.507,
-   "end": 11.246
+   "start": 10.937,
+   "end": 11.348
   },
   {
    "text": "Feeha,",
-   "start": 11.246,
-   "end": 11.78
+   "start": 11.348,
+   "end": 11.644
   },
   {
    "text": "ton",
-   "start": 11.78,
-   "end": 12.108
+   "start": 11.896,
+   "end": 12.154
   },
   {
    "text": "offre",
-   "start": 12.108,
-   "end": 12.436
+   "start": 12.154,
+   "end": 12.412
   },
   {
    "text": "brille",
-   "start": 12.437,
-   "end": 12.765
+   "start": 12.412,
+   "end": 12.67
   },
   {
    "text": "jour",
-   "start": 12.765,
-   "end": 13.093
+   "start": 12.67,
+   "end": 12.928
   },
   {
    "text": "et",
-   "start": 13.093,
-   "end": 13.422
+   "start": 12.928,
+   "end": 13.186
   },
   {
    "text": "nuit.",
-   "start": 13.422,
-   "end": 13.75
+   "start": 13.186,
+   "end": 13.444
   },
   {
    "text": "Nos",
-   "start": 13.75,
-   "end": 14.078
+   "start": 14.008,
+   "end": 14.289
   },
   {
    "text": "offres",
-   "start": 14.078,
-   "end": 14.407
+   "start": 14.289,
+   "end": 14.57
   },
   {
    "text": "groupées :",
-   "start": 14.407,
-   "end": 14.735
+   "start": 14.57,
+   "end": 14.851
   },
   {
    "text": "deux",
-   "start": 14.735,
-   "end": 15.063
+   "start": 15.079,
+   "end": 15.328
   },
   {
    "text": "panneaux,",
-   "start": 15.063,
-   "end": 15.597
+   "start": 15.328,
+   "end": 15.734
   },
   {
    "text": "suspension",
-   "start": 15.597,
-   "end": 16.336
+   "start": 15.734,
+   "end": 16.295
   },
   {
    "text": "et",
-   "start": 16.336,
-   "end": 16.664
+   "start": 16.295,
+   "end": 16.544
   },
   {
    "text": "rallonges",
-   "start": 16.664,
-   "end": 17.198
+   "start": 16.545,
+   "end": 16.95
   },
   {
    "text": "inclus,",
-   "start": 17.198,
-   "end": 17.731
+   "start": 16.95,
+   "end": 17.355
   },
   {
    "text": "à",
-   "start": 17.731,
-   "end": 18.06
+   "start": 17.594,
+   "end": 17.929
   },
   {
    "text": "partir",
-   "start": 18.06,
-   "end": 18.593
+   "start": 17.929,
+   "end": 18.475
   },
   {
    "text": "de",
-   "start": 18.593,
-   "end": 18.922
+   "start": 18.475,
+   "end": 18.81
   },
   {
    "text": "599",
-   "start": 18.922,
-   "end": 19.66
+   "start": 18.81,
+   "end": 19.566
   },
   {
    "text": "$.",
-   "start": 19.66,
-   "end": 19.783
+   "start": 19.566,
+   "end": 19.692
   },
   {
    "text": "Commande",
-   "start": 19.784,
-   "end": 20.317
+   "start": 20.174,
+   "end": 20.61
   },
   {
    "text": "sur",
-   "start": 20.317,
-   "end": 20.645
+   "start": 20.61,
+   "end": 20.878
   },
   {
    "text": "feehapanels.com.",
-   "start": 20.646,
-   "end": 22
+   "start": 20.878,
+   "end": 21.983
   }
  ],
  "scenes": [
   {
    "id": "test",
    "from": 0,
-   "to": 62
+   "to": 58
   },
   {
    "id": "drive",
-   "from": 62,
-   "to": 163
+   "from": 58,
+   "to": 198
   },
   {
    "id": "question",
-   "from": 163,
-   "to": 205
+   "from": 198,
+   "to": 234
   },
   {
    "id": "miss",
-   "from": 205,
-   "to": 270
+   "from": 234,
+   "to": 302
   },
   {
    "id": "reveal",
-   "from": 270,
-   "to": 410
+   "from": 302,
+   "to": 417
   },
   {
    "id": "bundles",
-   "from": 410,
-   "to": 591
+   "from": 417,
+   "to": 602
   },
   {
    "id": "cta",
-   "from": 591,
+   "from": 602,
    "to": 735
   }
  ]
