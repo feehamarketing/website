@@ -1,0 +1,308 @@
+{
+ "fps": 30,
+ "totalFrames": 735,
+ "draft": true,
+ "voiceDuration": 22,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
+ "words": [
+  {
+   "text": "Fais",
+   "start": 0,
+   "end": 0.322
+  },
+  {
+   "text": "le",
+   "start": 0.322,
+   "end": 0.645
+  },
+  {
+   "text": "test",
+   "start": 0.645,
+   "end": 0.967
+  },
+  {
+   "text": "des",
+   "start": 0.967,
+   "end": 1.289
+  },
+  {
+   "text": "3",
+   "start": 1.289,
+   "end": 1.612
+  },
+  {
+   "text": "secondes.",
+   "start": 1.612,
+   "end": 2.135
+  },
+  {
+   "text": "Passe",
+   "start": 2.136,
+   "end": 2.458
+  },
+  {
+   "text": "devant",
+   "start": 2.458,
+   "end": 2.982
+  },
+  {
+   "text": "ton",
+   "start": 2.982,
+   "end": 3.304
+  },
+  {
+   "text": "commerce.",
+   "start": 3.304,
+   "end": 3.828
+  },
+  {
+   "text": "Un,",
+   "start": 3.828,
+   "end": 4.15
+  },
+  {
+   "text": "deux,",
+   "start": 4.15,
+   "end": 4.472
+  },
+  {
+   "text": "trois.",
+   "start": 4.473,
+   "end": 4.795
+  },
+  {
+   "text": "T'as",
+   "start": 4.795,
+   "end": 5.117
+  },
+  {
+   "text": "remarqué",
+   "start": 5.117,
+   "end": 5.842
+  },
+  {
+   "text": "ton",
+   "start": 5.842,
+   "end": 6.165
+  },
+  {
+   "text": "affiche ?",
+   "start": 6.165,
+   "end": 6.689
+  },
+  {
+   "text": "Si",
+   "start": 6.689,
+   "end": 7.011
+  },
+  {
+   "text": "toi",
+   "start": 7.011,
+   "end": 7.333
+  },
+  {
+   "text": "tu",
+   "start": 7.333,
+   "end": 7.656
+  },
+  {
+   "text": "l'as",
+   "start": 7.656,
+   "end": 7.978
+  },
+  {
+   "text": "manquée,",
+   "start": 7.978,
+   "end": 8.3
+  },
+  {
+   "text": "tes",
+   "start": 8.3,
+   "end": 8.623
+  },
+  {
+   "text": "clients",
+   "start": 8.623,
+   "end": 8.945
+  },
+  {
+   "text": "aussi.",
+   "start": 8.945,
+   "end": 9.469
+  },
+  {
+   "text": "Avec",
+   "start": 9.469,
+   "end": 9.993
+  },
+  {
+   "text": "les",
+   "start": 9.993,
+   "end": 10.315
+  },
+  {
+   "text": "panneaux",
+   "start": 10.315,
+   "end": 10.839
+  },
+  {
+   "text": "lumineux",
+   "start": 10.839,
+   "end": 11.564
+  },
+  {
+   "text": "Feeha,",
+   "start": 11.564,
+   "end": 12.088
+  },
+  {
+   "text": "ton",
+   "start": 12.088,
+   "end": 12.41
+  },
+  {
+   "text": "message",
+   "start": 12.41,
+   "end": 12.934
+  },
+  {
+   "text": "saute",
+   "start": 12.934,
+   "end": 13.256
+  },
+  {
+   "text": "aux",
+   "start": 13.256,
+   "end": 13.579
+  },
+  {
+   "text": "yeux.",
+   "start": 13.579,
+   "end": 13.901
+  },
+  {
+   "text": "Nos",
+   "start": 13.901,
+   "end": 14.223
+  },
+  {
+   "text": "offres",
+   "start": 14.223,
+   "end": 14.546
+  },
+  {
+   "text": "groupées :",
+   "start": 14.546,
+   "end": 14.868
+  },
+  {
+   "text": "deux",
+   "start": 14.868,
+   "end": 15.19
+  },
+  {
+   "text": "panneaux,",
+   "start": 15.19,
+   "end": 15.714
+  },
+  {
+   "text": "suspension",
+   "start": 15.714,
+   "end": 16.439
+  },
+  {
+   "text": "et",
+   "start": 16.44,
+   "end": 16.762
+  },
+  {
+   "text": "rallonges",
+   "start": 16.762,
+   "end": 17.286
+  },
+  {
+   "text": "inclus,",
+   "start": 17.286,
+   "end": 17.809
+  },
+  {
+   "text": "à",
+   "start": 17.81,
+   "end": 18.132
+  },
+  {
+   "text": "partir",
+   "start": 18.132,
+   "end": 18.656
+  },
+  {
+   "text": "de",
+   "start": 18.656,
+   "end": 18.978
+  },
+  {
+   "text": "599",
+   "start": 18.978,
+   "end": 19.703
+  },
+  {
+   "text": "$.",
+   "start": 19.703,
+   "end": 19.824
+  },
+  {
+   "text": "Commande",
+   "start": 19.824,
+   "end": 20.348
+  },
+  {
+   "text": "sur",
+   "start": 20.348,
+   "end": 20.67
+  },
+  {
+   "text": "feehapanels.com.",
+   "start": 20.67,
+   "end": 22
+  }
+ ],
+ "scenes": [
+  {
+   "id": "test",
+   "from": 0,
+   "to": 61
+  },
+  {
+   "id": "drive",
+   "from": 61,
+   "to": 141
+  },
+  {
+   "id": "question",
+   "from": 141,
+   "to": 198
+  },
+  {
+   "id": "miss",
+   "from": 198,
+   "to": 281
+  },
+  {
+   "id": "reveal",
+   "from": 281,
+   "to": 414
+  },
+  {
+   "id": "bundles",
+   "from": 414,
+   "to": 592
+  },
+  {
+   "id": "cta",
+   "from": 592,
+   "to": 735
+  }
+ ]
+}

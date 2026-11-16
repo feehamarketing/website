@@ -1,0 +1,52 @@
+{
+  "id": "panels",
+  "composition": "Panels",
+  "totalFrames": 900,
+  "tailSeconds": 2.5,
+  "timeline": "src/panels/timeline.json",
+  "draftVoiceDuration": 22,
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "script": "Fais le test des 3 secondes. Passe devant ton commerce. Un, deux, trois. T'as remarqué ton affiche ? Si toi tu l'as manquée, tes clients aussi. Avec les panneaux lumineux Feeha, ton message saute aux yeux. Nos offres groupées : deux panneaux, suspension et rallonges inclus, à partir de 599 $. Commande sur feehapanels.com.",
+  "spokenAs": {
+    "3": "trois",
+    "599 $": "cinq cent quatre-vingt-dix-neuf dollars",
+    "feehapanels.com": "Feeha panels point com"
+  },
+  "scenes": [
+    {
+      "id": "test",
+      "startsAt": "Fais"
+    },
+    {
+      "id": "drive",
+      "startsAt": "Passe"
+    },
+    {
+      "id": "question",
+      "startsAt": "T'as"
+    },
+    {
+      "id": "miss",
+      "startsAt": "Si"
+    },
+    {
+      "id": "reveal",
+      "startsAt": "Avec"
+    },
+    {
+      "id": "bundles",
+      "startsAt": "Nos"
+    },
+    {
+      "id": "cta",
+      "startsAt": "Commande"
+    }
+  ]
+}
