@@ -103,34 +103,27 @@ const Photo = ({src, from = 1, to = 1.12, dim = 0, tint, style}: {src: string; f
   );
 };
 
-// ---- the product: a snap frame with a back-lit poster -----------------------------
-/** A sample poster designed in code (no third-party artwork). */
-const SamplePoster = ({variant = 0}: {variant?: number}) =>
-  variant === 0 ? (
-    <div style={{width: '100%', height: '100%', background: `linear-gradient(160deg, ${H.red}, #D8432E)`, color: H.white, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: COND, textAlign: 'center'}}>
-      <div style={{fontSize: 70, lineHeight: 1}}>TON OFFRE</div>
-      <div style={{fontSize: 200, lineHeight: 0.9}}>-20%</div>
-      <div style={{fontSize: 50, background: H.white, color: H.red, padding: '6px 22px 0', marginTop: 16}}>CETTE SEMAINE</div>
-    </div>
-  ) : (
-    <div style={{width: '100%', height: '100%', background: '#F6E7C8', color: '#2B1B0E', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: COND, textAlign: 'center'}}>
-      <div style={{fontSize: 56, letterSpacing: 6, color: H.red}}>NOUVEAU</div>
-      <div style={{fontSize: 150, lineHeight: 0.9}}>MENU</div>
-      <div style={{fontSize: 150, lineHeight: 0.9}}>D'HIVER</div>
-      <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 30, marginTop: 18}}>soupe · chocolat chaud · combo</div>
-    </div>
-  );
+// ---- the product: a slim LED panel, poster slid in from a slot on the top --------
+/** The client's poster (two versions, from the brief). */
+const SamplePoster = ({variant = 0}: {variant?: number}) => (
+  <Img src={staticFile(variant === 0 ? 'dino/poster.png' : 'dino/poster-creme.png')} style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
+);
 
 /**
- * Light box: aluminium frame on a dark wall. `slide` 0..1 brings the poster in
- * from the top, `light` 0..1 switches the back-light on, `swap` 0..1 replaces
- * the poster with the second one.
+ * Feeha LED panel on a dark wall: slim black frame, poster slid in through the
+ * top slot. `slide` 0..1 brings the poster down into the panel, `light` 0..1
+ * switches the back-light on, `swap` 0..1 slides the poster out through the top
+ * and the second one in.
  */
 const LightBox = ({slide = 1, light = 1, swap = 0, scale = 1}: {slide?: number; light?: number; swap?: number; scale?: number}) => {
   const W = 560;
-  const Hh = 800;
+  const Hh = 840;
   return (
     <div style={{position: 'absolute', left: 540 - W / 2, top: 470, width: W, height: Hh, transform: `scale(${scale})`}}>
+      {/* suspension cables */}
+      {[60, W - 60].map((x) => (
+        <div key={x} style={{position: 'absolute', left: x, top: -600, width: 3, height: 600, background: 'linear-gradient(180deg, transparent, #9aa1a8)'}} />
+      ))}
       {/* glow on the wall */}
       <div style={{position: 'absolute', inset: -160, borderRadius: 80, background: `radial-gradient(ellipse, rgba(255,233,194,${0.55 * light}) 0%, transparent 65%)`, filter: 'blur(10px)'}} />
       {/* frame */}
@@ -139,17 +132,17 @@ const LightBox = ({slide = 1, light = 1, swap = 0, scale = 1}: {slide?: number; 
           position: 'absolute',
           inset: 0,
           borderRadius: 10,
-          background: 'linear-gradient(135deg, #e9ecef, #9aa1a8 50%, #d8dce0)',
+          background: '#0d0d0d',
           boxShadow: `0 40px 80px rgba(0,0,0,.6), 0 0 ${80 * light}px rgba(255,233,194,${0.6 * light})`,
-          padding: 22,
+          padding: 14,
         }}
       >
         <div style={{position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: '#1b1d20'}}>
           {/* poster A slides in from the top, then out to the side when swapped */}
-          <div style={{position: 'absolute', inset: 0, transform: `translateY(${(slide - 1) * 110}%) translateX(${swap * -110}%)`}}>
+          <div style={{position: 'absolute', inset: 0, transform: `translateY(${(slide - 1 - Math.min(1, swap * 2)) * 110}%)`}}>
             <SamplePoster variant={0} />
           </div>
-          <div style={{position: 'absolute', inset: 0, transform: `translateX(${(1 - swap) * 110}%)`}}>
+          <div style={{position: 'absolute', inset: 0, transform: `translateY(${(Math.max(0, swap * 2 - 1) - 1) * 110}%)`}}>
             <SamplePoster variant={1} />
           </div>
           {/* back-light: brightens the print */}
@@ -193,17 +186,9 @@ const Dark = () => {
   );
 };
 
-/** The taped poster (landscape photo): whole picture on a blurred fill. */
-const Tape = () => {
-  const frame = useCurrentFrame();
-  const {durationInFrames} = useVideoConfig();
-  const z = interpolate(frame, [0, durationInFrames], [1, 1.12]);
-  return (
-  <AbsoluteFill style={{background: H.ink}}>
-    <Img src={staticFile('hiver/tape.jpg')} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(30px) brightness(.55)', transform: 'scale(1.2)'}} />
-    <div style={{position: 'absolute', left: 0, top: 560, width: 1080, height: 608, overflow: 'hidden', boxShadow: '0 30px 80px rgba(0,0,0,.6)'}}>
-      <Img src={staticFile('hiver/tape.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${z})`, transformOrigin: '50% 45%'}} />
-    </div>
+const Tape = () => (
+  <AbsoluteFill>
+    <Photo src="dino/tape-jour.png" from={1} to={1.18} style={{transformOrigin: '52% 45%'}} />
     <div style={{position: 'absolute', top: 160, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
       <Big size={150}>DU TAPE ?</Big>
       <Tag delay={8} size={80}>
@@ -211,16 +196,15 @@ const Tape = () => {
       </Tag>
     </div>
   </AbsoluteFill>
-  );
-};
+);
 
 const Invisible = () => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
-  const dim = interpolate(frame, [0, durationInFrames], [0.1, 0.75], clamp);
+  const dim = interpolate(frame, [0, durationInFrames], [0, 0.55], clamp);
   return (
     <AbsoluteFill>
-      <Photo src="hiver/vitrine.jpg" dim={dim} tint="rgba(8,16,40,.25)" />
+      <Photo src="dino/tape-soir.png" dim={dim} tint="rgba(8,16,40,.2)" style={{transformOrigin: '57% 50%'}} />
       <Snow n={40} />
       <div style={{position: 'absolute', top: 170, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18}}>
         <svg width="200" height="128" viewBox="0 0 110 70" style={{opacity: interpolate(frame, [0, 8], [0, 1], clamp)}}>
@@ -269,7 +253,7 @@ const Half = () => {
       {/* moving marker */}
       <div style={{position: 'absolute', top: 735, left: x(now) - 4, width: 8, height: 170, background: H.white, borderRadius: 4, boxShadow: '0 0 20px #fff'}} />
       {/* the poster itself, fading with the light */}
-      <div style={{position: 'absolute', top: 1040, left: 540 - 150, width: 300, height: 400, transform: 'rotate(-3deg)', opacity: dark ? 0.12 : 1, transition: 'none', boxShadow: '0 20px 40px rgba(0,0,0,.5)'}}>
+      <div style={{position: 'absolute', top: 1010, left: 540 - 150, width: 300, height: 450, transform: 'rotate(-3deg)', opacity: dark ? 0.12 : 1, transition: 'none', boxShadow: '0 20px 40px rgba(0,0,0,.5)'}}>
         <SamplePoster />
         <div style={{position: 'absolute', left: -24, top: -10, width: 110, height: 34, background: 'rgba(235,220,170,.85)', transform: 'rotate(-28deg)'}} />
         <div style={{position: 'absolute', right: -24, top: -10, width: 110, height: 34, background: 'rgba(235,220,170,.85)', transform: 'rotate(28deg)'}} />
@@ -282,26 +266,25 @@ const Solution = ({nightAt}: {nightAt: number}) => {
   const frame = useCurrentFrame();
   const night = frame >= nightAt;
   const pill = (txt: string, on: boolean) => (
-    <div style={{fontFamily: COND, fontSize: 64, padding: '12px 34px 6px', borderRadius: 999, background: on ? H.red : 'transparent', color: on ? H.white : '#aaa'}}>{txt}</div>
+    <div style={{fontFamily: COND, fontSize: 64, padding: '12px 34px 6px', borderRadius: 999, background: on ? H.red : 'transparent', color: on ? H.white : '#ccc'}}>{txt}</div>
   );
   return (
     <AbsoluteFill>
       {night ? (
-        <Photo src="panels/vitrine-nuit-2x.jpg" from={1.2} to={1.35} style={{objectPosition: '78% 35%', transformOrigin: '70% 0%'}} />
+        <Sequence from={nightAt} layout="none">
+          <Photo src="dino/nuit-panneau.png" from={1.02} to={1.12} style={{transformOrigin: '45% 45%'}} />
+        </Sequence>
       ) : (
-        <AbsoluteFill style={{background: 'linear-gradient(180deg, #EEF2F6 0%, #DCE3EA 100%)'}}>
-          <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 80% 10%, rgba(255,255,255,.9), transparent 60%)'}} />
-          <div style={{position: 'absolute', left: 0, right: 0, top: 1380, bottom: 0, background: '#c9cfd6'}} />
-          <LightBox light={0.6} scale={0.95} />
-        </AbsoluteFill>
+        <Photo src="dino/jour-panneau.png" from={1.02} to={1.1} style={{transformOrigin: '52% 50%'}} />
       )}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(5,6,10,.92) 0%, rgba(5,6,10,.8) 20%, transparent 34%)'}} />
       <div style={{position: 'absolute', top: 140, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20}}>
-        <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 28, letterSpacing: 10, color: night ? H.warm : H.red}}>PANNEAU LUMINEUX FEEHA</div>
-        <div style={{display: 'flex', background: 'rgba(0,0,0,.45)', borderRadius: 999, padding: 8}}>
+        <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 28, letterSpacing: 10, color: H.warm, textShadow: '0 2px 10px rgba(0,0,0,.8)'}}>PANNEAU LUMINEUX FEEHA</div>
+        <div style={{display: 'flex', background: 'rgba(0,0,0,.55)', borderRadius: 999, padding: 8}}>
           {pill('JOUR ✓', !night)}
           {pill('SOIR ✓✓', night)}
         </div>
-        <Big size={night ? 120 : 110} delay={night ? nightAt : 4} color={night ? H.white : H.ink} style={night ? undefined : {textShadow: 'none'}}>
+        <Big size={night ? 120 : 110} delay={night ? nightAt : 4}>
           {night ? 'ENCORE PLUS VISIBLE' : 'VISIBLE LE JOUR'}
         </Big>
       </div>
@@ -309,22 +292,51 @@ const Solution = ({nightAt}: {nightAt: number}) => {
   );
 };
 
+/**
+ * The four insertion photos, re-aligned so the panel frame sits on exactly the
+ * same rectangle in every one (frame edges measured on each image).
+ */
+const SHOTS = {
+  empty: {src: 'dino/empty.png', w: 1064, h: 1478, f: [155, 227, 909, 1317]},
+  slide: {src: 'dino/slide.png', w: 1024, h: 1536, f: [206, 455, 821, 1289]},
+  inOff: {src: 'dino/in-off.png', w: 1024, h: 1536, f: [161, 238, 861, 1259]},
+  lit: {src: 'dino/lit.png', w: 1086, h: 1448, f: [204, 258, 904, 1231]},
+};
+const TARGET = {x: 170, y: 400, w: 740, h: 1080};
+const Shot = ({k, opacity}: {k: keyof typeof SHOTS; opacity: number}) => {
+  const s = SHOTS[k];
+  const sx = TARGET.w / (s.f[2] - s.f[0]);
+  const sy = TARGET.h / (s.f[3] - s.f[1]);
+  return (
+    <Img
+      src={staticFile(s.src)}
+      style={{position: 'absolute', left: TARGET.x - s.f[0] * sx, top: TARGET.y - s.f[1] * sy, width: s.w * sx, height: s.h * sy, maxWidth: 'none', opacity}}
+    />
+  );
+};
+
 const Insert = ({lightAt}: {lightAt: number}) => {
   const frame = useCurrentFrame();
-  const slide = useSpr(4, {damping: 18, stiffness: 120, mass: 1});
-  const flick = [0, 0, 1, 0.2, 1, 0.5, 1];
-  const light = frame < lightAt ? 0 : frame - lightAt < 14 ? flick[Math.floor((frame - lightAt) / 2)] ?? 1 : 1;
+  const fade = (a: number, b: number) => interpolate(frame, [a, b], [0, 1], clamp);
+  const toSlide = fade(8, 14);
+  const toIn = fade(Math.max(16, lightAt - 14), Math.max(22, lightAt - 8));
+  const flick = [0, 0, 1, 0.3, 1, 0.6, 1];
+  const toLit = frame < lightAt ? 0 : frame - lightAt < 14 ? flick[Math.floor((frame - lightAt) / 2)] ?? 1 : 1;
+  const push = interpolate(frame, [0, 80], [1, 1.05], clamp);
   return (
-    <DarkWall warm={light}>
-      <LightBox slide={slide} light={light} />
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
-        <Big size={110}>{light > 0.5 ? 'ET IL S’ILLUMINE.' : 'GLISSE TON POSTER'}</Big>
+    <AbsoluteFill style={{background: '#bdbab4', overflow: 'hidden'}}>
+      <Img src={staticFile('dino/empty.png')} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(40px)', transform: 'scale(1.3)'}} />
+      <AbsoluteFill style={{transform: `scale(${push})`, transformOrigin: '540px 900px'}}>
+        <Shot k="empty" opacity={1} />
+        <Shot k="slide" opacity={toSlide} />
+        <Shot k="inOff" opacity={toIn} />
+        <Shot k="lit" opacity={toLit} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 22%)'}} />
+      <div style={{position: 'absolute', top: 140, left: 0, right: 0}}>
+        <Big size={110}>{frame >= lightAt ? 'ET IL S’ILLUMINE.' : 'GLISSE TON POSTER'}</Big>
       </div>
-      {/* arrow showing the poster going in */}
-      <svg width="90" height="140" viewBox="0 0 90 140" style={{position: 'absolute', left: 940, top: 480, opacity: 1 - slide}}>
-        <path d="M45 0 V115 M10 80 L45 125 L80 80" stroke={H.white} strokeWidth="10" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </DarkWall>
+    </AbsoluteFill>
   );
 };
 
@@ -379,23 +391,26 @@ const Bundle = ({itemAt}: {itemAt: number[]}) => {
   const {fps} = useVideoConfig();
   return (
     <AbsoluteFill style={{background: H.paper}}>
-      <div style={{position: 'absolute', top: 0, left: 0, right: 0, height: 420, background: H.red}} />
-      <div style={{position: 'absolute', top: 150, left: 0, right: 0}}>
+      <div style={{position: 'absolute', top: 0, left: 0, right: 0, height: 900, overflow: 'hidden'}}>
+        <Img src={staticFile('dino/bundle.png')} style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 40%', transform: `scale(${interpolate(frame, [0, 140], [1.05, 1.15], clamp)})`}} />
+        <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(120,15,18,.92) 0%, rgba(120,15,18,.55) 28%, transparent 50%, transparent 80%, rgba(244,242,238,1) 100%)'}} />
+      </div>
+      <div style={{position: 'absolute', top: 120, left: 0, right: 0}}>
         <div style={{textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 10, color: H.warm}}>EN CE MOMENT</div>
         <Big size={150}>OFFRE GROUPÉE</Big>
       </div>
-      <div style={{position: 'absolute', top: 540, left: 80, right: 60, display: 'flex', flexDirection: 'column', gap: 48}}>
+      <div style={{position: 'absolute', top: 930, left: 80, right: 60, display: 'flex', flexDirection: 'column', gap: 26}}>
         {ITEMS.map((it, i) => {
           const p = spring({frame: frame - itemAt[i], fps, config: {damping: 12, stiffness: 240, mass: 0.6}});
           return (
             <div key={it} style={{display: 'flex', alignItems: 'center', gap: 30, opacity: frame < itemAt[i] ? 0.15 : 1, transform: `translateX(${interpolate(p, [0, 1], [-40, 0])}px)`}}>
               <div style={{width: 96, height: 96, borderRadius: 48, background: H.red, color: H.white, fontFamily: SANS, fontWeight: 900, fontSize: 56, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${frame < itemAt[i] ? 0.6 : p})`}}>✓</div>
-              <div style={{fontFamily: COND, fontSize: 92, color: H.ink, lineHeight: 1}}>{it}</div>
+              <div style={{fontFamily: COND, fontSize: 80, color: H.ink, lineHeight: 1}}>{it}</div>
             </div>
           );
         })}
       </div>
-      <div style={{position: 'absolute', top: 1250, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
+      <div style={{position: 'absolute', top: 1440, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
         <Tag delay={itemAt[3] + 6} size={110} rotate={-3}>
           DÈS 599 $
         </Tag>
@@ -407,19 +422,24 @@ const Bundle = ({itemAt}: {itemAt: number[]}) => {
 const Install = () => {
   const frame = useCurrentFrame();
   const sweep = interpolate(frame, [0, 24], [0, 0.95], clamp);
+  const badge = useSpr(0, {damping: 12, stiffness: 220, mass: 0.6});
   return (
-    <AbsoluteFill style={{background: H.paper, alignItems: 'center'}}>
-      <svg width="560" height="560" viewBox="-110 -110 220 220" style={{position: 'absolute', top: 300}}>
-        <circle r="96" fill="none" stroke="#e0dcd6" strokeWidth="16" />
-        <circle r="96" fill="none" stroke={H.red} strokeWidth="16" strokeDasharray={`${sweep * 603} 603`} transform="rotate(-90)" strokeLinecap="round" />
-        <rect x="-14" y="-118" width="28" height="16" rx="4" fill={H.ink} />
-      </svg>
-      <div style={{position: 'absolute', top: 440, fontFamily: COND, fontSize: 240, lineHeight: 1, color: H.ink}}>&lt;10</div>
-      <div style={{position: 'absolute', top: 650, fontFamily: COND, fontSize: 90, color: H.red}}>MINUTES</div>
-      <div style={{position: 'absolute', top: 920}}>
-        <Big size={96} color={H.ink} style={{textShadow: 'none'}}>
-          À INSTALLER
-        </Big>
+    <AbsoluteFill>
+      <Photo src="dino/install.png" from={1.02} to={1.12} style={{transformOrigin: '50% 40%'}} />
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, transparent 45%, rgba(5,6,10,.85) 75%)'}} />
+      {/* timer badge */}
+      <div style={{position: 'absolute', top: 1270, left: 0, right: 0, display: 'flex', justifyContent: 'center', transform: `scale(${badge * 0.76})`, transformOrigin: '50% 0%'}}>
+        <div style={{position: 'relative', width: 420, height: 420, borderRadius: 210, background: 'rgba(255,255,255,.94)', boxShadow: '0 30px 60px rgba(0,0,0,.45)'}}>
+          <svg width="420" height="420" viewBox="-110 -110 220 220" style={{position: 'absolute', inset: 0}}>
+            <circle r="96" fill="none" stroke="#e0dcd6" strokeWidth="12" />
+            <circle r="96" fill="none" stroke={H.red} strokeWidth="12" strokeDasharray={`${sweep * 603} 603`} transform="rotate(-90)" strokeLinecap="round" />
+          </svg>
+          <div style={{position: 'absolute', top: 70, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 180, lineHeight: 1, color: H.ink}}>&lt;10</div>
+          <div style={{position: 'absolute', top: 245, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 64, color: H.red}}>MINUTES</div>
+        </div>
+      </div>
+      <div style={{position: 'absolute', top: 1600, left: 0, right: 0}}>
+        <Big size={84}>À INSTALLER</Big>
       </div>
     </AbsoluteFill>
   );
