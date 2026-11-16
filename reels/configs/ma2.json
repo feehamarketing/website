@@ -56,5 +56,19 @@
       "id": "call",
       "startsAt": "Appelle"
     }
+  ],
+  "pins": [
+    {
+      "word": "nez",
+      "at": 6.23
+    },
+    {
+      "word": "usés",
+      "at": 7.74
+    },
+    {
+      "word": "panique",
+      "at": 8.87
+    }
   ]
 }

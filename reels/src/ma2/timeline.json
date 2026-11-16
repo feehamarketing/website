@@ -1,388 +1,388 @@
 {
  "fps": 30,
- "totalFrames": 825,
- "draft": true,
- "voiceDuration": 25,
- "pausesDetected": 0,
- "anchorsUsed": 0,
- "timing": "draft",
+ "totalFrames": 794,
+ "draft": false,
+ "voiceDuration": 24.189,
+ "pausesDetected": 15,
+ "anchorsUsed": 12,
+ "timing": "pauses",
  "words": [
   {
    "text": "Prends",
    "start": 0,
-   "end": 0.434
+   "end": 0.254
   },
   {
    "text": "un",
-   "start": 0.434,
-   "end": 0.636
+   "start": 0.254,
+   "end": 0.508
   },
   {
    "text": "25",
-   "start": 0.637,
-   "end": 1.302
+   "start": 0.508,
+   "end": 0.921
   },
   {
    "text": "cennes.",
-   "start": 1.302,
-   "end": 1.736
+   "start": 0.921,
+   "end": 1.176
   },
   {
    "text": "Glisse-le",
-   "start": 1.736,
-   "end": 2.286
+   "start": 1.531,
+   "end": 1.837
   },
   {
    "text": "dans",
-   "start": 2.286,
-   "end": 2.604
+   "start": 1.837,
+   "end": 2.026
   },
   {
    "text": "la",
-   "start": 2.604,
-   "end": 2.807
+   "start": 2.026,
+   "end": 2.215
   },
   {
    "text": "semelle",
-   "start": 2.807,
-   "end": 3.299
+   "start": 2.215,
+   "end": 2.521
   },
   {
    "text": "de",
-   "start": 3.299,
-   "end": 3.501
+   "start": 2.521,
+   "end": 2.71
   },
   {
    "text": "ton",
-   "start": 3.501,
-   "end": 3.761
+   "start": 2.71,
+   "end": 2.898
   },
   {
    "text": "pneu,",
-   "start": 3.762,
-   "end": 4.08
+   "start": 2.899,
+   "end": 3.087
   },
   {
    "text": "la",
-   "start": 4.08,
-   "end": 4.282
+   "start": 3.271,
+   "end": 3.466
   },
   {
    "text": "tête",
-   "start": 4.282,
-   "end": 4.601
+   "start": 3.466,
+   "end": 3.661
   },
   {
    "text": "du",
-   "start": 4.601,
-   "end": 4.803
+   "start": 3.661,
+   "end": 3.856
   },
   {
    "text": "caribou",
-   "start": 4.803,
-   "end": 5.295
+   "start": 3.856,
+   "end": 4.296
   },
   {
    "text": "vers",
-   "start": 5.295,
-   "end": 5.613
+   "start": 4.296,
+   "end": 4.491
   },
   {
    "text": "le",
-   "start": 5.613,
-   "end": 5.816
+   "start": 4.491,
+   "end": 4.686
   },
   {
    "text": "bas.",
-   "start": 5.816,
-   "end": 6.076
+   "start": 4.686,
+   "end": 4.881
   },
   {
    "text": "Tu",
-   "start": 6.076,
-   "end": 6.279
+   "start": 5.412,
+   "end": 5.527
   },
   {
    "text": "vois",
-   "start": 6.279,
-   "end": 6.597
+   "start": 5.527,
+   "end": 5.642
   },
   {
    "text": "le",
-   "start": 6.597,
-   "end": 6.8
+   "start": 5.643,
+   "end": 5.758
   },
   {
    "text": "bout",
-   "start": 6.8,
-   "end": 7.118
+   "start": 5.758,
+   "end": 5.873
   },
   {
    "text": "de",
-   "start": 7.118,
-   "end": 7.321
+   "start": 5.873,
+   "end": 5.988
   },
   {
    "text": "son",
-   "start": 7.321,
-   "end": 7.581
+   "start": 5.988,
+   "end": 6.103
   },
   {
    "text": "nez ?",
-   "start": 7.581,
-   "end": 7.841
+   "start": 6.103,
+   "end": 6.218
   },
   {
    "text": "Tes",
-   "start": 7.841,
-   "end": 8.102
+   "start": 6.808,
+   "end": 7.009
   },
   {
    "text": "pneus",
-   "start": 8.102,
-   "end": 8.478
+   "start": 7.009,
+   "end": 7.211
   },
   {
    "text": "sont",
-   "start": 8.478,
-   "end": 8.796
+   "start": 7.211,
+   "end": 7.412
   },
   {
    "text": "usés.",
-   "start": 8.796,
-   "end": 9.114
+   "start": 7.412,
+   "end": 7.739
   },
   {
    "text": "Pas",
-   "start": 9.115,
-   "end": 9.375
+   "start": 8.291,
+   "end": 8.427
   },
   {
    "text": "de",
-   "start": 9.375,
-   "end": 9.577
+   "start": 8.427,
+   "end": 8.563
   },
   {
    "text": "panique :",
-   "start": 9.578,
-   "end": 10.069
+   "start": 8.563,
+   "end": 8.868
   },
   {
    "text": "chez",
-   "start": 10.069,
-   "end": 10.388
+   "start": 9.152,
+   "end": 9.617
   },
   {
    "text": "M.A.",
-   "start": 10.388,
-   "end": 10.937
+   "start": 9.617,
+   "end": 10.373
   },
   {
    "text": "Auto",
-   "start": 10.938,
-   "end": 11.256
+   "start": 10.373,
+   "end": 11.129
   },
   {
    "text": "Distribution,",
-   "start": 11.256,
-   "end": 12.037
+   "start": 11.129,
+   "end": 12.466
   },
   {
    "text": "on",
-   "start": 12.037,
-   "end": 12.239
+   "start": 12.879,
+   "end": 13.017
   },
   {
    "text": "a",
-   "start": 12.24,
-   "end": 12.384
+   "start": 13.017,
+   "end": 13.154
   },
   {
    "text": "des",
-   "start": 12.384,
-   "end": 12.645
+   "start": 13.155,
+   "end": 13.292
   },
   {
    "text": "pneus",
-   "start": 12.645,
-   "end": 13.021
+   "start": 13.292,
+   "end": 13.43
   },
   {
    "text": "d'hiver",
-   "start": 13.021,
-   "end": 13.455
+   "start": 13.43,
+   "end": 13.653
   },
   {
    "text": "garantis,",
-   "start": 13.455,
-   "end": 14.005
+   "start": 13.653,
+   "end": 13.963
   },
   {
    "text": "et",
-   "start": 14.005,
-   "end": 14.207
+   "start": 14.617,
+   "end": 14.857
   },
   {
    "text": "les",
-   "start": 14.207,
-   "end": 14.467
+   "start": 14.857,
+   "end": 15.096
   },
   {
    "text": "pièces",
-   "start": 14.468,
-   "end": 14.902
+   "start": 15.096,
+   "end": 15.336
   },
   {
    "text": "pour",
-   "start": 14.902,
-   "end": 15.22
+   "start": 15.336,
+   "end": 15.576
   },
   {
    "text": "ton",
-   "start": 15.22,
-   "end": 15.48
+   "start": 15.576,
+   "end": 15.815
   },
   {
    "text": "char.",
-   "start": 15.48,
-   "end": 15.799
+   "start": 15.815,
+   "end": 16.055
   },
   {
    "text": "Achète",
-   "start": 15.799,
-   "end": 16.233
+   "start": 16.2,
+   "end": 16.56
   },
   {
    "text": "tes",
-   "start": 16.233,
-   "end": 16.493
+   "start": 16.56,
+   "end": 16.781
   },
   {
    "text": "pneus",
-   "start": 16.493,
-   "end": 16.869
+   "start": 16.782,
+   "end": 17.003
   },
   {
    "text": "et",
-   "start": 16.869,
-   "end": 17.072
+   "start": 17.003,
+   "end": 17.225
   },
   {
    "text": "tes",
-   "start": 17.072,
-   "end": 17.332
+   "start": 17.225,
+   "end": 17.446
   },
   {
    "text": "jantes,",
-   "start": 17.332,
-   "end": 17.766
+   "start": 17.446,
+   "end": 17.668
   },
   {
    "text": "on",
-   "start": 17.766,
-   "end": 17.969
+   "start": 18.064,
+   "end": 18.223
   },
   {
    "text": "te",
-   "start": 17.969,
-   "end": 18.171
+   "start": 18.224,
+   "end": 18.383
   },
   {
    "text": "les",
-   "start": 18.171,
-   "end": 18.432
+   "start": 18.383,
+   "end": 18.543
   },
   {
    "text": "installe",
-   "start": 18.432,
-   "end": 18.981
+   "start": 18.543,
+   "end": 19.041
   },
   {
    "text": "gratuitement.",
-   "start": 18.981,
-   "end": 19.763
+   "start": 19.041,
+   "end": 19.5
   },
   {
    "text": "Et",
-   "start": 19.763,
-   "end": 19.965
+   "start": 20.029,
+   "end": 20.233
   },
   {
    "text": "on",
-   "start": 19.965,
-   "end": 20.168
+   "start": 20.233,
+   "end": 20.436
   },
   {
    "text": "livre,",
-   "start": 20.168,
-   "end": 20.544
+   "start": 20.436,
+   "end": 20.639
   },
   {
    "text": "gratuitement.",
-   "start": 20.544,
-   "end": 21.325
+   "start": 20.64,
+   "end": 21.224
   },
   {
    "text": "Appelle",
-   "start": 21.325,
-   "end": 21.817
+   "start": 21.403,
+   "end": 21.736
   },
   {
    "text": "au",
-   "start": 21.817,
-   "end": 22.02
+   "start": 21.736,
+   "end": 21.941
   },
   {
    "text": "438-368-6865.",
-   "start": 22.02,
-   "end": 25
+   "start": 21.941,
+   "end": 23.98
   }
  ],
  "scenes": [
   {
    "id": "coin",
    "from": 0,
-   "to": 49
+   "to": 43
   },
   {
    "id": "insert",
-   "from": 49,
-   "to": 179
+   "from": 43,
+   "to": 159
   },
   {
    "id": "verdict",
-   "from": 179,
-   "to": 270
+   "from": 159,
+   "to": 246
   },
   {
    "id": "brand",
-   "from": 270,
-   "to": 358
+   "from": 246,
+   "to": 383
   },
   {
    "id": "tires",
-   "from": 358,
-   "to": 417
+   "from": 383,
+   "to": 436
   },
   {
    "id": "parts",
-   "from": 417,
-   "to": 471
+   "from": 436,
+   "to": 483
   },
   {
    "id": "install",
-   "from": 471,
-   "to": 590
+   "from": 483,
+   "to": 598
   },
   {
    "id": "delivery",
-   "from": 590,
-   "to": 637
+   "from": 598,
+   "to": 639
   },
   {
    "id": "call",
-   "from": 637,
-   "to": 825
+   "from": 639,
+   "to": 794
   }
  ]
 }

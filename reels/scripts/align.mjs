@@ -30,10 +30,27 @@ const tokens = cfg.script
 
 // Spoken length of a token: digits are read out as whole words.
 // A web address such as feeha.ca is read out as "feeha dot C A".
-const weight = (t) =>
-  t.replace(/[^\p{L}\p{N}]/gu, '').replace(/\d/g, 'xxxxx').length +
-  1.5 +
-  (/\p{L}\.\p{L}/u.test(t) ? 6 : 0);
+// Spoken length of a token, in syllables of what is actually said
+// ("spokenAs" in the config: digits, addresses, initials...).
+const syllables = (text) =>
+  text
+    .toLowerCase()
+    .split(/[^\p{L}']+/u)
+    .filter(Boolean)
+    .reduce((n, w) => {
+      const groups = (w.match(/[aeiouyàâäéèêëîïôöûùü]+/g) || []).length;
+      // mute final e / es / ent (French) in words of 2+ vowel groups
+      const mute = groups > 1 && /[^aeiouy](e|es|ent)$/.test(w) && !/ment$/.test(w) ? 1 : 0;
+      return n + Math.max(1, groups - mute);
+    }, 0);
+const spokenFor = (t) => {
+  const core = t.replace(/[\s\u00A0]*[?!.,:;]+$/u, '');
+  if (cfg.spokenAs?.[core]) return cfg.spokenAs[core];
+  if (/^(\p{L}\.)+$/u.test(core + '.')) return core.split('.').filter(Boolean).join(' '); // initials
+  if (/\p{L}\.\p{L}/u.test(core)) return core.replace(/\./g, ' dot '); // web address
+  return core.replace(/\d/g, ' un ');
+};
+const weight = (t) => syllables(spokenFor(t)) + 0.6;
 // "M.A."-style initials end in a dot but do not end a clause.
 const endsClause = (t) => /[?!.,;:]$/.test(t) && !/^(\p{L}\.)+$/u.test(t);
 
@@ -91,6 +108,17 @@ const guess = tokens.map((t, i) => {
 // cost, higher for long pauses.
 const clauses = tokens.map((t, i) => i).filter((i) => endsClause(tokens[i]) && i < tokens.length - 1);
 const P = inner;
+
+// "pins" in the config fix a clause end on a given pause when the estimate is
+// ambiguous: [{"word": "nez", "at": 6.23}] = the clause ending in the word
+// that starts with "nez" ends at the pause nearest 6.23 s (checked by ear or
+// with a pitch/rate analysis).
+const pinCost = (tok, b) => {
+  const pin = (cfg.pins ?? []).find((p) => tok.toLowerCase().startsWith(p.word.toLowerCase()));
+  if (!pin) return 0;
+  const nearest = P.reduce((m, p, k) => (Math.abs(p.start - pin.at) < Math.abs(P[m].start - pin.at) ? k : m), 0);
+  return b === nearest ? -100 : 100;
+};
 const SKIP_CLAUSE = 1.0;
 const skipPause = (p) => 0.12 + 1.5 * (p.end - p.start);
 const D = Array.from({length: clauses.length + 1}, () => new Array(P.length + 1).fill(Infinity));
@@ -102,7 +130,8 @@ for (let a = 0; a <= clauses.length; a++) {
     const opts = [];
     if (a > 0) opts.push([D[a - 1][b] + SKIP_CLAUSE, 'c']);
     if (b > 0) opts.push([D[a][b - 1] + skipPause(P[b - 1]), 'p']);
-    if (a > 0 && b > 0) opts.push([D[a - 1][b - 1] + (guess[clauses[a - 1]].b - P[b - 1].start) ** 2, 'm']);
+    if (a > 0 && b > 0)
+      opts.push([D[a - 1][b - 1] + (guess[clauses[a - 1]].b - P[b - 1].start) ** 2 + pinCost(tokens[clauses[a - 1]], b - 1), 'm']);
     for (const [c, k] of opts) if (c < D[a][b]) [D[a][b], B[a][b]] = [c, k];
   }
 }
