@@ -1,0 +1,533 @@
+{
+ "fps": 30,
+ "totalFrames": 1095,
+ "draft": true,
+ "voiceDuration": 34,
+ "pausesDetected": 0,
+ "anchorsUsed": 0,
+ "timing": "draft",
+ "words": [
+  {
+   "text": "Lequel",
+   "start": 0,
+   "end": 0.455
+  },
+  {
+   "text": "t'a",
+   "start": 0.455,
+   "end": 0.735
+  },
+  {
+   "text": "fait",
+   "start": 0.735,
+   "end": 1.015
+  },
+  {
+   "text": "arrêter ?",
+   "start": 1.015,
+   "end": 1.646
+  },
+  {
+   "text": "Exactement.",
+   "start": 1.646,
+   "end": 2.451
+  },
+  {
+   "text": "En",
+   "start": 2.451,
+   "end": 2.731
+  },
+  {
+   "text": "hiver,",
+   "start": 2.731,
+   "end": 3.186
+  },
+  {
+   "text": "il",
+   "start": 3.186,
+   "end": 3.466
+  },
+  {
+   "text": "fait",
+   "start": 3.467,
+   "end": 3.747
+  },
+  {
+   "text": "noir",
+   "start": 3.747,
+   "end": 4.027
+  },
+  {
+   "text": "à",
+   "start": 4.027,
+   "end": 4.307
+  },
+  {
+   "text": "quatre",
+   "start": 4.307,
+   "end": 4.587
+  },
+  {
+   "text": "heures",
+   "start": 4.587,
+   "end": 4.867
+  },
+  {
+   "text": "et",
+   "start": 4.867,
+   "end": 5.147
+  },
+  {
+   "text": "demie.",
+   "start": 5.147,
+   "end": 5.602
+  },
+  {
+   "text": "Ton",
+   "start": 5.602,
+   "end": 5.882
+  },
+  {
+   "text": "affiche",
+   "start": 5.883,
+   "end": 6.338
+  },
+  {
+   "text": "papier",
+   "start": 6.338,
+   "end": 6.793
+  },
+  {
+   "text": "disparaît",
+   "start": 6.793,
+   "end": 7.423
+  },
+  {
+   "text": "pendant",
+   "start": 7.423,
+   "end": 7.878
+  },
+  {
+   "text": "ton",
+   "start": 7.878,
+   "end": 8.158
+  },
+  {
+   "text": "rush",
+   "start": 8.159,
+   "end": 8.439
+  },
+  {
+   "text": "du",
+   "start": 8.439,
+   "end": 8.719
+  },
+  {
+   "text": "souper.",
+   "start": 8.719,
+   "end": 9.174
+  },
+  {
+   "text": "Avec",
+   "start": 9.174,
+   "end": 9.629
+  },
+  {
+   "text": "un",
+   "start": 9.629,
+   "end": 9.909
+  },
+  {
+   "text": "panneau",
+   "start": 9.909,
+   "end": 10.364
+  },
+  {
+   "text": "lumineux",
+   "start": 10.365,
+   "end": 10.995
+  },
+  {
+   "text": "Feeha,",
+   "start": 10.995,
+   "end": 11.45
+  },
+  {
+   "text": "ton",
+   "start": 11.45,
+   "end": 11.73
+  },
+  {
+   "text": "offre",
+   "start": 11.73,
+   "end": 12.01
+  },
+  {
+   "text": "brille",
+   "start": 12.01,
+   "end": 12.29
+  },
+  {
+   "text": "toute",
+   "start": 12.29,
+   "end": 12.57
+  },
+  {
+   "text": "la",
+   "start": 12.571,
+   "end": 12.851
+  },
+  {
+   "text": "soirée.",
+   "start": 12.851,
+   "end": 13.131
+  },
+  {
+   "text": "Tu",
+   "start": 13.131,
+   "end": 13.411
+  },
+  {
+   "text": "glisses",
+   "start": 13.411,
+   "end": 13.691
+  },
+  {
+   "text": "ton",
+   "start": 13.691,
+   "end": 13.971
+  },
+  {
+   "text": "poster,",
+   "start": 13.971,
+   "end": 14.426
+  },
+  {
+   "text": "c'est",
+   "start": 14.426,
+   "end": 14.706
+  },
+  {
+   "text": "tout.",
+   "start": 14.706,
+   "end": 14.987
+  },
+  {
+   "text": "Tu",
+   "start": 14.987,
+   "end": 15.267
+  },
+  {
+   "text": "changes",
+   "start": 15.267,
+   "end": 15.547
+  },
+  {
+   "text": "ta",
+   "start": 15.547,
+   "end": 15.827
+  },
+  {
+   "text": "promo",
+   "start": 15.827,
+   "end": 16.282
+  },
+  {
+   "text": "en",
+   "start": 16.282,
+   "end": 16.562
+  },
+  {
+   "text": "quelques",
+   "start": 16.562,
+   "end": 17.017
+  },
+  {
+   "text": "secondes.",
+   "start": 17.018,
+   "end": 17.473
+  },
+  {
+   "text": "L'offre",
+   "start": 17.473,
+   "end": 17.753
+  },
+  {
+   "text": "groupée :",
+   "start": 17.753,
+   "end": 18.033
+  },
+  {
+   "text": "deux",
+   "start": 18.033,
+   "end": 18.313
+  },
+  {
+   "text": "panneaux,",
+   "start": 18.313,
+   "end": 18.768
+  },
+  {
+   "text": "posters",
+   "start": 18.768,
+   "end": 19.223
+  },
+  {
+   "text": "imprimés,",
+   "start": 19.223,
+   "end": 19.854
+  },
+  {
+   "text": "kit",
+   "start": 19.854,
+   "end": 20.134
+  },
+  {
+   "text": "de",
+   "start": 20.134,
+   "end": 20.414
+  },
+  {
+   "text": "suspension",
+   "start": 20.414,
+   "end": 21.044
+  },
+  {
+   "text": "et",
+   "start": 21.044,
+   "end": 21.324
+  },
+  {
+   "text": "tutoriel.",
+   "start": 21.324,
+   "end": 21.955
+  },
+  {
+   "text": "Installé",
+   "start": 21.955,
+   "end": 22.585
+  },
+  {
+   "text": "en",
+   "start": 22.585,
+   "end": 22.865
+  },
+  {
+   "text": "moins",
+   "start": 22.865,
+   "end": 23.145
+  },
+  {
+   "text": "de",
+   "start": 23.145,
+   "end": 23.425
+  },
+  {
+   "text": "dix",
+   "start": 23.425,
+   "end": 23.705
+  },
+  {
+   "text": "minutes.",
+   "start": 23.705,
+   "end": 24.161
+  },
+  {
+   "text": "599",
+   "start": 24.161,
+   "end": 24.791
+  },
+  {
+   "text": "$.",
+   "start": 24.791,
+   "end": 24.896
+  },
+  {
+   "text": "Sur",
+   "start": 24.896,
+   "end": 25.176
+  },
+  {
+   "text": "sept",
+   "start": 25.176,
+   "end": 25.456
+  },
+  {
+   "text": "ans,",
+   "start": 25.456,
+   "end": 25.736
+  },
+  {
+   "text": "ça",
+   "start": 25.736,
+   "end": 26.016
+  },
+  {
+   "text": "revient",
+   "start": 26.016,
+   "end": 26.472
+  },
+  {
+   "text": "à",
+   "start": 26.472,
+   "end": 26.752
+  },
+  {
+   "text": "moins",
+   "start": 26.752,
+   "end": 27.032
+  },
+  {
+   "text": "de",
+   "start": 27.032,
+   "end": 27.312
+  },
+  {
+   "text": "huit",
+   "start": 27.312,
+   "end": 27.592
+  },
+  {
+   "text": "dollars",
+   "start": 27.592,
+   "end": 28.047
+  },
+  {
+   "text": "par",
+   "start": 28.047,
+   "end": 28.327
+  },
+  {
+   "text": "mois.",
+   "start": 28.327,
+   "end": 28.608
+  },
+  {
+   "text": "Moins",
+   "start": 28.608,
+   "end": 28.888
+  },
+  {
+   "text": "cher",
+   "start": 28.888,
+   "end": 29.168
+  },
+  {
+   "text": "qu'un",
+   "start": 29.168,
+   "end": 29.623
+  },
+  {
+   "text": "trio",
+   "start": 29.623,
+   "end": 29.903
+  },
+  {
+   "text": "burger.",
+   "start": 29.903,
+   "end": 30.358
+  },
+  {
+   "text": "Installe-les",
+   "start": 30.358,
+   "end": 30.989
+  },
+  {
+   "text": "avant",
+   "start": 30.989,
+   "end": 31.444
+  },
+  {
+   "text": "le",
+   "start": 31.444,
+   "end": 31.724
+  },
+  {
+   "text": "rush",
+   "start": 31.724,
+   "end": 32.004
+  },
+  {
+   "text": "des",
+   "start": 32.004,
+   "end": 32.284
+  },
+  {
+   "text": "fêtes,",
+   "start": 32.284,
+   "end": 32.564
+  },
+  {
+   "text": "sur",
+   "start": 32.564,
+   "end": 32.844
+  },
+  {
+   "text": "feehapanels.com.",
+   "start": 32.844,
+   "end": 34
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 71
+  },
+  {
+   "id": "dark",
+   "from": 71,
+   "to": 165
+  },
+  {
+   "id": "rush",
+   "from": 165,
+   "to": 272
+  },
+  {
+   "id": "solution",
+   "from": 272,
+   "to": 391
+  },
+  {
+   "id": "insert",
+   "from": 391,
+   "to": 447
+  },
+  {
+   "id": "swap",
+   "from": 447,
+   "to": 521
+  },
+  {
+   "id": "bundle",
+   "from": 521,
+   "to": 656
+  },
+  {
+   "id": "install",
+   "from": 656,
+   "to": 722
+  },
+  {
+   "id": "price",
+   "from": 722,
+   "to": 744
+  },
+  {
+   "id": "month",
+   "from": 744,
+   "to": 855
+  },
+  {
+   "id": "trio",
+   "from": 855,
+   "to": 908
+  },
+  {
+   "id": "cta",
+   "from": 908,
+   "to": 1095
+  }
+ ]
+}

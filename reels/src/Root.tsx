@@ -14,6 +14,7 @@ import {MA2} from './ma2/MA2';
 import {Panels} from './panels/Panels';
 import {Expo} from './expo/Expo';
 import {Hiver} from './hiver/Hiver';
+import {Vente} from './vente/Vente';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -21,6 +22,7 @@ import ma2 from './ma2/timeline.json';
 import panels from './panels/timeline.json';
 import expo from './expo/timeline.json';
 import hiver from './hiver/timeline.json';
+import vente from './vente/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -36,6 +38,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="Vente"
+      component={Vente}
+      width={1080}
+      height={1920}
+      fps={vente.fps}
+      durationInFrames={vente.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="Hiver"
       component={Hiver}

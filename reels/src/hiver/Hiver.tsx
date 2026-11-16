@@ -5,7 +5,7 @@ import timeline from './timeline.json';
 
 // Winter in Quebec: taped paper posters go dark by 5 pm; a Feeha light panel
 // keeps the offer visible. Problem in cold blue night, solution in Feeha red.
-const H = {
+export const H = {
   red: '#A42325',
   deep: '#6B1517',
   ink: '#0E1014',
@@ -16,17 +16,17 @@ const H = {
   warm: '#FFE9C2',
   grey: '#8B8F96',
 };
-const COND = '"Bebas Neue", sans-serif';
-const SANS = '"Inter", sans-serif';
-const BEAT = 15;
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-const useSpr = (delay = 0, config = {damping: 13, stiffness: 220, mass: 0.6}) => {
+export const COND = '"Bebas Neue", sans-serif';
+export const SANS = '"Inter", sans-serif';
+export const BEAT = 15;
+export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+export const useSpr = (delay = 0, config = {damping: 13, stiffness: 220, mass: 0.6}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   return spring({frame: frame - delay, fps, config});
 };
 
-const Big = ({children, size, delay = 0, color = H.white, style}: {children: React.ReactNode; size: number; delay?: number; color?: string; style?: React.CSSProperties}) => {
+export const Big = ({children, size, delay = 0, color = H.white, style}: {children: React.ReactNode; size: number; delay?: number; color?: string; style?: React.CSSProperties}) => {
   const p = useSpr(delay, {damping: 14, stiffness: 300, mass: 0.5});
   return (
     <div
@@ -48,7 +48,7 @@ const Big = ({children, size, delay = 0, color = H.white, style}: {children: Rea
   );
 };
 
-const Tag = ({children, delay = 0, bg = H.red, color = H.white, rotate = -3, size = 72}: {children: React.ReactNode; delay?: number; bg?: string; color?: string; rotate?: number; size?: number}) => {
+export const Tag = ({children, delay = 0, bg = H.red, color = H.white, rotate = -3, size = 72}: {children: React.ReactNode; delay?: number; bg?: string; color?: string; rotate?: number; size?: number}) => {
   const frame = useCurrentFrame();
   const p = useSpr(delay, {damping: 9, stiffness: 260, mass: 0.6});
   return (
@@ -72,7 +72,7 @@ const Tag = ({children, delay = 0, bg = H.red, color = H.white, rotate = -3, siz
   );
 };
 
-const Snow = ({n = 60}: {n?: number}) => {
+export const Snow = ({n = 60}: {n?: number}) => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
@@ -88,7 +88,7 @@ const Snow = ({n = 60}: {n?: number}) => {
 };
 
 /** Full-bleed photo with a slow push-in. */
-const Photo = ({src, from = 1, to = 1.12, dim = 0, tint, style}: {src: string; from?: number; to?: number; dim?: number; tint?: string; style?: React.CSSProperties}) => {
+export const Photo = ({src, from = 1, to = 1.12, dim = 0, tint, style}: {src: string; from?: number; to?: number; dim?: number; tint?: string; style?: React.CSSProperties}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
   return (
@@ -105,7 +105,7 @@ const Photo = ({src, from = 1, to = 1.12, dim = 0, tint, style}: {src: string; f
 
 // ---- the product: a slim LED panel, poster slid in from a slot on the top --------
 /** The client's poster (two versions, from the brief). */
-const SamplePoster = ({variant = 0}: {variant?: number}) => (
+export const SamplePoster = ({variant = 0}: {variant?: number}) => (
   <Img src={staticFile(variant === 0 ? 'dino/poster.png' : 'dino/poster-creme.png')} style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
 );
 
@@ -115,9 +115,9 @@ const SamplePoster = ({variant = 0}: {variant?: number}) => (
  * switches the back-light on, `swap` 0..1 slides the poster out through the top
  * and the second one in.
  */
-const LightBox = ({slide = 1, light = 1, swap = 0, scale = 1}: {slide?: number; light?: number; swap?: number; scale?: number}) => {
+export const LightBox = ({slide = 1, light = 1, swap = 0, scale = 1}: {slide?: number; light?: number; swap?: number; scale?: number}) => {
   const W = 560;
-  const Hh = 840;
+  const Hh = (560 - 28) * 1.5 + 28; // inner window is exactly 2:3, like the poster
   return (
     <div style={{position: 'absolute', left: 540 - W / 2, top: 470, width: W, height: Hh, transform: `scale(${scale})`}}>
       {/* suspension cables */}
@@ -154,7 +154,7 @@ const LightBox = ({slide = 1, light = 1, swap = 0, scale = 1}: {slide?: number; 
   );
 };
 
-const DarkWall = ({warm = 0, children}: {warm?: number; children?: React.ReactNode}) => (
+export const DarkWall = ({warm = 0, children}: {warm?: number; children?: React.ReactNode}) => (
   <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 45%, ${warm > 0 ? '#2a2420' : '#161a22'} 0%, ${H.ink} 70%)`}}>
     <AbsoluteFill style={{background: 'repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, transparent 2px 140px)'}} />
     {children}
@@ -296,14 +296,14 @@ const Solution = ({nightAt}: {nightAt: number}) => {
  * The four insertion photos, re-aligned so the panel frame sits on exactly the
  * same rectangle in every one (frame edges measured on each image).
  */
-const SHOTS = {
+export const SHOTS = {
   empty: {src: 'dino/empty.png', w: 1064, h: 1478, f: [155, 227, 909, 1317]},
   slide: {src: 'dino/slide.png', w: 1024, h: 1536, f: [206, 455, 821, 1289]},
   inOff: {src: 'dino/in-off.png', w: 1024, h: 1536, f: [161, 238, 861, 1259]},
   lit: {src: 'dino/lit.png', w: 1086, h: 1448, f: [204, 258, 904, 1231]},
 };
-const TARGET = {x: 170, y: 400, w: 740, h: 1080};
-const Shot = ({k, opacity}: {k: keyof typeof SHOTS; opacity: number}) => {
+export const TARGET = {x: 170, y: 400, w: 740, h: 1080};
+export const Shot = ({k, opacity}: {k: keyof typeof SHOTS; opacity: number}) => {
   const s = SHOTS[k];
   const sx = TARGET.w / (s.f[2] - s.f[0]);
   const sy = TARGET.h / (s.f[3] - s.f[1]);
