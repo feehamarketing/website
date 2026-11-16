@@ -241,59 +241,183 @@ const Swap = () => {
   );
 };
 
-const ITEMS = ['2 PANNEAUX LUMINEUX', 'POSTERS IMPRIMÉS INCLUS', 'KIT DE SUSPENSION', 'TUTORIEL PAS À PAS'];
-const Bundle = () => {
+/** Rolled printed poster. */
+const RolledPoster = ({w = 90}: {w?: number}) => (
+  <svg width={w * 2.4} height={w} viewBox="0 0 240 100">
+    <rect x="20" y="18" width="200" height="64" rx="10" fill={A.red} />
+    <rect x="20" y="18" width="200" height="18" fill={A.redHi} />
+    <ellipse cx="220" cy="50" rx="14" ry="32" fill={A.cream} />
+    <ellipse cx="220" cy="50" rx="6" ry="16" fill="#d9cdb8" />
+    <text x="110" y="62" textAnchor="middle" fontFamily="Bebas Neue" fontSize="34" fill={A.white}>TRIO BURGER</text>
+  </svg>
+);
+const CableKit = ({w = 170}: {w?: number}) => (
+  <svg width={w} height={w * 0.8} viewBox="0 0 170 136">
+    {[0, 1].map((k) => (
+      <g key={k} transform={`translate(${k * 72} 0)`}>
+        <ellipse cx="44" cy="54" rx="36" ry="40" fill="none" stroke="#B8BEC6" strokeWidth="5" />
+        <ellipse cx="44" cy="54" rx="26" ry="30" fill="none" stroke="#9AA1A9" strokeWidth="4" />
+        <rect x="36" y="96" width="16" height="34" rx="5" fill="#C8CDD4" />
+      </g>
+    ))}
+  </svg>
+);
+const Tutorial = ({w = 150}: {w?: number}) => (
+  <div style={{width: w, height: w * 1.7, borderRadius: w * 0.14, background: '#111', padding: w * 0.06, boxSizing: 'border-box'}}>
+    <div style={{width: '100%', height: '100%', borderRadius: w * 0.1, background: A.cream, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: w * 0.08}}>
+      <div style={{width: w * 0.42, height: w * 0.42, borderRadius: '50%', background: A.red, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{width: 0, height: 0, borderLeft: `${w * 0.13}px solid #fff`, borderTop: `${w * 0.08}px solid transparent`, borderBottom: `${w * 0.08}px solid transparent`, marginLeft: w * 0.04}} />
+      </div>
+      <div style={{fontFamily: COND, fontSize: w * 0.17, color: A.ink, textAlign: 'center', lineHeight: 0.95}}>TUTO
+        <br />
+        PAS À PAS</div>
+    </div>
+  </div>
+);
+
+/** Feeha box: opens, and each item of the bundle pops out when it is named. */
+const Bundle = ({itemAt}: {itemAt: number[]}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const p1 = spring({frame: frame - 2, fps, config: {damping: 12, stiffness: 160}});
-  const p2 = spring({frame: frame - 7, fps, config: {damping: 12, stiffness: 160}});
+  const open = spring({frame: frame - 2, fps, config: {damping: 14, stiffness: 140}});
+  const pop = (k: number) => spring({frame: frame - itemAt[k], fps, config: {damping: 11, stiffness: 200, mass: 0.7}});
+  const BOX = {x: 260, y: 1180, w: 560, h: 300};
+  const items: {node: React.ReactNode; label: string; x: number; y: number}[] = [
+    {
+      node: (
+        <div style={{position: 'relative', width: 400, height: 360}}>
+          <div style={{position: 'absolute', left: 0, top: 12, transform: 'rotate(-7deg)'}}>
+            <Panel x={0} y={0} w={210} cable={0}>
+              <Poster kind="burger" w={210} />
+            </Panel>
+          </div>
+          <div style={{position: 'absolute', left: 170, top: 0, transform: 'rotate(6deg)'}}>
+            <Panel x={0} y={0} w={210} cable={0}>
+              <Poster kind="pizza" w={210} />
+            </Panel>
+          </div>
+        </div>
+      ),
+      label: '2 PANNEAUX LUMINEUX',
+      x: 90,
+      y: 310,
+    },
+    {node: <RolledPoster w={100} />, label: 'POSTERS IMPRIMÉS', x: 70, y: 820},
+    {node: <CableKit w={200} />, label: 'KIT DE SUSPENSION', x: 620, y: 760},
+    {node: <Tutorial w={150} />, label: 'TUTORIEL', x: 730, y: 330},
+  ];
   return (
-    <AbsoluteFill style={{background: A.cream}}>
-      <div style={{position: 'absolute', top: 0, left: 0, right: 0, height: 380, background: A.red}} />
-      <div style={{position: 'absolute', top: 110, left: 0, right: 0, textAlign: 'center'}}>
-        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 10, color: A.warm}}>EN CE MOMENT</div>
-        <div style={{fontFamily: COND, fontSize: 150, color: A.white, lineHeight: 1}}>OFFRE GROUPÉE</div>
+    <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 70%, #fff7ec 0%, ${A.cream} 55%, #ead9c2 100%)`}}>
+      {/* rays behind the box */}
+      <AbsoluteFill style={{background: `repeating-conic-gradient(from ${frame * 0.6}deg at 540px 1180px, rgba(164,35,37,.07) 0deg 10deg, transparent 10deg 20deg)`, opacity: open}} />
+      <div style={{position: 'absolute', top: 100, left: 0, right: 0, textAlign: 'center'}}>
+        <div style={{display: 'inline-block', fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 10, color: A.white, background: A.red, padding: '10px 26px', borderRadius: 999}}>PROMO EN CE MOMENT</div>
+        <div style={{fontFamily: COND, fontSize: 112, color: A.ink, lineHeight: 1, marginTop: 14}}>TOUT EST DANS LA BOÎTE</div>
       </div>
-      <div style={{position: 'absolute', top: 430, left: 0, right: 0, height: 480}}>
-        <div style={{position: 'absolute', left: 190, top: 0, transform: `translateY(${(1 - p1) * 600}px) rotate(${-6 + (1 - p1) * -20}deg)`}}>
-          <Panel x={0} y={0} w={250} cable={0}>
-            <Poster kind="burger" w={250} />
-          </Panel>
-        </div>
-        <div style={{position: 'absolute', left: 600, top: 20, transform: `translateY(${(1 - p2) * 600}px) rotate(${6 + (1 - p2) * 20}deg)`}}>
-          <Panel x={0} y={0} w={250} cable={0}>
-            <Poster kind="pizza" w={250} />
-          </Panel>
-        </div>
-      </div>
-      <div style={{position: 'absolute', top: 960, left: 90, right: 60, display: 'flex', flexDirection: 'column', gap: 22}}>
-        {ITEMS.map((it, i) => {
-          const at = [38, 64, 70, 76][i];
-          const p = spring({frame: frame - at, fps, config: {damping: 12, stiffness: 240, mass: 0.6}});
-          return (
-            <div key={it} style={{display: 'flex', alignItems: 'center', gap: 26, opacity: frame < at ? 0 : 1, transform: `translateX(${interpolate(p, [0, 1], [-60, 0])}px)`}}>
-              <div style={{width: 84, height: 84, borderRadius: 42, background: A.red, color: A.white, fontFamily: SANS, fontWeight: 900, fontSize: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${p})`}}>✓</div>
-              <div style={{fontFamily: COND, fontSize: 72, color: A.ink, lineHeight: 1}}>{it}</div>
+      {items.map((it, k) => {
+        const p = pop(k);
+        const fromX = BOX.x + BOX.w / 2;
+        const fromY = BOX.y;
+        return (
+          <div key={it.label} style={{position: 'absolute', left: it.x, top: it.y, display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: frame < itemAt[k] ? 0 : 1, transform: `translate(${(fromX - it.x - 120) * (1 - p)}px, ${(fromY - it.y) * (1 - p)}px) scale(${0.3 + 0.7 * p})`}}>
+            {it.node}
+            <div style={{marginTop: 14, display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: COND, fontSize: 44, color: A.white, background: A.ink, padding: '6px 18px 0', borderRadius: 999, whiteSpace: 'nowrap'}}>
+              <span style={{color: A.redHi}}>✓</span> {it.label}
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
+      {/* the Feeha box */}
+      <div style={{position: 'absolute', left: BOX.x, top: BOX.y, width: BOX.w, height: BOX.h, background: `linear-gradient(180deg, ${A.red}, ${A.deep})`, borderRadius: 14, boxShadow: '0 30px 60px rgba(0,0,0,.25)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{background: A.white, padding: '10px 26px', borderRadius: 12}}>
+          <Img src={staticFile('feeha/logo-clean.png')} style={{width: 230, display: 'block'}} />
+        </div>
       </div>
-      <div style={{position: 'absolute', top: 1410, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 64, color: A.red, opacity: frame >= 94 ? 1 : 0}}>INSTALLÉ EN MOINS DE 10 MINUTES</div>
+      {[0, 1].map((side) => (
+        <div
+          key={side}
+          style={{
+            position: 'absolute',
+            left: side ? BOX.x + BOX.w / 2 : BOX.x,
+            top: BOX.y - 6,
+            width: BOX.w / 2,
+            height: 40,
+            background: A.redHi,
+            borderRadius: 8,
+            transformOrigin: side ? '100% 100%' : '0% 100%',
+            transform: `rotate(${(side ? 1 : -1) * open * 120}deg)`,
+          }}
+        />
+      ))}
     </AbsoluteFill>
   );
 };
 
-const Price = () => {
+const Burst = ({size, text, rot = 0}: {size: number; text: string; rot?: number}) => {
+  const pts = Array.from({length: 32}, (_, i) => {
+    const r = i % 2 ? size * 0.4 : size * 0.5;
+    const a = (i / 32) * Math.PI * 2;
+    return `${size / 2 + r * Math.cos(a)},${size / 2 + r * Math.sin(a)}`;
+  }).join(' ');
+  return (
+    <div style={{position: 'relative', width: size, height: size, transform: `rotate(${rot}deg)`}}>
+      <svg width={size} height={size} style={{position: 'absolute', inset: 0}}>
+        <polygon points={pts} fill="#FFC93C" stroke={A.ink} strokeWidth="4" />
+      </svg>
+      <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: COND, fontSize: size * 0.3, color: A.ink, lineHeight: 0.9, textAlign: 'center', transform: `rotate(${-rot * 0.6}deg)`}}>{text}</div>
+    </div>
+  );
+};
+
+const TIERS = [
+  {name: 'LED 50 × 70 CM', price: '599 $', hot: true},
+  {name: 'FORMAT A1', price: '699,99 $'},
+  {name: 'FORMAT A0', price: '850,99 $'},
+];
+
+/** Price reveal: swinging tag, -15 % burst, "tout inclus" stamp, formats, per month. */
+const Price = ({rabaisAt, monthAt}: {rabaisAt: number; monthAt: number}) => {
   const frame = useCurrentFrame();
-  const p = useSpr(0, {damping: 9, stiffness: 260, mass: 0.6});
-  const q = useSpr(54, {damping: 9, stiffness: 260, mass: 0.6});
+  const {fps} = useVideoConfig();
+  const tag = spring({frame: frame - 2, fps, config: {damping: 7, stiffness: 120, mass: 1}});
+  const swing = Math.sin(frame / 9) * 4 * Math.exp(-frame / 60);
+  const stamp = spring({frame: frame - 10, fps, config: {damping: 10, stiffness: 300, mass: 0.6}});
+  const burst = spring({frame: frame - rabaisAt, fps, config: {damping: 8, stiffness: 260, mass: 0.6}});
+  const month = spring({frame: frame - monthAt, fps, config: {damping: 10, stiffness: 240, mass: 0.6}});
   return (
     <RedBackdrop>
-      <div style={{position: 'absolute', top: 420, left: 0, right: 0, textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 38, letterSpacing: 8, color: A.warm}}>2 PANNEAUX · TOUT INCLUS</div>
-      <div style={{position: 'absolute', top: 480, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 330, lineHeight: 1, color: A.white, transform: `scale(${interpolate(p, [0, 1], [1.6, 1])})`}}>599 $</div>
-      <div style={{position: 'absolute', top: 860, left: 0, right: 0, textAlign: 'center', opacity: frame >= 54 ? 1 : 0, transform: `scale(${interpolate(q, [0, 1], [1.5, 1])})`}}>
-        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 34, letterSpacing: 8, color: A.warm}}>SUR 7 ANS, ÇA REVIENT À</div>
-        <div style={{display: 'inline-block', marginTop: 16, fontFamily: COND, fontSize: 150, color: A.red, background: A.white, padding: '10px 40px 0', borderRadius: 18}}>&lt; 8 $ / MOIS</div>
+      {/* tag hanging from a string */}
+      <div style={{position: 'absolute', left: 540, top: 0, width: 4, height: 330, background: A.cream, opacity: 0.8}} />
+      <div style={{position: 'absolute', left: 140, top: 300, width: 800, transformOrigin: '50% 0%', transform: `translateY(${interpolate(tag, [0, 1], [-900, 0])}px) rotate(${swing}deg)`}}>
+        <div style={{position: 'relative', background: A.cream, borderRadius: 36, padding: '70px 40px 50px', boxShadow: '0 40px 80px rgba(0,0,0,.35)', textAlign: 'center'}}>
+          <div style={{position: 'absolute', left: 380, top: 18, width: 40, height: 40, borderRadius: 20, background: A.red}} />
+          <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 34, letterSpacing: 8, color: A.red}}>2 PANNEAUX · À PARTIR DE</div>
+          <div style={{fontFamily: COND, fontSize: 290, lineHeight: 1, color: A.ink}}>599 $</div>
+          <div style={{fontFamily: SANS, fontWeight: 700, fontSize: 28, color: A.ink, opacity: 0.75}}>posters · suspension · rallonges · tutoriel inclus</div>
+        </div>
+        {/* TOUT INCLUS stamp */}
+        <div style={{position: 'absolute', left: -50, top: 465, fontFamily: COND, fontSize: 64, color: A.red, border: `6px solid ${A.red}`, borderRadius: 14, padding: '6px 20px 0', background: 'rgba(246,239,228,.9)', transform: `rotate(-14deg) scale(${interpolate(stamp, [0, 1], [2.5, 1])})`, opacity: frame < 10 ? 0 : 1}}>TOUT INCLUS</div>
+        {/* -15 % */}
+        <div style={{position: 'absolute', right: -70, top: -150, opacity: frame < rabaisAt ? 0 : 1, transform: `scale(${burst})`}}>
+          <Burst size={240} text="-15 %" rot={frame * 1.2} />
+        </div>
+      </div>
+      {/* formats */}
+      <div style={{position: 'absolute', top: 980, left: 70, right: 70, display: 'flex', gap: 18}}>
+        {TIERS.map((t, i) => {
+          const p = spring({frame: frame - 18 - i * 5, fps, config: {damping: 14, stiffness: 220}});
+          return (
+            <div key={t.name} style={{flex: 1, textAlign: 'center', background: t.hot ? A.white : 'rgba(255,255,255,.12)', border: t.hot ? 'none' : '2px solid rgba(255,255,255,.35)', borderRadius: 20, padding: '18px 8px 12px', transform: `translateY(${(1 - p) * 120}px)`, opacity: p}}>
+              <div style={{fontFamily: COND, fontSize: 40, color: t.hot ? A.red : A.cream}}>{t.name}</div>
+              <div style={{fontFamily: COND, fontSize: 64, color: t.hot ? A.ink : A.white, lineHeight: 1}}>{t.price}</div>
+            </div>
+          );
+        })}
+      </div>
+      {/* per month */}
+      <div style={{position: 'absolute', top: 1200, left: 0, right: 0, textAlign: 'center', opacity: frame < monthAt ? 0 : 1, transform: `scale(${interpolate(month, [0, 1], [1.5, 1])})`}}>
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 32, letterSpacing: 8, color: A.warm}}>SUR 7 ANS DE DURÉE DE VIE</div>
+        <div style={{display: 'inline-block', marginTop: 12, fontFamily: COND, fontSize: 130, color: A.red, background: A.white, padding: '8px 40px 0', borderRadius: 18, boxShadow: '0 12px 0 rgba(0,0,0,.25)'}}>&lt; 8 $ / MOIS</div>
       </div>
     </RedBackdrop>
   );
@@ -334,8 +458,14 @@ const Cta = () => {
 // ---- composition ------------------------------------------------------------------------
 export const FeehaAnim = ({audio}: {audio: boolean}) => {
   const frame = useCurrentFrame();
-  const {durationInFrames} = useVideoConfig();
-  const {scenes} = timeline;
+  const {durationInFrames, fps} = useVideoConfig();
+  const {scenes, words} = timeline as {scenes: {id: string; from: number; to: number}[]; words: {text: string; start: number}[]};
+  // frame (relative to a scene) at which a word starting with `w` is spoken
+  const at = (id: string, w: string, fallback: number) => {
+    const sc = scenes.find((x) => x.id === id)!;
+    const hit = words.find((x) => x.text.toLowerCase().startsWith(w) && x.start * fps >= sc.from - 2 && x.start * fps < sc.to);
+    return hit ? Math.max(0, Math.round(hit.start * fps) - sc.from - 2) : fallback;
+  };
   const cuts = scenes.slice(1).map((s) => s.from);
   const since = Math.min(...cuts.filter((c) => c <= frame).map((c) => frame - c), 99);
   const flash = interpolate(since, [0, 4], [0.3, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -345,8 +475,8 @@ export const FeehaAnim = ({audio}: {audio: boolean}) => {
     solution: <Solution />,
     real: <Real />,
     swap: <Swap />,
-    bundle: <Bundle />,
-    price: <Price />,
+    bundle: <Bundle itemAt={[at('bundle', 'deux', 20), at('bundle', 'posters', 45), at('bundle', 'kit', at('bundle', 'posters', 45) + 16), at('bundle', 'tutoriel', at('bundle', 'posters', 45) + 32)]} />,
+    price: <Price rabaisAt={at('price', 'quinze', 24)} monthAt={at('price', 'moins', 55)} />,
     cta: <Cta />,
   };
   return (
