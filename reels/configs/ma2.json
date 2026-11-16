@@ -1,0 +1,60 @@
+{
+  "id": "ma2",
+  "composition": "MA2",
+  "totalFrames": 900,
+  "tailSeconds": 2.5,
+  "timeline": "src/ma2/timeline.json",
+  "draftVoiceDuration": 25,
+  "music": {
+    "style": "pluck",
+    "transpose": -2
+  },
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "script": "Prends un 25 cennes. Glisse-le dans la semelle de ton pneu, la tête du caribou vers le bas. Tu vois le bout de son nez ? Tes pneus sont usés. Pas de panique : chez M.A. Auto Distribution, on a des pneus d'hiver garantis, et les pièces pour ton char. Achète tes pneus et tes jantes, on te les installe gratuitement. Et on livre, gratuitement. Appelle au 438-368-6865.",
+  "spokenAs": {
+    "25": "vingt-cinq",
+    "438-368-6865": "quatre-trente-huit, trois-soixante-huit, soixante-huit, soixante-cinq"
+  },
+  "scenes": [
+    {
+      "id": "coin",
+      "startsAt": "Prends"
+    },
+    {
+      "id": "insert",
+      "startsAt": "Glisse-le"
+    },
+    {
+      "id": "verdict",
+      "startsAt": "Tu"
+    },
+    {
+      "id": "brand",
+      "startsAt": "Pas"
+    },
+    {
+      "id": "tires",
+      "startsAt": "on"
+    },
+    {
+      "id": "parts",
+      "startsAt": "et"
+    },
+    {
+      "id": "install",
+      "startsAt": "Achète"
+    },
+    {
+      "id": "delivery",
+      "startsAt": "Et",
+      "after": 59
+    },
+    {
+      "id": "call",
+      "startsAt": "Appelle"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ import {Captions} from '../feeha/Captions';
 import timeline from './timeline.json';
 
 // ---- M.A. Auto Distribution brand -------------------------------------------
-const M = {
+export const M = {
   black: '#050608',
   ink: '#0B0E14',
   blue: '#1F7BFF',
@@ -23,20 +23,20 @@ const M = {
   white: '#FFFFFF',
   grey: '#9AA3AD',
 };
-const FONT = '"Archivo Variable", sans-serif';
-const heavy = {fontFamily: FONT, fontStretch: '125%', fontWeight: 900, fontStyle: 'italic'} as const;
-const wideLabel = {fontFamily: FONT, fontStretch: '125%', fontWeight: 700, letterSpacing: 14} as const;
+export const FONT = '"Archivo Variable", sans-serif';
+export const heavy = {fontFamily: FONT, fontStretch: '125%', fontWeight: 900, fontStyle: 'italic'} as const;
+export const wideLabel = {fontFamily: FONT, fontStretch: '125%', fontWeight: 700, letterSpacing: 14} as const;
 // brushed-chrome text, like the logo
-const chrome: React.CSSProperties = {
+export const chrome: React.CSSProperties = {
   background: 'linear-gradient(180deg, #FFFFFF 0%, #E6EAEE 38%, #8D96A0 52%, #F4F6F8 70%, #B7BEC6 100%)',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
   color: 'transparent',
   filter: 'drop-shadow(0 6px 0 rgba(0,0,0,.5)) drop-shadow(0 18px 30px rgba(0,0,0,.6))',
 };
-const BEAT = 15;
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-const useSpring = (delay = 0, config = {damping: 12, stiffness: 200, mass: 0.7}) => {
+export const BEAT = 15;
+export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+export const useSpring = (delay = 0, config = {damping: 12, stiffness: 200, mass: 0.7}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   return spring({frame: frame - delay, fps, config});
@@ -44,7 +44,7 @@ const useSpring = (delay = 0, config = {damping: 12, stiffness: 200, mass: 0.7})
 
 // ---- graphics -----------------------------------------------------------------
 /** A winter tyre on a dark alloy rim, drawn in SVG. */
-const Tire = ({size, spin = 0, style}: {size: number; spin?: number; style?: React.CSSProperties}) => {
+export const Tire = ({size, spin = 0, style}: {size: number; spin?: number; style?: React.CSSProperties}) => {
   const blocks = 44;
   return (
     <svg width={size} height={size} viewBox="-100 -100 200 200" style={style}>
@@ -89,7 +89,7 @@ const Tire = ({size, spin = 0, style}: {size: number; spin?: number; style?: Rea
   );
 };
 
-const Snow = ({density = 1}: {density?: number}) => {
+export const Snow = ({density = 1}: {density?: number}) => {
   const frame = useCurrentFrame();
   const flakes = Math.round(70 * density);
   return (
@@ -122,7 +122,7 @@ const Snow = ({density = 1}: {density?: number}) => {
   );
 };
 
-const Background = () => {
+export const Background = () => {
   const frame = useCurrentFrame();
   const pulse = interpolate(frame % BEAT, [0, 3, BEAT], [1, 0.6, 0.45]);
   return (
@@ -171,7 +171,7 @@ const Background = () => {
   );
 };
 
-const Grain = () => {
+export const Grain = () => {
   const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{opacity: 0.08, mixBlendMode: 'overlay', pointerEvents: 'none'}}>
@@ -186,7 +186,7 @@ const Grain = () => {
   );
 };
 
-const Logo = ({width, shine = 0}: {width: number; shine?: number}) => (
+export const Logo = ({width, shine = 0}: {width: number; shine?: number}) => (
   <div style={{position: 'relative', width, aspectRatio: '960 / 470'}}>
     <Img src={staticFile('ma/logo.png')} style={{width: '100%', display: 'block'}} />
     {/* chrome glint sweeping across the logo only */}
@@ -202,7 +202,7 @@ const Logo = ({width, shine = 0}: {width: number; shine?: number}) => (
   </div>
 );
 
-const Label = ({children, delay = 0, color = M.blue}: {children: React.ReactNode; delay?: number; color?: string}) => {
+export const Label = ({children, delay = 0, color = M.blue}: {children: React.ReactNode; delay?: number; color?: string}) => {
   const p = useSpring(delay);
   return (
     <div style={{...wideLabel, fontSize: 30, color, opacity: p, transform: `translateY(${interpolate(p, [0, 1], [-20, 0])}px)`}}>
@@ -211,7 +211,7 @@ const Label = ({children, delay = 0, color = M.blue}: {children: React.ReactNode
   );
 };
 
-const Slam = ({children, delay, size, from = -1, style}: {children: React.ReactNode; delay: number; size: number; from?: -1 | 1; style?: React.CSSProperties}) => {
+export const Slam = ({children, delay, size, from = -1, style}: {children: React.ReactNode; delay: number; size: number; from?: -1 | 1; style?: React.CSSProperties}) => {
   const p = useSpring(delay, {damping: 13, stiffness: 380, mass: 0.5});
   return (
     <div
@@ -232,7 +232,7 @@ const Slam = ({children, delay, size, from = -1, style}: {children: React.ReactN
 };
 
 /** A stamped badge (GRATUITE, GARANTIS…). */
-const Stamp = ({children, delay, color = M.blue, rotate = -6, size = 92}: {children: React.ReactNode; delay: number; color?: string; rotate?: number; size?: number}) => {
+export const Stamp = ({children, delay, color = M.blue, rotate = -6, size = 92}: {children: React.ReactNode; delay: number; color?: string; rotate?: number; size?: number}) => {
   const frame = useCurrentFrame();
   const p = useSpring(delay, {damping: 9, stiffness: 260, mass: 0.7});
   return (
@@ -453,7 +453,7 @@ const Install = () => {
   );
 };
 
-const Van = ({x}: {x: number}) => (
+export const Van = ({x}: {x: number}) => (
   <svg width="640" height="330" viewBox="0 0 640 330" style={{position: 'absolute', top: 470, left: x}}>
     <path d="M30 70 Q30 40 60 40 L400 40 L400 250 L30 250Z" fill="#E9EDF1" />
     <path d="M400 90 L520 90 Q560 92 585 140 L610 190 L610 250 L400 250Z" fill="#DCE2E8" />
@@ -513,7 +513,7 @@ const Delivery = () => {
   );
 };
 
-const PhoneIcon = ({size}: {size: number}) => (
+export const PhoneIcon = ({size}: {size: number}) => (
   <svg width={size} height={size} viewBox="0 0 100 100">
     <circle cx="50" cy="50" r="46" fill="none" stroke={M.blue} strokeWidth="6" />
     <path

@@ -10,9 +10,11 @@ import {Composition, continueRender, delayRender} from 'remotion';
 import {Reel} from './Reel';
 import {Feeha} from './feeha/Feeha';
 import {MA} from './ma/MA';
+import {MA2} from './ma2/MA2';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
+import ma2 from './ma2/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -28,6 +30,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="MA2"
+      component={MA2}
+      width={1080}
+      height={1920}
+      fps={ma2.fps}
+      durationInFrames={ma2.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="MA"
       component={MA}
