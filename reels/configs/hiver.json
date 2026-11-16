@@ -1,7 +1,7 @@
 {
   "id": "hiver",
   "composition": "Hiver",
-  "totalFrames": 1050,
+  "totalFrames": 1260,
   "tailSeconds": 2.5,
   "timeline": "src/hiver/timeline.json",
   "draftVoiceDuration": 29,
@@ -64,6 +64,40 @@
       "id": "cta",
       "startsAt": "À",
       "after": 98
+    }
+  ],
+  "pins": [
+    {
+      "word": "d'œil",
+      "at": 24.05
+    },
+    {
+      "word": "vie",
+      "at": 25.02
+    },
+    {
+      "word": "ans",
+      "at": 25.94
+    },
+    {
+      "word": "moment",
+      "at": 26.96
+    },
+    {
+      "word": "groupée",
+      "at": 27.92
+    },
+    {
+      "word": "pas.",
+      "at": 30.59
+    },
+    {
+      "word": "installer",
+      "at": 32.31
+    },
+    {
+      "word": "$",
+      "at": 34.66
     }
   ]
 }
