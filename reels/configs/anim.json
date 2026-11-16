@@ -1,12 +1,58 @@
 {
   "id": "anim",
   "composition": "FeehaAnim",
-  "totalFrames": 720,
+  "totalFrames": 900,
   "timeline": "src/anim/timeline.json",
   "music": {
     "style": "house",
     "transpose": 0
   },
-  "script": "",
-  "scenes": []
+  "script": "Personne ne regarde ta vitrine ? Après 16 h 30, ton affiche papier disparaît. Avec un panneau lumineux Feeha, ton offre brille, et les clients s'arrêtent. Pas un écran : un vrai poster. Tu le glisses, c'est tout. Change ta promo en deux secondes. L'offre groupée : deux panneaux, posters inclus, installés en dix minutes. 599 $ : moins de huit dollars par mois. Illumine ta vitrine sur feehapanels.com.",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Personne"
+    },
+    {
+      "id": "problem",
+      "startsAt": "Après"
+    },
+    {
+      "id": "solution",
+      "startsAt": "Avec"
+    },
+    {
+      "id": "real",
+      "startsAt": "Pas"
+    },
+    {
+      "id": "swap",
+      "startsAt": "Change"
+    },
+    {
+      "id": "bundle",
+      "startsAt": "L'offre"
+    },
+    {
+      "id": "price",
+      "startsAt": "599"
+    },
+    {
+      "id": "cta",
+      "startsAt": "Illumine"
+    }
+  ],
+  "tailSeconds": 2.5,
+  "draftVoiceDuration": 24,
+  "voice": {
+    "name": "Mathieu – Warm French Canadian Narrator",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "spokenAs": {
+    "16": "seize",
+    "h": "heures",
+    "30": "trente",
+    "599 $": "cinq cent quatre-vingt-dix-neuf dollars",
+    "feehapanels.com": "Feeha panels point com"
+  }
 }
