@@ -1,0 +1,49 @@
+{
+ "fps": 30,
+ "totalFrames": 720,
+ "draft": false,
+ "voiceDuration": 0,
+ "words": [],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 90
+  },
+  {
+   "id": "problem",
+   "from": 90,
+   "to": 180
+  },
+  {
+   "id": "solution",
+   "from": 180,
+   "to": 300
+  },
+  {
+   "id": "real",
+   "from": 300,
+   "to": 400
+  },
+  {
+   "id": "swap",
+   "from": 400,
+   "to": 480
+  },
+  {
+   "id": "bundle",
+   "from": 480,
+   "to": 570
+  },
+  {
+   "id": "price",
+   "from": 570,
+   "to": 630
+  },
+  {
+   "id": "cta",
+   "from": 630,
+   "to": 720
+  }
+ ]
+}

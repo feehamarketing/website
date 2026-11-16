@@ -1,0 +1,12 @@
+{
+  "id": "anim",
+  "composition": "FeehaAnim",
+  "totalFrames": 720,
+  "timeline": "src/anim/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "",
+  "scenes": []
+}
