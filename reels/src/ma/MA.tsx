@@ -641,7 +641,9 @@ export const MA = ({audio}: {audio: boolean}) => {
       </AbsoluteFill>
       <Captions
         words={words}
-        top={1640}
+        // Instagram covers the bottom ~20% (account name, caption, audio):
+        // captions sit above it.
+        top={1400}
         accent={M.blue}
         edge={M.deep}
         font={heavy}
