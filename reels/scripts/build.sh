@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Builds a reel end to end:
 #   ./scripts/build.sh configs/feeha.json voice.mp3 [output name]  -> final MP4
+#   WORDS=words.json ./scripts/build.sh configs/x.json voice.mp3   -> exact word
+#        timings from a transcript (scripts/words-from-transcript.py)
 #   ./scripts/build.sh configs/feeha.json "" preview               -> music only,
 #        estimated caption timings (layout / pipeline test)
 set -euo pipefail
@@ -12,7 +14,9 @@ COMP=$(node -p "require('./$CFG').composition")
 NAME="${3:-$ID}"
 mkdir -p out/tmp
 
-if [ -n "$VOICE" ]; then
+if [ -n "$VOICE" ] && [ -n "${WORDS:-}" ]; then
+  node scripts/align.mjs "$CFG" "$VOICE" "$WORDS"
+elif [ -n "$VOICE" ]; then
   # Exact word timings when the script is English and PocketSphinx is
   # installed (pip install pocketsphinx); otherwise timings from the pauses.
   if python3 scripts/forced-align.py "$CFG" "$VOICE" "out/tmp/$ID-words.json" >/dev/null 2>&1; then
