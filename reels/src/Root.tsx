@@ -15,6 +15,7 @@ import {Panels} from './panels/Panels';
 import {Expo} from './expo/Expo';
 import {Hiver} from './hiver/Hiver';
 import {Vente} from './vente/Vente';
+import {FeehaPanel} from './feehapanel/FeehaPanel';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -23,6 +24,7 @@ import panels from './panels/timeline.json';
 import expo from './expo/timeline.json';
 import hiver from './hiver/timeline.json';
 import vente from './vente/timeline.json';
+import feehapanel from './feehapanel/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -38,6 +40,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaPanel"
+      component={FeehaPanel}
+      width={1080}
+      height={1920}
+      fps={feehapanel.fps}
+      durationInFrames={feehapanel.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="Vente"
       component={Vente}

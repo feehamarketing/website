@@ -1,0 +1,12 @@
+{
+  "id": "feehapanel",
+  "composition": "FeehaPanel",
+  "totalFrames": 720,
+  "timeline": "src/feehapanel/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "",
+  "scenes": []
+}
