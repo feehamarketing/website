@@ -193,9 +193,17 @@ const Dark = () => {
   );
 };
 
-const Tape = () => (
-  <AbsoluteFill>
-    <Photo src="hiver/tape.jpg" from={1.05} to={1.2} />
+/** The taped poster (landscape photo): whole picture on a blurred fill. */
+const Tape = () => {
+  const frame = useCurrentFrame();
+  const {durationInFrames} = useVideoConfig();
+  const z = interpolate(frame, [0, durationInFrames], [1, 1.12]);
+  return (
+  <AbsoluteFill style={{background: H.ink}}>
+    <Img src={staticFile('hiver/tape.jpg')} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(30px) brightness(.55)', transform: 'scale(1.2)'}} />
+    <div style={{position: 'absolute', left: 0, top: 560, width: 1080, height: 608, overflow: 'hidden', boxShadow: '0 30px 80px rgba(0,0,0,.6)'}}>
+      <Img src={staticFile('hiver/tape.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${z})`, transformOrigin: '50% 45%'}} />
+    </div>
     <div style={{position: 'absolute', top: 160, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16}}>
       <Big size={150}>DU TAPE ?</Big>
       <Tag delay={8} size={80}>
@@ -203,7 +211,8 @@ const Tape = () => (
       </Tag>
     </div>
   </AbsoluteFill>
-);
+  );
+};
 
 const Invisible = () => {
   const frame = useCurrentFrame();
@@ -349,16 +358,16 @@ const PosterSwap = () => {
 };
 
 const Life = () => {
-  const frame = useCurrentFrame();
-  const n = Math.round(interpolate(frame, [0, 18], [0, 10], clamp));
+  const a = useSpr(0, {damping: 11, stiffness: 260, mass: 0.6});
+  const b = useSpr(7, {damping: 11, stiffness: 260, mass: 0.6});
   return (
     <AbsoluteFill style={{background: H.red, alignItems: 'center'}}>
       <div style={{position: 'absolute', top: 360, fontFamily: SANS, fontWeight: 800, fontSize: 40, letterSpacing: 10, color: H.white}}>DURÉE DE VIE</div>
-      <div style={{position: 'absolute', top: 440, fontFamily: COND, fontSize: 420, lineHeight: 1, color: H.white}}>
-        {n >= 7 ? '7–' : ''}
-        {n}
+      <div style={{position: 'absolute', top: 440, display: 'flex', fontFamily: COND, fontSize: 420, lineHeight: 1, color: H.white}}>
+        <span style={{display: 'inline-block', transform: `scale(${a})`}}>7</span>
+        <span style={{display: 'inline-block', opacity: b, transform: `translateX(${(1 - b) * 120}px)`}}>–10</span>
       </div>
-      <div style={{position: 'absolute', top: 860, fontFamily: COND, fontSize: 200, lineHeight: 1, color: H.ink}}>ANS</div>
+      <div style={{position: 'absolute', top: 860, fontFamily: COND, fontSize: 200, lineHeight: 1, color: H.ink, opacity: b}}>ANS</div>
     </AbsoluteFill>
   );
 };
