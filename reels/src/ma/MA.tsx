@@ -212,7 +212,7 @@ const Label = ({children, delay = 0, color = M.blue}: {children: React.ReactNode
 };
 
 const Slam = ({children, delay, size, from = -1, style}: {children: React.ReactNode; delay: number; size: number; from?: -1 | 1; style?: React.CSSProperties}) => {
-  const p = useSpring(delay, {damping: 11, stiffness: 230, mass: 0.6});
+  const p = useSpring(delay, {damping: 13, stiffness: 380, mass: 0.5});
   return (
     <div
       style={{
@@ -221,7 +221,7 @@ const Slam = ({children, delay, size, from = -1, style}: {children: React.ReactN
         lineHeight: 0.95,
         letterSpacing: -2,
         whiteSpace: 'nowrap',
-        transform: `translateX(${interpolate(p, [0, 1], [from * 1200, 0])}px) skewX(${interpolate(p, [0, 1], [from * -20, -6])}deg)`,
+        transform: `translateX(${interpolate(p, [0, 1], [from * 700, 0])}px) skewX(${interpolate(p, [0, 1], [from * -20, -6])}deg)`,
         opacity: Math.min(1, p * 3),
         ...style,
       }}
@@ -329,7 +329,7 @@ const Ready = () => {
         />
       ))}
       <div style={{position: 'absolute', top: 1180}}>
-        <Slam delay={2} size={150} from={1} style={chrome}>
+        <Slam delay={0} size={124} from={1} style={chrome}>
           T'ES PRÊT ?
         </Slam>
       </div>
@@ -501,10 +501,10 @@ const Delivery = () => {
         <Label color={M.white}>ET EN PLUS…</Label>
       </div>
       <div style={{position: 'absolute', top: 920, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
-        <Slam delay={6} size={140} from={1} style={chrome}>
+        <Slam delay={0} size={140} from={1} style={chrome}>
           LIVRAISON
         </Slam>
-        <Stamp delay={14} rotate={4} size={118}>
+        <Stamp delay={5} rotate={4} size={118}>
           GRATUITE
         </Stamp>
       </div>

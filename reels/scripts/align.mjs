@@ -34,7 +34,8 @@ const weight = (t) =>
   t.replace(/[^\p{L}\p{N}]/gu, '').replace(/\d/g, 'xxxxx').length +
   1.5 +
   (/\p{L}\.\p{L}/u.test(t) ? 6 : 0);
-const endsClause = (t) => /[?!.,;:]$/.test(t);
+// "M.A."-style initials end in a dot but do not end a clause.
+const endsClause = (t) => /[?!.,;:]$/.test(t) && !/^(\p{L}\.)+$/u.test(t);
 
 let duration;
 let silences = [];
@@ -83,22 +84,36 @@ const guess = tokens.map((t, i) => {
   return {a, b: toReal((cum / totalW) * voicedTotal - 1e-4)};
 });
 
-// 2) anchor clause ends on the nearest real pause
-const anchors = [{idx: -1, end: speechStart, next: speechStart}];
-const used = new Set();
-tokens.forEach((t, i) => {
-  if (!endsClause(t) || i === tokens.length - 1) return;
-  let best = null;
-  inner.forEach((s, k) => {
-    if (used.has(k) || s.end - s.start < 0.15) return;
-    const d = Math.abs(s.start - guess[i].b);
-    if (d < 0.6 && (!best || d < best.d)) best = {k, d};
-  });
-  if (best && inner[best.k].start > anchors[anchors.length - 1].next) {
-    used.add(best.k);
-    anchors.push({idx: i, end: inner[best.k].start, next: inner[best.k].end});
+// 2) anchor clause ends on real pauses. All clause ends and all pauses are
+// matched at once (dynamic programming, in order): a match costs the squared
+// distance between the estimated end of the clause and the pause; leaving a
+// clause unmatched or a pause unused (a breath inside a sentence) has a fixed
+// cost, higher for long pauses.
+const clauses = tokens.map((t, i) => i).filter((i) => endsClause(tokens[i]) && i < tokens.length - 1);
+const P = inner;
+const SKIP_CLAUSE = 1.0;
+const skipPause = (p) => 0.12 + 1.5 * (p.end - p.start);
+const D = Array.from({length: clauses.length + 1}, () => new Array(P.length + 1).fill(Infinity));
+const B = Array.from({length: clauses.length + 1}, () => new Array(P.length + 1).fill(null));
+D[0][0] = 0;
+for (let a = 0; a <= clauses.length; a++) {
+  for (let b = 0; b <= P.length; b++) {
+    if (a === 0 && b === 0) continue;
+    const opts = [];
+    if (a > 0) opts.push([D[a - 1][b] + SKIP_CLAUSE, 'c']);
+    if (b > 0) opts.push([D[a][b - 1] + skipPause(P[b - 1]), 'p']);
+    if (a > 0 && b > 0) opts.push([D[a - 1][b - 1] + (guess[clauses[a - 1]].b - P[b - 1].start) ** 2, 'm']);
+    for (const [c, k] of opts) if (c < D[a][b]) [D[a][b], B[a][b]] = [c, k];
   }
-});
+}
+const matched = [];
+for (let a = clauses.length, b = P.length; a > 0 || b > 0; ) {
+  const k = B[a][b];
+  if (k === 'm') matched.unshift({idx: clauses[a - 1], end: P[b - 1].start, next: P[b - 1].end});
+  if (k === 'm' || k === 'c') a--;
+  if (k === 'm' || k === 'p') b--;
+}
+const anchors = [{idx: -1, end: speechStart, next: speechStart}, ...matched];
 anchors.push({idx: tokens.length - 1, end: speechEnd, next: speechEnd});
 
 // 3) inside each anchored span, spread words over that span's voiced time
