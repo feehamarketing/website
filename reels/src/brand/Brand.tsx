@@ -144,7 +144,7 @@ const Food = ({excAt}: {excAt: number}) => {
         <Line d={excAt - 2} size={150} color={A.red}>EST BONNE</Line>
       </div>
       <div style={{position: 'absolute', left: 540 - 380, top: 520, width: 760, height: 760, borderRadius: '50%', background: '#fff', boxShadow: '0 30px 60px rgba(0,0,0,.18)', transform: `scale(${plate}) rotate(${(1 - plate) * -40 + f * 0.15}deg)`}}>
-        <Img src={staticFile('smash-burger.jpg')} style={{position: 'absolute', inset: 50, width: 660, height: 660, borderRadius: '50%', objectFit: 'cover'}} />
+        <Img src={staticFile('brand/kome-plate.jpg')} style={{position: 'absolute', inset: 50, width: 660, height: 660, borderRadius: '50%', objectFit: 'cover'}} />
       </div>
       <svg width={1080} height={400} style={{position: 'absolute', top: 260, left: 0}}>
         {[400, 540, 680].map((x, i) => (
@@ -433,7 +433,7 @@ const SignArt = ({f}: {f: number}) => {
 };
 
 const MenuArt = ({f}: {f: number}) => {
-  const pics = ['smash-burger.jpg', 'riz-crousty.jpg', 'tacos.jpg'];
+  const pics = ['brand/kome-box.jpg', 'brand/kome-roll.jpg', 'brand/kome-chop.jpg'];
   const k = Math.floor(f / 30) % 3;
   const dishes = ['CLASSIC ROLL', 'SAUMON TERIYAKI', 'POKÉ BOWL', 'GYOZAS ×6', 'MISO'];
   return (
@@ -466,8 +466,8 @@ const PanelsArt = ({f}: {f: number}) => {
   );
   return (
     <div style={{position: 'relative', width: 900, height: 560}}>
-      {frame(60, 'tacos.jpg', Math.sin(f / 14) * 1.5)}
-      {frame(480, 'classic-burger.jpg', Math.sin(f / 14 + 1) * 1.5)}
+      {frame(60, 'brand/kome1.jpg', Math.sin(f / 14) * 1.5)}
+      {frame(480, 'brand/kome-box.jpg', Math.sin(f / 14 + 1) * 1.5)}
     </div>
   );
 };
