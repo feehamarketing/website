@@ -129,7 +129,7 @@ export const Bubble = ({x, y, p, text = '!'}: {x: number; y: number; p: number; 
 );
 
 // ---- posters ------------------------------------------------------------------------
-const Burger = ({size}: {size: number}) => (
+export const Burger = ({size}: {size: number}) => (
   <svg width={size} height={size * 0.8} viewBox="0 0 200 160">
     <ellipse cx="100" cy="150" rx="86" ry="8" fill="rgba(0,0,0,.18)" />
     <path d="M18 70 Q20 14 100 12 Q180 14 182 70 Z" fill="#E59A3C" />
@@ -142,7 +142,7 @@ const Burger = ({size}: {size: number}) => (
     <path d="M20 124 Q100 152 180 124 L176 140 Q100 158 24 140 Z" fill="#E08A2E" />
   </svg>
 );
-const Pizza = ({size}: {size: number}) => (
+export const Pizza = ({size}: {size: number}) => (
   <svg width={size} height={size} viewBox="0 0 200 200">
     <circle cx="100" cy="100" r="92" fill="#E0A04E" />
     <circle cx="100" cy="100" r="80" fill="#E5562D" />
@@ -162,7 +162,7 @@ const Pizza = ({size}: {size: number}) => (
     ))}
   </svg>
 );
-const Coffee = ({size}: {size: number}) => (
+export const Coffee = ({size}: {size: number}) => (
   <svg width={size} height={size} viewBox="0 0 200 200">
     <path d="M60 30 Q50 10 66 0 M100 30 Q90 10 106 0 M140 30 Q130 10 146 0" stroke="#fff" strokeWidth="6" fill="none" opacity=".7" strokeLinecap="round" />
     <path d="M40 50 H160 L148 180 Q146 192 132 192 H68 Q54 192 52 180 Z" fill="#F6EFE4" />

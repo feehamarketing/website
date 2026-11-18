@@ -1,0 +1,83 @@
+{
+  "id": "story",
+  "composition": "FeehaStory",
+  "totalFrames": 1500,
+  "timeline": "src/story/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 2
+  },
+  "script": "Rue Saint-Denis. Bonne bouffe, bons prix… et seulement 40 commandes par jour. Pourquoi ? Un menu fait par l'IA. Des affiches ChatGPT. Les gens regardent… et passent leur chemin. Ici, on juge avant de goûter. Alors Feeha a tout repris. Deux panneaux lumineux, avec une offre claire. Des affiches extérieures, des flyers, un menu plastifié. Un menu animé sur trois écrans. Des polos pro pour l'équipe. Et sa page Uber, retravaillée. Résultat : plus de 100 commandes par jour. Le tout, pour moins de 2499 $. Investissez dans la bonne équipe, et les clients viendront comme des aimants. feeha.ca",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Rue"
+    },
+    {
+      "id": "why",
+      "startsAt": "Pourquoi"
+    },
+    {
+      "id": "walk",
+      "startsAt": "Les"
+    },
+    {
+      "id": "judge",
+      "startsAt": "Ici"
+    },
+    {
+      "id": "feeha",
+      "startsAt": "Alors"
+    },
+    {
+      "id": "panels",
+      "startsAt": "Deux"
+    },
+    {
+      "id": "print",
+      "startsAt": "Des",
+      "after": 30
+    },
+    {
+      "id": "screens",
+      "startsAt": "Un",
+      "after": 54
+    },
+    {
+      "id": "polos",
+      "startsAt": "Des",
+      "after": 45
+    },
+    {
+      "id": "uber",
+      "startsAt": "Et",
+      "after": 50
+    },
+    {
+      "id": "result",
+      "startsAt": "Résultat"
+    },
+    {
+      "id": "price",
+      "startsAt": "Le",
+      "after": 60
+    },
+    {
+      "id": "cta",
+      "startsAt": "Investissez"
+    }
+  ],
+  "tailSeconds": 1.4,
+  "draftVoiceDuration": 33,
+  "voice": {
+    "name": "Nolan - Publicité dynamique",
+    "id": "xIS5V9lKfJu3LtLnlTVI"
+  },
+  "spokenAs": {
+    "40": "quarante",
+    "100": "cent",
+    "2499 $": "deux mille quatre cent quatre-vingt-dix-neuf dollars",
+    "feeha.ca": "Feeha point C A.",
+    "l'IA.": "l'I.A."
+  }
+}
