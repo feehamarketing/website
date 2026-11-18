@@ -1,0 +1,372 @@
+[
+ {
+  "text": "Quarante",
+  "start": 0.08,
+  "end": 0.48
+ },
+ {
+  "text": "commandes",
+  "start": 0.56,
+  "end": 0.88
+ },
+ {
+  "text": "par",
+  "start": 0.96,
+  "end": 1.04
+ },
+ {
+  "text": "jour…",
+  "start": 1.12,
+  "end": 1.76
+ },
+ {
+  "text": "Mes",
+  "start": 2.0,
+  "end": 2.08
+ },
+ {
+  "text": "visuels",
+  "start": 2.2,
+  "end": 2.4
+ },
+ {
+  "text": "ne",
+  "start": 2.48,
+  "end": 2.56
+ },
+ {
+  "text": "sont",
+  "start": 2.6,
+  "end": 2.8
+ },
+ {
+  "text": "pas",
+  "start": 2.88,
+  "end": 2.96
+ },
+ {
+  "text": "beaux,",
+  "start": 3.0,
+  "end": 3.24
+ },
+ {
+  "text": "ils",
+  "start": 3.28,
+  "end": 3.44
+ },
+ {
+  "text": "n'attirent",
+  "start": 3.467,
+  "end": 3.84
+ },
+ {
+  "text": "personne !",
+  "start": 4.04,
+  "end": 4.4
+ },
+ {
+  "text": "Moi,",
+  "start": 4.88,
+  "end": 5.12
+ },
+ {
+  "text": "je",
+  "start": 5.2,
+  "end": 5.24
+ },
+ {
+  "text": "suis",
+  "start": 5.28,
+  "end": 5.44
+ },
+ {
+  "text": "cuisinier,",
+  "start": 5.48,
+  "end": 6.08
+ },
+ {
+  "text": "pas",
+  "start": 6.16,
+  "end": 6.24
+ },
+ {
+  "text": "designer !",
+  "start": 6.44,
+  "end": 6.88
+ },
+ {
+  "text": "Alors,",
+  "start": 7.225,
+  "end": 7.834
+ },
+ {
+  "text": "Feeha",
+  "start": 7.987,
+  "end": 8.291
+ },
+ {
+  "text": "a",
+  "start": 8.368,
+  "end": 8.444
+ },
+ {
+  "text": "tout",
+  "start": 8.596,
+  "end": 8.672
+ },
+ {
+  "text": "repris.",
+  "start": 8.749,
+  "end": 9.358
+ },
+ {
+  "text": "Deux",
+  "start": 9.396,
+  "end": 9.51
+ },
+ {
+  "text": "panneaux",
+  "start": 9.587,
+  "end": 9.739
+ },
+ {
+  "text": "lumineux,",
+  "start": 9.815,
+  "end": 10.425
+ },
+ {
+  "text": "avec",
+  "start": 10.539,
+  "end": 10.653
+ },
+ {
+  "text": "une",
+  "start": 10.729,
+  "end": 10.806
+ },
+ {
+  "text": "offre",
+  "start": 10.882,
+  "end": 11.034
+ },
+ {
+  "text": "claire.",
+  "start": 11.11,
+  "end": 11.663
+ },
+ {
+  "text": "Des",
+  "start": 11.701,
+  "end": 11.739
+ },
+ {
+  "text": "affiches",
+  "start": 11.815,
+  "end": 12.082
+ },
+ {
+  "text": "extérieures,",
+  "start": 12.12,
+  "end": 12.958
+ },
+ {
+  "text": "des",
+  "start": 12.996,
+  "end": 13.034
+ },
+ {
+  "text": "flyers,",
+  "start": 13.11,
+  "end": 13.872
+ },
+ {
+  "text": "un",
+  "start": 13.91,
+  "end": 13.949
+ },
+ {
+  "text": "menu",
+  "start": 14.025,
+  "end": 14.253
+ },
+ {
+  "text": "plastifié.",
+  "start": 14.329,
+  "end": 15.034
+ },
+ {
+  "text": "Un",
+  "start": 15.072,
+  "end": 15.11
+ },
+ {
+  "text": "menu",
+  "start": 15.187,
+  "end": 15.415
+ },
+ {
+  "text": "animé",
+  "start": 15.568,
+  "end": 15.949
+ },
+ {
+  "text": "sur",
+  "start": 16.025,
+  "end": 16.177
+ },
+ {
+  "text": "trois",
+  "start": 16.253,
+  "end": 16.482
+ },
+ {
+  "text": "écrans.",
+  "start": 16.558,
+  "end": 16.987
+ },
+ {
+  "text": "Des",
+  "start": 17.063,
+  "end": 17.139
+ },
+ {
+  "text": "polos",
+  "start": 17.215,
+  "end": 17.444
+ },
+ {
+  "text": "pro,",
+  "start": 17.558,
+  "end": 17.901
+ },
+ {
+  "text": "et",
+  "start": 17.939,
+  "end": 17.977
+ },
+ {
+  "text": "sa",
+  "start": 18.053,
+  "end": 18.206
+ },
+ {
+  "text": "page",
+  "start": 18.282,
+  "end": 18.358
+ },
+ {
+  "text": "Uber",
+  "start": 18.434,
+  "end": 18.815
+ },
+ {
+  "text": "retravaillée.",
+  "start": 18.968,
+  "end": 19.882
+ },
+ {
+  "text": "Le",
+  "start": 19.92,
+  "end": 19.958
+ },
+ {
+  "text": "tout,",
+  "start": 20.11,
+  "end": 20.415
+ },
+ {
+  "text": "pour",
+  "start": 20.491,
+  "end": 20.568
+ },
+ {
+  "text": "moins",
+  "start": 20.644,
+  "end": 20.796
+ },
+ {
+  "text": "de",
+  "start": 20.91,
+  "end": 21.025
+ },
+ {
+  "text": "2499",
+  "start": 21.063,
+  "end": 21.768
+ },
+ {
+  "text": "$.",
+  "start": 21.768,
+  "end": 22.472
+ },
+ {
+  "text": "Plus",
+  "start": 23.274,
+  "end": 23.314
+ },
+ {
+  "text": "de",
+  "start": 23.394,
+  "end": 23.634
+ },
+ {
+  "text": "100",
+  "start": 23.714,
+  "end": 23.874
+ },
+ {
+  "text": "commandes",
+  "start": 23.954,
+  "end": 24.274
+ },
+ {
+  "text": "par",
+  "start": 24.354,
+  "end": 24.434
+ },
+ {
+  "text": "jour !",
+  "start": 24.514,
+  "end": 24.834
+ },
+ {
+  "text": "Merci",
+  "start": 25.73,
+  "end": 25.874
+ },
+ {
+  "text": "Feeha !",
+  "start": 25.954,
+  "end": 26.274
+ },
+ {
+  "text": "Investissez",
+  "start": 26.941,
+  "end": 27.421
+ },
+ {
+  "text": "dans",
+  "start": 27.461,
+  "end": 27.541
+ },
+ {
+  "text": "la",
+  "start": 27.581,
+  "end": 27.621
+ },
+ {
+  "text": "bonne",
+  "start": 27.781,
+  "end": 27.901
+ },
+ {
+  "text": "équipe.",
+  "start": 27.941,
+  "end": 28.661
+ },
+ {
+  "text": "feeha.ca",
+  "start": 28.781,
+  "end": 30.021
+ }
+]

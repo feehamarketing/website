@@ -7,7 +7,7 @@
     "style": "house",
     "transpose": 2
   },
-  "script": "Quarante commandes par jour… et les clients se plaignent de mon menu fait par l'IA ! Moi, je suis cuisinier ! Le design, je ne maîtrise pas ça ! Alors, Feeha a tout repris. Deux panneaux lumineux, avec une offre claire. Des affiches extérieures, des flyers, un menu plastifié. Un menu animé sur trois écrans. Des polos pro, et sa page Uber retravaillée. Le tout, pour moins de 2499 $. Plus de 100 commandes par jour ! Moi, je cuisine… et Feeha s'occupe du reste ! Investissez dans la bonne équipe. feeha.ca",
+  "script": "Quarante commandes par jour… Mes visuels ne sont pas beaux, ils n'attirent personne ! Moi, je suis cuisinier, pas designer ! Alors, Feeha a tout repris. Deux panneaux lumineux, avec une offre claire. Des affiches extérieures, des flyers, un menu plastifié. Un menu animé sur trois écrans. Des polos pro, et sa page Uber retravaillée. Le tout, pour moins de 2499 $. Plus de 100 commandes par jour ! Merci Feeha ! Investissez dans la bonne équipe. feeha.ca",
   "scenes": [
     {
       "id": "chef1",
@@ -24,27 +24,27 @@
     {
       "id": "print",
       "startsAt": "Des",
-      "after": 38
+      "after": 31
     },
     {
       "id": "screens",
       "startsAt": "Un",
-      "after": 45
+      "after": 38
     },
     {
       "id": "polos",
       "startsAt": "Des",
-      "after": 51
+      "after": 44
     },
     {
       "id": "uber",
       "startsAt": "et",
-      "after": 54
+      "after": 47
     },
     {
       "id": "price",
       "startsAt": "Le",
-      "after": 59
+      "after": 52
     },
     {
       "id": "chef2",

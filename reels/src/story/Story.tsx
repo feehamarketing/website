@@ -79,7 +79,7 @@ const AiMenu = ({w}: {w: number}) => {
           </div>
         ))}
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, bottom: 20 * k, textAlign: 'center', fontFamily: SANS, fontSize: 22 * k, color: '#888'}}>✨ Generated with love ✨ bon appetit !!</div>
+      <div style={{position: 'absolute', left: 0, right: 0, bottom: 20 * k, textAlign: 'center', fontFamily: SANS, fontSize: 22 * k, color: '#888'}}>bon appetit !!</div>
     </div>
   );
 };
@@ -692,10 +692,10 @@ const SpeechBubble = ({text, d, x, y, rot = 0, tail = 'left'}: {text: React.Reac
 const Chef1 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
   const f = useCurrentFrame();
   const q = at('quarante', 0);
-  const cl = at('clients', 58);
-  const menu = at('menu', 100);
+  const cl = at('visuels', 40);
+  const menu = at('visuels', 40);
   const moi = at('moi', 140);
-  const design = at('design', 185);
+  const design = at('designer', 120);
   const arms = clampI(f, moi - 2, moi + 6, 0, 1) * (1 - clampI(f, design + 30, design + 40, 0, 0.6));
   const shake = f >= design ? Math.sin(f * 0.9) * 4 * clampI(f, design, design + 6, 0, 1) : f >= moi ? Math.sin(f * 0.7) * 2 : 0;
   const tk = sp(f, q - 12, POP);
@@ -712,12 +712,12 @@ const Chef1 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
       <div style={{position: 'absolute', left: 40, top: 450, transform: `translateX(${(1 - m) * -700}px) rotate(${-8 + Math.sin(f / 11) * 1.5}deg)`, opacity: f < menu - 4 ? 0 : 1}}>
         <AiMenu w={420} />
         <div style={{position: 'absolute', left: 30, top: 420}}>
-          <Stamp text="MENU IA" d={menu + 4} />
+          <Stamp text="PAS ATTIRANT" d={menu + 4} />
         </div>
       </div>
-      <SpeechBubble text="C'est quoi ce menu ?!" d={cl} x={560} y={760} rot={-3} tail="left" />
-      <SpeechBubble text="Les photos sont fausses…" d={cl + 8} x={500} y={880} rot={2} tail="left" />
-      <SpeechBubble text={<span><span style={{color: '#E0A030'}}>★</span> 2/5 — Déçu…</span>} d={cl + 16} x={760} y={1000} rot={-4} tail="right" />
+      <SpeechBubble text="Ça donne pas envie…" d={cl} x={560} y={760} rot={-3} tail="left" />
+      <SpeechBubble text="On va ailleurs ?" d={cl + 8} x={600} y={880} rot={2} tail="left" />
+      <SpeechBubble text={<span><span style={{color: '#E0A030'}}>★</span> 2/5 — Déçu…</span>} d={cl + 16} x={620} y={1000} rot={-4} tail="right" />
       {/* the chef */}
       <div style={{position: 'absolute', left: 150, top: 980}}>
         <Chef w={780} mood={-1} talk={talkAt(ws, f)} arms={arms} shake={shake} />
@@ -736,7 +736,7 @@ const Chef1 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
 const Chef2 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
   const f = useCurrentFrame();
   const cent = at('100', 10);
-  const feeha = at('feeha', 110);
+  const feeha = at('merci', 50);
   const g = clampI(f, cent - 4, cent + 16, 0, 1);
   const ge = 1 - (1 - g) ** 3;
   const n = Math.round(40 + 60 * ge);

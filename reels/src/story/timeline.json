@@ -1,9 +1,9 @@
 {
  "fps": 30,
- "totalFrames": 1026,
+ "totalFrames": 947,
  "draft": false,
- "voiceDuration": 33.202,
- "pausesDetected": 16,
+ "voiceDuration": 30.171,
+ "pausesDetected": 17,
  "anchorsUsed": 14,
  "timing": "forced-alignment",
  "words": [
@@ -15,484 +15,419 @@
   {
    "text": "commandes",
    "start": 0.56,
-   "end": 0.96
+   "end": 0.88
   },
   {
    "text": "par",
-   "start": 1.04,
-   "end": 1.12
+   "start": 0.96,
+   "end": 1.04
   },
   {
    "text": "jour…",
-   "start": 1.2,
+   "start": 1.12,
    "end": 1.76
   },
   {
-   "text": "et",
+   "text": "Mes",
    "start": 2,
    "end": 2.08
   },
   {
-   "text": "les",
-   "start": 2.16,
-   "end": 2.24
-  },
-  {
-   "text": "clients",
-   "start": 2.4,
-   "end": 2.56
-  },
-  {
-   "text": "se",
-   "start": 2.64,
-   "end": 2.72
-  },
-  {
-   "text": "plaignent",
-   "start": 2.8,
-   "end": 3.04
-  },
-  {
-   "text": "de",
-   "start": 3.08,
-   "end": 3.12
-  },
-  {
-   "text": "mon",
-   "start": 3.2,
-   "end": 3.28
-  },
-  {
-   "text": "menu",
-   "start": 3.4,
-   "end": 3.52
-  },
-  {
-   "text": "fait",
-   "start": 3.6,
-   "end": 3.76
-  },
-  {
-   "text": "par",
-   "start": 3.8,
-   "end": 3.84
-  },
-  {
-   "text": "l'IA !",
-   "start": 3.92,
-   "end": 4.16
-  },
-  {
-   "text": "Moi,",
-   "start": 4.82,
-   "end": 4.96
-  },
-  {
-   "text": "je",
-   "start": 5.04,
-   "end": 5.12
-  },
-  {
-   "text": "suis",
-   "start": 5.173,
-   "end": 5.28
-  },
-  {
-   "text": "cuisinier !",
-   "start": 5.32,
-   "end": 5.84
-  },
-  {
-   "text": "Le",
-   "start": 6.293,
-   "end": 6.32
-  },
-  {
-   "text": "design,",
-   "start": 6.52,
-   "end": 6.84
-  },
-  {
-   "text": "je",
-   "start": 6.96,
-   "end": 7
+   "text": "visuels",
+   "start": 2.2,
+   "end": 2.4
   },
   {
    "text": "ne",
-   "start": 7.04,
-   "end": 7.08
+   "start": 2.48,
+   "end": 2.56
   },
   {
-   "text": "maîtrise",
-   "start": 7.12,
-   "end": 7.44
+   "text": "sont",
+   "start": 2.6,
+   "end": 2.8
   },
   {
    "text": "pas",
-   "start": 7.52,
-   "end": 7.6
+   "start": 2.88,
+   "end": 2.96
   },
   {
-   "text": "ça !",
-   "start": 7.68,
-   "end": 7.84
+   "text": "beaux,",
+   "start": 3,
+   "end": 3.24
   },
   {
-   "text": "Alors,",
-   "start": 8.225,
-   "end": 8.835
+   "text": "ils",
+   "start": 3.28,
+   "end": 3.44
   },
   {
-   "text": "Feeha",
-   "start": 8.987,
-   "end": 9.292
+   "text": "n'attirent",
+   "start": 3.467,
+   "end": 3.84
   },
   {
-   "text": "a",
-   "start": 9.368,
-   "end": 9.444
-  },
-  {
-   "text": "tout",
-   "start": 9.597,
-   "end": 9.673
-  },
-  {
-   "text": "repris.",
-   "start": 9.749,
-   "end": 10.359
-  },
-  {
-   "text": "Deux",
-   "start": 10.397,
-   "end": 10.511
-  },
-  {
-   "text": "panneaux",
-   "start": 10.587,
-   "end": 10.74
-  },
-  {
-   "text": "lumineux,",
-   "start": 10.816,
-   "end": 11.425
-  },
-  {
-   "text": "avec",
-   "start": 11.54,
-   "end": 11.654
-  },
-  {
-   "text": "une",
-   "start": 11.73,
-   "end": 11.806
-  },
-  {
-   "text": "offre",
-   "start": 11.882,
-   "end": 12.035
-  },
-  {
-   "text": "claire.",
-   "start": 12.111,
-   "end": 12.663
-  },
-  {
-   "text": "Des",
-   "start": 12.702,
-   "end": 12.74
-  },
-  {
-   "text": "affiches",
-   "start": 12.816,
-   "end": 13.082
-  },
-  {
-   "text": "extérieures,",
-   "start": 13.121,
-   "end": 13.959
-  },
-  {
-   "text": "des",
-   "start": 13.997,
-   "end": 14.035
-  },
-  {
-   "text": "flyers,",
-   "start": 14.111,
-   "end": 14.873
-  },
-  {
-   "text": "un",
-   "start": 14.911,
-   "end": 14.949
-  },
-  {
-   "text": "menu",
-   "start": 15.025,
-   "end": 15.254
-  },
-  {
-   "text": "plastifié.",
-   "start": 15.33,
-   "end": 16.035
-  },
-  {
-   "text": "Un",
-   "start": 16.073,
-   "end": 16.111
-  },
-  {
-   "text": "menu",
-   "start": 16.187,
-   "end": 16.416
-  },
-  {
-   "text": "animé",
-   "start": 16.568,
-   "end": 16.949
-  },
-  {
-   "text": "sur",
-   "start": 17.025,
-   "end": 17.178
-  },
-  {
-   "text": "trois",
-   "start": 17.254,
-   "end": 17.482
-  },
-  {
-   "text": "écrans.",
-   "start": 17.559,
-   "end": 17.987
-  },
-  {
-   "text": "Des",
-   "start": 18.063,
-   "end": 18.14
-  },
-  {
-   "text": "polos",
-   "start": 18.216,
-   "end": 18.444
-  },
-  {
-   "text": "pro,",
-   "start": 18.559,
-   "end": 18.902
-  },
-  {
-   "text": "et",
-   "start": 18.94,
-   "end": 18.978
-  },
-  {
-   "text": "sa",
-   "start": 19.054,
-   "end": 19.206
-  },
-  {
-   "text": "page",
-   "start": 19.282,
-   "end": 19.359
-  },
-  {
-   "text": "Uber",
-   "start": 19.435,
-   "end": 19.816
-  },
-  {
-   "text": "retravaillée.",
-   "start": 19.968,
-   "end": 20.882
-  },
-  {
-   "text": "Le",
-   "start": 20.921,
-   "end": 20.959
-  },
-  {
-   "text": "tout,",
-   "start": 21.111,
-   "end": 21.416
-  },
-  {
-   "text": "pour",
-   "start": 21.492,
-   "end": 21.568
-  },
-  {
-   "text": "moins",
-   "start": 21.644,
-   "end": 21.797
-  },
-  {
-   "text": "de",
-   "start": 21.911,
-   "end": 22.025
-  },
-  {
-   "text": "2499",
-   "start": 22.063,
-   "end": 22.768
-  },
-  {
-   "text": "$.",
-   "start": 22.768,
-   "end": 23.473
-  },
-  {
-   "text": "Plus",
-   "start": 24.435,
-   "end": 24.465
-  },
-  {
-   "text": "de",
-   "start": 24.545,
-   "end": 24.785
-  },
-  {
-   "text": "100",
-   "start": 24.905,
-   "end": 25.025
-  },
-  {
-   "text": "commandes",
-   "start": 25.185,
-   "end": 25.425
-  },
-  {
-   "text": "par",
-   "start": 25.505,
-   "end": 25.585
-  },
-  {
-   "text": "jour !",
-   "start": 25.665,
-   "end": 25.905
+   "text": "personne !",
+   "start": 4.04,
+   "end": 4.4
   },
   {
    "text": "Moi,",
-   "start": 26.865,
-   "end": 27.145
+   "start": 4.88,
+   "end": 5.12
   },
   {
    "text": "je",
-   "start": 27.185,
-   "end": 27.265
+   "start": 5.2,
+   "end": 5.24
   },
   {
-   "text": "cuisine…",
-   "start": 27.345,
-   "end": 28.105
+   "text": "suis",
+   "start": 5.28,
+   "end": 5.44
   },
   {
-   "text": "et",
-   "start": 28.145,
-   "end": 28.305
+   "text": "cuisinier,",
+   "start": 5.48,
+   "end": 6.08
+  },
+  {
+   "text": "pas",
+   "start": 6.16,
+   "end": 6.24
+  },
+  {
+   "text": "designer !",
+   "start": 6.44,
+   "end": 6.88
+  },
+  {
+   "text": "Alors,",
+   "start": 7.225,
+   "end": 7.834
   },
   {
    "text": "Feeha",
-   "start": 28.385,
-   "end": 28.545
+   "start": 7.987,
+   "end": 8.291
   },
   {
-   "text": "s'occupe",
-   "start": 28.625,
-   "end": 28.865
+   "text": "a",
+   "start": 8.368,
+   "end": 8.444
   },
   {
-   "text": "du",
-   "start": 28.945,
-   "end": 29.025
+   "text": "tout",
+   "start": 8.596,
+   "end": 8.672
   },
   {
-   "text": "reste !",
-   "start": 29.185,
-   "end": 29.345
+   "text": "repris.",
+   "start": 8.749,
+   "end": 9.358
+  },
+  {
+   "text": "Deux",
+   "start": 9.396,
+   "end": 9.51
+  },
+  {
+   "text": "panneaux",
+   "start": 9.587,
+   "end": 9.739
+  },
+  {
+   "text": "lumineux,",
+   "start": 9.815,
+   "end": 10.425
+  },
+  {
+   "text": "avec",
+   "start": 10.539,
+   "end": 10.653
+  },
+  {
+   "text": "une",
+   "start": 10.729,
+   "end": 10.806
+  },
+  {
+   "text": "offre",
+   "start": 10.882,
+   "end": 11.034
+  },
+  {
+   "text": "claire.",
+   "start": 11.11,
+   "end": 11.663
+  },
+  {
+   "text": "Des",
+   "start": 11.701,
+   "end": 11.739
+  },
+  {
+   "text": "affiches",
+   "start": 11.815,
+   "end": 12.082
+  },
+  {
+   "text": "extérieures,",
+   "start": 12.12,
+   "end": 12.958
+  },
+  {
+   "text": "des",
+   "start": 12.996,
+   "end": 13.034
+  },
+  {
+   "text": "flyers,",
+   "start": 13.11,
+   "end": 13.872
+  },
+  {
+   "text": "un",
+   "start": 13.91,
+   "end": 13.949
+  },
+  {
+   "text": "menu",
+   "start": 14.025,
+   "end": 14.253
+  },
+  {
+   "text": "plastifié.",
+   "start": 14.329,
+   "end": 15.034
+  },
+  {
+   "text": "Un",
+   "start": 15.072,
+   "end": 15.11
+  },
+  {
+   "text": "menu",
+   "start": 15.187,
+   "end": 15.415
+  },
+  {
+   "text": "animé",
+   "start": 15.568,
+   "end": 15.949
+  },
+  {
+   "text": "sur",
+   "start": 16.025,
+   "end": 16.177
+  },
+  {
+   "text": "trois",
+   "start": 16.253,
+   "end": 16.482
+  },
+  {
+   "text": "écrans.",
+   "start": 16.558,
+   "end": 16.987
+  },
+  {
+   "text": "Des",
+   "start": 17.063,
+   "end": 17.139
+  },
+  {
+   "text": "polos",
+   "start": 17.215,
+   "end": 17.444
+  },
+  {
+   "text": "pro,",
+   "start": 17.558,
+   "end": 17.901
+  },
+  {
+   "text": "et",
+   "start": 17.939,
+   "end": 17.977
+  },
+  {
+   "text": "sa",
+   "start": 18.053,
+   "end": 18.206
+  },
+  {
+   "text": "page",
+   "start": 18.282,
+   "end": 18.358
+  },
+  {
+   "text": "Uber",
+   "start": 18.434,
+   "end": 18.815
+  },
+  {
+   "text": "retravaillée.",
+   "start": 18.968,
+   "end": 19.882
+  },
+  {
+   "text": "Le",
+   "start": 19.92,
+   "end": 19.958
+  },
+  {
+   "text": "tout,",
+   "start": 20.11,
+   "end": 20.415
+  },
+  {
+   "text": "pour",
+   "start": 20.491,
+   "end": 20.568
+  },
+  {
+   "text": "moins",
+   "start": 20.644,
+   "end": 20.796
+  },
+  {
+   "text": "de",
+   "start": 20.91,
+   "end": 21.025
+  },
+  {
+   "text": "2499",
+   "start": 21.063,
+   "end": 21.768
+  },
+  {
+   "text": "$.",
+   "start": 21.768,
+   "end": 22.472
+  },
+  {
+   "text": "Plus",
+   "start": 23.274,
+   "end": 23.314
+  },
+  {
+   "text": "de",
+   "start": 23.394,
+   "end": 23.634
+  },
+  {
+   "text": "100",
+   "start": 23.714,
+   "end": 23.874
+  },
+  {
+   "text": "commandes",
+   "start": 23.954,
+   "end": 24.274
+  },
+  {
+   "text": "par",
+   "start": 24.354,
+   "end": 24.434
+  },
+  {
+   "text": "jour !",
+   "start": 24.514,
+   "end": 24.834
+  },
+  {
+   "text": "Merci",
+   "start": 25.73,
+   "end": 25.874
+  },
+  {
+   "text": "Feeha !",
+   "start": 25.954,
+   "end": 26.274
   },
   {
    "text": "Investissez",
-   "start": 29.981,
-   "end": 30.461
+   "start": 26.941,
+   "end": 27.421
   },
   {
    "text": "dans",
-   "start": 30.501,
-   "end": 30.581
+   "start": 27.461,
+   "end": 27.541
   },
   {
    "text": "la",
-   "start": 30.621,
-   "end": 30.661
+   "start": 27.581,
+   "end": 27.621
   },
   {
    "text": "bonne",
-   "start": 30.821,
-   "end": 30.941
+   "start": 27.781,
+   "end": 27.901
   },
   {
    "text": "équipe.",
-   "start": 30.981,
-   "end": 31.701
+   "start": 27.941,
+   "end": 28.661
   },
   {
    "text": "feeha.ca",
-   "start": 31.821,
-   "end": 33.061
+   "start": 28.781,
+   "end": 30.021
   }
  ],
  "scenes": [
   {
    "id": "chef1",
    "from": 0,
-   "to": 244
+   "to": 214
   },
   {
    "id": "feeha",
-   "from": 244,
-   "to": 309
+   "from": 214,
+   "to": 279
   },
   {
    "id": "panels",
-   "from": 309,
-   "to": 378
+   "from": 279,
+   "to": 348
   },
   {
    "id": "print",
-   "from": 378,
-   "to": 479
+   "from": 348,
+   "to": 449
   },
   {
    "id": "screens",
-   "from": 479,
-   "to": 539
+   "from": 449,
+   "to": 509
   },
   {
    "id": "polos",
-   "from": 539,
-   "to": 565
+   "from": 509,
+   "to": 535
   },
   {
    "id": "uber",
-   "from": 565,
-   "to": 625
+   "from": 535,
+   "to": 595
   },
   {
    "id": "price",
-   "from": 625,
-   "to": 730
+   "from": 595,
+   "to": 695
   },
   {
    "id": "chef2",
-   "from": 730,
-   "to": 896
+   "from": 695,
+   "to": 805
   },
   {
    "id": "cta",
-   "from": 896,
-   "to": 1026
+   "from": 805,
+   "to": 947
   }
  ]
 }
