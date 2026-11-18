@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {A, Bubble, Burger, COND, LOOKS, Look, Panel, Person, Pizza, Poster, SANS, clampI, lerpColor} from '../anim/Art';
 import timeline from './timeline.json';
 
@@ -45,9 +45,7 @@ const AiPoster = ({w, v = 0}: {w: number; v?: number}) => {
   return (
     <div style={{width: w, height: w * 1.35, background: v ? 'linear-gradient(160deg,#00C2FF,#7B2FF7 55%,#FF3CAC)' : 'linear-gradient(160deg,#7B2FF7,#F107A3 60%,#FFB800)', padding: 14 * k, boxSizing: 'border-box', textAlign: 'center', overflow: 'hidden', position: 'relative', boxShadow: '0 6px 16px rgba(0,0,0,.35)'}}>
       <div style={{fontFamily: '"Times New Roman", serif', fontWeight: 700, fontSize: 30 * k, color: '#FFF59D', textShadow: `0 0 ${8 * k}px #FF00E5`, lineHeight: 1}}>{txt[0]}</div>
-      <div style={{margin: `${8 * k}px auto`, width: 150 * k, height: 120 * k, transform: 'skewX(-12deg) rotate(8deg) scaleY(1.25)', filter: 'saturate(2.2) hue-rotate(25deg) blur(0.6px)'}}>
-        <Burger size={150 * k} />
-      </div>
+      <Img src={staticFile(v ? 'story/ia-ailes.png' : 'story/ia-salade.png')} style={{display: 'block', margin: `${6 * k}px auto`, width: 150 * k, height: 130 * k, objectFit: 'cover', borderRadius: 4 * k}} />
       <div style={{fontFamily: '"Comic Sans MS", serif', fontSize: 25 * k, color: '#fff', lineHeight: 1.05}}>{txt[1]}</div>
       <div style={{fontFamily: SANS, fontWeight: 800, fontStyle: 'italic', fontSize: 20 * k, color: '#00FFB2', marginTop: 6 * k}}>{txt[2]} ★★★★★</div>
       {[0.1, 0.8, 0.5].map((x, i) => (
@@ -69,9 +67,8 @@ const AiMenu = ({w}: {w: number}) => {
   return (
     <div style={{width: w, height: w * 1.25, background: 'linear-gradient(180deg,#FDF6E3,#E9E1FF)', padding: 26 * k, boxSizing: 'border-box', position: 'relative', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,.4)'}}>
       <div style={{fontFamily: '"Times New Roman", serif', fontStyle: 'italic', fontWeight: 700, fontSize: 62 * k, color: '#5B2BD1', textAlign: 'center', letterSpacing: -1}}>Our Menue</div>
-      <div style={{position: 'absolute', right: 12 * k, top: 90 * k, transform: 'rotate(-14deg) skewY(6deg)', filter: 'hue-rotate(-30deg) saturate(1.8)', opacity: 0.85}}>
-        <Burger size={180 * k} />
-      </div>
+      <Img src={staticFile('story/ia-ailes.png')} style={{position: 'absolute', right: 16 * k, top: 96 * k, width: 150 * k, height: 186 * k, objectFit: 'cover', transform: 'rotate(-6deg)', boxShadow: '0 6px 14px rgba(0,0,0,.3)'}} />
+      <Img src={staticFile('story/ia-salade.png')} style={{position: 'absolute', right: 120 * k, top: 300 * k, width: 120 * k, height: 150 * k, objectFit: 'cover', transform: 'rotate(8deg)', boxShadow: '0 6px 14px rgba(0,0,0,.3)'}} />
       <div style={{marginTop: 30 * k}}>
         {rows.map(([a, b], i) => (
           <div key={a} style={{display: 'flex', gap: 10 * k, fontFamily: i % 2 ? '"Comic Sans MS", serif' : '"Courier New", monospace', fontSize: (i === 2 ? 30 : 38) * k, color: ['#222', '#C2185B', '#1565C0', '#222', '#2E7D32'][i], marginTop: 22 * k, marginLeft: (i % 3) * 14 * k}}>
@@ -311,20 +308,27 @@ const FeehaIn = () => {
 
 const Panels = ({offreAt}: {offreAt: number}) => {
   const f = useCurrentFrame();
-  const light = f < 4 ? 0 : f < 10 ? (f % 2 ? 1 : 0.3) : 1;
+  const cut = 30;
+  const zoom = 1.04 + Math.max(0, f - cut) * 0.002;
   return (
-    <AbsoluteFill>
-      <Storefront after night={0.85} light={light}>
-        <WindowPanels light={light} />
-      </Storefront>
-      <Passer look={LOOKS[0]} x0={-140} stopX={300} arrive={22} leave={300} bubble="!" />
-      <Passer look={LOOKS[2]} x0={1230} stopX={660} arrive={28} leave={300} dir={-1} bubble="😍" />
+    <AbsoluteFill style={{background: '#0B0B0E'}}>
+      {f < cut ? (
+        <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+          <OffthreadVideo src={staticFile('story/panneau-devanture.mp4')} muted style={{width: 1080, height: 1976, objectFit: 'cover'}} />
+        </AbsoluteFill>
+      ) : (
+        <AbsoluteFill style={{overflow: 'hidden'}}>
+          <Img src={staticFile('story/panneaux-vitrine.jpg')} style={{position: 'absolute', left: -180, top: 0, width: 1440, height: 1920, objectFit: 'cover', transform: `scale(${zoom})`, transformOrigin: '60% 45%'}} />
+        </AbsoluteFill>
+      )}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(8,8,12,.88) 0%, rgba(8,8,12,.55) 22%, rgba(8,8,12,0) 36%)'}} />
       <Top top={110}>
         <Line d={0} size={104}>2 PANNEAUX LUMINEUX FEEHA</Line>
         <div style={{marginTop: 16}}>
           <Pill text="✓ OFFRE CLAIRE" d={offreAt} size={92} bg={A.warm} color={A.ink} />
         </div>
       </Top>
+      <div style={{position: 'absolute', left: 40, top: 1440, fontFamily: SANS, fontWeight: 600, fontSize: 26, color: 'rgba(255,255,255,.75)', background: 'rgba(0,0,0,.45)', padding: '8px 16px', borderRadius: 10}}>Panneaux Feeha installés · photo réelle</div>
     </AbsoluteFill>
   );
 };
@@ -356,12 +360,10 @@ const Print = ({hits}: {hits: number[]}) => {
       </div>
       {/* flyers */}
       <div style={{position: 'absolute', left: 580, top: 210, width: 460, height: 420, opacity: f < hits[1] ? 0 : 1}}>
-        <div style={{position: 'relative', width: 460, height: 330, transform: `translateY(${(1 - b) * 600}px)`}}>
-          <Flyer kind="coffee" rot={-14 * b} x={60} />
-          <Flyer kind="pizza" rot={2 * b} x={130} />
-          <Flyer kind="burger" rot={14 * b} x={200} />
+        <div style={{position: 'relative', width: 460, height: 400, borderRadius: 24, overflow: 'hidden', background: '#fff', boxShadow: '0 20px 40px rgba(0,0,0,.18)', transform: `translateY(${(1 - b) * 600}px)`}}>
+          <OffthreadVideo src={staticFile('story/flyer.mp4')} muted style={{width: 460, height: 452, objectFit: 'cover', marginTop: -26}} />
         </div>
-        <div style={{textAlign: 'center', marginTop: 70}}>{label('FLYERS', hits[1])}</div>
+        <div style={{textAlign: 'center', marginTop: 20}}>{label('FLYERS', hits[1])}</div>
       </div>
       {/* laminated menu */}
       <div style={{position: 'absolute', left: 150, top: 780, width: 780, height: 560, borderRadius: 26, background: A.ink, overflow: 'hidden', transform: `scale(${c}) rotate(${(1 - c) * 8 - 2}deg)`, opacity: f < hits[2] ? 0 : 1, boxShadow: '0 30px 60px rgba(0,0,0,.35)', border: '10px solid #fff'}}>
