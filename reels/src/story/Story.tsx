@@ -314,7 +314,7 @@ const Panels = ({offreAt}: {offreAt: number}) => {
     <AbsoluteFill style={{background: '#0B0B0E'}}>
       {f < cut ? (
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-          <OffthreadVideo src={staticFile('story/panneau-devanture.mp4')} muted style={{width: 1080, height: 1976, objectFit: 'cover'}} />
+          <OffthreadVideo src={staticFile('story/panneau-devanture.mp4')} muted style={{width: 1080, height: 1920, objectFit: 'cover'}} />
         </AbsoluteFill>
       ) : (
         <AbsoluteFill style={{overflow: 'hidden'}}>
