@@ -2,6 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {A, Bubble, Burger, COND, LOOKS, Look, Panel, Person, Pizza, Poster, SANS, clampI, lerpColor} from '../anim/Art';
 import timeline from './timeline.json';
+import {Chef} from './Chef';
 
 // "Histoire vraie" ad: a Saint-Denis restaurant goes from 40 to 100+ orders a
 // day after Feeha redoes its signage, menus, panels, polos and delivery page.
@@ -627,6 +628,164 @@ const Cta = ({aimantAt, feehaAt}: {aimantAt: number; feehaAt: number}) => {
   );
 };
 
+
+// ---- the chef ------------------------------------------------------------------------
+type W = {text: string; s: number; e: number};
+const DISPLAY: Record<string, string> = {quarante: '40'};
+const clean = (t: string) => t.replace(/\s+([!?:;])/g, '$1');
+
+const talkAt = (ws: W[], f: number) => (ws.some((w) => f >= w.s - 1 && f < w.e + 1) ? 0.3 + 0.7 * Math.abs(Math.sin(f * 1.15)) : 0);
+
+// karaoke subtitle: the current phrase, spoken words lit
+const Karaoke = ({ws, top = 120, size = 92}: {ws: W[]; top?: number; size?: number}) => {
+  const f = useCurrentFrame();
+  const phrases: W[][] = [];
+  let cur: W[] = [];
+  ws.forEach((w) => {
+    cur.push(w);
+    if (/[!.…?]$/.test(w.text.trim())) {
+      phrases.push(cur);
+      cur = [];
+    }
+  });
+  if (cur.length) phrases.push(cur);
+  const ph = [...phrases].reverse().find((p) => f >= p[0].s - 2) ?? phrases[0];
+  const k = phrases.indexOf(ph);
+  const p = sp(f, ph[0].s - 2, POP);
+  return (
+    <div style={{position: 'absolute', top, left: 50, right: 50, display: 'flex', justifyContent: 'center'}}>
+      <div key={k} style={{background: 'rgba(20,19,23,.88)', borderRadius: 26, padding: '22px 34px 12px', textAlign: 'center', fontFamily: COND, fontSize: size, lineHeight: 1.02, boxShadow: '0 20px 50px rgba(0,0,0,.35)', transform: `scale(${interpolate(p, [0, 1], [0.85, 1])})`}}>
+        {ph.map((w, i) => {
+          const said = f >= w.s;
+          const now = said && f < w.e + 2;
+          const t = clean(DISPLAY[w.text.toLowerCase()] ?? w.text).toUpperCase();
+          return (
+            <span key={i} style={{color: now ? A.warm : said ? A.white : 'rgba(255,255,255,.35)'}}>
+              {t}{' '}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Tiles = ({warm = 0}: {warm?: number}) => (
+  <AbsoluteFill style={{background: lerpColor('#CFC6B8', '#F3D9A8', warm)}}>
+    <AbsoluteFill style={{backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,0,0,.10) 0 4px, transparent 4px 70px), repeating-linear-gradient(90deg, rgba(0,0,0,.10) 0 4px, transparent 4px 140px)', opacity: 0.8}} />
+    <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 70%, rgba(255,255,255,${0.15 + warm * 0.3}), rgba(0,0,0,${0.35 - warm * 0.25}) 80%)`}} />
+  </AbsoluteFill>
+);
+
+const SpeechBubble = ({text, d, x, y, rot = 0, tail = 'left'}: {text: React.ReactNode; d: number; x: number; y: number; rot?: number; tail?: 'left' | 'right'}) => {
+  const f = useCurrentFrame();
+  const p = sp(f, d, POP);
+  if (f < d) return null;
+  return (
+    <div style={{position: 'absolute', left: x, top: y, transform: `scale(${p}) rotate(${rot}deg)`, transformOrigin: tail === 'left' ? '0% 100%' : '100% 100%'}}>
+      <div style={{background: A.white, borderRadius: 28, padding: '18px 26px 14px', fontFamily: SANS, fontWeight: 800, fontSize: 38, color: A.ink, boxShadow: '0 14px 30px rgba(0,0,0,.25)', whiteSpace: 'nowrap'}}>{text}</div>
+      <div style={{position: 'absolute', bottom: -22, [tail]: 40, width: 0, height: 0, borderLeft: '18px solid transparent', borderRight: '18px solid transparent', borderTop: `26px solid ${A.white}`}} />
+    </div>
+  );
+};
+
+const Chef1 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
+  const f = useCurrentFrame();
+  const q = at('quarante', 0);
+  const cl = at('clients', 58);
+  const menu = at('menu', 100);
+  const moi = at('moi', 140);
+  const design = at('design', 185);
+  const arms = clampI(f, moi - 2, moi + 6, 0, 1) * (1 - clampI(f, design + 30, design + 40, 0, 0.6));
+  const shake = f >= design ? Math.sin(f * 0.9) * 4 * clampI(f, design, design + 6, 0, 1) : f >= moi ? Math.sin(f * 0.7) * 2 : 0;
+  const tk = sp(f, q - 12, POP);
+  const m = sp(f, menu - 4, {damping: 13, stiffness: 150});
+  return (
+    <AbsoluteFill>
+      <Tiles />
+      {/* orders ticket */}
+      <div style={{position: 'absolute', left: 620, top: 470, width: 400, background: A.white, borderRadius: 22, padding: '18px 20px 10px', textAlign: 'center', boxShadow: '0 20px 40px rgba(0,0,0,.3)', transform: `scale(${tk}) rotate(${4 + Math.sin(f / 9) * 1.5}deg)`}}>
+        <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 26, color: '#777', letterSpacing: 2}}>COMMANDES / JOUR</div>
+        <div style={{fontFamily: COND, fontSize: 170, lineHeight: 0.9, color: A.red}}>40 ↘</div>
+      </div>
+      {/* AI menu */}
+      <div style={{position: 'absolute', left: 40, top: 450, transform: `translateX(${(1 - m) * -700}px) rotate(${-8 + Math.sin(f / 11) * 1.5}deg)`, opacity: f < menu - 4 ? 0 : 1}}>
+        <AiMenu w={420} />
+        <div style={{position: 'absolute', left: 30, top: 420}}>
+          <Stamp text="MENU IA" d={menu + 4} />
+        </div>
+      </div>
+      <SpeechBubble text="C'est quoi ce menu ?!" d={cl} x={560} y={760} rot={-3} tail="left" />
+      <SpeechBubble text="Les photos sont fausses…" d={cl + 8} x={500} y={880} rot={2} tail="left" />
+      <SpeechBubble text={<span><span style={{color: '#E0A030'}}>★</span> 2/5 — Déçu…</span>} d={cl + 16} x={760} y={1000} rot={-4} tail="right" />
+      {/* the chef */}
+      <div style={{position: 'absolute', left: 150, top: 980}}>
+        <Chef w={780} mood={-1} talk={talkAt(ws, f)} arms={arms} shake={shake} />
+      </div>
+      {f >= design ? (
+        <>
+          <div style={{position: 'absolute', left: 300, top: 1120, fontSize: 60, opacity: 0.85, transform: `translateY(${(f - design) * 2}px)`}}>💧</div>
+          <div style={{position: 'absolute', left: 760, top: 1100, fontSize: 50, opacity: 0.85, transform: `translateY(${(f - design) * 2.5}px)`}}>💧</div>
+        </>
+      ) : null}
+      <Karaoke ws={ws} top={110} />
+    </AbsoluteFill>
+  );
+};
+
+const Chef2 = ({ws, at}: {ws: W[]; at: (w: string, fb: number) => number}) => {
+  const f = useCurrentFrame();
+  const cent = at('100', 10);
+  const feeha = at('feeha', 110);
+  const g = clampI(f, cent - 4, cent + 16, 0, 1);
+  const ge = 1 - (1 - g) ** 3;
+  const n = Math.round(40 + 60 * ge);
+  const arms = clampI(f, 0, 6, 0, 0.85) * (1 - clampI(f, feeha - 14, feeha - 4, 0, 1));
+  const thumb = clampI(f, feeha - 4, feeha + 4, 0, 1);
+  return (
+    <AbsoluteFill>
+      <Tiles warm={1} />
+      <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, opacity: 0.18}}>
+        {Array.from({length: 16}).map((_, i) => {
+          const a = (i / 16) * Math.PI * 2 + f / 60;
+          return <path key={i} d={`M540 1300 L${540 + Math.cos(a) * 1600} ${1300 + Math.sin(a) * 1600} L${540 + Math.cos(a + 0.12) * 1600} ${1300 + Math.sin(a + 0.12) * 1600}Z`} fill="#fff" />;
+        })}
+      </svg>
+      {/* confetti */}
+      {Array.from({length: 40}).map((_, i) => {
+        const x = (i * 97) % 1080;
+        const y = ((i * 53 + f * (5 + (i % 4))) % 1900) - 100;
+        return <div key={i} style={{position: 'absolute', left: x, top: y, width: 16, height: 26, background: [A.red, A.warm, '#2E7D5B', '#3C5BA9'][i % 4], transform: `rotate(${f * 6 + i * 40}deg)`, opacity: f > cent ? 0.9 : 0}} />;
+      })}
+      {/* bars */}
+      {[
+        {x: 120, v: '40', label: 'AVANT', color: '#8C8C8C', h: 150},
+        {x: 380, v: g >= 1 ? '100+' : String(n), label: 'APRÈS', color: A.red, h: 150 + 260 * ge},
+      ].map((b, i) => (
+        <div key={i} style={{position: 'absolute', left: b.x, top: 900 - b.h, width: 220, height: b.h, background: b.color, borderRadius: '16px 16px 0 0'}}>
+          <div style={{position: 'absolute', top: -120, left: -40, right: -40, textAlign: 'center', fontFamily: COND, fontSize: 120, lineHeight: 1, color: b.color}}>{b.v}</div>
+          <div style={{position: 'absolute', bottom: 10, left: 0, right: 0, textAlign: 'center', fontFamily: COND, fontSize: 52, color: A.white}}>{b.label}</div>
+        </div>
+      ))}
+      <div style={{position: 'absolute', left: 90, width: 560, top: 900, height: 8, background: A.ink, borderRadius: 4}} />
+      {[0, 1, 2, 3].map((k) => {
+        const d = cent + 2 + k * 6;
+        const p = sp(f, d, POP);
+        return f >= d ? (
+          <div key={k} style={{position: 'absolute', left: 660 + (k % 2) * 20, top: 470 + k * 95, background: A.white, borderRadius: 18, padding: '12px 18px', fontFamily: SANS, fontWeight: 700, fontSize: 27, color: A.ink, boxShadow: '0 12px 30px rgba(0,0,0,.18)', transform: `scale(${p})`, display: 'flex', gap: 10, alignItems: 'center'}}>
+            <span style={{width: 32, height: 32, borderRadius: 16, background: '#1DB954', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 20}}>✓</span>
+            Nouvelle commande
+          </div>
+        ) : null;
+      })}
+      <div style={{position: 'absolute', left: 150, top: 980}}>
+        <Chef w={780} mood={1} talk={talkAt(ws, f)} arms={arms} thumb={thumb} shake={Math.sin(f * 0.5) * 1.5} />
+      </div>
+      <Karaoke ws={ws} top={110} />
+    </AbsoluteFill>
+  );
+};
+
 // ---- composition ---------------------------------------------------------------------
 export const FeehaStory = ({audio}: {audio: boolean}) => {
   const frame = useCurrentFrame();
@@ -641,20 +800,23 @@ export const FeehaStory = ({audio}: {audio: boolean}) => {
   const cuts = scenes.slice(1).map((s) => s.from);
   const since = Math.min(...cuts.filter((c) => c <= frame).map((c) => frame - c), 99);
   const flash = interpolate(since, [0, 4], [0.25, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const sceneWords = (id: string): W[] => {
+    const sc = scenes.find((x) => x.id === id)!;
+    return (words as {text: string; start: number; end: number}[])
+      .filter((w) => w.start * fps >= sc.from - 2 && w.start * fps < sc.to)
+      .map((w) => ({text: w.text, s: Math.round(w.start * fps) - sc.from, e: Math.round(w.end * fps) - sc.from}));
+  };
   const SCENES: Record<string, React.ReactNode> = {
-    hook: <Hook bouffeAt={at('hook', 'bonne', 10)} ordersAt={at('hook', '40', 100)} />,
-    why: <Why menuAt={at('why', 'menu', 22)} posterAt={at('why', 'affiches', 60)} />,
-    walk: <Walk passAt={at('walk', 'passent', 34)} />,
-    judge: <Judge avantAt={at('judge', 'avant', 34)} />,
+    chef1: <Chef1 ws={sceneWords('chef1')} at={(w, fb) => at('chef1', w, fb)} />,
     feeha: <FeehaIn />,
     panels: <Panels offreAt={at('panels', 'offre', 40)} />,
     print: <Print hits={[0, at('print', 'flyers', 28), at('print', 'menu', 50)]} />,
     screens: <Screens />,
     polos: <Polos />,
     uber: <Uber />,
-    result: <Result centAt={at('result', '100', 20)} />,
     price: <Price moinsAt={at('price', 'moins', 16)} />,
-    cta: <Cta aimantAt={at('cta', 'aimants', 80)} feehaAt={at('cta', 'feeha', 100)} />,
+    chef2: <Chef2 ws={sceneWords('chef2')} at={(w, fb) => at('chef2', w, fb)} />,
+    cta: <Cta aimantAt={50} feehaAt={at('cta', 'feeha', 60)} />,
   };
   return (
     <AbsoluteFill style={{background: A.ink}}>

@@ -9,7 +9,7 @@ const tl = JSON.parse(readFileSync(cfg.timeline));
 const TR = cfg.music?.transpose ?? 0;
 const SR = 44100;
 const DUR = tl.totalFrames / tl.fps;
-const N = SR * DUR;
+const N = Math.round(SR * DUR);
 const BPM = 120;
 const BEAT = 60 / BPM;
 
