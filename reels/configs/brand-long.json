@@ -1,0 +1,76 @@
+{
+  "id": "brand",
+  "composition": "FeehaBrand",
+  "totalFrames": 2400,
+  "timeline": "src/brand/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "Un restaurant sur quatre ferme dès sa première année. Et près de six sur dix, avant trois ans. Pourtant, la cuisine est souvent excellente. Le vrai problème ? Une image banale, sans personnalité, qui ne fait pas sérieux. Les grandes chaînes investissent des millions dans leur image. Pour bien démarrer, investissez dans la vôtre. Voici Komé, une identité signée Feeha. Logo, emballages, menus, enseigne : tout parle la même langue. Votre enseigne, de 899,99 $ à 3400 $. Vos menus sur écran, dès 150 $ par écran. Deux panneaux lumineux Feeha : 700 $. Vos uniformes, dès 29,99 $ l'unité. Votre branding complet, à partir de 2999 $. Feeha travaille avec les plus grandes franchises de Montréal. Lancez votre propre franchise avec l'image des plus grands. Contactez-nous sur feeha.ca.",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Un"
+    },
+    {
+      "id": "stat",
+      "startsAt": "Et"
+    },
+    {
+      "id": "food",
+      "startsAt": "Pourtant"
+    },
+    {
+      "id": "problem",
+      "startsAt": "Le"
+    },
+    {
+      "id": "chains",
+      "startsAt": "Les"
+    },
+    {
+      "id": "flip",
+      "startsAt": "Pour"
+    },
+    {
+      "id": "kome",
+      "startsAt": "Voici"
+    },
+    {
+      "id": "items",
+      "startsAt": "Logo"
+    },
+    {
+      "id": "prices",
+      "startsAt": "Votre"
+    },
+    {
+      "id": "total",
+      "startsAt": "Votre"
+    },
+    {
+      "id": "pro",
+      "startsAt": "Feeha"
+    },
+    {
+      "id": "cta",
+      "startsAt": "Lancez"
+    }
+  ],
+  "tailSeconds": 2.5,
+  "draftVoiceDuration": 48,
+  "voice": {
+    "name": "Victor - Warm & Persuasive French Ads",
+    "id": "1lNxvBaIR57JBl6dRELm"
+  },
+  "spokenAs": {
+    "899,99 $": "huit cent quatre-vingt-dix-neuf dollars quatre-vingt-dix-neuf",
+    "3400 $": "trois mille quatre cents dollars",
+    "150 $": "cent cinquante dollars",
+    "700 $": "sept cents dollars",
+    "29,99 $": "vingt-neuf dollars quatre-vingt-dix-neuf",
+    "2999 $": "deux mille neuf cent quatre-vingt-dix-neuf dollars",
+    "feeha.ca": "Feeha point C A"
+  }
+}

@@ -1,0 +1,632 @@
+[
+ {
+  "text": "Un",
+  "start": 0.0,
+  "end": 0.12
+ },
+ {
+  "text": "restaurant",
+  "start": 0.16,
+  "end": 0.616
+ },
+ {
+  "text": "sur",
+  "start": 0.64,
+  "end": 0.84
+ },
+ {
+  "text": "quatre",
+  "start": 0.88,
+  "end": 1.2
+ },
+ {
+  "text": "ferme",
+  "start": 1.36,
+  "end": 1.76
+ },
+ {
+  "text": "dès",
+  "start": 1.8,
+  "end": 2.0
+ },
+ {
+  "text": "sa",
+  "start": 2.08,
+  "end": 2.16
+ },
+ {
+  "text": "première",
+  "start": 2.24,
+  "end": 2.48
+ },
+ {
+  "text": "année.",
+  "start": 2.64,
+  "end": 3.04
+ },
+ {
+  "text": "Et",
+  "start": 3.12,
+  "end": 3.2
+ },
+ {
+  "text": "près",
+  "start": 3.24,
+  "end": 3.36
+ },
+ {
+  "text": "de",
+  "start": 3.44,
+  "end": 3.6
+ },
+ {
+  "text": "six",
+  "start": 3.72,
+  "end": 3.84
+ },
+ {
+  "text": "sur",
+  "start": 3.96,
+  "end": 4.08
+ },
+ {
+  "text": "dix,",
+  "start": 4.12,
+  "end": 4.56
+ },
+ {
+  "text": "avant",
+  "start": 4.64,
+  "end": 4.88
+ },
+ {
+  "text": "trois",
+  "start": 4.96,
+  "end": 5.2
+ },
+ {
+  "text": "ans.",
+  "start": 5.28,
+  "end": 5.76
+ },
+ {
+  "text": "Pourtant,",
+  "start": 5.84,
+  "end": 6.4
+ },
+ {
+  "text": "la",
+  "start": 6.48,
+  "end": 6.56
+ },
+ {
+  "text": "cuisine",
+  "start": 6.6,
+  "end": 6.88
+ },
+ {
+  "text": "est",
+  "start": 6.96,
+  "end": 7.04
+ },
+ {
+  "text": "souvent",
+  "start": 7.067,
+  "end": 7.36
+ },
+ {
+  "text": "excellente.",
+  "start": 7.48,
+  "end": 8.4
+ },
+ {
+  "text": "Le",
+  "start": 8.44,
+  "end": 8.48
+ },
+ {
+  "text": "vrai",
+  "start": 8.56,
+  "end": 8.72
+ },
+ {
+  "text": "problème ?",
+  "start": 8.8,
+  "end": 9.12
+ },
+ {
+  "text": "Une",
+  "start": 9.493,
+  "end": 9.52
+ },
+ {
+  "text": "image",
+  "start": 9.6,
+  "end": 9.92
+ },
+ {
+  "text": "banale,",
+  "start": 10.0,
+  "end": 10.64
+ },
+ {
+  "text": "sans",
+  "start": 10.72,
+  "end": 10.8
+ },
+ {
+  "text": "personnalité,",
+  "start": 10.88,
+  "end": 11.84
+ },
+ {
+  "text": "qui",
+  "start": 11.88,
+  "end": 11.92
+ },
+ {
+  "text": "ne",
+  "start": 11.96,
+  "end": 12.0
+ },
+ {
+  "text": "fait",
+  "start": 12.08,
+  "end": 12.24
+ },
+ {
+  "text": "pas",
+  "start": 12.28,
+  "end": 12.32
+ },
+ {
+  "text": "sérieux.",
+  "start": 12.4,
+  "end": 13.12
+ },
+ {
+  "text": "Les",
+  "start": 13.2,
+  "end": 13.28
+ },
+ {
+  "text": "grandes",
+  "start": 13.36,
+  "end": 13.6
+ },
+ {
+  "text": "chaînes",
+  "start": 13.68,
+  "end": 13.92
+ },
+ {
+  "text": "investissent",
+  "start": 14.0,
+  "end": 14.56
+ },
+ {
+  "text": "des",
+  "start": 14.64,
+  "end": 14.72
+ },
+ {
+  "text": "millions",
+  "start": 14.88,
+  "end": 15.28
+ },
+ {
+  "text": "dans",
+  "start": 15.32,
+  "end": 15.4
+ },
+ {
+  "text": "leur",
+  "start": 15.44,
+  "end": 15.52
+ },
+ {
+  "text": "image.",
+  "start": 15.6,
+  "end": 16.32
+ },
+ {
+  "text": "Pour",
+  "start": 16.4,
+  "end": 16.48
+ },
+ {
+  "text": "bien",
+  "start": 16.533,
+  "end": 16.64
+ },
+ {
+  "text": "démarrer,",
+  "start": 16.68,
+  "end": 17.36
+ },
+ {
+  "text": "investissez",
+  "start": 17.56,
+  "end": 18.04
+ },
+ {
+  "text": "dans",
+  "start": 18.08,
+  "end": 18.16
+ },
+ {
+  "text": "la",
+  "start": 18.2,
+  "end": 18.24
+ },
+ {
+  "text": "vôtre.",
+  "start": 18.32,
+  "end": 19.04
+ },
+ {
+  "text": "Voici",
+  "start": 19.08,
+  "end": 19.44
+ },
+ {
+  "text": "Komé,",
+  "start": 19.6,
+  "end": 20.16
+ },
+ {
+  "text": "une",
+  "start": 20.24,
+  "end": 20.32
+ },
+ {
+  "text": "identité",
+  "start": 20.48,
+  "end": 20.88
+ },
+ {
+  "text": "signée",
+  "start": 21.04,
+  "end": 21.36
+ },
+ {
+  "text": "Feeha.",
+  "start": 21.44,
+  "end": 21.84
+ },
+ {
+  "text": "Logo,",
+  "start": 22.16,
+  "end": 22.64
+ },
+ {
+  "text": "emballages,",
+  "start": 22.8,
+  "end": 23.6
+ },
+ {
+  "text": "menus,",
+  "start": 23.8,
+  "end": 24.16
+ },
+ {
+  "text": "enseigne :",
+  "start": 24.32,
+  "end": 24.72
+ },
+ {
+  "text": "tout",
+  "start": 25.147,
+  "end": 25.2
+ },
+ {
+  "text": "parle",
+  "start": 25.28,
+  "end": 25.52
+ },
+ {
+  "text": "la",
+  "start": 25.6,
+  "end": 25.68
+ },
+ {
+  "text": "même",
+  "start": 25.76,
+  "end": 25.92
+ },
+ {
+  "text": "langue.",
+  "start": 26.0,
+  "end": 26.52
+ },
+ {
+  "text": "Votre",
+  "start": 26.72,
+  "end": 26.88
+ },
+ {
+  "text": "enseigne,",
+  "start": 26.96,
+  "end": 27.6
+ },
+ {
+  "text": "de",
+  "start": 27.68,
+  "end": 27.76
+ },
+ {
+  "text": "899,99",
+  "start": 27.84,
+  "end": 28.92
+ },
+ {
+  "text": "$",
+  "start": 28.92,
+  "end": 30.0
+ },
+ {
+  "text": "à",
+  "start": 30.16,
+  "end": 30.32
+ },
+ {
+  "text": "3400",
+  "start": 30.36,
+  "end": 31.1
+ },
+ {
+  "text": "$.",
+  "start": 31.1,
+  "end": 31.84
+ },
+ {
+  "text": "Vos",
+  "start": 31.88,
+  "end": 32.0
+ },
+ {
+  "text": "menus",
+  "start": 32.16,
+  "end": 32.32
+ },
+ {
+  "text": "sur",
+  "start": 32.4,
+  "end": 32.48
+ },
+ {
+  "text": "écran,",
+  "start": 32.68,
+  "end": 33.04
+ },
+ {
+  "text": "dès",
+  "start": 33.08,
+  "end": 33.28
+ },
+ {
+  "text": "150",
+  "start": 33.36,
+  "end": 33.76
+ },
+ {
+  "text": "$",
+  "start": 33.76,
+  "end": 34.16
+ },
+ {
+  "text": "par",
+  "start": 34.24,
+  "end": 34.32
+ },
+ {
+  "text": "écran.",
+  "start": 34.4,
+  "end": 35.04
+ },
+ {
+  "text": "Deux",
+  "start": 35.08,
+  "end": 35.2
+ },
+ {
+  "text": "panneaux",
+  "start": 35.28,
+  "end": 35.48
+ },
+ {
+  "text": "lumineux",
+  "start": 35.52,
+  "end": 35.92
+ },
+ {
+  "text": "Feeha :",
+  "start": 36.0,
+  "end": 36.32
+ },
+ {
+  "text": "700",
+  "start": 36.32,
+  "end": 36.64
+ },
+ {
+  "text": "$.",
+  "start": 36.64,
+  "end": 36.667
+ },
+ {
+  "text": "Vos",
+  "start": 37.813,
+  "end": 37.92
+ },
+ {
+  "text": "uniformes,",
+  "start": 38.2,
+  "end": 38.72
+ },
+ {
+  "text": "dès",
+  "start": 38.76,
+  "end": 38.96
+ },
+ {
+  "text": "29,99",
+  "start": 39.0,
+  "end": 39.7
+ },
+ {
+  "text": "$",
+  "start": 39.7,
+  "end": 40.4
+ },
+ {
+  "text": "l'unité.",
+  "start": 40.56,
+  "end": 41.28
+ },
+ {
+  "text": "Votre",
+  "start": 41.4,
+  "end": 41.52
+ },
+ {
+  "text": "branding",
+  "start": 41.6,
+  "end": 42.0
+ },
+ {
+  "text": "complet,",
+  "start": 42.08,
+  "end": 42.64
+ },
+ {
+  "text": "à",
+  "start": 42.68,
+  "end": 42.72
+ },
+ {
+  "text": "partir",
+  "start": 42.8,
+  "end": 43.12
+ },
+ {
+  "text": "de",
+  "start": 43.2,
+  "end": 43.28
+ },
+ {
+  "text": "2999",
+  "start": 43.36,
+  "end": 44.44
+ },
+ {
+  "text": "$.",
+  "start": 44.44,
+  "end": 45.52
+ },
+ {
+  "text": "Feeha",
+  "start": 45.6,
+  "end": 45.84
+ },
+ {
+  "text": "travaille",
+  "start": 45.92,
+  "end": 46.24
+ },
+ {
+  "text": "avec",
+  "start": 46.36,
+  "end": 46.48
+ },
+ {
+  "text": "les",
+  "start": 46.56,
+  "end": 46.64
+ },
+ {
+  "text": "plus",
+  "start": 46.72,
+  "end": 46.8
+ },
+ {
+  "text": "grandes",
+  "start": 46.88,
+  "end": 47.2
+ },
+ {
+  "text": "franchises",
+  "start": 47.24,
+  "end": 47.68
+ },
+ {
+  "text": "de",
+  "start": 47.72,
+  "end": 47.76
+ },
+ {
+  "text": "Montréal.",
+  "start": 47.84,
+  "end": 48.56
+ },
+ {
+  "text": "Lancez",
+  "start": 48.6,
+  "end": 48.88
+ },
+ {
+  "text": "votre",
+  "start": 48.92,
+  "end": 49.2
+ },
+ {
+  "text": "propre",
+  "start": 49.28,
+  "end": 49.52
+ },
+ {
+  "text": "franchise",
+  "start": 49.6,
+  "end": 50.16
+ },
+ {
+  "text": "avec",
+  "start": 50.24,
+  "end": 50.48
+ },
+ {
+  "text": "l'image",
+  "start": 50.52,
+  "end": 50.88
+ },
+ {
+  "text": "des",
+  "start": 50.96,
+  "end": 51.12
+ },
+ {
+  "text": "plus",
+  "start": 51.2,
+  "end": 51.28
+ },
+ {
+  "text": "grands.",
+  "start": 51.36,
+  "end": 51.84
+ },
+ {
+  "text": "Contactez-nous",
+  "start": 52.0,
+  "end": 52.56
+ },
+ {
+  "text": "sur",
+  "start": 52.64,
+  "end": 52.72
+ },
+ {
+  "text": "feeha.ca.",
+  "start": 52.88,
+  "end": 54.08
+ }
+]

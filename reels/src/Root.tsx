@@ -17,6 +17,7 @@ import {Hiver} from './hiver/Hiver';
 import {Vente} from './vente/Vente';
 import {FeehaPanel} from './feehapanel/FeehaPanel';
 import {FeehaAnim} from './anim/FeehaAnim';
+import {FeehaBrand} from './brand/Brand';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -27,6 +28,7 @@ import hiver from './hiver/timeline.json';
 import vente from './vente/timeline.json';
 import feehapanel from './feehapanel/timeline.json';
 import anim from './anim/timeline.json';
+import brand from './brand/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -42,6 +44,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaBrand"
+      component={FeehaBrand}
+      width={1080}
+      height={1920}
+      fps={brand.fps}
+      durationInFrames={brand.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="FeehaAnim"
       component={FeehaAnim}

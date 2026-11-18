@@ -1,0 +1,64 @@
+{
+  "id": "brand",
+  "composition": "FeehaBrand",
+  "totalFrames": 2400,
+  "timeline": "src/brand/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "Un restaurant sur quatre ferme dès sa première année. Pourtant, la cuisine est bonne. Le problème ? Une image banale, sans sérieux. Les grandes chaînes investissent des millions dans leur image. Voici Komé, signé Feeha. Enseigne, dès 899,99 $. Menus sur écran, de 150 à 300 $. Deux panneaux Feeha, 700 $. Uniformes, dès 29,99 $. Le branding complet, dès 2999 $. Feeha, partenaire des plus grandes franchises de Montréal. Lancez la vôtre sur feeha.ca.",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Un"
+    },
+    {
+      "id": "food",
+      "startsAt": "Pourtant"
+    },
+    {
+      "id": "problem",
+      "startsAt": "Le"
+    },
+    {
+      "id": "chains",
+      "startsAt": "Les"
+    },
+    {
+      "id": "kome",
+      "startsAt": "Voici"
+    },
+    {
+      "id": "prices",
+      "startsAt": "Enseigne"
+    },
+    {
+      "id": "total",
+      "startsAt": "Le"
+    },
+    {
+      "id": "pro",
+      "startsAt": "Feeha"
+    },
+    {
+      "id": "cta",
+      "startsAt": "Lancez"
+    }
+  ],
+  "tailSeconds": 1.8,
+  "draftVoiceDuration": 48,
+  "voice": {
+    "name": "Victor - Warm & Persuasive French Ads",
+    "id": "1lNxvBaIR57JBl6dRELm"
+  },
+  "spokenAs": {
+    "899,99 $": "huit cent quatre-vingt-dix-neuf dollars quatre-vingt-dix-neuf",
+    "150": "cent cinquante",
+    "300 $": "trois cents dollars",
+    "700 $": "sept cents dollars",
+    "29,99 $": "vingt-neuf dollars quatre-vingt-dix-neuf",
+    "2999 $": "deux mille neuf cent quatre-vingt-dix-neuf dollars",
+    "feeha.ca": "Feeha point C A"
+  }
+}

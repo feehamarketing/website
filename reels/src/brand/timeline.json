@@ -1,0 +1,428 @@
+{
+ "fps": 30,
+ "totalFrames": 1040,
+ "draft": false,
+ "voiceDuration": 33.045,
+ "pausesDetected": 19,
+ "anchorsUsed": 17,
+ "timing": "forced-alignment",
+ "words": [
+  {
+   "text": "Un",
+   "start": 0,
+   "end": 0.152
+  },
+  {
+   "text": "restaurant",
+   "start": 0.381,
+   "end": 0.61
+  },
+  {
+   "text": "sur",
+   "start": 0.724,
+   "end": 0.838
+  },
+  {
+   "text": "quatre",
+   "start": 0.876,
+   "end": 1.219
+  },
+  {
+   "text": "ferme",
+   "start": 1.295,
+   "end": 1.676
+  },
+  {
+   "text": "dès",
+   "start": 1.714,
+   "end": 1.829
+  },
+  {
+   "text": "sa",
+   "start": 1.905,
+   "end": 1.981
+  },
+  {
+   "text": "première",
+   "start": 2.057,
+   "end": 2.286
+  },
+  {
+   "text": "année.",
+   "start": 2.362,
+   "end": 2.895
+  },
+  {
+   "text": "Pourtant,",
+   "start": 2.971,
+   "end": 3.505
+  },
+  {
+   "text": "la",
+   "start": 3.543,
+   "end": 3.581
+  },
+  {
+   "text": "cuisine",
+   "start": 3.657,
+   "end": 3.886
+  },
+  {
+   "text": "est",
+   "start": 3.962,
+   "end": 4.038
+  },
+  {
+   "text": "bonne.",
+   "start": 4.114,
+   "end": 4.648
+  },
+  {
+   "text": "Le",
+   "start": 4.686,
+   "end": 4.724
+  },
+  {
+   "text": "problème ?",
+   "start": 4.8,
+   "end": 5.181
+  },
+  {
+   "text": "Une",
+   "start": 5.536,
+   "end": 5.562
+  },
+  {
+   "text": "image",
+   "start": 5.638,
+   "end": 5.943
+  },
+  {
+   "text": "banale,",
+   "start": 6.019,
+   "end": 6.629
+  },
+  {
+   "text": "sans",
+   "start": 6.705,
+   "end": 6.781
+  },
+  {
+   "text": "sérieux.",
+   "start": 6.857,
+   "end": 7.543
+  },
+  {
+   "text": "Les",
+   "start": 7.581,
+   "end": 7.619
+  },
+  {
+   "text": "grandes",
+   "start": 7.695,
+   "end": 7.924
+  },
+  {
+   "text": "chaînes",
+   "start": 8,
+   "end": 8.229
+  },
+  {
+   "text": "investissent",
+   "start": 8.305,
+   "end": 8.838
+  },
+  {
+   "text": "des",
+   "start": 8.952,
+   "end": 9.067
+  },
+  {
+   "text": "millions",
+   "start": 9.143,
+   "end": 9.524
+  },
+  {
+   "text": "dans",
+   "start": 9.562,
+   "end": 9.676
+  },
+  {
+   "text": "leur",
+   "start": 9.714,
+   "end": 9.752
+  },
+  {
+   "text": "image.",
+   "start": 9.829,
+   "end": 10.514
+  },
+  {
+   "text": "Voici",
+   "start": 10.552,
+   "end": 10.895
+  },
+  {
+   "text": "Komé,",
+   "start": 10.971,
+   "end": 11.505
+  },
+  {
+   "text": "signé",
+   "start": 11.581,
+   "end": 11.886
+  },
+  {
+   "text": "Feeha.",
+   "start": 12.038,
+   "end": 12.648
+  },
+  {
+   "text": "Enseigne,",
+   "start": 12.724,
+   "end": 13.41
+  },
+  {
+   "text": "dès",
+   "start": 13.448,
+   "end": 13.562
+  },
+  {
+   "text": "899,99",
+   "start": 13.638,
+   "end": 14.895
+  },
+  {
+   "text": "$.",
+   "start": 14.895,
+   "end": 16.152
+  },
+  {
+   "text": "Menus",
+   "start": 16.305,
+   "end": 16.457
+  },
+  {
+   "text": "sur",
+   "start": 16.533,
+   "end": 16.61
+  },
+  {
+   "text": "écran,",
+   "start": 16.8,
+   "end": 17.143
+  },
+  {
+   "text": "de",
+   "start": 17.219,
+   "end": 17.295
+  },
+  {
+   "text": "150",
+   "start": 17.333,
+   "end": 17.905
+  },
+  {
+   "text": "à",
+   "start": 18.057,
+   "end": 18.21
+  },
+  {
+   "text": "300",
+   "start": 18.248,
+   "end": 18.762
+  },
+  {
+   "text": "$.",
+   "start": 18.762,
+   "end": 19.276
+  },
+  {
+   "text": "Deux",
+   "start": 19.352,
+   "end": 19.429
+  },
+  {
+   "text": "panneaux",
+   "start": 19.505,
+   "end": 19.81
+  },
+  {
+   "text": "Feeha,",
+   "start": 19.886,
+   "end": 20.419
+  },
+  {
+   "text": "700",
+   "start": 20.457,
+   "end": 20.971
+  },
+  {
+   "text": "$.",
+   "start": 20.971,
+   "end": 21.486
+  },
+  {
+   "text": "Uniformes,",
+   "start": 21.752,
+   "end": 22.324
+  },
+  {
+   "text": "dès",
+   "start": 22.362,
+   "end": 22.552
+  },
+  {
+   "text": "29,99",
+   "start": 22.629,
+   "end": 23.505
+  },
+  {
+   "text": "$.",
+   "start": 23.505,
+   "end": 24.381
+  },
+  {
+   "text": "Le",
+   "start": 24.419,
+   "end": 24.457
+  },
+  {
+   "text": "branding",
+   "start": 24.533,
+   "end": 24.914
+  },
+  {
+   "text": "complet,",
+   "start": 24.99,
+   "end": 25.6
+  },
+  {
+   "text": "dès",
+   "start": 25.638,
+   "end": 25.829
+  },
+  {
+   "text": "2999",
+   "start": 25.867,
+   "end": 26.876
+  },
+  {
+   "text": "$.",
+   "start": 26.876,
+   "end": 27.886
+  },
+  {
+   "text": "Feeha,",
+   "start": 27.962,
+   "end": 28.419
+  },
+  {
+   "text": "partenaire",
+   "start": 28.533,
+   "end": 28.876
+  },
+  {
+   "text": "des",
+   "start": 28.952,
+   "end": 29.105
+  },
+  {
+   "text": "plus",
+   "start": 29.181,
+   "end": 29.257
+  },
+  {
+   "text": "grandes",
+   "start": 29.371,
+   "end": 29.562
+  },
+  {
+   "text": "franchises",
+   "start": 29.6,
+   "end": 30.019
+  },
+  {
+   "text": "de",
+   "start": 30.057,
+   "end": 30.095
+  },
+  {
+   "text": "Montréal.",
+   "start": 30.171,
+   "end": 30.857
+  },
+  {
+   "text": "Lancez",
+   "start": 30.933,
+   "end": 31.162
+  },
+  {
+   "text": "la",
+   "start": 31.2,
+   "end": 31.238
+  },
+  {
+   "text": "vôtre",
+   "start": 31.314,
+   "end": 31.619
+  },
+  {
+   "text": "sur",
+   "start": 31.695,
+   "end": 31.848
+  },
+  {
+   "text": "feeha.ca.",
+   "start": 32,
+   "end": 33.067
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 86
+  },
+  {
+   "id": "food",
+   "from": 86,
+   "to": 138
+  },
+  {
+   "id": "problem",
+   "from": 138,
+   "to": 224
+  },
+  {
+   "id": "chains",
+   "from": 224,
+   "to": 314
+  },
+  {
+   "id": "kome",
+   "from": 314,
+   "to": 379
+  },
+  {
+   "id": "prices",
+   "from": 379,
+   "to": 730
+  },
+  {
+   "id": "total",
+   "from": 730,
+   "to": 836
+  },
+  {
+   "id": "pro",
+   "from": 836,
+   "to": 925
+  },
+  {
+   "id": "cta",
+   "from": 925,
+   "to": 1040
+  }
+ ]
+}
