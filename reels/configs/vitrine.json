@@ -1,0 +1,40 @@
+{
+  "id": "vitrine",
+  "composition": "FeehaVitrine",
+  "totalFrames": 810,
+  "timeline": "src/vitrine/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "Tu passes devant souvent. T'es déjà entré ? Des fois, t'as juste aucune idée de ce qu'on y mange. Regarde la même vitrine avec un seul plat qu'on reconnaît en passant. Là, tu sais déjà ce que tu pourrais commander. Si t'as un commerce, filme ta vitrine en marchant. Montre la vidéo à quelqu'un qui connaît pas la place. Demande-lui juste : « On mange quoi ici ? » Sa réponse te dit ce qui ressort pour vrai. Suis Feeha pour d'autres tests comme ça.",
+  "scenes": [
+    {
+      "id": "s1",
+      "startsAt": "Tu"
+    },
+    {
+      "id": "s2",
+      "startsAt": "Des"
+    },
+    {
+      "id": "s3",
+      "startsAt": "Regarde"
+    },
+    {
+      "id": "s4",
+      "startsAt": "Si"
+    },
+    {
+      "id": "s5",
+      "startsAt": "Suis"
+    }
+  ],
+  "tailSeconds": 1.2,
+  "draftVoiceDuration": 27,
+  "voice": {
+    "name": "Nolan - Publicité dynamique",
+    "id": "xIS5V9lKfJu3LtLnlTVI"
+  },
+  "spokenAs": {}
+}

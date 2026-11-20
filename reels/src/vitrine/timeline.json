@@ -1,0 +1,448 @@
+{
+ "fps": 30,
+ "totalFrames": 743,
+ "draft": false,
+ "voiceDuration": 23.798,
+ "pausesDetected": 13,
+ "anchorsUsed": 13,
+ "timing": "forced-alignment",
+ "words": [
+  {
+   "text": "Tu",
+   "start": 0,
+   "end": 0.16
+  },
+  {
+   "text": "passes",
+   "start": 0.28,
+   "end": 0.4
+  },
+  {
+   "text": "devant",
+   "start": 0.48,
+   "end": 0.64
+  },
+  {
+   "text": "souvent.",
+   "start": 0.72,
+   "end": 1.2
+  },
+  {
+   "text": "T'es",
+   "start": 1.36,
+   "end": 1.44
+  },
+  {
+   "text": "déjà",
+   "start": 1.52,
+   "end": 1.68
+  },
+  {
+   "text": "entré ?",
+   "start": 1.76,
+   "end": 1.92
+  },
+  {
+   "text": "Des",
+   "start": 2.48,
+   "end": 2.56
+  },
+  {
+   "text": "fois,",
+   "start": 2.64,
+   "end": 3.04
+  },
+  {
+   "text": "t'as",
+   "start": 3.067,
+   "end": 3.2
+  },
+  {
+   "text": "juste",
+   "start": 3.28,
+   "end": 3.44
+  },
+  {
+   "text": "aucune",
+   "start": 3.6,
+   "end": 4
+  },
+  {
+   "text": "idée",
+   "start": 4.12,
+   "end": 4.24
+  },
+  {
+   "text": "de",
+   "start": 4.28,
+   "end": 4.32
+  },
+  {
+   "text": "ce",
+   "start": 4.4,
+   "end": 4.427
+  },
+  {
+   "text": "qu'on",
+   "start": 4.453,
+   "end": 4.56
+  },
+  {
+   "text": "y",
+   "start": 4.64,
+   "end": 4.72
+  },
+  {
+   "text": "mange.",
+   "start": 4.827,
+   "end": 5.36
+  },
+  {
+   "text": "Regarde",
+   "start": 5.44,
+   "end": 5.76
+  },
+  {
+   "text": "la",
+   "start": 5.84,
+   "end": 5.92
+  },
+  {
+   "text": "même",
+   "start": 6,
+   "end": 6.08
+  },
+  {
+   "text": "vitrine",
+   "start": 6.16,
+   "end": 6.64
+  },
+  {
+   "text": "avec",
+   "start": 6.8,
+   "end": 6.96
+  },
+  {
+   "text": "un",
+   "start": 7.04,
+   "end": 7.12
+  },
+  {
+   "text": "seul",
+   "start": 7.2,
+   "end": 7.36
+  },
+  {
+   "text": "plat",
+   "start": 7.44,
+   "end": 7.68
+  },
+  {
+   "text": "qu'on",
+   "start": 7.733,
+   "end": 7.84
+  },
+  {
+   "text": "reconnaît",
+   "start": 7.88,
+   "end": 8.213
+  },
+  {
+   "text": "en",
+   "start": 8.267,
+   "end": 8.32
+  },
+  {
+   "text": "passant.",
+   "start": 8.4,
+   "end": 9.04
+  },
+  {
+   "text": "Là,",
+   "start": 9.08,
+   "end": 9.44
+  },
+  {
+   "text": "tu",
+   "start": 9.52,
+   "end": 9.6
+  },
+  {
+   "text": "sais",
+   "start": 9.64,
+   "end": 9.84
+  },
+  {
+   "text": "déjà",
+   "start": 9.96,
+   "end": 10.16
+  },
+  {
+   "text": "ce",
+   "start": 10.2,
+   "end": 10.24
+  },
+  {
+   "text": "que",
+   "start": 10.28,
+   "end": 10.32
+  },
+  {
+   "text": "tu",
+   "start": 10.4,
+   "end": 10.56
+  },
+  {
+   "text": "pourrais",
+   "start": 10.6,
+   "end": 10.8
+  },
+  {
+   "text": "commander.",
+   "start": 10.92,
+   "end": 11.48
+  },
+  {
+   "text": "Si",
+   "start": 11.76,
+   "end": 11.84
+  },
+  {
+   "text": "t'as",
+   "start": 11.92,
+   "end": 12.04
+  },
+  {
+   "text": "un",
+   "start": 12.08,
+   "end": 12.16
+  },
+  {
+   "text": "commerce,",
+   "start": 12.4,
+   "end": 12.8
+  },
+  {
+   "text": "filme",
+   "start": 12.88,
+   "end": 13.12
+  },
+  {
+   "text": "ta",
+   "start": 13.2,
+   "end": 13.28
+  },
+  {
+   "text": "vitrine",
+   "start": 13.36,
+   "end": 13.68
+  },
+  {
+   "text": "en",
+   "start": 13.72,
+   "end": 13.76
+  },
+  {
+   "text": "marchant.",
+   "start": 13.84,
+   "end": 14.48
+  },
+  {
+   "text": "Montre",
+   "start": 14.56,
+   "end": 14.72
+  },
+  {
+   "text": "la",
+   "start": 14.8,
+   "end": 14.88
+  },
+  {
+   "text": "vidéo",
+   "start": 14.96,
+   "end": 15.2
+  },
+  {
+   "text": "à",
+   "start": 15.28,
+   "end": 15.36
+  },
+  {
+   "text": "quelqu'un",
+   "start": 15.44,
+   "end": 15.68
+  },
+  {
+   "text": "qui",
+   "start": 15.76,
+   "end": 15.84
+  },
+  {
+   "text": "connaît",
+   "start": 15.88,
+   "end": 16.16
+  },
+  {
+   "text": "pas",
+   "start": 16.2,
+   "end": 16.24
+  },
+  {
+   "text": "la",
+   "start": 16.28,
+   "end": 16.32
+  },
+  {
+   "text": "place.",
+   "start": 16.4,
+   "end": 16.92
+  },
+  {
+   "text": "Demande-lui",
+   "start": 17.04,
+   "end": 17.44
+  },
+  {
+   "text": "juste :",
+   "start": 17.56,
+   "end": 17.84
+  },
+  {
+   "text": "«",
+   "start": 18,
+   "end": 18.02
+  },
+  {
+   "text": "On",
+   "start": 18.08,
+   "end": 18.12
+  },
+  {
+   "text": "mange",
+   "start": 18.16,
+   "end": 18.32
+  },
+  {
+   "text": "quoi",
+   "start": 18.4,
+   "end": 18.56
+  },
+  {
+   "text": "ici ?",
+   "start": 18.72,
+   "end": 18.88
+  },
+  {
+   "text": "»",
+   "start": 19.28,
+   "end": 19.333
+  },
+  {
+   "text": "Sa",
+   "start": 19.387,
+   "end": 19.44
+  },
+  {
+   "text": "réponse",
+   "start": 19.52,
+   "end": 19.84
+  },
+  {
+   "text": "te",
+   "start": 19.92,
+   "end": 20
+  },
+  {
+   "text": "dit",
+   "start": 20.08,
+   "end": 20.16
+  },
+  {
+   "text": "ce",
+   "start": 20.2,
+   "end": 20.24
+  },
+  {
+   "text": "qui",
+   "start": 20.32,
+   "end": 20.4
+  },
+  {
+   "text": "ressort",
+   "start": 20.52,
+   "end": 20.8
+  },
+  {
+   "text": "pour",
+   "start": 20.88,
+   "end": 20.96
+  },
+  {
+   "text": "vrai.",
+   "start": 21,
+   "end": 21.6
+  },
+  {
+   "text": "Suis",
+   "start": 21.68,
+   "end": 21.84
+  },
+  {
+   "text": "Feeha",
+   "start": 21.92,
+   "end": 22.32
+  },
+  {
+   "text": "pour",
+   "start": 22.4,
+   "end": 22.48
+  },
+  {
+   "text": "d'autres",
+   "start": 22.52,
+   "end": 22.8
+  },
+  {
+   "text": "tests",
+   "start": 22.88,
+   "end": 23.12
+  },
+  {
+   "text": "comme",
+   "start": 23.2,
+   "end": 23.36
+  },
+  {
+   "text": "ça.",
+   "start": 23.44,
+   "end": 23.84
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s1",
+   "from": 0,
+   "to": 71
+  },
+  {
+   "id": "s2",
+   "from": 71,
+   "to": 160
+  },
+  {
+   "id": "s3",
+   "from": 160,
+   "to": 350
+  },
+  {
+   "id": "s4",
+   "from": 350,
+   "to": 647
+  },
+  {
+   "id": "s5",
+   "from": 647,
+   "to": 743
+  }
+ ]
+}
