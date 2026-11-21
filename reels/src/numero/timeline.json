@@ -1,0 +1,378 @@
+{
+ "fps": 30,
+ "totalFrames": 803,
+ "draft": false,
+ "voiceDuration": 25.652,
+ "pausesDetected": 17,
+ "anchorsUsed": 14,
+ "timing": "forced-alignment",
+ "words": [
+  {
+   "text": "Euh…",
+   "start": 0.3,
+   "end": 1.1
+  },
+  {
+   "text": "c'est",
+   "start": 1.34,
+   "end": 1.5
+  },
+  {
+   "text": "quoi,",
+   "start": 1.62,
+   "end": 1.78
+  },
+  {
+   "text": "le",
+   "start": 1.82,
+   "end": 1.9
+  },
+  {
+   "text": "numéro",
+   "start": 1.98,
+   "end": 2.3
+  },
+  {
+   "text": "7 ?",
+   "start": 2.46,
+   "end": 2.7
+  },
+  {
+   "text": "Quand",
+   "start": 4,
+   "end": 4.16
+  },
+  {
+   "text": "tu",
+   "start": 4.2,
+   "end": 4.24
+  },
+  {
+   "text": "viens",
+   "start": 4.32,
+   "end": 4.48
+  },
+  {
+   "text": "souvent,",
+   "start": 4.52,
+   "end": 5.12
+  },
+  {
+   "text": "tu",
+   "start": 5.2,
+   "end": 5.28
+  },
+  {
+   "text": "sais",
+   "start": 5.32,
+   "end": 5.44
+  },
+  {
+   "text": "peut-être",
+   "start": 5.52,
+   "end": 5.84
+  },
+  {
+   "text": "déjà",
+   "start": 5.92,
+   "end": 6.08
+  },
+  {
+   "text": "c'est",
+   "start": 6.16,
+   "end": 6.32
+  },
+  {
+   "text": "quoi.",
+   "start": 6.44,
+   "end": 6.64
+  },
+  {
+   "text": "La",
+   "start": 6.96,
+   "end": 7.04
+  },
+  {
+   "text": "première",
+   "start": 7.12,
+   "end": 7.44
+  },
+  {
+   "text": "fois,",
+   "start": 7.56,
+   "end": 7.84
+  },
+  {
+   "text": "t'as",
+   "start": 7.88,
+   "end": 8.16
+  },
+  {
+   "text": "aucune",
+   "start": 8.28,
+   "end": 8.56
+  },
+  {
+   "text": "idée.",
+   "start": 8.72,
+   "end": 9.16
+  },
+  {
+   "text": "Rajoute",
+   "start": 9.44,
+   "end": 9.76
+  },
+  {
+   "text": "juste",
+   "start": 9.84,
+   "end": 10
+  },
+  {
+   "text": "une",
+   "start": 10.08,
+   "end": 10.16
+  },
+  {
+   "text": "ligne.",
+   "start": 10.32,
+   "end": 10.56
+  },
+  {
+   "text": "Poulet",
+   "start": 10.96,
+   "end": 11.2
+  },
+  {
+   "text": "croustillant,",
+   "start": 11.24,
+   "end": 12.08
+  },
+  {
+   "text": "salade,",
+   "start": 12.2,
+   "end": 12.8
+  },
+  {
+   "text": "sauce",
+   "start": 12.88,
+   "end": 13.12
+  },
+  {
+   "text": "maison.",
+   "start": 13.16,
+   "end": 13.6
+  },
+  {
+   "text": "Là,",
+   "start": 14.08,
+   "end": 14.4
+  },
+  {
+   "text": "tu",
+   "start": 14.48,
+   "end": 14.56
+  },
+  {
+   "text": "sais",
+   "start": 14.64,
+   "end": 14.8
+  },
+  {
+   "text": "si",
+   "start": 14.88,
+   "end": 14.96
+  },
+  {
+   "text": "ça",
+   "start": 15,
+   "end": 15.04
+  },
+  {
+   "text": "te",
+   "start": 15.12,
+   "end": 15.2
+  },
+  {
+   "text": "tente.",
+   "start": 15.24,
+   "end": 15.88
+  },
+  {
+   "text": "Si",
+   "start": 16.16,
+   "end": 16.24
+  },
+  {
+   "text": "t'as",
+   "start": 16.32,
+   "end": 16.4
+  },
+  {
+   "text": "des",
+   "start": 16.48,
+   "end": 16.56
+  },
+  {
+   "text": "noms",
+   "start": 16.64,
+   "end": 16.8
+  },
+  {
+   "text": "maison",
+   "start": 16.88,
+   "end": 17.28
+  },
+  {
+   "text": "sur",
+   "start": 17.36,
+   "end": 17.44
+  },
+  {
+   "text": "ton",
+   "start": 17.52,
+   "end": 17.6
+  },
+  {
+   "text": "menu,",
+   "start": 17.68,
+   "end": 18.32
+  },
+  {
+   "text": "montre-en",
+   "start": 18.44,
+   "end": 18.88
+  },
+  {
+   "text": "un",
+   "start": 18.96,
+   "end": 19.04
+  },
+  {
+   "text": "à",
+   "start": 19.12,
+   "end": 19.2
+  },
+  {
+   "text": "quelqu'un",
+   "start": 19.28,
+   "end": 19.52
+  },
+  {
+   "text": "qui",
+   "start": 19.6,
+   "end": 19.64
+  },
+  {
+   "text": "a",
+   "start": 19.68,
+   "end": 19.76
+  },
+  {
+   "text": "jamais",
+   "start": 19.84,
+   "end": 20.08
+  },
+  {
+   "text": "mangé",
+   "start": 20.12,
+   "end": 20.4
+  },
+  {
+   "text": "chez",
+   "start": 20.48,
+   "end": 20.56
+  },
+  {
+   "text": "toi.",
+   "start": 20.64,
+   "end": 20.88
+  },
+  {
+   "text": "Demande-lui",
+   "start": 21.28,
+   "end": 21.68
+  },
+  {
+   "text": "ce",
+   "start": 21.72,
+   "end": 21.76
+  },
+  {
+   "text": "qu'il",
+   "start": 21.8,
+   "end": 21.92
+  },
+  {
+   "text": "pense",
+   "start": 22,
+   "end": 22.16
+  },
+  {
+   "text": "recevoir.",
+   "start": 22.24,
+   "end": 22.88
+  },
+  {
+   "text": "Suis",
+   "start": 23.28,
+   "end": 23.52
+  },
+  {
+   "text": "Feeha",
+   "start": 23.6,
+   "end": 24
+  },
+  {
+   "text": "pour",
+   "start": 24.08,
+   "end": 24.16
+  },
+  {
+   "text": "d'autres",
+   "start": 24.24,
+   "end": 24.56
+  },
+  {
+   "text": "tests",
+   "start": 24.64,
+   "end": 24.88
+  },
+  {
+   "text": "comme",
+   "start": 24.92,
+   "end": 25.04
+  },
+  {
+   "text": "ça.",
+   "start": 25.12,
+   "end": 25.6
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 117
+  },
+  {
+   "id": "problem",
+   "from": 117,
+   "to": 280
+  },
+  {
+   "id": "demo",
+   "from": 280,
+   "to": 482
+  },
+  {
+   "id": "advice",
+   "from": 482,
+   "to": 695
+  },
+  {
+   "id": "end",
+   "from": 695,
+   "to": 803
+  }
+ ]
+}

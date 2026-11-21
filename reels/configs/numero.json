@@ -1,0 +1,41 @@
+{
+  "id": "numero",
+  "composition": "FeehaNumero",
+  "totalFrames": 810,
+  "timeline": "src/numero/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "Euh… c'est quoi, le numéro 7 ? Quand tu viens souvent, tu sais peut-être déjà c'est quoi. La première fois, t'as aucune idée. Rajoute juste une ligne. Poulet croustillant, salade, sauce maison. Là, tu sais si ça te tente. Si t'as des noms maison sur ton menu, montre-en un à quelqu'un qui a jamais mangé chez toi. Demande-lui ce qu'il pense recevoir. Suis Feeha pour d'autres tests comme ça.",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Euh"
+    },
+    {
+      "id": "problem",
+      "startsAt": "Quand"
+    },
+    {
+      "id": "demo",
+      "startsAt": "Rajoute"
+    },
+    {
+      "id": "advice",
+      "startsAt": "Si",
+      "after": 38
+    },
+    {
+      "id": "end",
+      "startsAt": "Suis"
+    }
+  ],
+  "tailSeconds": 1.5,
+  "draftVoiceDuration": 27,
+  "voice": {
+    "name": "Mathieu (narrateur) + Felix (client)",
+    "id": "ea8mX8XjQt6IYaKiIshC"
+  },
+  "spokenAs": {}
+}

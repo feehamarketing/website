@@ -10,7 +10,7 @@ const GROUND = 1500;
 const WIN = {x: 110, y: 700, w: 620, h: 640};
 const BRICK = '#7A5A4A';
 
-const Sandwich = ({p}: {p: number}) => {
+export const Sandwich = ({p}: {p: number}) => {
   const drop = (i: number) => (1 - clampI(p, i * 0.1, i * 0.1 + 0.35, 0, 1)) * -160;
   return (
     <svg width={480} height={360} viewBox="0 0 400 300" style={{overflow: 'visible'}}>
