@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, OffthreadVideo, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {COND, SANS} from '../anim/Art';
 
 // 8 s process animation on the client's own scene image (940x1672, scaled to 1080x1920).
@@ -47,7 +47,7 @@ const Steam = ({from, to}: {from: number; to: number}) => {
 };
 
 // the bowl: slides along the garnish counter toward the edge
-const Bowl = ({from, to}: {from: number; to: number}) => {
+export const Bowl = ({from, to}: {from: number; to: number}) => {
   const f = useCurrentFrame();
   if (f < from || f > to) return null;
   const t = interpolate(f, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -80,7 +80,7 @@ export const FeehaProcess = () => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{background: '#D71920'}}>
-      <Img src={staticFile('process/base.jpg')} style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920, objectFit: 'cover'}} />
+      <OffthreadVideo src={staticFile('process/moving.mp4')} muted style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920}} />
 
       {/* 0-2 s : caisse, the customer points, the cashier taps */}
       <Ring x={100} y={820} w={130} h={120} from={0} to={62} />
@@ -96,7 +96,6 @@ export const FeehaProcess = () => {
 
       {/* 4-6 s : garnitures, bowl slides to the counter edge */}
       <Ring x={600} y={650} w={320} h={240} from={122} to={182} />
-      <Bowl from={130} to={178} />
       <Label text="3 · GARNITURES" from={122} top={150} />
 
       {/* 6-8 s : the queue moves forward */}
