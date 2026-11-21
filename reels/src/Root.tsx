@@ -22,6 +22,7 @@ import {FeehaStory} from './story/Story';
 import {FeehaVitrine} from './vitrine/Vitrine';
 import {FeehaNumero} from './numero/Numero';
 import {FeehaBirdBoyz} from './birdboyz/BB';
+import {FeehaProcess} from './process/Process';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -52,6 +53,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaProcess"
+      component={FeehaProcess}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={240}
+      defaultProps={{}}
+    />
     <Composition
       id="FeehaBirdBoyz"
       component={FeehaBirdBoyz}
