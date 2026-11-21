@@ -223,7 +223,7 @@ export const FeehaBirdBoyz = ({audio}: {audio: boolean}) => {
           {SCENES[s.id]}
         </Sequence>
       ))}
-      <Subs />
+      {/* subtitles removed */}
       <div style={{position: 'absolute', top: 0, left: 0, height: 8, width: `${(frame / durationInFrames) * 100}%`, background: A.white}} />
       {audio ? <Audio src={staticFile('birdboyz-mix.wav')} /> : null}
     </AbsoluteFill>
