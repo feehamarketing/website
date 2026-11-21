@@ -1,0 +1,432 @@
+[
+ {
+  "text": "Née",
+  "start": 0.0,
+  "end": 0.145
+ },
+ {
+  "text": "au",
+  "start": 0.182,
+  "end": 0.218
+ },
+ {
+  "text": "Québec",
+  "start": 0.291,
+  "end": 0.655
+ },
+ {
+  "text": "avec",
+  "start": 0.727,
+  "end": 0.945
+ },
+ {
+  "text": "un",
+  "start": 1.018,
+  "end": 1.091
+ },
+ {
+  "text": "seul",
+  "start": 1.164,
+  "end": 1.309
+ },
+ {
+  "text": "restaurant,",
+  "start": 1.527,
+  "end": 2.036
+ },
+ {
+  "text": "cette",
+  "start": 2.073,
+  "end": 2.182
+ },
+ {
+  "text": "chaîne",
+  "start": 2.255,
+  "end": 2.473
+ },
+ {
+  "text": "compte",
+  "start": 2.509,
+  "end": 2.691
+ },
+ {
+  "text": "plus",
+  "start": 2.764,
+  "end": 2.836
+ },
+ {
+  "text": "de",
+  "start": 2.909,
+  "end": 2.982
+ },
+ {
+  "text": "70",
+  "start": 3.055,
+  "end": 3.527
+ },
+ {
+  "text": "adresses.",
+  "start": 3.564,
+  "end": 4.145
+ },
+ {
+  "text": "Tu",
+  "start": 4.291,
+  "end": 4.436
+ },
+ {
+  "text": "devines",
+  "start": 4.509,
+  "end": 4.655
+ },
+ {
+  "text": "laquelle ?",
+  "start": 4.727,
+  "end": 5.018
+ },
+ {
+  "text": "Écris-la",
+  "start": 5.309,
+  "end": 5.673
+ },
+ {
+  "text": "en",
+  "start": 5.709,
+  "end": 5.745
+ },
+ {
+  "text": "commentaire.",
+  "start": 5.891,
+  "end": 6.473
+ },
+ {
+  "text": "D'abord,",
+  "start": 6.691,
+  "end": 7.127
+ },
+ {
+  "text": "un",
+  "start": 7.273,
+  "end": 7.345
+ },
+ {
+  "text": "menu",
+  "start": 7.418,
+  "end": 7.636
+ },
+ {
+  "text": "court",
+  "start": 7.709,
+  "end": 7.927
+ },
+ {
+  "text": "et",
+  "start": 8.0,
+  "end": 8.073
+ },
+ {
+  "text": "une",
+  "start": 8.109,
+  "end": 8.145
+ },
+ {
+  "text": "production",
+  "start": 8.218,
+  "end": 8.582
+ },
+ {
+  "text": "rapide.",
+  "start": 8.655,
+  "end": 9.2
+ },
+ {
+  "text": "Chaque",
+  "start": 9.382,
+  "end": 9.6
+ },
+ {
+  "text": "poste",
+  "start": 9.709,
+  "end": 9.891
+ },
+ {
+  "text": "sait",
+  "start": 9.964,
+  "end": 10.109
+ },
+ {
+  "text": "quoi",
+  "start": 10.182,
+  "end": 10.255
+ },
+ {
+  "text": "faire,",
+  "start": 10.327,
+  "end": 10.691
+ },
+ {
+  "text": "et",
+  "start": 10.727,
+  "end": 10.764
+ },
+ {
+  "text": "le",
+  "start": 10.8,
+  "end": 10.836
+ },
+ {
+  "text": "client",
+  "start": 10.909,
+  "end": 11.127
+ },
+ {
+  "text": "n'attend",
+  "start": 11.2,
+  "end": 11.491
+ },
+ {
+  "text": "pas.",
+  "start": 11.564,
+  "end": 11.709
+ },
+ {
+  "text": "Ensuite,",
+  "start": 12.073,
+  "end": 12.618
+ },
+ {
+  "text": "l'image.",
+  "start": 12.727,
+  "end": 13.236
+ },
+ {
+  "text": "Une",
+  "start": 13.455,
+  "end": 13.527
+ },
+ {
+  "text": "identité",
+  "start": 13.6,
+  "end": 14.036
+ },
+ {
+  "text": "forte,",
+  "start": 14.109,
+  "end": 14.545
+ },
+ {
+  "text": "reconnaissable",
+  "start": 14.618,
+  "end": 15.127
+ },
+ {
+  "text": "de",
+  "start": 15.2,
+  "end": 15.273
+ },
+ {
+  "text": "loin,",
+  "start": 15.345,
+  "end": 15.709
+ },
+ {
+  "text": "pareille",
+  "start": 15.818,
+  "end": 16.073
+ },
+ {
+  "text": "partout.",
+  "start": 16.145,
+  "end": 16.509
+ },
+ {
+  "text": "Et",
+  "start": 16.8,
+  "end": 16.836
+ },
+ {
+  "text": "les",
+  "start": 16.873,
+  "end": 16.945
+ },
+ {
+  "text": "recettes,",
+  "start": 17.055,
+  "end": 17.6
+ },
+ {
+  "text": "bonnes",
+  "start": 17.673,
+  "end": 18.036
+ },
+ {
+  "text": "et",
+  "start": 18.073,
+  "end": 18.109
+ },
+ {
+  "text": "fraîches.",
+  "start": 18.182,
+  "end": 18.8
+ },
+ {
+  "text": "Feeha",
+  "start": 18.982,
+  "end": 19.273
+ },
+ {
+  "text": "ferait",
+  "start": 19.345,
+  "end": 19.564
+ },
+ {
+  "text": "pareil",
+  "start": 19.673,
+  "end": 19.855
+ },
+ {
+  "text": "pour",
+  "start": 19.927,
+  "end": 20.0
+ },
+ {
+  "text": "Bird",
+  "start": 20.109,
+  "end": 20.218
+ },
+ {
+  "text": "Boyz :",
+  "start": 20.291,
+  "end": 20.509
+ },
+ {
+  "text": "menu",
+  "start": 20.945,
+  "end": 21.018
+ },
+ {
+  "text": "simple,",
+  "start": 21.091,
+  "end": 21.527
+ },
+ {
+  "text": "production",
+  "start": 21.745,
+  "end": 21.964
+ },
+ {
+  "text": "rapide,",
+  "start": 22.073,
+  "end": 22.545
+ },
+ {
+  "text": "identité",
+  "start": 22.691,
+  "end": 23.055
+ },
+ {
+  "text": "de",
+  "start": 23.127,
+  "end": 23.2
+ },
+ {
+  "text": "grande",
+  "start": 23.236,
+  "end": 23.418
+ },
+ {
+  "text": "franchise.",
+  "start": 23.491,
+  "end": 24.0
+ },
+ {
+  "text": "Tu",
+  "start": 24.291,
+  "end": 24.364
+ },
+ {
+  "text": "veux",
+  "start": 24.4,
+  "end": 24.509
+ },
+ {
+  "text": "lancer",
+  "start": 24.63,
+  "end": 24.873
+ },
+ {
+  "text": "ou",
+  "start": 24.909,
+  "end": 24.945
+ },
+ {
+  "text": "faire",
+  "start": 25.018,
+  "end": 25.091
+ },
+ {
+  "text": "grandir",
+  "start": 25.164,
+  "end": 25.382
+ },
+ {
+  "text": "une",
+  "start": 25.455,
+  "end": 25.527
+ },
+ {
+  "text": "chaîne ?",
+  "start": 25.6,
+  "end": 25.745
+ },
+ {
+  "text": "Feeha",
+  "start": 26.182,
+  "end": 26.473
+ },
+ {
+  "text": "peut",
+  "start": 26.509,
+  "end": 26.618
+ },
+ {
+  "text": "t'aider",
+  "start": 26.655,
+  "end": 26.909
+ },
+ {
+  "text": "à",
+  "start": 26.945,
+  "end": 26.982
+ },
+ {
+  "text": "la",
+  "start": 27.018,
+  "end": 27.055
+ },
+ {
+  "text": "bâtir.",
+  "start": 27.127,
+  "end": 27.636
+ },
+ {
+  "text": "Écris",
+  "start": 27.782,
+  "end": 28.073
+ },
+ {
+  "text": "franchise",
+  "start": 28.109,
+  "end": 28.655
+ },
+ {
+  "text": "en",
+  "start": 28.727,
+  "end": 28.8
+ },
+ {
+  "text": "DM.",
+  "start": 28.873,
+  "end": 29.455
+ }
+]
