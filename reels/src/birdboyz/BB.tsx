@@ -126,7 +126,7 @@ const Recipe = () => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill>
-      {f < 32 ? <Photo src="birdboyz/5.jpg" zoom={[1, 1.08]} /> : <Photo src="birdboyz/3.jpg" zoom={[1, 1.08]} />}
+      {f < 30 ? <Photo src="birdboyz/3.jpg" zoom={[1, 1.08]} /> : <Photo src="birdboyz/2.jpg" zoom={[1, 1.08]} />}
       <Card text="BONNES ET FRAÎCHES" />
     </AbsoluteFill>
   );
