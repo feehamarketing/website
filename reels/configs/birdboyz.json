@@ -7,7 +7,7 @@
     "style": "house",
     "transpose": 0
   },
-  "script": "Née au Québec avec un seul restaurant, cette chaîne compte plus de 70 adresses. Tu devines laquelle ? Écris-la en commentaire. Son secret, un menu court et une production rapide. Chaque poste sait quoi faire. Ce qui la rend reconnaissable, c'est son identité forte, pareille partout. Et des recettes bonnes et fraîches. Feeha ferait la même chose pour Bird Boyz : menu simple, production rapide, identité de grande franchise. Tu veux lancer une chaîne ? Feeha peut t'aider. Écris franchise en DM.",
+  "script": "Née au Québec avec un seul restaurant, cette chaîne compte plus de 70 adresses. Tu devines laquelle ? Écris-la en commentaire. Son secret, un menu court et une production rapide. Chaque poste sait quoi faire. Ce qui la rend reconnaissable, c'est son identité forte, pareille partout. Et des recettes bonnes et fraîches. Fi-ha ferait la même chose pour Bird Boyz : menu simple, production rapide, identité de grande franchise. Tu veux lancer une chaîne ? Fi-ha peut t'aider. Écris franchise en DM.",
   "scenes": [
     {
       "id": "hook",
@@ -29,7 +29,7 @@
     },
     {
       "id": "bb",
-      "startsAt": "Feeha",
+      "startsAt": "Fi-ha",
       "after": 51
     },
     {
@@ -41,8 +41,8 @@
   "tailSeconds": 1.0,
   "draftVoiceDuration": 30,
   "voice": {
-    "name": "Dorian - Parisian",
-    "id": "R2zfCl7xyI0UyX6zoGu4"
+    "name": "Marius (Gradium)",
+    "id": "biuhvu17TxVKOcyy"
   },
   "spokenAs": {}
 }
