@@ -1,0 +1,48 @@
+{
+  "id": "birdboyz",
+  "composition": "FeehaBirdBoyz",
+  "totalFrames": 900,
+  "timeline": "src/birdboyz/timeline.json",
+  "music": {
+    "style": "house",
+    "transpose": 0
+  },
+  "script": "Née au Québec avec un seul restaurant, cette chaîne compte plus de 70 adresses. Tu devines laquelle ? Écris-la en commentaire. D'abord, un menu court et une production rapide. Chaque poste sait quoi faire, et le client n'attend pas. Ensuite, l'image. Une identité forte, reconnaissable de loin, pareille partout. Et les recettes, bonnes et fraîches. Feeha ferait pareil pour Bird Boyz : menu simple, production rapide, identité de grande franchise. Tu veux lancer ou faire grandir une chaîne ? Feeha peut t'aider à la bâtir. Écris franchise en DM.",
+  "scenes": [
+    {
+      "id": "hook",
+      "startsAt": "Née"
+    },
+    {
+      "id": "p1",
+      "startsAt": "D'abord"
+    },
+    {
+      "id": "image",
+      "startsAt": "Ensuite",
+      "after": 38
+    },
+    {
+      "id": "recipe",
+      "startsAt": "Et",
+      "after": 48
+    },
+    {
+      "id": "bb",
+      "startsAt": "Feeha",
+      "after": 54
+    },
+    {
+      "id": "cta",
+      "startsAt": "Tu",
+      "after": 68
+    }
+  ],
+  "tailSeconds": 1.0,
+  "draftVoiceDuration": 30,
+  "voice": {
+    "name": "Dorian - Parisian",
+    "id": "R2zfCl7xyI0UyX6zoGu4"
+  },
+  "spokenAs": {}
+}

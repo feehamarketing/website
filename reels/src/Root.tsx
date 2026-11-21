@@ -21,6 +21,7 @@ import {FeehaBrand} from './brand/Brand';
 import {FeehaStory} from './story/Story';
 import {FeehaVitrine} from './vitrine/Vitrine';
 import {FeehaNumero} from './numero/Numero';
+import {FeehaBirdBoyz} from './birdboyz/BB';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -35,6 +36,7 @@ import brand from './brand/timeline.json';
 import story from './story/timeline.json';
 import vitrine from './vitrine/timeline.json';
 import numero from './numero/timeline.json';
+import birdboyz from './birdboyz/timeline.json';
 
 const fontsReady = delayRender('fonts');
 Promise.all([
@@ -50,6 +52,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaBirdBoyz"
+      component={FeehaBirdBoyz}
+      width={1080}
+      height={1920}
+      fps={birdboyz.fps}
+      durationInFrames={birdboyz.totalFrames}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="FeehaNumero"
       component={FeehaNumero}

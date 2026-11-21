@@ -1,0 +1,473 @@
+{
+ "fps": 30,
+ "totalFrames": 900,
+ "draft": false,
+ "voiceDuration": 29.492,
+ "pausesDetected": 18,
+ "anchorsUsed": 18,
+ "timing": "forced-alignment",
+ "words": [
+  {
+   "text": "Née",
+   "start": 0,
+   "end": 0.145
+  },
+  {
+   "text": "au",
+   "start": 0.182,
+   "end": 0.218
+  },
+  {
+   "text": "Québec",
+   "start": 0.291,
+   "end": 0.655
+  },
+  {
+   "text": "avec",
+   "start": 0.727,
+   "end": 0.945
+  },
+  {
+   "text": "un",
+   "start": 1.018,
+   "end": 1.091
+  },
+  {
+   "text": "seul",
+   "start": 1.164,
+   "end": 1.309
+  },
+  {
+   "text": "restaurant,",
+   "start": 1.527,
+   "end": 2.036
+  },
+  {
+   "text": "cette",
+   "start": 2.109,
+   "end": 2.255
+  },
+  {
+   "text": "chaîne",
+   "start": 2.327,
+   "end": 2.473
+  },
+  {
+   "text": "compte",
+   "start": 2.545,
+   "end": 2.764
+  },
+  {
+   "text": "plus",
+   "start": 2.836,
+   "end": 2.909
+  },
+  {
+   "text": "de",
+   "start": 2.982,
+   "end": 3.055
+  },
+  {
+   "text": "70",
+   "start": 3.127,
+   "end": 3.636
+  },
+  {
+   "text": "adresses.",
+   "start": 3.709,
+   "end": 4.291
+  },
+  {
+   "text": "Tu",
+   "start": 4.436,
+   "end": 4.509
+  },
+  {
+   "text": "devines",
+   "start": 4.582,
+   "end": 4.727
+  },
+  {
+   "text": "laquelle ?",
+   "start": 4.8,
+   "end": 5.091
+  },
+  {
+   "text": "Écris-la",
+   "start": 5.455,
+   "end": 5.745
+  },
+  {
+   "text": "en",
+   "start": 5.782,
+   "end": 5.818
+  },
+  {
+   "text": "commentaire.",
+   "start": 5.891,
+   "end": 6.582
+  },
+  {
+   "text": "D'abord,",
+   "start": 6.836,
+   "end": 7.418
+  },
+  {
+   "text": "un",
+   "start": 7.455,
+   "end": 7.491
+  },
+  {
+   "text": "menu",
+   "start": 7.564,
+   "end": 7.782
+  },
+  {
+   "text": "court",
+   "start": 7.855,
+   "end": 8.145
+  },
+  {
+   "text": "et",
+   "start": 8.218,
+   "end": 8.291
+  },
+  {
+   "text": "une",
+   "start": 8.327,
+   "end": 8.364
+  },
+  {
+   "text": "production",
+   "start": 8.436,
+   "end": 8.8
+  },
+  {
+   "text": "rapide.",
+   "start": 8.873,
+   "end": 9.6
+  },
+  {
+   "text": "Chaque",
+   "start": 9.636,
+   "end": 9.818
+  },
+  {
+   "text": "poste",
+   "start": 9.891,
+   "end": 10.182
+  },
+  {
+   "text": "sait",
+   "start": 10.255,
+   "end": 10.4
+  },
+  {
+   "text": "quoi",
+   "start": 10.473,
+   "end": 10.545
+  },
+  {
+   "text": "faire,",
+   "start": 10.618,
+   "end": 10.982
+  },
+  {
+   "text": "et",
+   "start": 11.018,
+   "end": 11.055
+  },
+  {
+   "text": "le",
+   "start": 11.091,
+   "end": 11.127
+  },
+  {
+   "text": "client",
+   "start": 11.2,
+   "end": 11.418
+  },
+  {
+   "text": "n'attend",
+   "start": 11.491,
+   "end": 11.782
+  },
+  {
+   "text": "pas.",
+   "start": 11.855,
+   "end": 12.291
+  },
+  {
+   "text": "Ensuite,",
+   "start": 12.364,
+   "end": 12.873
+  },
+  {
+   "text": "l'image.",
+   "start": 12.945,
+   "end": 13.673
+  },
+  {
+   "text": "Une",
+   "start": 13.745,
+   "end": 13.818
+  },
+  {
+   "text": "identité",
+   "start": 13.927,
+   "end": 14.327
+  },
+  {
+   "text": "forte,",
+   "start": 14.473,
+   "end": 14.836
+  },
+  {
+   "text": "reconnaissable",
+   "start": 14.909,
+   "end": 15.418
+  },
+  {
+   "text": "de",
+   "start": 15.491,
+   "end": 15.564
+  },
+  {
+   "text": "loin,",
+   "start": 15.636,
+   "end": 16
+  },
+  {
+   "text": "pareille",
+   "start": 16.073,
+   "end": 16.364
+  },
+  {
+   "text": "partout.",
+   "start": 16.473,
+   "end": 17.091
+  },
+  {
+   "text": "Et",
+   "start": 17.127,
+   "end": 17.164
+  },
+  {
+   "text": "les",
+   "start": 17.2,
+   "end": 17.236
+  },
+  {
+   "text": "recettes,",
+   "start": 17.345,
+   "end": 17.891
+  },
+  {
+   "text": "bonnes",
+   "start": 17.964,
+   "end": 18.255
+  },
+  {
+   "text": "et",
+   "start": 18.327,
+   "end": 18.4
+  },
+  {
+   "text": "fraîches.",
+   "start": 18.473,
+   "end": 19.2
+  },
+  {
+   "text": "Feeha",
+   "start": 19.273,
+   "end": 19.491
+  },
+  {
+   "text": "ferait",
+   "start": 19.564,
+   "end": 19.782
+  },
+  {
+   "text": "pareil",
+   "start": 19.891,
+   "end": 20.073
+  },
+  {
+   "text": "pour",
+   "start": 20.145,
+   "end": 20.218
+  },
+  {
+   "text": "Bird",
+   "start": 20.327,
+   "end": 20.436
+  },
+  {
+   "text": "Boyz :",
+   "start": 20.509,
+   "end": 20.727
+  },
+  {
+   "text": "menu",
+   "start": 21.139,
+   "end": 21.236
+  },
+  {
+   "text": "simple,",
+   "start": 21.382,
+   "end": 21.745
+  },
+  {
+   "text": "production",
+   "start": 21.927,
+   "end": 22.109
+  },
+  {
+   "text": "rapide,",
+   "start": 22.218,
+   "end": 22.691
+  },
+  {
+   "text": "identité",
+   "start": 22.764,
+   "end": 23.2
+  },
+  {
+   "text": "de",
+   "start": 23.273,
+   "end": 23.345
+  },
+  {
+   "text": "grande",
+   "start": 23.382,
+   "end": 23.564
+  },
+  {
+   "text": "franchise.",
+   "start": 23.6,
+   "end": 24.436
+  },
+  {
+   "text": "Tu",
+   "start": 24.473,
+   "end": 24.509
+  },
+  {
+   "text": "veux",
+   "start": 24.545,
+   "end": 24.618
+  },
+  {
+   "text": "lancer",
+   "start": 24.655,
+   "end": 24.945
+  },
+  {
+   "text": "ou",
+   "start": 24.982,
+   "end": 25.018
+  },
+  {
+   "text": "faire",
+   "start": 25.055,
+   "end": 25.164
+  },
+  {
+   "text": "grandir",
+   "start": 25.236,
+   "end": 25.455
+  },
+  {
+   "text": "une",
+   "start": 25.491,
+   "end": 25.527
+  },
+  {
+   "text": "chaîne ?",
+   "start": 25.6,
+   "end": 25.818
+  },
+  {
+   "text": "Feeha",
+   "start": 26.327,
+   "end": 26.545
+  },
+  {
+   "text": "peut",
+   "start": 26.582,
+   "end": 26.691
+  },
+  {
+   "text": "t'aider",
+   "start": 26.727,
+   "end": 26.982
+  },
+  {
+   "text": "à",
+   "start": 27.006,
+   "end": 27.03
+  },
+  {
+   "text": "la",
+   "start": 27.055,
+   "end": 27.127
+  },
+  {
+   "text": "bâtir.",
+   "start": 27.164,
+   "end": 27.855
+  },
+  {
+   "text": "Écris",
+   "start": 27.891,
+   "end": 28.145
+  },
+  {
+   "text": "franchise",
+   "start": 28.291,
+   "end": 28.873
+  },
+  {
+   "text": "en",
+   "start": 28.945,
+   "end": 29.018
+  },
+  {
+   "text": "DM.",
+   "start": 29.055,
+   "end": 29.527
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "from": 0,
+   "to": 202
+  },
+  {
+   "id": "p1",
+   "from": 202,
+   "to": 368
+  },
+  {
+   "id": "image",
+   "from": 368,
+   "to": 511
+  },
+  {
+   "id": "recipe",
+   "from": 511,
+   "to": 575
+  },
+  {
+   "id": "bb",
+   "from": 575,
+   "to": 731
+  },
+  {
+   "id": "cta",
+   "from": 731,
+   "to": 900
+  }
+ ]
+}
