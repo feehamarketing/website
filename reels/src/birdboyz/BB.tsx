@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {A, COND, LOOKS, Person, SANS, clampI} from '../anim/Art';
 import timeline from './timeline.json';
 
@@ -64,39 +64,11 @@ const Hook = () => {
 };
 
 // ---- 2. pillar 1 : counter, cashier, queue, grill, the flow --------------------------
-const Pillar1 = () => {
-  const f = useCurrentFrame();
-  const flame = (k: number) => 0.6 + 0.4 * Math.abs(Math.sin(f / 4 + k));
-  return (
-    <AbsoluteFill style={{background: CREAM}}>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 760, background: RED}} />
-      {/* sign + cashier + register */}
-      <div style={{position: 'absolute', left: 90, top: 470, width: 300, height: 120, background: INK, borderRadius: 12, color: A.white, fontFamily: COND, fontSize: 84, textAlign: 'center', lineHeight: '120px'}}>CAISSE</div>
-      <div style={{position: 'absolute', left: 120, top: 760, width: 240, height: 90, background: '#2B2B31', borderRadius: 10}} />
-      <Person x={240} y={1040} look={LOOKS[2]} walk={0} moving={0} turn={0} scale={1.3} />
-      {/* grill station + two cooks */}
-      <div style={{position: 'absolute', left: 600, top: 620, width: 380, height: 360, background: '#3A3A40', borderRadius: 14}} />
-      {[0, 1, 2, 3].map((k) => (
-        <div key={k} style={{position: 'absolute', left: 630 + k * 85, top: 560, width: 40, height: 60 * flame(k), background: `linear-gradient(0deg,#FFB43B,${RED})`, borderRadius: '50% 50% 20% 20%', opacity: 0.9}} />
-      ))}
-      <Person x={700} y={1040} look={LOOKS[1]} walk={0} moving={0} turn={0} scale={1.3} />
-      <Person x={880} y={1040} look={LOOKS[3]} walk={0} moving={0} turn={0} scale={1.3} />
-      {/* counter */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1040, height: 60, background: '#8A6446'}} />
-      <div style={{position: 'absolute', left: 0, right: 0, top: 1100, bottom: 0, background: '#6B4A34'}} />
-      {/* customers in a queue */}
-      {[0, 1, 2].map((k) => (
-        <Person key={k} x={170 + k * 300} y={1700} look={LOOKS[k]} walk={0} moving={0} turn={k === 0 ? 1 : 0} scale={1.6} />
-      ))}
-      {/* the bowl order */}
-      <div style={{position: 'absolute', left: 260, top: 660, transform: `scale(${sp(f, 40, POP)})`, fontFamily: COND, fontSize: 56, color: INK, background: CREAM, borderRadius: 14, padding: '8px 16px 2px', border: `4px solid ${RED}`}}>BOL : POULET ?</div>
-      {/* steps */}
-      <Pill text="1 · COMMANDE" d={0} top={180} size={80} rot={-3} />
-      <Pill text="2 · GRILL" d={50} top={300} bg={INK} color={A.white} size={80} rot={2} />
-      <Pill text="3 · SERVICE" d={100} top={420} size={80} rot={-2} />
-    </AbsoluteFill>
-  );
-};
+const Pillar1 = () => (
+  <AbsoluteFill style={{background: '#000'}}>
+    <OffthreadVideo src={staticFile('birdboyz/process.mp4')} volume={0.5} style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 1920, objectFit: 'cover'}} />
+  </AbsoluteFill>
+);
 
 // ---- 3. pillars 2 and 3 : photos -------------------------------------------------------
 const Card = ({text, top = 110, d = 0}: {text: string; top?: number; d?: number}) => {
