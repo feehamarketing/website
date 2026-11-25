@@ -21,9 +21,9 @@ const WORDS = tl.words as Wd[];
 const GRADE = 'brightness(1.14) contrast(1.06) saturate(1.12)';
 
 // ---------- cuts (same list as the Lemo clip) ----------
-const CUTS = [0, 1.4, 2.7, 4.0, 5.3, 7.2, 10.9, 11.55, 12.2, 12.85, 13.5, 15.8, 17.2, 20.4];
-const CARD = 20.4;
-const FB_IN = 2.7; // flashback starts (rewind)
+const CUTS = [0, 2.9, 6.7, 8.8, 9.9, 11.0, 11.6, 12.2, 12.8, 13.3, 14.5, 16.2, 17.8, 19.8];
+const CARD = 19.8;
+const FB_IN = 999; // no flashback in this cut
 const cutAt = (t: number) => { let i = 0; CUTS.forEach((c, k) => { if (t >= c) i = k; }); return {i, local: t - CUTS[i]}; };
 const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const lin = (t: number, a: number, b: number, from: number, to: number) => interpolate(t, [a, b], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -105,26 +105,28 @@ const Captions = () => {
   );
 };
 
-// ---------- end card ----------
+// ---------- end card: the question (comments) first, then the brand ----------
 const Card = () => {
   const f = useCurrentFrame();
   const t = f / FPS;
   const at = (d: number) => spring({frame: f - Math.round((CARD + d) * FPS), fps: FPS, config: POP});
-  const p = at(0), p2 = at(0.25), p3 = at(0.5), p4 = at(0.75);
+  const p = at(0), p2 = at(0.35), p3 = at(0.7), p4 = at(1.0), p5 = at(1.25);
   const glow = 0.6 + 0.4 * Math.sin((t - CARD) * 3);
   return (
-    <AbsoluteFill style={{background: `radial-gradient(circle at 50% 40%, #3A0A12 0%, ${INK} 65%)`, alignItems: 'center'}}>
-      <div style={{position: 'absolute', top: 300, left: 150, right: 150, background: '#fff', borderRadius: 34, padding: '40px 30px', boxShadow: `0 0 ${110 * glow}px rgba(225,29,46,.7)`, transform: `scale(${lin(p, 0, 1, 0.8, 1)})`, opacity: p, display: 'flex', justifyContent: 'center'}}>
-        <Img src={staticFile('feeha/logo-clean.png')} style={{width: 640}} />
+    <AbsoluteFill style={{background: `radial-gradient(circle at 50% 35%, #3A0A12 0%, ${INK} 65%)`, alignItems: 'center'}}>
+      <div style={{position: 'absolute', top: 190, left: 60, right: 60, textAlign: 'center', fontFamily: ANTON, fontSize: 132, lineHeight: 1, color: '#fff', transform: `scale(${lin(p, 0, 1, 1.3, 1)})`, opacity: p}}>
+        TA VITRINE,<br />ON LA VOIT<br /><span style={{color: RED}}>LE SOIR ?</span>
       </div>
-      <div style={{position: 'absolute', top: 820, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26}}>
-        <div style={{background: RED, color: '#fff', fontFamily: ANTON, fontSize: 96, padding: '14px 46px 8px', borderRadius: 20, transform: `scale(${lin(p2, 0, 1, 1.5, 1)})`, opacity: p2}}>FEEHAPANELS.COM</div>
-        <div style={{border: '5px solid #fff', color: '#fff', fontFamily: ANTON, fontSize: 80, padding: '8px 42px 2px', borderRadius: 20, transform: `scale(${lin(p3, 0, 1, 1.5, 1)})`, opacity: p3}}>FEEHA.CA</div>
+      <div style={{position: 'absolute', top: 640, left: 0, right: 0, textAlign: 'center', opacity: p2, transform: `translateY(${(1 - p2) * 30}px)`}}>
+        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 48, color: INK, background: '#fff', padding: '12px 30px', borderRadius: 999}}>DIS-LE EN COMMENTAIRE</span>
       </div>
-      <div style={{position: 'absolute', top: 1220, left: 60, right: 60, textAlign: 'center', opacity: p4, transform: `translateY(${(1 - p4) * 30}px)`}}>
-        <div style={{fontFamily: MONT, fontWeight: 900, fontSize: 62, color: '#fff', lineHeight: 1.25}}>
-          ÉCRIS <span style={{background: '#fff', color: RED, padding: '2px 18px', borderRadius: 12}}>PANNEAU</span><br />EN DM
-        </div>
+      <div style={{position: 'absolute', top: 800, left: 220, right: 220, background: '#fff', borderRadius: 30, padding: '28px 24px', boxShadow: `0 0 ${100 * glow}px rgba(225,29,46,.65)`, transform: `scale(${lin(p3, 0, 1, 0.8, 1)})`, opacity: p3, display: 'flex', justifyContent: 'center'}}>
+        <Img src={staticFile('feeha/logo-clean.png')} style={{width: 520}} />
+      </div>
+      <div style={{position: 'absolute', top: 1150, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20}}>
+        <div style={{background: RED, color: '#fff', fontFamily: ANTON, fontSize: 84, padding: '12px 40px 6px', borderRadius: 18, transform: `scale(${lin(p4, 0, 1, 1.5, 1)})`, opacity: p4}}>FEEHAPANELS.COM</div>
+        <div style={{border: '5px solid #fff', color: '#fff', fontFamily: ANTON, fontSize: 70, padding: '6px 38px 0', borderRadius: 18, transform: `scale(${lin(p4, 0, 1, 1.5, 1)})`, opacity: p4}}>FEEHA.CA</div>
+        <div style={{marginTop: 8, fontFamily: MONT, fontWeight: 800, fontSize: 44, color: '#fff', opacity: p5}}>ou écris <span style={{background: '#fff', color: RED, padding: '0 14px', borderRadius: 10}}>PANNEAU</span> en DM</div>
       </div>
     </AbsoluteFill>
   );
@@ -160,15 +162,13 @@ const Labels = () => {
   const t = useCurrentFrame() / FPS;
   return (
     <>
-      {t < FB_IN ? <Pill text="MAINTENANT" from={0.1} /> : null}
-      {t >= FB_IN && t < 5.3 ? <Pill text="IL Y A 3 MOIS" from={FB_IN} /> : null}
-      {t >= 5.3 && t < 7.2 ? <Pill text="LA RECETTE : PARFAITE" from={5.5} /> : null}
-      {t >= 7.2 && t < 9.6 ? <Pill text="ESSAI : UN BEAU POSTER" from={7.2} /> : null}
-      {t >= 9.6 && t < 10.9 ? <Pill text="18 H → 21 H" from={9.6} /> : null}
-      {t >= 10.9 && t < 13.5 ? <Pill text="SOLUTION : PANNEAU LUMINEUX" from={10.9} /> : null}
-      {t >= CLICK && t < 15.8 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
-      {t >= 15.8 && t < 17.2 ? <><Pill text="AUJOURD'HUI" from={15.8} /><Sticker text="+60 %" from={16.2} x={660} y={1000} rot={6} /></> : null}
-      {t >= 17.2 && t < CARD ? <Pill text="LA SEULE VITRINE QU'ON VOIT" from={17.2} /> : null}
+      {t >= 2.9 && t < 5.0 ? <Pill text="LE JOUR" from={3.75} /> : null}
+      {t >= 5.0 && t < 6.7 ? <Pill text="LE SOIR" from={5.25} /> : null}
+      {t >= 6.7 && t < 8.8 ? <Pill text="L'HEURE DU SOUPER" from={6.75} /> : null}
+      {t >= 8.8 && t < 9.9 ? <Pill text="LA RECETTE : PARFAITE" from={8.9} /> : null}
+      {t >= 11.0 && t < 13.3 ? <Pill text="SOLUTION : PANNEAU LUMINEUX" from={11.0} /> : null}
+      {t >= CLICK && t < 14.5 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
+      {t >= 16.2 && t < 17.8 ? <Pill text="ILS POINTENT · ILS FONT LA FILE" from={16.2} /> : null}
     </>
   );
 };

@@ -1,4 +1,4 @@
-# « Le plat invisible » (flashback cut): groove now → tape-stop rewind → tense flashback → click → groove back. → public/plat-mix-raw.wav
+# « Le plat invisible » (viral cut): hit on frame 1 → tension until the click → groove. → public/plat-mix-raw.wav
 import os, sys, json
 import numpy as np, soundfile as sf
 sys.path.insert(0, '/root/lemo-opuscar')
@@ -6,8 +6,8 @@ from core.audio import sampler as S
 from core.audio.sfx import SR, add, limit, noise, lp, hp, bp, t_, env_exp, norm, click, clack, whoosh, thump, compress
 REELS = '/home/claude/website/reels'
 TL = json.load(open(f'{REELS}/src/plat/timeline.json')); L = TL['lines']; DUR = TL['dur']; N = int(DUR * SR)
-CLICK = L['l07'] + .45; FB = 2.7; CARD = 20.4
-CUTS = [1.4, 2.7, 4.0, 5.3, 7.2, 10.9, 11.55, 12.2, 12.85, 13.5, 15.8, 17.2, 20.4]
+CLICK = L['l08'] + .45; FB = 0.0; CARD = 19.8
+CUTS = [2.9, 6.7, 8.8, 9.9, 11.0, 11.6, 12.2, 12.8, 13.3, 14.5, 16.2, 17.8, 19.8]
 S.seed(3); np.random.seed(3)
 VO = os.environ.get('VO')
 def load(p):
@@ -18,7 +18,7 @@ vo = np.zeros((N, 2), np.float32)
 def voice(x, at): add(vo, compress(hp(x, 80) / (np.abs(x).max() + 1e-9) * .9, thr=.3, ratio=3), at, .75, 0)
 if VO: voice(load(VO), 0)
 else:
-    for k, at in L.items(): voice(load(f'/home/claude/plat/vo3/{k}.wav'), at)
+    for k, at in L.items(): voice(load(f'/home/claude/plat/vo4/{k}.wav'), at)
 vm = (np.abs(vo).sum(1) > 1e-3).astype(float); kk = int(.25 * SR); duck = 1 - .5 * np.clip(np.convolve(vm, np.ones(kk) / kk, mode='same'), 0, 1)
 
 mus = np.zeros((N, 2), np.float32); sc = []
@@ -39,14 +39,13 @@ def groove(t0, t1):
     t, i = t0, 0
     while t < t1 - .05:
         add(mus, kick() if i % 2 == 0 else clap(), t, .55 if i % 2 == 0 else .25, 0); add(mus, hat(), t + B / 2, .06, .25); t += B; i += 1
-# now: groove, then the tape stops into the flashback
-groove(0, FB - .05)
+add(mus, kick(), 0.05, 1.0, 0); add(mus, thump(1, 45), 0.05, .6, 0)   # hit on frame 1
 # flashback: drone + heartbeat + ticks, rising to the click
 dd = CLICK - FB; tt = t_(dd)
 drone = (np.sin(2 * np.pi * 49 * tt) * .5 + np.sin(2 * np.pi * 73.4 * tt) * .25 + lp(noise(dd), 200) * .4) * np.minimum(1, tt / .8) * (.6 + .4 * tt / dd)
 add(mus, drone, FB, .16, 0)
 for t in np.arange(FB + .3, CLICK - .3, B * 2): add(mus, kick(), t, .45, 0); add(mus, kick(), t + .2, .22, 0)
-for i, t in enumerate(np.arange(10.9, CLICK - .2, B / 2)): add(mus, hat(), t, .05, (-1) ** i * .3)
+for i, t in enumerate(np.arange(11.0, CLICK - .2, B / 2)): add(mus, hat(), t, .05, (-1) ** i * .3)
 for t in np.arange(FB + .2, CLICK - .5, B * 4):
     for p in ['A2', 'C3', 'E3']: n(t, 'piano', p, B * 4, .13)
 rise = hp(noise(1.5), 1200) * np.linspace(0, 1, int(1.5 * SR)) ** 2; add(mus, rise, CLICK - 1.5, .09, 0)
@@ -57,10 +56,6 @@ add(mus, rise, CARD - 1.5, .07, 0); add(mus, kick(), CARD, .9, 0); add(mus, thum
 for p in ['F3', 'C4', 'A4', 'E5']: n(CARD, 'piano', p, 2.6, .35)
 notes = S.render(sc, dur=DUR + .5)[:N]
 music = (mus + notes)
-# tape stop: the "now" music slows and drops in pitch into the rewind
-i0, i1 = int((FB - .45) * SR), int(FB * SR)
-seg_ = music[i0:i1].copy(); m = len(seg_); idx = np.cumsum(np.linspace(1, .05, m)); idx = np.clip(idx, 0, m - 1).astype(int)
-music[i0:i1] = seg_[idx] * np.linspace(1, 0, m)[:, None]
 music *= duck[:, None]
 
 fx = np.zeros((N, 2), np.float32)
@@ -71,15 +66,13 @@ def rewind(d=.7): tt = t_(d); f = 2000 - 1600 * tt / d; return (bp(noise(d), 800
 wind = np.stack([bp(noise(DUR), 200, 1200)[:N], bp(noise(DUR), 200, 1200)[:N]], 1) * .02
 fx += wind.astype(np.float32)
 crowd = lambda d: bp(noise(d), 300, 2500) * np.sin(np.pi * t_(d) / d)
-add(fx, crowd(2.7), 0, .05, -.2); add(fx, crowd(4.4), 15.8, .05, .2)
-add(fx, rewind(), FB - .4, .22, 0)
+add(fx, crowd(4.0), 14.5, .05, .2)
 for s in CUTS: add(fx, whoosh(.35, 1), s - .12, .12, 0)
-for s in [10.9, 11.55, 12.2, 12.85]: add(fx, zip_(), s + .1, .08, 0); add(fx, clack(1.3, 1), s + .35, .12, 0)
-for s in [.1, FB, 5.5, 7.2, 9.6, 10.9, 15.8, 17.2]: add(fx, pop(), s, .12, 0)
-fall = np.sin(2 * np.pi * np.cumsum(np.linspace(220, 90, int(1.2 * SR))) / SR) * np.sin(np.pi * t_(1.2) / 1.2); add(fx, fall, 9.6, .06, 0)
+for s in [11.0, 11.6, 12.2, 12.8]: add(fx, zip_(), s + .1, .08, 0); add(fx, clack(1.3, 1), s + .35, .12, 0)
+for s in [3.75, 5.25, 6.75, 8.9, 11.0, 16.2]: add(fx, pop(), s, .12, 0)
+fall = np.sin(2 * np.pi * np.cumsum(np.linspace(220, 90, int(1.2 * SR))) / SR) * np.sin(np.pi * t_(1.2) / 1.2); add(fx, fall, 1.0, .06, 0); add(fx, fall, 4.95, .06, 0); add(fx, fall, 9.9, .05, 0)
 add(fx, click(1.0, 1), CLICK, .55, 0); add(fx, clack(.8, 1), CLICK + .01, .3, 0); add(fx, tone(1760, .9, .3), CLICK + .02, .04, 0)
 hum = np.sin(2 * np.pi * 120 * t_(1.6)) * env_exp(1.6, .7); add(fx, hum, CLICK, .05, 0)
-add(fx, pop(), 16.2, .2, .3); add(fx, thump(1, 70), 16.2, .25, 0)
 for j in range(3): add(fx, pop(), CARD + j * .25, .12, (j - 1) * .3)
 mix = music * .8 + fx + vo
 mix = np.stack([hp(mix[:, 0], 35), hp(mix[:, 1], 35)], 1)
