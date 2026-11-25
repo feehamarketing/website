@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, OffthreadVideo, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import words from './words.json';
 
 // Pro edit of the client's talking-head video: "4 raisons d'acheter nos panneaux Feeha".
@@ -11,8 +11,11 @@ const ANTON = '"Anton", sans-serif';
 const MONT = '"Montserrat", sans-serif';
 const POP = {damping: 10, stiffness: 220, mass: 0.6};
 const SOFT = {damping: 16, stiffness: 120};
-export const PROMO_FRAMES = Math.round(24.6 * 30);
-const END_AT = 22.7;
+export const PROMO_FRAMES = Math.round(34.3 * 30);
+const END_AT = 22.7; // end of the talking part
+const RESULTS_AT = 22.7;
+const PHOTO_AT = 28.0;
+const CARD_AT = 30.8;
 
 type W = {text: string; start: number; end: number};
 const WORDS = words as W[];
@@ -139,20 +142,66 @@ const Captions = () => {
   );
 };
 
+const ResultsLabel = ({from}: {from: number}) => {
+  const f = useCurrentFrame();
+  const p = spring({frame: f - Math.round(from * 30), fps: 30, config: POP});
+  return (
+    <div style={{position: 'absolute', top: 150, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <div style={{fontFamily: MONT, fontWeight: 900, fontSize: 38, letterSpacing: 6, color: '#fff', background: RED, padding: '12px 26px', borderRadius: 999, transform: `scale(${interpolate(p, [0, 1], [0.6, 1])})`, opacity: p}}>RÉSULTATS CHEZ NOS CLIENTS</div>
+      <div style={{marginTop: 18, fontFamily: ANTON, fontSize: 130, lineHeight: 0.95, color: '#fff', textShadow: '0 10px 30px rgba(0,0,0,.6)', transform: `translateY(${(1 - p) * 40}px)`, opacity: p}}>INSTALLÉS ✓</div>
+    </div>
+  );
+};
+
+const Results = () => {
+  const f = useCurrentFrame();
+  const t = f / 30;
+  if (t < RESULTS_AT || t >= CARD_AT) return null;
+  const photoT = t - PHOTO_AT;
+  return (
+    <AbsoluteFill style={{background: '#000'}}>
+      <Sequence from={Math.round(RESULTS_AT * 30)} durationInFrames={Math.round((PHOTO_AT - RESULTS_AT) * 30)} layout="none">
+        <OffthreadVideo src={staticFile('promo/install1.mp4')} muted style={{position: 'absolute', width: 1080, height: 1920, transform: `scale(${1.04 + (t - RESULTS_AT) * 0.01})`}} />
+      </Sequence>
+      {t >= PHOTO_AT ? (
+        <AbsoluteFill style={{overflow: 'hidden'}}>
+          <Img src={staticFile('promo/install2.jpg')} style={{position: 'absolute', left: -180, top: 0, width: 1440, height: 1920, objectFit: 'cover', transform: `scale(${1.02 + photoT * 0.035}) translateX(${-photoT * 18}px)`, transformOrigin: '60% 45%'}} />
+        </AbsoluteFill>
+      ) : null}
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 75%, rgba(0,0,0,.55) 100%)'}} />
+      <ResultsLabel from={RESULTS_AT} />
+      <div style={{position: 'absolute', bottom: 430, left: 0, right: 0, textAlign: 'center', fontFamily: MONT, fontWeight: 900, fontSize: 52, color: '#fff', textShadow: '0 4px 14px rgba(0,0,0,.8)', opacity: interpolate(t, [RESULTS_AT + 0.4, RESULTS_AT + 0.8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
+        {t < PHOTO_AT ? 'Visibles de jour comme de nuit' : 'Ta vitrine, impossible à ignorer'}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const EndCard = () => {
   const f = useCurrentFrame();
   const t = f / 30;
-  if (t < END_AT) return null;
-  const p = spring({frame: f - Math.round(END_AT * 30), fps: 30, config: POP});
-  const p2 = spring({frame: f - Math.round((END_AT + 0.35) * 30), fps: 30, config: POP});
-  const p3 = spring({frame: f - Math.round((END_AT + 0.7) * 30), fps: 30, config: POP});
-  const bob = Math.sin((t - END_AT) * 8) * 10;
+  if (t < CARD_AT) return null;
+  const at = (d: number) => spring({frame: f - Math.round((CARD_AT + d) * 30), fps: 30, config: POP});
+  const p = at(0), p2 = at(0.3), p3 = at(0.55), p4 = at(0.8);
+  const sweep = ((t - CARD_AT) * 0.7) % 1.4 - 0.2;
+  const glow = 0.6 + 0.4 * Math.sin((t - CARD_AT) * 3);
   return (
-    <AbsoluteFill style={{background: `radial-gradient(circle at 50% 40%, #FF3B4A 0%, ${RED} 45%, #7A0B16 100%)`, alignItems: 'center', justifyContent: 'center', opacity: interpolate(t, [END_AT, END_AT + 0.12], [0, 1], {extrapolateRight: 'clamp'})}}>
-      <div style={{fontFamily: ANTON, fontSize: 330, lineHeight: 0.85, color: '#fff', letterSpacing: 6, transform: `scale(${interpolate(p, [0, 1], [1.6, 1])})`, textShadow: '0 20px 0 rgba(0,0,0,.2)'}}>FEEHA</div>
-      <div style={{fontFamily: MONT, fontWeight: 900, fontSize: 52, letterSpacing: 8, color: '#fff', marginTop: 14, opacity: p}}>PANNEAUX LUMINEUX</div>
-      <div style={{marginTop: 70, background: '#fff', color: RED, fontFamily: ANTON, fontSize: 104, padding: '18px 44px 14px', borderRadius: 22, transform: `rotate(-2deg) scale(${interpolate(p2, [0, 1], [1.6, 1])})`, opacity: t >= END_AT + 0.35 ? 1 : 0, boxShadow: '12px 12px 0 rgba(0,0,0,.25)'}}>FEEHAPANELS.COM</div>
-      <div style={{marginTop: 44, fontFamily: MONT, fontWeight: 800, fontSize: 50, color: '#fff', opacity: p3, transform: `translateY(${bob * 0.3}px)`}}>Écris-nous en DM ↓</div>
+    <AbsoluteFill style={{background: `radial-gradient(circle at 50% 42%, #3A0A12 0%, ${INK} 62%)`, alignItems: 'center', justifyContent: 'center', opacity: interpolate(t, [CARD_AT, CARD_AT + 0.15], [0, 1], {extrapolateRight: 'clamp'})}}>
+      {/* glowing light-panel frame */}
+      <div style={{position: 'absolute', left: 140, top: 360, width: 800, height: 900, borderRadius: 28, border: '14px solid #1b1b1f', background: `linear-gradient(160deg, ${RED}, #8E0E1C)`, boxShadow: `0 0 ${120 * glow}px rgba(225,29,46,.75), inset 0 0 60px rgba(255,255,255,.15)`, transform: `scale(${interpolate(p, [0, 1], [0.85, 1])})`, opacity: p, overflow: 'hidden'}}>
+        <div style={{position: 'absolute', top: 0, bottom: 0, left: `${sweep * 100}%`, width: 180, background: 'linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0))', transform: 'skewX(-18deg)'}} />
+      </div>
+      <div style={{position: 'absolute', top: 470, left: 0, right: 0, textAlign: 'center'}}>
+        <div style={{fontFamily: MONT, fontWeight: 900, fontSize: 40, letterSpacing: 10, color: 'rgba(255,255,255,.85)', opacity: p2}}>PANNEAUX LUMINEUX</div>
+        <div style={{fontFamily: ANTON, fontSize: 300, lineHeight: 0.95, color: '#fff', letterSpacing: 8, textShadow: '0 0 40px rgba(255,255,255,.35), 0 14px 0 rgba(0,0,0,.25)', transform: `scale(${interpolate(p2, [0, 1], [1.4, 1])})`, opacity: p2}}>FEEHA</div>
+        <div style={{width: 520, height: 6, background: '#fff', margin: '18px auto 0', borderRadius: 3, transform: `scaleX(${p3})`}} />
+        <div style={{marginTop: 46, fontFamily: MONT, fontWeight: 800, fontSize: 40, color: '#fff', opacity: p3}}>Fais briller ta vitrine</div>
+      </div>
+      <div style={{position: 'absolute', top: 1340, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
+        <div style={{background: '#fff', color: RED, fontFamily: ANTON, fontSize: 92, padding: '14px 44px 10px', borderRadius: 20, boxShadow: '0 14px 40px rgba(0,0,0,.5)', transform: `scale(${interpolate(p3, [0, 1], [1.5, 1])})`, opacity: p3}}>FEEHAPANELS.COM</div>
+        <div style={{border: '5px solid #fff', color: '#fff', fontFamily: ANTON, fontSize: 76, padding: '8px 40px 4px', borderRadius: 20, transform: `scale(${interpolate(p4, [0, 1], [1.5, 1])})`, opacity: p4}}>FEEHA.CA</div>
+        <div style={{marginTop: 10, fontFamily: MONT, fontWeight: 800, fontSize: 44, color: '#fff', opacity: p4, transform: `translateY(${Math.sin((t - CARD_AT) * 6) * 4}px)`}}>Écris-nous en DM ✉</div>
+      </div>
     </AbsoluteFill>
   );
 };
@@ -161,7 +210,7 @@ export const FeehaPromo = ({audio}: {audio: boolean}) => {
   const f = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
   const t = f / 30;
-  const sinceCut = Math.min(...SECTIONS.map((s) => (t >= s.at && s.at > 0 ? t - s.at : 99)), t >= END_AT ? t - END_AT : 99);
+  const sinceCut = Math.min(...SECTIONS.map((s) => (t >= s.at && s.at > 0 ? t - s.at : 99)), ...[RESULTS_AT, PHOTO_AT, CARD_AT].map((c) => (t >= c ? t - c : 99)));
   const flash = interpolate(sinceCut, [0, 0.12], [0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{background: '#000'}}>
@@ -180,6 +229,7 @@ export const FeehaPromo = ({audio}: {audio: boolean}) => {
       {/* vignette */}
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%)', pointerEvents: 'none'}} />
       <AbsoluteFill style={{background: '#fff', opacity: flash, pointerEvents: 'none'}} />
+      <Results />
       <EndCard />
       <div style={{position: 'absolute', top: 0, left: 0, height: 10, width: `${(f / durationInFrames) * 100}%`, background: RED}} />
       {audio ? <Audio src={staticFile('promo-mix.wav')} /> : null}
