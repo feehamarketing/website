@@ -6,6 +6,9 @@ import '@fontsource/inter/800.css';
 import '@fontsource-variable/archivo/wdth.css';
 import '@fontsource-variable/archivo/wdth-italic.css';
 import '@fontsource/space-mono/700.css';
+import '@fontsource/anton/400.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/montserrat/900.css';
 import {Composition, continueRender, delayRender} from 'remotion';
 import {Reel} from './Reel';
 import {Feeha} from './feeha/Feeha';
@@ -50,6 +53,9 @@ Promise.all([
   document.fonts.load('850 100px "Archivo Variable"'),
   document.fonts.load('italic 900 100px "Archivo Variable"'),
   document.fonts.load('700 30px "Space Mono"'),
+  document.fonts.load('400 100px "Anton"'),
+  document.fonts.load('800 40px "Montserrat"'),
+  document.fonts.load('900 40px "Montserrat"'),
 ]).then(() => continueRender(fontsReady));
 
 export const Root = () => (
