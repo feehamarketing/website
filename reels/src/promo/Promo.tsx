@@ -60,13 +60,9 @@ const BehindText = () => {
   const isHook = s.at === 0;
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      {/* outlined giant number */}
-      <div style={{position: 'absolute', left: 0, right: 0, top: isHook ? 120 : 170, textAlign: 'center', fontFamily: ANTON, fontSize: isHook ? 760 : 620, lineHeight: 0.85, color: 'transparent', WebkitTextStroke: `10px ${isHook ? RED : 'rgba(255,255,255,.9)'}`, opacity: interpolate(p, [0, 1], [0, 0.95]), transform: `translateY(${(1 - p) * 120 - drift}px) scale(${interpolate(p, [0, 1], [1.25, 1])})`}}>
-        {s.num}
-      </div>
       {/* filled giant word */}
-      <div style={{position: 'absolute', left: -40, right: -40, top: isHook ? 640 : 560, textAlign: 'center', fontFamily: ANTON, fontSize: s.big.length > 7 ? 230 : 270, lineHeight: 0.9, letterSpacing: 4, color: '#fff', textShadow: '0 12px 40px rgba(0,0,0,.35)', transform: `translateX(${(1 - p) * (SECTIONS.indexOf(s) % 2 ? 500 : -500) + (SECTIONS.indexOf(s) % 2 ? -drift : drift)}px)`, opacity: p}}>
-        {s.big}
+      <div style={{position: 'absolute', left: -40, right: -40, top: 205, textAlign: 'center', fontFamily: ANTON, fontSize: 160, lineHeight: 0.9, letterSpacing: 4, color: '#fff', textShadow: '0 12px 40px rgba(0,0,0,.35)', transform: `translateX(${(1 - p) * (SECTIONS.indexOf(s) % 2 ? 500 : -500) + (SECTIONS.indexOf(s) % 2 ? -drift : drift)}px)`, opacity: p}}>
+        {isHook ? `${s.num} ${s.big}` : s.big}
       </div>
     </AbsoluteFill>
   );
