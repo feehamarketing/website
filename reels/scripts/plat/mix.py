@@ -17,7 +17,7 @@ vo = np.zeros((N, 2), np.float32)
 def voice(x, at): add(vo, compress(hp(x, 80) / (np.abs(x).max() + 1e-9) * .9, thr=.3, ratio=3), at, .75, 0)
 if VO: voice(load(VO), 0)
 else:
-    for k, at in L.items(): voice(load(f'/home/claude/plat/vo/{k}.wav'), at)
+    for k, at in L.items(): voice(load(f'/home/claude/plat/vo2/{k}.wav'), at)
 vm = (np.abs(vo).sum(1) > 1e-3).astype(float); kk = int(.25 * SR); duck = 1 - .5 * np.clip(np.convolve(vm, np.ones(kk) / kk, mode='same'), 0, 1)
 
 mus = np.zeros((N, 2), np.float32); sc = []
@@ -61,14 +61,14 @@ def tone(f, d, dc): return np.sin(2 * np.pi * f * t_(d)) * env_exp(d, dc)
 def zip_(d=.35): tt = t_(d); return bp(noise(d), 1500, 6000) * (np.sin(2 * np.pi * 60 * tt) > 0) * np.sin(np.pi * tt / d)
 wind = np.stack([bp(noise(DUR), 200, 1200)[:N], bp(noise(DUR), 200, 1200)[:N]], 1) * .02 * np.clip(1 - (np.arange(N) / SR - CLICK) / 1.0, .25, 1)[:, None]
 fx += wind.astype(np.float32)
-shots = [0, L['l02'], L['l03'], L['l04'], L['l05'], L['l06'] - .6, L['l06'], L['l06'] + .7, L['l06'] + 1.45, L['l06'] + 2.2, L['l07'], L['l09'], L['l09'] + 2.0, L['l10'], L['l11']]
+shots = [0, L['l02'], 3.8, 5.9, 7.6, 9.6, 10.0, 10.8, 11.6, 12.4, 13.2, 15.4, 17.4, 19.7, L['l11'] - .2]
 for s in shots[1:]: add(fx, whoosh(.35, 1), s - .12, .14, 0)
-for s in [L['l06'], L['l06'] + .7, L['l06'] + 1.45, L['l06'] + 2.2]: add(fx, zip_(), s + .1, .08, 0); add(fx, clack(1.3, 1), s + .35, .12, 0)   # fast install: ratchet + clunk
-for s in [L['l03'], L['l05'] + .3, L['l06'], L['l09'] + 2.0, L['l10']]: add(fx, pop(), s, .12, 0)
+for s in [10.0, 10.8, 11.6, 12.4]: add(fx, zip_(), s + .1, .08, 0); add(fx, clack(1.3, 1), s + .35, .12, 0)   # fast install: ratchet + clunk
+for s in [3.8, L['l05'] + .2, 10.0, 17.4, 19.7]: add(fx, pop(), s, .12, 0)
 add(fx, click(1.0, 1), CLICK, .55, 0); add(fx, clack(.8, 1), CLICK + .01, .3, 0); add(fx, tone(1760, .9, .3), CLICK + .02, .04, 0)    # the click
 hum = np.sin(2 * np.pi * 120 * t_(1.6)) * env_exp(1.6, .7); add(fx, hum, CLICK, .05, 0)
-add(fx, pop(), L['l09'] + .8, .2, -.3); add(fx, thump(1, 70), L['l09'] + .8, .25, 0)   # sticker
-for j in range(3): add(fx, pop(), L['l11'] + j * .25, .12, (j - 1) * .3)
+add(fx, pop(), L['l09'] + .6, .2, -.3); add(fx, thump(1, 70), L['l09'] + .6, .25, 0)   # sticker
+for j in range(3): add(fx, pop(), L['l11'] - .2 + j * .25, .12, (j - 1) * .3)
 crowd = np.stack([bp(noise(4), 300, 2500)[:int(4 * SR)], bp(noise(4), 300, 2500)[:int(4 * SR)]], 1) * .5
 add(fx, crowd[:, 0] * np.sin(np.pi * t_(4) / 4), L['l09'], .03, -.3); add(fx, crowd[:, 1] * np.sin(np.pi * t_(4) / 4), L['l09'] + .1, .03, .3)
 mix = music * .8 + fx + vo
