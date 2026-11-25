@@ -23,6 +23,7 @@ import {FeehaVitrine} from './vitrine/Vitrine';
 import {FeehaNumero} from './numero/Numero';
 import {FeehaBirdBoyz} from './birdboyz/BB';
 import {FeehaProcess} from './process/Process';
+import {FeehaPromo, PROMO_FRAMES} from './promo/Promo';
 import snatch from './timeline.json';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
@@ -53,6 +54,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaPromo"
+      component={FeehaPromo}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={PROMO_FRAMES}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="FeehaProcess"
       component={FeehaProcess}
