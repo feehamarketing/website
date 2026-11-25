@@ -15,14 +15,14 @@ const SOFT = {damping: 16, stiffness: 120};
 const FPS = 30;
 const L = tl.lines as Record<string, number>;
 export const PLAT_FRAMES = Math.round(tl.dur * FPS);
-const CLICK = L.l07 + 0.45; // the panel switches on
+const CLICK = L.l08 + 0.45; // the panel switches on
 type Wd = {text: string; start: number; end: number};
 const WORDS = tl.words as Wd[];
 const GRADE = 'brightness(1.14) contrast(1.06) saturate(1.12)';
 
 // ---------- cuts (same list as the Lemo clip) ----------
-const CUTS = [0, 2.9, 6.7, 8.8, 9.9, 11.0, 11.6, 12.2, 12.8, 13.3, 14.5, 16.2, 17.8, 19.8];
-const CARD = 19.8;
+const CUTS = [0.0, 2.73, 4.4, 6.34, 8.51, 10.62, 11.72, 12.83, 13.61, 14.45, 15.28, 15.98, 17.07, 18.22, 19.3, 21.5];
+const CARD = 21.5;
 const FB_IN = 999; // no flashback in this cut
 const cutAt = (t: number) => { let i = 0; CUTS.forEach((c, k) => { if (t >= c) i = k; }); return {i, local: t - CUTS[i]}; };
 const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
@@ -162,13 +162,13 @@ const Labels = () => {
   const t = useCurrentFrame() / FPS;
   return (
     <>
-      {t >= 2.9 && t < 5.0 ? <Pill text="LE JOUR" from={3.75} /> : null}
-      {t >= 5.0 && t < 6.7 ? <Pill text="LE SOIR" from={5.25} /> : null}
-      {t >= 6.7 && t < 8.8 ? <Pill text="L'HEURE DU SOUPER" from={6.75} /> : null}
-      {t >= 8.8 && t < 9.9 ? <Pill text="LA RECETTE : PARFAITE" from={8.9} /> : null}
-      {t >= 11.0 && t < 13.3 ? <Pill text="SOLUTION : PANNEAU LUMINEUX" from={11.0} /> : null}
-      {t >= CLICK && t < 14.5 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
-      {t >= 16.2 && t < 17.8 ? <Pill text="ILS POINTENT · ILS FONT LA FILE" from={16.2} /> : null}
+      {t >= 2.73 && t < 6.34 ? <Pill text="LE JOUR" from={4.4} /> : null}
+      {t >= 6.34 && t < 8.51 ? <Pill text="LE SOIR" from={6.73} /> : null}
+      {t >= 8.51 && t < 10.62 ? <Pill text="L'HEURE DU SOUPER" from={8.57} /> : null}
+      {t >= 10.62 && t < 11.72 ? <Pill text="LA RECETTE : PARFAITE" from={10.72} /> : null}
+      {t >= 12.83 && t < 15.98 ? <Pill text="SOLUTION : PANNEAU LUMINEUX" from={12.83} /> : null}
+      {t >= CLICK && t < 17.07 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
+      {t >= 18.22 && t < 19.3 ? <Pill text="ILS POINTENT · ILS FONT LA FILE" from={18.22} /> : null}
     </>
   );
 };

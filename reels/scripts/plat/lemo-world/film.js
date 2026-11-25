@@ -9,12 +9,12 @@ const eo = k => 1 - Math.pow(1 - k, 3), eio = k => k < .5 ? 4 * k * k * k : 1 - 
 const back = k => { const c = 1.8; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
 const hash = (i, j) => { let h = (i * 374761393 + j * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177 | 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
 const RED = '#E11D2E', INK = '#0E0C12', CREAM = '#FFF6EC';
-export const CLICK = L.l07 + .45;
+export const CLICK = L.l08 + .45;
 export const SHOTS = [
-  ['hook18', 0], ['poster', 2.9], ['walk', 6.7], ['plat', 8.8], ['dark', 9.9],
-  ['kit', 11.0], ['hang', 11.6], ['slide', 12.2], ['ready', 12.8], ['switch', 13.3], ['stop', 14.5], ['queue', 16.2], ['hero', 17.8],
+  ['hook18', 0.0], ['poster', 2.73], ['posterW', 4.4], ['posterN', 6.34], ['walk', 8.51], ['plat', 10.62], ['dark', 11.72],
+  ['kit', 12.83], ['hang', 13.61], ['slide', 14.45], ['ready', 15.28], ['switch', 15.98], ['stop', 17.07], ['queue', 18.22], ['hero', 19.3],
 ];
-export const DUR = 19.8;
+export const DUR = 21.5;
 const shotAt = t => { let i = 0; SHOTS.forEach((s, k) => { if (t >= s[1]) i = k; }); return { id: SHOTS[i][0], t0: SHOTS[i][1], t1: (SHOTS[i + 1] || [0, DUR])[1], i }; };
 
 // ---------------- the world: one street, one restaurant ----------------
@@ -222,7 +222,9 @@ export function render(g, t) {
       giant(g, ['INVISIBLE.'], [0], 700, 230, seg(lt, .0, .4));
       person(g, 120 + 140 * lt, 2440, 2.85, { face: 1, ph: t * 6 + 1, coat: '#2B3B35', scarf: RED });
       break; }
-    case 'poster': { posterWindow(g, lt, len, 2.05, 2.75, 1.5); break; }
+    case 'poster': { posterWindow(g, lt, len, 99, 100, 1.5); break; }
+    case 'posterW': { posterWindow(g, lt, len, 99, 100, 1.12); break; }
+    case 'posterN': { posterWindow(g, lt, len, L.l04 - sh.t0 - .3, L.l04 - sh.t0 + .4, 1.9); break; }
     case 'hook18': {
       posterWindow(g, lt, len, 1.0, 1.9, 1.32);
       giant(g, ['18 H'], [0], 250, 400, seg(lt, .05, .4));
