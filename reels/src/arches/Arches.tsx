@@ -24,8 +24,7 @@ const useT = () => useCurrentFrame() / FPS;
 
 // ---------- key moments (all derived from the narration) ----------
 const T = {
-  frag: 0.5,
-  black: L.a04,
+  frag: L.h02 - 0.15,
   city: L.a05 - 0.25,
   pov: L.a05 + 2.2,
   mirror: L.a06,
@@ -81,6 +80,27 @@ const Clip = ({src = 'arches/toronto.mp4', at, from, dur, zoom = [1, 1.06], filt
 const FrozenPOV = ({filter}: {filter?: string}) => (
   <Freeze frame={fr(FREEZE_CLIP)}><AbsoluteFill style={{filter}}><OffthreadVideo src={staticFile('arches/toronto.mp4')} muted style={{width: 1080, height: 1920}} /></AbsoluteFill></Freeze>
 );
+// the hook: the four real boards slam in, then the prize
+const Hook = () => {
+  const t = useT();
+  const ph = ['photo2x-left', 'photo2x-missed', 'photo2x-right', 'photo2x-exit'];
+  const prize = clamp((t - 2.3) / 0.35);
+  return (
+    <AbsoluteFill style={{background: '#08080B'}}>
+      <div style={{position: 'absolute', left: 20, top: 300, width: 1040, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, transform: `scale(${1 + 0.05 * (t / 4)})`}}>
+        {ph.map((p, i) => {
+          const k = clamp((t - 0.15 - i * 0.28) / 0.18);
+          return <div key={p} style={{opacity: k, transform: `scale(${1.25 - 0.25 * k})`}}><Img src={staticFile(`arches/${p}.png`)} style={{width: '100%', display: 'block'}} /></div>;
+        })}
+      </div>
+      <div style={{position: 'absolute', top: 920, left: 0, right: 0, textAlign: 'center', opacity: prize, transform: `scale(${1.3 - 0.3 * prize})`}}>
+        <div style={{fontFamily: ANTON, fontSize: 120, color: '#F4D27A', letterSpacing: 4, lineHeight: 1}}>GRAND PRIX</div>
+        <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 42, color: '#fff', letterSpacing: 8, marginTop: 14}}>CANNES LIONS · 2018</div>
+      </div>
+      <Vignette a={0.6} />
+    </AbsoluteFill>
+  );
+};
 // the first image: a fragment of a real board, floating in the dark
 const Fragment = ({at, annotate = -1}: {at: number; annotate?: number}) => {
   const t = useT();
@@ -370,8 +390,8 @@ const Captions = () => {
 export const FeehaArches = ({audio}: {audio: boolean}) => {
   const t = useT();
   let scene: React.ReactNode = null;
-  if (t < T.black) scene = <Fragment at={T.frag} />;
-  else if (t < T.city) scene = <AbsoluteFill style={{background: '#000'}} />;
+  if (t < T.frag) scene = <Hook />;
+  else if (t < T.city) scene = <Fragment at={T.frag} />;
   else if (t < T.pov) scene = <><Clip at={T.city} from={0} dur={T.pov - T.city} zoom={[1.08, 1]} /><Label text="TORONTO · 2018" at={T.city + 0.3} /></>;
   else if (t < T.mirror) scene = <Clip at={T.pov} from={3.2} dur={T.mirror - T.pov} zoom={[1, 1.05]} />;
   else if (t < T.ground) scene = <Clip at={T.mirror} from={8.2} dur={T.ground - T.mirror} zoom={[1.04, 1.1]} />;

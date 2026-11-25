@@ -6,7 +6,7 @@ from core.audio import sampler as S
 from core.audio.sfx import SR, add, limit, noise, brown, lp, hp, bp, t_, env_exp, norm, click, clack, whoosh, thump, compress
 REELS = '/home/claude/website/reels'
 TL = json.load(open(f'{REELS}/src/arches/timeline.json')); L = TL['lines']; D = TL['lineDur']; DUR = TL['dur']; N = int(DUR * SR)
-T = dict(black=L['a04'], city=L['a05'] - .25, pov=L['a05'] + 2.2, mirror=L['a06'], ground=L['a06'] + 1.35, boards=L['a07'], pov2=L['a08'],
+T = dict(black=L['a05'] - .3, frag=L['h02'] - .15, city=L['a05'] - .25, pov=L['a05'] + 2.2, mirror=L['a06'], ground=L['a06'] + 1.35, boards=L['a07'], pov2=L['a08'],
          freeze=L['a08'] + D['a08'] - .05, rewind=L['b01'] + .15, agency=L['b02'] - .2, question=L['b03'], logo=L['b04'], cut=L['b05'], remove=L['b06'],
          match=L['b07'] + .3, resume=L['b07'] + 2.0, award=L['b08'], tension=L['c01'], toi=L['c02'], back=L['c02'] + 1.05, codes=L['c04'], kome=L['d01'],
          noname=L['d02'], feeha=L['d04'])
@@ -31,11 +31,13 @@ def n(t, inst, p, d, v, pan=0): sc.append((t, inst, p, d, v, pan, 1.0))
 def kick(f0=48): d = .5; t2 = t_(d); f = f0 + 70 * np.exp(-t2 / .05); return np.sin(2 * np.pi * np.cumsum(f) / SR) * env_exp(d, .2)
 def tone(f, d, dc): return np.sin(2 * np.pi * f * t_(d)) * env_exp(d, dc)
 def drone(d, f=41.2, a=.5): t2 = t_(d); return (np.sin(2 * np.pi * f * t2) * .6 + np.sin(2 * np.pi * f * 1.5 * t2) * .25 + lp(noise(d), 160) * .5) * a
-def impact(): return norm(kick(38)[:int(.5 * SR)] * 1.0 + np.pad(lp(noise(1.6), 300) * env_exp(1.6, .5), (0, 0))[:int(.5 * SR)] * .6)
+def impact(): return norm(kick(38)[:int(.5 * SR)] * 1.0 + lp(noise(1.6), 300)[:int(.5 * SR)] * env_exp(1.6, .5)[:int(.5 * SR)] * .6)
 def riser(d): t2 = t_(d); return (hp(noise(d), 900) * (t2 / d) ** 2 * .7 + np.sin(2 * np.pi * np.cumsum(200 + 900 * (t2 / d) ** 2) / SR) * (t2 / d) ** 2 * .3)
 # ACT 1: pulse & silence on the image, then the city
-for t in np.arange(.5, T['black'] - .3, 1.15): add(mus, kick(), t, .55, 0)
-add(mus, drone(T['black'] + .2) * env_exp(T['black'] + .2, 99), 0, .12, 0)
+for i in range(4): add(mus, impact(), .15 + i * .28, .35, (i - 1.5) * .3)   # the boards slam in
+add(mus, impact(), 2.3, .6, 0); add(mus, tone(1318, 1.6, .6) + tone(1976, 1.6, .6) * .5, 2.32, .05, 0)   # the prize
+for t in np.arange(T['frag'] + .1, T['city'] - .2, 1.15): add(mus, kick(), t, .55, 0)
+add(mus, drone(T['city'] + .2) * env_exp(T['city'] + .2, 99), 0, .12, 0)
 for t in np.arange(T['city'], T['freeze'], 1.15): add(mus, kick(), t, .5, 0); add(mus, kick(), t + .22, .22, 0)
 dd = T['freeze'] - T['city']; add(mus, drone(dd, 36.7) * np.minimum(1, t_(dd) / 1.5), T['city'], .16, 0)
 for t in np.arange(T['city'], T['freeze'] - .5, 4.6):
