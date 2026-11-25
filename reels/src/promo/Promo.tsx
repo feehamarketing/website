@@ -37,8 +37,8 @@ const useCamera = () => {
   const k = SECTIONS.indexOf(s);
   const local = t - s.at;
   const punch = spring({frame: Math.round(local * 30), fps: 30, config: SOFT});
-  const base = 1.04 + 0.04 * Math.min(1, local / 6); // slow push-in
-  const scale = base + (k % 2 === 1 ? 0.05 : 0.02) * punch;
+  const base = 1.0 + 0.025 * Math.min(1, local / 6); // slow push-in
+  const scale = base + (k % 2 === 1 ? 0.03 : 0.015) * punch;
   const x = (k % 2 === 1 ? -14 : 14) * punch;
   return `scale(${scale}) translateX(${x}px)`;
 };
@@ -211,19 +211,19 @@ export const FeehaPromo = ({audio}: {audio: boolean}) => {
   return (
     <AbsoluteFill style={{background: '#000'}}>
       <Graded>
-        <OffthreadVideo src={staticFile('promo/base.mp4')} muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.12) brightness(0.92)'}} />
+        <OffthreadVideo src={staticFile('promo/base.mp4')} muted style={{width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.1) brightness(1.06)'}} />
       </Graded>
       {/* darken the top so the giant type reads */}
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 35%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%)'}} />
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,.3) 100%)'}} />
       <BehindText />
       <Graded>
-        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.12) brightness(0.92)'}} />
+        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.1) brightness(1.06)'}} />
       </Graded>
       <TopLabel />
       <Sticker text="+50 À 60 %" from={6.12} to={10.9} x={560} y={1060} rot={-6} />
       <Captions />
       {/* vignette */}
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%)', pointerEvents: 'none'}} />
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 100%)', pointerEvents: 'none'}} />
       <AbsoluteFill style={{background: '#fff', opacity: flash, pointerEvents: 'none'}} />
       <Results />
       <EndCard />
