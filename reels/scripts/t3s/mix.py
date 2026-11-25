@@ -18,7 +18,7 @@ def voice(x, at): add(vo, compress(hp(x, 80) / (np.abs(x).max() + 1e-9) * .9, th
 VO = os.environ.get('VO')
 if VO: voice(load(VO), float(os.environ.get('VO_AT', '0')))
 else:
-    for k, at in V.items(): voice(load(f'/home/claude/t3s/{LANG}/vo/{k}.wav'), at)
+    for k, at in V.items(): voice(load(f'/home/claude/t3s/{LANG}/' + os.environ.get('VODIR', 'el') + f'/{k}.wav'), at)
 vm = (np.abs(vo).sum(1) > 1e-3).astype(float); kk = int(.25 * SR); duck = 1 - .5 * np.clip(np.convolve(vm, np.ones(kk) / kk, mode='same'), 0, 1)
 def tone(f, d, dc): return np.sin(2 * np.pi * f * t_(d)) * env_exp(d, dc)
 def kick(f0=50): d = .4; t2 = t_(d); f = f0 + 90 * np.exp(-t2 / .04); return np.sin(2 * np.pi * np.cumsum(f) / SR) * env_exp(d, .14)
