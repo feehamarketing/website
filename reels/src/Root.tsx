@@ -28,6 +28,7 @@ import {FeehaProcess} from './process/Process';
 import {FeehaPromo, PROMO_FRAMES} from './promo/Promo';
 import {FeehaPlat, PLAT_FRAMES} from './plat/Plat';
 import {FeehaArches, ARCHES_FRAMES} from './arches/Arches';
+import {FeehaTest3s, T3S_FRAMES} from './t3s/Test3s';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
 import ma2 from './ma2/timeline.json';
@@ -60,6 +61,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaTest3s"
+      component={FeehaTest3s}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={T3S_FRAMES}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="FeehaArches"
       component={FeehaArches}
