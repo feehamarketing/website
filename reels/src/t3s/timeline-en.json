@@ -1,6 +1,6 @@
 {
 "fps": 30,
-"dur": 44.11,
+"dur": 50.38,
 "lines": {
 "v01": 0.3,
 "v02": 8.12,
@@ -13,7 +13,9 @@
 "v09": 32.2,
 "v10": 34.56,
 "v11": 38.32,
-"v12": 40.61
+"v12": 46.63,
+"v13": 40.76,
+"v14": 44.07
 },
 "lineDur": {
 "v01": 2.372,
@@ -27,7 +29,9 @@
 "v09": 2.056,
 "v10": 3.406,
 "v11": 2.093,
-"v12": 2.098
+"v13": 3.057,
+"v14": 2.109,
+"v12": 2.253
 },
 "pass": [
 2.92,
@@ -35,6 +39,7 @@
 ],
 "card": 38.22,
 "rw": 16.33,
+"shop": 40.51,
 "words": [
 {
 "text": "You've",
@@ -583,63 +588,147 @@
 "line": "v11"
 },
 {
-"text": "Tell",
-"start": 40.65,
-"end": 40.813,
+"text": "Is",
+"start": 40.8,
+"end": 40.977,
+"line": "v13"
+},
+{
+"text": "your",
+"start": 40.997,
+"end": 41.175,
+"line": "v13"
+},
+{
+"text": "storefront",
+"start": 41.194,
+"end": 41.727,
+"line": "v13"
+},
+{
+"text": "invisible?",
+"start": 41.786,
+"end": 42.495,
+"line": "v13"
+},
+{
+"text": "The",
+"start": 42.574,
+"end": 42.752,
+"line": "v13"
+},
+{
+"text": "fix:",
+"start": 42.771,
+"end": 42.949,
+"line": "v13"
+},
+{
+"text": "our",
+"start": 42.968,
+"end": 43.146,
+"line": "v13"
+},
+{
+"text": "light",
+"start": 43.166,
+"end": 43.343,
+"line": "v13"
+},
+{
+"text": "panel.",
+"start": 43.363,
+"end": 43.718,
+"line": "v13"
+},
+{
+"text": "Shop",
+"start": 44.11,
+"end": 44.336,
+"line": "v14"
+},
+{
+"text": "it",
+"start": 44.361,
+"end": 44.587,
+"line": "v14"
+},
+{
+"text": "at",
+"start": 44.612,
+"end": 44.838,
+"line": "v14"
+},
+{
+"text": "feehapanels.com.",
+"start": 44.863,
+"end": 45.993,
+"line": "v14"
+},
+{
+"text": "And",
+"start": 46.67,
+"end": 46.831,
+"line": "v12"
+},
+{
+"text": "tell",
+"start": 46.849,
+"end": 47.011,
 "line": "v12"
 },
 {
 "text": "me",
-"start": 40.832,
-"end": 40.995,
+"start": 47.029,
+"end": 47.19,
 "line": "v12"
 },
 {
 "text": "in",
-"start": 41.013,
-"end": 41.177,
+"start": 47.208,
+"end": 47.37,
 "line": "v12"
 },
 {
 "text": "the",
-"start": 41.195,
-"end": 41.358,
+"start": 47.388,
+"end": 47.549,
 "line": "v12"
 },
 {
 "text": "comments",
-"start": 41.377,
-"end": 41.703,
+"start": 47.567,
+"end": 47.89,
 "line": "v12"
 },
 {
 "text": "if",
-"start": 41.74,
-"end": 41.903,
+"start": 47.926,
+"end": 48.087,
 "line": "v12"
 },
 {
 "text": "you",
-"start": 41.921,
-"end": 42.085,
+"start": 48.105,
+"end": 48.267,
 "line": "v12"
 },
 {
 "text": "got",
-"start": 42.103,
-"end": 42.267,
+"start": 48.285,
+"end": 48.446,
 "line": "v12"
 },
 {
 "text": "it",
-"start": 42.285,
-"end": 42.448,
+"start": 48.464,
+"end": 48.626,
 "line": "v12"
 },
 {
 "text": "right.",
-"start": 42.466,
-"end": 42.63,
+"start": 48.644,
+"end": 48.805,
 "line": "v12"
 }
 ]

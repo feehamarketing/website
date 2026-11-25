@@ -7,7 +7,7 @@ from core.audio.sfx import SR, add, limit, noise, brown, lp, hp, bp, t_, env_exp
 REELS = '/home/claude/website/reels'
 LANG = os.environ.get('MIXLANG', 'fr')
 TL = json.load(open(f'{REELS}/src/t3s/timeline' + ('' if LANG == 'fr' else '-en') + '.json')); V = TL['lines']; D = TL['lineDur']; DUR = TL['dur']; N = int(DUR * SR)
-P0, P1 = TL['pass']; CARD = TL['card']; RW = TL['rw']
+P0, P1 = TL['pass']; CARD = TL['card']; RW = TL['rw']; SHOP = TL['shop']
 S.seed(7); np.random.seed(7)
 def load(p):
     x, sr = sf.read(p); x = x if x.ndim == 1 else x.mean(1)
@@ -56,6 +56,11 @@ for t in np.arange(RW + .9, CARD - .3, B): add(mus, kick(60), t, .25, 0)
 rise2 = hp(noise(.8), 1200) * np.linspace(0, 1, int(.8 * SR)) ** 2; add(mus, rise2, CARD - .8, .1, 0)
 add(mus, impact(), CARD, .7, 0)
 for p in ['D3', 'A3', 'D4', 'F#4', 'A4']: n(CARD, 'piano', p, DUR - CARD, .3)
+# the fix: light comes on, a warm groove under the shop button
+ON = SHOP + 1.6
+for t in np.arange(ON, DUR - .8, B): add(mus, kick(55), t, .35, 0); add(mus, hat(), t + B / 2, .05, .2)
+for i, t in enumerate(np.arange(ON, DUR - 1, B * 4)):
+    for j, p in enumerate([['D3', 'F#3', 'A3'], ['B2', 'D3', 'F#3'], ['G2', 'B2', 'D3'], ['A2', 'C#3', 'E3']][i % 4]): n(t + j * .02, 'piano', p, B * 4, .22)
 notes = S.render(sc, dur=DUR + .5)[:N]
 music = (mus + notes) * duck[:, None]
 fx = np.zeros((N, 2), np.float32)
@@ -72,6 +77,10 @@ add(fx, tone(784, .25, .08), V['v09'] + 1.0, .08, 0); add(fx, tone(1046, .35, .1
 add(fx, whoosh(.6, 1), V['v10'] - .2, .14, 0)
 for at in [V['v10'] + .4, V['v10'] + 1.0, V['v12'], V['v12'] + .6]: add(fx, pop(), at, .1, 0)
 add(fx, whoosh(.8, 1), CARD - .7, .2, 0)
+add(fx, whoosh(.7, 1), SHOP - .05, .2, 0)
+add(fx, bp(noise(.8), 600, 4500) * np.sin(np.pi * t_(.8) / .8) ** 2, SHOP + .7, .14, 0); add(fx, clack(1.2, 1), SHOP + 1.45, .3, 0)
+add(fx, click(1.0, 1), SHOP + 1.6, .4, 0); hum = np.sin(2 * np.pi * 120 * t_(1.4)) * env_exp(1.4, .6); add(fx, hum, SHOP + 1.6, .05, 0); add(fx, ding(), SHOP + 1.65, .08, 0)
+add(fx, pop(), SHOP + .2, .12, 0); add(fx, pop(), SHOP + 1.7, .12, 0); add(fx, pop(), V['v14'], .14, 0); add(fx, click(1.5, 1), V['v14'] + .9, .3, 0)
 mix = music * .8 + fx + vo
 mix = np.stack([hp(mix[:, 0], 35), hp(mix[:, 1], 35)], 1)
 mix[:, 0] = limit(mix[:, 0], .95); mix[:, 1] = limit(mix[:, 1], .95)

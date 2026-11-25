@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Freeze, Img, OffthreadVideo, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Freeze, Img, OffthreadVideo, Easing, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
 import tlFr from './timeline.json';
 import tlEn from './timeline-en.json';
 
@@ -11,10 +11,12 @@ type TL = typeof tlFr;
 const COPY = {
   fr: {hook: 'TU AS 5 SECONDES.', hi: '5', stop: 'STOP.', q: 'LEQUEL VENDAIT DES TACOS ?', qhi: 'TACOS', answer: 'RÉPONDS EN COMMENTAIRE', rewind: 'ON REMBOBINE',
     vA: 'INVISIBLE', vB: 'ILLISIBLE', vC: 'AUCUNE OFFRE', vD: 'VU DU PREMIER COUP', twist: 'SURPRISE : A AUSSI', splitA: 'A · TACOS · INVISIBLE', splitD: 'D · TACOS · VU',
-    card: ['TA VITRINE,', 'ON LA LIT', 'EN ', '5 SECONDES', ' ?'], cardPill: 'TU AVAIS TROUVÉ ? DIS-LE EN COMMENTAIRE'},
+    card: ['TA VITRINE,', 'ON LA LIT', 'EN ', '5 SECONDES', ' ?'], cardPill: 'TU AVAIS TROUVÉ ? DIS-LE EN COMMENTAIRE',
+    fix: 'LA SOLUTION', product: ['PANNEAU', 'LUMINEUX'], cta: 'COMMANDE SUR', offer: '3 POUR 12 $'},
   en: {hook: "YOU'VE GOT 5 SECONDS.", hi: '5', stop: 'STOP.', q: 'WHICH ONE SELLS TACOS?', qhi: 'TACOS', answer: 'ANSWER IN THE COMMENTS', rewind: 'REWIND',
     vA: 'INVISIBLE', vB: 'UNREADABLE', vC: 'NO OFFER', vD: 'SEEN AT ONCE', twist: 'PLOT TWIST: A TOO', splitA: 'A · TACOS · INVISIBLE', splitD: 'D · TACOS · SEEN',
-    card: ['CAN PEOPLE', 'READ YOUR', 'STOREFRONT IN ', '5 SECONDS', '?'], cardPill: 'GOT IT RIGHT? TELL ME IN THE COMMENTS'},
+    card: ['CAN PEOPLE', 'READ YOUR', 'STOREFRONT IN ', '5 SECONDS', '?'], cardPill: 'GOT IT RIGHT? TELL ME IN THE COMMENTS',
+    fix: 'THE FIX', product: ['LIGHT', 'PANEL'], cta: 'SHOP IT AT', offer: '3 FOR $12'},
 };
 type Lang = keyof typeof COPY;
 const DATA: Record<Lang, {tl: TL; clip: string; mix: string}> = {
@@ -24,7 +26,7 @@ const DATA: Record<Lang, {tl: TL; clip: string; mix: string}> = {
 export const T3S_FRAMES = Math.round(tlFr.dur * FPS);
 export const T3S_EN_FRAMES = Math.round(tlEn.dur * FPS);
 const Ctx = React.createContext<{lang: Lang}>({lang: 'fr'});
-const useD = () => { const {lang} = React.useContext(Ctx); const d = DATA[lang]; const tl = d.tl; return {lang, c: COPY[lang], tl, V: tl.lines as Record<string, number>, D: tl.lineDur as Record<string, number>, P0: tl.pass[0], P1: tl.pass[1], CARD: tl.card, RW: tl.rw, clip: d.clip, mix: d.mix}; };
+const useD = () => { const {lang} = React.useContext(Ctx); const d = DATA[lang]; const tl = d.tl; return {lang, c: COPY[lang], tl, V: tl.lines as Record<string, number>, D: tl.lineDur as Record<string, number>, P0: tl.pass[0], P1: tl.pass[1], CARD: tl.card, RW: tl.rw, SHOP: tl.shop as number, clip: d.clip, mix: d.mix}; };
 const RED = '#E11D2E', INK = '#0B0A0D';
 const ANTON = '"Anton", sans-serif';
 const MONT = '"Montserrat", sans-serif';
@@ -142,21 +144,65 @@ const Rewind = () => {
 };
 const Card = () => {
   const f = useCurrentFrame();
-  const {V, CARD, c} = useD();
   const t = f / FPS;
-  const p = pop(f, CARD), p2 = pop(f, V.v12), p3 = pop(f, V.v12 + 0.6);
+  const {CARD, SHOP, c} = useD();
+  const p = pop(f, CARD);
+  const up = Easing.inOut(Easing.cubic)(clamp((t - SHOP) / 0.6));
+  if (up >= 1) return null;
   return (
-    <AbsoluteFill style={{background: RED, opacity: clamp((t - CARD + 0.15) / 0.25)}}>
-      <div style={{position: 'absolute', top: 300, left: 50, right: 50, textAlign: 'center', fontFamily: ANTON, fontSize: 150, lineHeight: 1, color: '#fff', transform: `scale(${lin(p, 0, 1, 1.3, 1)})`, opacity: p}}>
+    <AbsoluteFill style={{background: RED, opacity: clamp((t - CARD + 0.15) / 0.25), transform: `translateY(${-up * 1920}px)`}}>
+      <div style={{position: 'absolute', top: 600, left: 40, right: 40, textAlign: 'center', fontFamily: ANTON, fontSize: 140, lineHeight: 1, color: '#fff', transform: `scale(${lin(p, 0, 1, 1.3, 1)})`, opacity: p}}>
         {c.card[0]}<br />{c.card[1]}<br />{c.card[2]}<span style={{color: INK}}>{c.card[3]}</span>{c.card[4]}
       </div>
-      <div style={{position: 'absolute', top: 900, left: 0, right: 0, textAlign: 'center', opacity: p2, transform: `translateY(${(1 - p2) * 30}px)`}}>
-        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 38, color: RED, background: '#fff', padding: '14px 28px', borderRadius: 999, whiteSpace: 'nowrap'}}>{c.cardPill}</span>
+    </AbsoluteFill>
+  );
+};
+// the fix: a Feeha light panel; the poster slides in from the top (top-loading) and the panel switches on, then the shop button
+const Shop = () => {
+  const f = useCurrentFrame();
+  const t = f / FPS;
+  const {V, SHOP, c} = useD();
+  if (t < SHOP) return null;
+  const slide = Easing.out(Easing.cubic)(clamp((t - SHOP - 0.7) / 0.8));
+  const on = clamp((t - SHOP - 1.6) / 0.25);
+  const pTitle = pop(f, SHOP + 0.2), pName = pop(f, SHOP + 1.7), pCta = pop(f, V.v14), pCom = pop(f, V.v12);
+  const tap = V.v14 + 0.9, tapK = clamp((t - tap) / 0.15) * (1 - clamp((t - tap - 0.25) / 0.2));
+  const W2 = 480, H2 = 660;
+  return (
+    <AbsoluteFill style={{background: `radial-gradient(circle at 50% 42%, rgba(255,170,120,${0.28 * on}) 0%, #0D0A0E 60%)`}}>
+      <div style={{position: 'absolute', top: 150, left: 0, right: 0, textAlign: 'center', opacity: pTitle}}>
+        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 40, letterSpacing: 6, color: '#fff', background: RED, padding: '12px 28px', borderRadius: 999}}>{c.fix}</span>
       </div>
-      <div style={{position: 'absolute', top: 1110, left: 290, right: 290, background: '#fff', borderRadius: 26, padding: '22px 20px', display: 'flex', justifyContent: 'center', opacity: p3, transform: `scale(${lin(p3, 0, 1, 0.8, 1)})`}}>
-        <Img src={staticFile('feeha/logo-clean.png')} style={{width: 420}} />
+      {/* panel */}
+      <div style={{position: 'absolute', left: 540 - W2 / 2 - 18, top: 300, width: W2 + 36, height: H2 + 36, background: '#C9CED6', borderRadius: 10, boxShadow: `0 0 ${140 * on}px rgba(255,220,180,${0.8 * on}), 0 40px 80px rgba(0,0,0,.6)`}}>
+        <div style={{position: 'absolute', left: 18, top: 18, width: W2, height: H2, overflow: 'hidden', background: on > 0 ? '#FFF8EE' : '#B7BBC2'}}>
+          <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: H2, transform: `translateY(${(slide - 1) * 105}%)`, background: RED, display: 'flex', flexDirection: 'column', alignItems: 'center', filter: `brightness(${0.55 + 0.45 * on})`}}>
+            <div style={{marginTop: 50, fontFamily: ANTON, fontSize: 120, color: '#fff'}}>TACOS</div>
+            <svg width="300" height="180" viewBox="-110 -60 220 140" style={{marginTop: 10}}>
+              <path d="M-90 0 L-72 -38 L-54 -26 L-36 -38 L-18 -26 L0 -38 L18 -26 L36 -38 L54 -26 L72 -38 L90 0 Z" fill="#58B947" />
+              {[-50, -16, 18, 52].map((x) => <circle key={x} cx={x} cy={-30} r={11} fill="#E2382C" />)}
+              <path d="M-100 0 A100 70 0 0 0 100 0 Z" fill="#F2B636" stroke="#D18E1E" strokeWidth={6} />
+            </svg>
+            <div style={{marginTop: 40, background: '#FFF6EC', color: RED, fontFamily: ANTON, fontSize: 66, padding: '6px 40px 0', borderRadius: 999}}>{c.offer}</div>
+          </div>
+          <div style={{position: 'absolute', inset: 0, background: `rgba(255,255,255,${0.12 * on})`}} />
+        </div>
       </div>
-      <div style={{position: 'absolute', top: 1390, left: 0, right: 0, textAlign: 'center', fontFamily: ANTON, fontSize: 70, color: '#fff', opacity: p3}}>FEEHAPANELS.COM</div>
+      <div style={{position: 'absolute', top: 1040, left: 0, right: 0, textAlign: 'center', opacity: pName, transform: `scale(${lin(pName, 0, 1, 1.3, 1)})`}}>
+        <div style={{fontFamily: ANTON, fontSize: 120, lineHeight: 1, color: '#fff'}}>{c.product[0]} <span style={{color: RED}}>{c.product[1]}</span></div>
+        <Img src={staticFile('feeha/logo-clean.png')} style={{width: 260, marginTop: 18, borderRadius: 14, background: '#fff', padding: '10px 18px'}} />
+      </div>
+      {/* the shop button, tapped */}
+      <div style={{position: 'absolute', top: 1330, left: 90, right: 90, opacity: pCta, transform: `scale(${lin(pCta, 0, 1, 0.7, 1) * (1 - 0.06 * tapK)})`}}>
+        <div style={{background: '#fff', borderRadius: 30, padding: '22px 20px', textAlign: 'center', boxShadow: '0 20px 50px rgba(225,29,46,.45)'}}>
+          <div style={{fontFamily: MONT, fontWeight: 800, fontSize: 36, color: INK, letterSpacing: 2}}>{c.cta}</div>
+          <div style={{fontFamily: ANTON, fontSize: 84, color: RED, lineHeight: 1.1}}>FEEHAPANELS.COM</div>
+        </div>
+        {t >= tap - 0.4 ? <div style={{position: 'absolute', right: 120, top: 120 + (1 - clamp((t - tap + 0.4) / 0.4)) * 120, width: 70, height: 70, borderRadius: 999, background: 'rgba(255,255,255,.85)', border: '6px solid rgba(0,0,0,.25)', transform: `scale(${1 - 0.25 * tapK})`}} /> : null}
+      </div>
+      <div style={{position: 'absolute', top: 1600, left: 0, right: 0, textAlign: 'center', opacity: pCom, transform: `translateY(${(1 - pCom) * 20}px)`}}>
+        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 36, color: RED, background: '#fff', padding: '12px 26px', borderRadius: 999, whiteSpace: 'nowrap'}}>{c.cardPill}</span>
+      </div>
     </AbsoluteFill>
   );
 };
@@ -219,6 +265,7 @@ const Film = ({audio}: {audio: boolean}) => {
       <Pill text={c.splitA} at={V.v10 + 0.4} top={120} bg="rgba(0,0,0,.7)" out={CARD - 0.5} />
       <Pill text={c.splitD} at={V.v10 + 1.0} top={1040} bg="#1E9E5A" out={CARD - 0.5} />
       <Rewind />
+      <Shop />
       {t >= CARD - 0.15 ? <Card /> : null}
       <Captions />
       <AbsoluteFill style={{background: '#fff', opacity: freezeFlash * 0.85, pointerEvents: 'none'}} />
