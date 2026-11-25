@@ -1,7 +1,7 @@
 // « Le test des 3 secondes » — seen through the passenger window, at night, in the rain.
 // Four invented restaurants (A–D) slide past in 3.5 s; then the camera rewinds and stops in front of each one.
 // The camera is a position along the street s(t) (metres) and a scale k(t) (pixels per metre at the shop fronts).
-import { V, PASS, CARD } from './times.js';
+import { V, PASS, CARD, RW, TXT } from './times.js';
 export const W = 1080, H = 1920, DUR = CARD;
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const seg = (t, a, b) => clamp((t - a) / (b - a));
@@ -13,7 +13,7 @@ const S0 = -6, S1 = 41.5;
 export function camS(t) {
   if (t < PASS[0]) return S0 + .6 * t;   // creeping, waiting
   if (t < PASS[1]) return S0 + .6 * PASS[0] + (S1 - S0 - .6 * PASS[0]) * seg(t, PASS[0], PASS[1]);
-  const rw0 = V.v04 + 1.2, rw1 = rw0 + .9;
+  const rw0 = RW, rw1 = rw0 + .9;
   if (t < rw0) return S1;                                   // frozen (the edit freezes the picture too)
   if (t < rw1) return S1 + (S0 - S1) * eio(seg(t, rw0, rw1));   // rewind
   const stops = [[rw1, SHOP.A], [V.v06 - .2, SHOP.B], [V.v07 - .2, SHOP.C], [V.v08 - .2, SHOP.D], [V.v09 + .1, SHOP.A]];
@@ -54,27 +54,27 @@ function shop(g, id, reveal, dim, t) {
   g.strokeStyle = '#0C0B10'; g.lineWidth = .12; g.strokeRect(win.x, win.y, win.w, win.h); g.strokeRect(7.1, -3.05, 1.5, 3.05);
   g.fillStyle = 'rgba(240,244,250,.85)'; g.fillRect(win.x - .1, -.42, win.w + .2, .07);
   if (id === 'A') {   // CASA LUPE — dull sign, dark window, a small taped poster (it sells tacos too…)
-    text(g, 'CASA LUPE', 4.5, -3.68, .62, '#4E454C', 800);
+    text(g, TXT.A, 4.5, -3.68, .62, '#4E454C', 800);
     g.save(); g.translate(4.6, -1.9); g.rotate(-.04);
     g.fillStyle = '#C9BFA9'; g.fillRect(-.45, -.62, .9, 1.24);
     g.fillStyle = '#B44A3A'; g.fillRect(-.45, -.62, .9, .28); text(g, 'TACOS', 0, -.48, .17, '#F4E8D2', 900);
-    taco(g, 0, -.02, .62); text(g, '3 pour 12 $', 0, .38, .12, '#5A4A40', 700);
+    taco(g, 0, -.02, .62); text(g, TXT.small, 0, .38, .12, '#5A4A40', 700);
     g.fillStyle = 'rgba(230,226,205,.8)'; g.fillRect(-.55, -.7, .3, .1); g.fillRect(.25, -.7, .3, .1);
     g.fillStyle = `rgba(10,14,30,${.72 * (1 - reveal)})`; g.fillRect(-.5, -.68, 1, 1.36);   // the dark window swallows it
     g.restore();
     if (reveal > 0) glow(g, 4.6, -1.9, 1.4, 'rgba(255,240,200,A)', .35 * reveal);
   }
   if (id === 'B') {   // SAVEURS DU MONDE — every inch of glass covered with small print
-    text(g, 'SAVEURS DU MONDE', 4.5, -3.68, .44, '#E8D8B8', 800);
+    text(g, TXT.B, 4.5, -3.68, .44, '#E8D8B8', 800);
     for (let i = 0; i < 12; i++) { const x = .7 + (i % 6) * 1.0, y = -2.9 + Math.floor(i / 6) * 1.25, w = .8 + hash(i, 2) * .12, h = 1.0;
       g.fillStyle = ['#F2E9D8', '#F6D35B', '#E8F0F8', '#F7C9C0'][i % 4]; g.fillRect(x, y, w, h);
       g.fillStyle = 'rgba(30,30,30,.7)'; for (let r = 0; r < 7; r++) g.fillRect(x + .06, y + .12 + r * .12, w * (.5 + hash(i, r) * .4), .04); }
   }
   if (id === 'C') {   // LE GRAND COMPTOIR — beautiful neon name, nothing about what is sold
-    g.save(); g.shadowColor = 'rgba(255,120,200,.9)'; g.shadowBlur = 30; text(g, 'Le Grand Comptoir', 4.5, -3.66, .55, '#FFD6F0', 700, 'Georgia, serif'); g.restore();
+    g.save(); g.shadowColor = 'rgba(255,120,200,.9)'; g.shadowBlur = 30; text(g, TXT.C, 4.5, -3.66, .55, '#FFD6F0', 700, 'Georgia, serif'); g.restore();
   }
   if (id === 'D') {   // CHEZ NICO — plain sign, but a lit panel with ONE offer
-    text(g, 'CHEZ NICO', 4.5, -3.68, .5, '#D8D2C8', 800);
+    text(g, TXT.D, 4.5, -3.68, .5, '#D8D2C8', 800);
     const px = 2.35, py = -2.95, pw = 2.3, ph = 2.45;
     glow(g, px + pw / 2, py + ph / 2, 4, 'rgba(255,200,150,A)', .55);
     g.fillStyle = '#C9CED6'; g.fillRect(px - .08, py - .08, pw + .16, ph + .16);
@@ -82,7 +82,7 @@ function shop(g, id, reveal, dim, t) {
     text(g, 'TACOS', px + pw / 2, py + .42, .5, '#FFFFFF', 900);
     taco(g, px + pw / 2, py + 1.3, 1.25);
     g.fillStyle = '#FFF6EC'; g.beginPath(); g.roundRect(px + .25, py + 1.78, pw - .5, .45, .22); g.fill();
-    text(g, '3 POUR 12 $', px + pw / 2, py + 2.0, .27, RED, 900);
+    text(g, TXT.offer, px + pw / 2, py + 2.0, .27, RED, 900);
     g.fillStyle = 'rgba(255,255,255,.12)'; g.fillRect(px, py, pw, ph);
     g.fillStyle = 'rgba(255,190,130,.18)'; g.fillRect(px - .5, -.35, pw + 1, .35);
   }
@@ -156,4 +156,4 @@ export function render(g, t) {
   car(g, t);
 }
 export function texts() { return []; }
-export function events() { return [{ t: PASS[0], type: 'pass' }, { t: PASS[1], type: 'freeze' }, { t: V.v04 + 1.2, type: 'rewind' }]; }
+export function events() { return [{ t: PASS[0], type: 'pass' }, { t: PASS[1], type: 'freeze' }, { t: RW, type: 'rewind' }]; }

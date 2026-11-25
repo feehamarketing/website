@@ -1,3 +1,5 @@
-export const V = {"v01": 0.3, "v02": 6.0, "v03": 8.35, "v04": 12.0, "v05": 15.1, "v06": 18.2, "v07": 20.8, "v08": 22.8, "v09": 26.5, "v10": 29.0, "v11": 32.0, "v12": 34.2};
-export const PASS = [2.3, 5.8];
-export const CARD = 31.9;
+export const V = {"v01": 0.3, "v02": 7.5, "v03": 9.85, "v04": 13.54, "v05": 16.67, "v06": 19.88, "v07": 22.6, "v08": 24.67, "v09": 28.35, "v10": 30.83, "v11": 33.94, "v12": 36.17};
+export const PASS = [2.3, 7.3];
+export const CARD = 33.84;
+export const RW = 14.77;
+export const TXT = {"A": "CASA LUPE", "B": "SAVEURS DU MONDE", "C": "Le Grand Comptoir", "D": "CHEZ NICO", "offer": "3 POUR 12 $", "small": "3 pour 12 $"};

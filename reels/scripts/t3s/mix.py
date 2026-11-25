@@ -5,8 +5,9 @@ sys.path.insert(0, '/root/lemo-opuscar')
 from core.audio import sampler as S
 from core.audio.sfx import SR, add, limit, noise, brown, lp, hp, bp, t_, env_exp, norm, click, clack, whoosh, thump, compress
 REELS = '/home/claude/website/reels'
-TL = json.load(open(f'{REELS}/src/t3s/timeline.json')); V = TL['lines']; D = TL['lineDur']; DUR = TL['dur']; N = int(DUR * SR)
-P0, P1 = TL['pass']; CARD = TL['card']; RW = V['v04'] + 1.2
+LANG = os.environ.get('MIXLANG', 'fr')
+TL = json.load(open(f'{REELS}/src/t3s/timeline' + ('' if LANG == 'fr' else '-en') + '.json')); V = TL['lines']; D = TL['lineDur']; DUR = TL['dur']; N = int(DUR * SR)
+P0, P1 = TL['pass']; CARD = TL['card']; RW = TL['rw']
 S.seed(7); np.random.seed(7)
 def load(p):
     x, sr = sf.read(p); x = x if x.ndim == 1 else x.mean(1)
@@ -17,7 +18,7 @@ def voice(x, at): add(vo, compress(hp(x, 80) / (np.abs(x).max() + 1e-9) * .9, th
 VO = os.environ.get('VO')
 if VO: voice(load(VO), float(os.environ.get('VO_AT', '0')))
 else:
-    for k, at in V.items(): voice(load(f'/home/claude/t3s/vo/{k}.wav'), at)
+    for k, at in V.items(): voice(load(f'/home/claude/t3s/{LANG}/vo/{k}.wav'), at)
 vm = (np.abs(vo).sum(1) > 1e-3).astype(float); kk = int(.25 * SR); duck = 1 - .5 * np.clip(np.convolve(vm, np.ones(kk) / kk, mode='same'), 0, 1)
 def tone(f, d, dc): return np.sin(2 * np.pi * f * t_(d)) * env_exp(d, dc)
 def kick(f0=50): d = .4; t2 = t_(d); f = f0 + 90 * np.exp(-t2 / .04); return np.sin(2 * np.pi * np.cumsum(f) / SR) * env_exp(d, .14)
@@ -34,7 +35,7 @@ B = 60 / 108
 # hook + pass: a heartbeat that speeds up, ticking clock
 for t in np.arange(.2, P0, B): add(mus, kick(), t, .45, 0)
 for t in np.arange(P0, P1, B / 2): add(mus, kick(), t, .5, 0); add(mus, hat(), t + B / 4, .05, .2)
-for i in range(4): add(mus, tone(1760, .06, .015), P0 + i * (P1 - P0) / 3, .12, 0)   # 3, 2, 1, 0
+for i in range(6): add(mus, tone(1760, .06, .015), P0 + i * (P1 - P0) / 5, .12, 0)   # 5 … 0
 rise = hp(noise(P1 - P0), 1200) * np.linspace(0, 1, int((P1 - P0) * SR)) ** 2; add(mus, rise, P0, .06, 0)
 # freeze: hit, then the quiz with a held note and the 3-2-1
 add(mus, impact(), P1, .8, 0); add(mus, tone(2637, 1.4, .5), P1 + .02, .03, 0)
@@ -61,7 +62,7 @@ fx = np.zeros((N, 2), np.float32)
 bed = lambda d: np.stack([hp(noise(d), 1800)[:int(d * SR)] * .5 + lp(noise(d), 300)[:int(d * SR)] * .7] * 2, 1)
 r = bed(CARD); fx[:len(r)] += (r * .05).astype(np.float32)[:N]   # rain on the window
 eng = lp(brown(CARD), 110)[:int(CARD * SR)]; add(fx, eng / (np.abs(eng).max() + 1e-9), 0, .07, 0)   # engine
-add(fx, whoosh(1.0, 1), P0 + .3, .14, .4); add(fx, whoosh(1.0, 1), P0 + 1.6, .12, .4); add(fx, whoosh(1.0, 1), P0 + 2.6, .12, .4)
+for j in range(4): add(fx, whoosh(1.0, 1), P0 + .3 + j * 1.2, .12, .4)
 add(fx, rewind_snd(), RW, .25, 0)
 for at in [V['v06'] - .2, V['v07'] - .2, V['v08'] - .2]: add(fx, whoosh(.5, 1), at, .12, 0)
 add(fx, whoosh(.4, 1), V['v09'] + .05, .16, -.4)
@@ -74,4 +75,4 @@ add(fx, whoosh(.8, 1), CARD - .7, .2, 0)
 mix = music * .8 + fx + vo
 mix = np.stack([hp(mix[:, 0], 35), hp(mix[:, 1], 35)], 1)
 mix[:, 0] = limit(mix[:, 0], .95); mix[:, 1] = limit(mix[:, 1], .95)
-sf.write('/home/claude/t3s/mix-raw.wav', mix.astype(np.float32), SR); print('mix', DUR)
+sf.write(f'/home/claude/t3s/mix-raw-{LANG}.wav', mix.astype(np.float32), SR); print('mix', DUR)

@@ -1,0 +1,646 @@
+{
+"fps": 30,
+"dur": 44.11,
+"lines": {
+"v01": 0.3,
+"v02": 8.12,
+"v03": 10.82,
+"v04": 15.09,
+"v05": 18.23,
+"v06": 21.69,
+"v07": 25.57,
+"v08": 28.16,
+"v09": 32.2,
+"v10": 34.56,
+"v11": 38.32,
+"v12": 40.61
+},
+"lineDur": {
+"v01": 2.372,
+"v02": 2.523,
+"v03": 1.471,
+"v04": 2.957,
+"v05": 3.162,
+"v06": 3.578,
+"v07": 2.293,
+"v08": 3.745,
+"v09": 2.056,
+"v10": 3.406,
+"v11": 2.093,
+"v12": 2.098
+},
+"pass": [
+2.92,
+7.92
+],
+"card": 38.22,
+"rw": 16.33,
+"words": [
+{
+"text": "You've",
+"start": 0.34,
+"end": 0.712,
+"line": "v01"
+},
+{
+"text": "got",
+"start": 0.753,
+"end": 0.939,
+"line": "v01"
+},
+{
+"text": "five",
+"start": 0.96,
+"end": 1.331,
+"line": "v01"
+},
+{
+"text": "seconds.",
+"start": 1.373,
+"end": 1.745,
+"line": "v01"
+},
+{
+"text": "Watch",
+"start": 1.786,
+"end": 1.972,
+"line": "v01"
+},
+{
+"text": "closely.",
+"start": 1.992,
+"end": 2.55,
+"line": "v01"
+},
+{
+"text": "Stop.",
+"start": 8.16,
+"end": 8.402,
+"line": "v02"
+},
+{
+"text": "Question:",
+"start": 8.429,
+"end": 8.914,
+"line": "v02"
+},
+{
+"text": "which",
+"start": 8.968,
+"end": 9.21,
+"line": "v02"
+},
+{
+"text": "one",
+"start": 9.237,
+"end": 9.721,
+"line": "v02"
+},
+{
+"text": "sells",
+"start": 9.775,
+"end": 10.018,
+"line": "v02"
+},
+{
+"text": "tacos?",
+"start": 10.045,
+"end": 10.529,
+"line": "v02"
+},
+{
+"text": "A,",
+"start": 10.86,
+"end": 11.107,
+"line": "v03"
+},
+{
+"text": "B,",
+"start": 11.134,
+"end": 11.381,
+"line": "v03"
+},
+{
+"text": "C…",
+"start": 11.408,
+"end": 11.655,
+"line": "v03"
+},
+{
+"text": "or",
+"start": 11.683,
+"end": 11.929,
+"line": "v03"
+},
+{
+"text": "D?",
+"start": 11.957,
+"end": 12.204,
+"line": "v03"
+},
+{
+"text": "Not",
+"start": 15.13,
+"end": 15.344,
+"line": "v04"
+},
+{
+"text": "that",
+"start": 15.368,
+"end": 15.582,
+"line": "v04"
+},
+{
+"text": "easy,",
+"start": 15.606,
+"end": 16.035,
+"line": "v04"
+},
+{
+"text": "right?",
+"start": 16.082,
+"end": 16.297,
+"line": "v04"
+},
+{
+"text": "Let's",
+"start": 16.32,
+"end": 16.535,
+"line": "v04"
+},
+{
+"text": "rewind…",
+"start": 16.558,
+"end": 16.987,
+"line": "v04"
+},
+{
+"text": "and",
+"start": 17.035,
+"end": 17.249,
+"line": "v04"
+},
+{
+"text": "slow",
+"start": 17.273,
+"end": 17.487,
+"line": "v04"
+},
+{
+"text": "it",
+"start": 17.511,
+"end": 17.725,
+"line": "v04"
+},
+{
+"text": "down.",
+"start": 17.749,
+"end": 17.963,
+"line": "v04"
+},
+{
+"text": "A:",
+"start": 18.27,
+"end": 18.442,
+"line": "v05"
+},
+{
+"text": "a",
+"start": 18.461,
+"end": 18.634,
+"line": "v05"
+},
+{
+"text": "taped",
+"start": 18.653,
+"end": 18.997,
+"line": "v05"
+},
+{
+"text": "poster",
+"start": 19.036,
+"end": 19.38,
+"line": "v05"
+},
+{
+"text": "in",
+"start": 19.418,
+"end": 19.59,
+"line": "v05"
+},
+{
+"text": "a",
+"start": 19.61,
+"end": 19.782,
+"line": "v05"
+},
+{
+"text": "dark",
+"start": 19.801,
+"end": 19.973,
+"line": "v05"
+},
+{
+"text": "window.",
+"start": 19.992,
+"end": 20.337,
+"line": "v05"
+},
+{
+"text": "You",
+"start": 20.375,
+"end": 20.547,
+"line": "v05"
+},
+{
+"text": "can't",
+"start": 20.567,
+"end": 20.739,
+"line": "v05"
+},
+{
+"text": "see",
+"start": 20.758,
+"end": 20.93,
+"line": "v05"
+},
+{
+"text": "a",
+"start": 20.949,
+"end": 21.121,
+"line": "v05"
+},
+{
+"text": "thing.",
+"start": 21.141,
+"end": 21.313,
+"line": "v05"
+},
+{
+"text": "B:",
+"start": 21.73,
+"end": 21.939,
+"line": "v06"
+},
+{
+"text": "way",
+"start": 21.962,
+"end": 22.171,
+"line": "v06"
+},
+{
+"text": "too",
+"start": 22.194,
+"end": 22.402,
+"line": "v06"
+},
+{
+"text": "much",
+"start": 22.426,
+"end": 22.634,
+"line": "v06"
+},
+{
+"text": "text.",
+"start": 22.657,
+"end": 22.866,
+"line": "v06"
+},
+{
+"text": "Impossible",
+"start": 22.889,
+"end": 23.724,
+"line": "v06"
+},
+{
+"text": "to",
+"start": 23.817,
+"end": 24.025,
+"line": "v06"
+},
+{
+"text": "read",
+"start": 24.049,
+"end": 24.257,
+"line": "v06"
+},
+{
+"text": "while",
+"start": 24.281,
+"end": 24.698,
+"line": "v06"
+},
+{
+"text": "driving.",
+"start": 24.744,
+"end": 25.162,
+"line": "v06"
+},
+{
+"text": "C:",
+"start": 25.61,
+"end": 25.789,
+"line": "v07"
+},
+{
+"text": "a",
+"start": 25.809,
+"end": 25.989,
+"line": "v07"
+},
+{
+"text": "beautiful",
+"start": 26.009,
+"end": 26.547,
+"line": "v07"
+},
+{
+"text": "name…",
+"start": 26.607,
+"end": 26.966,
+"line": "v07"
+},
+{
+"text": "but",
+"start": 27.006,
+"end": 27.185,
+"line": "v07"
+},
+{
+"text": "no",
+"start": 27.205,
+"end": 27.384,
+"line": "v07"
+},
+{
+"text": "offer.",
+"start": 27.404,
+"end": 27.763,
+"line": "v07"
+},
+{
+"text": "D:",
+"start": 28.2,
+"end": 28.356,
+"line": "v08"
+},
+{
+"text": "one",
+"start": 28.374,
+"end": 28.686,
+"line": "v08"
+},
+{
+"text": "lit",
+"start": 28.721,
+"end": 28.877,
+"line": "v08"
+},
+{
+"text": "panel,",
+"start": 28.894,
+"end": 29.207,
+"line": "v08"
+},
+{
+"text": "one",
+"start": 29.241,
+"end": 29.554,
+"line": "v08"
+},
+{
+"text": "single",
+"start": 29.589,
+"end": 29.901,
+"line": "v08"
+},
+{
+"text": "offer.",
+"start": 29.936,
+"end": 30.248,
+"line": "v08"
+},
+{
+"text": "Everybody",
+"start": 30.283,
+"end": 31.064,
+"line": "v08"
+},
+{
+"text": "saw",
+"start": 31.151,
+"end": 31.307,
+"line": "v08"
+},
+{
+"text": "that",
+"start": 31.324,
+"end": 31.48,
+"line": "v08"
+},
+{
+"text": "one.",
+"start": 31.498,
+"end": 31.81,
+"line": "v08"
+},
+{
+"text": "And",
+"start": 32.24,
+"end": 32.46,
+"line": "v09"
+},
+{
+"text": "the",
+"start": 32.485,
+"end": 32.705,
+"line": "v09"
+},
+{
+"text": "twist?",
+"start": 32.729,
+"end": 32.949,
+"line": "v09"
+},
+{
+"text": "A",
+"start": 32.974,
+"end": 33.194,
+"line": "v09"
+},
+{
+"text": "sells",
+"start": 33.218,
+"end": 33.438,
+"line": "v09"
+},
+{
+"text": "tacos",
+"start": 33.463,
+"end": 33.903,
+"line": "v09"
+},
+{
+"text": "too.",
+"start": 33.952,
+"end": 34.172,
+"line": "v09"
+},
+{
+"text": "Same",
+"start": 34.6,
+"end": 34.972,
+"line": "v10"
+},
+{
+"text": "product.",
+"start": 35.013,
+"end": 35.385,
+"line": "v10"
+},
+{
+"text": "But",
+"start": 35.426,
+"end": 35.612,
+"line": "v10"
+},
+{
+"text": "in",
+"start": 35.633,
+"end": 35.819,
+"line": "v10"
+},
+{
+"text": "five",
+"start": 35.84,
+"end": 36.212,
+"line": "v10"
+},
+{
+"text": "seconds,",
+"start": 36.253,
+"end": 36.625,
+"line": "v10"
+},
+{
+"text": "only",
+"start": 36.666,
+"end": 37.038,
+"line": "v10"
+},
+{
+"text": "D",
+"start": 37.079,
+"end": 37.265,
+"line": "v10"
+},
+{
+"text": "existed.",
+"start": 37.286,
+"end": 37.844,
+"line": "v10"
+},
+{
+"text": "Can",
+"start": 38.36,
+"end": 38.539,
+"line": "v11"
+},
+{
+"text": "people",
+"start": 38.559,
+"end": 38.918,
+"line": "v11"
+},
+{
+"text": "read",
+"start": 38.958,
+"end": 39.137,
+"line": "v11"
+},
+{
+"text": "your",
+"start": 39.157,
+"end": 39.337,
+"line": "v11"
+},
+{
+"text": "storefront",
+"start": 39.357,
+"end": 39.895,
+"line": "v11"
+},
+{
+"text": "that",
+"start": 39.954,
+"end": 40.134,
+"line": "v11"
+},
+{
+"text": "fast?",
+"start": 40.154,
+"end": 40.333,
+"line": "v11"
+},
+{
+"text": "Tell",
+"start": 40.65,
+"end": 40.813,
+"line": "v12"
+},
+{
+"text": "me",
+"start": 40.832,
+"end": 40.995,
+"line": "v12"
+},
+{
+"text": "in",
+"start": 41.013,
+"end": 41.177,
+"line": "v12"
+},
+{
+"text": "the",
+"start": 41.195,
+"end": 41.358,
+"line": "v12"
+},
+{
+"text": "comments",
+"start": 41.377,
+"end": 41.703,
+"line": "v12"
+},
+{
+"text": "if",
+"start": 41.74,
+"end": 41.903,
+"line": "v12"
+},
+{
+"text": "you",
+"start": 41.921,
+"end": 42.085,
+"line": "v12"
+},
+{
+"text": "got",
+"start": 42.103,
+"end": 42.267,
+"line": "v12"
+},
+{
+"text": "it",
+"start": 42.285,
+"end": 42.448,
+"line": "v12"
+},
+{
+"text": "right.",
+"start": 42.466,
+"end": 42.63,
+"line": "v12"
+}
+]
+}

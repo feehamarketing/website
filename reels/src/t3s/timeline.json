@@ -1,22 +1,22 @@
 {
 "fps": 30,
-"dur": 37.48,
+"dur": 39.45,
 "lines": {
 "v01": 0.3,
-"v02": 6.0,
-"v03": 8.35,
-"v04": 12.0,
-"v05": 15.1,
-"v06": 18.2,
-"v07": 20.8,
-"v08": 22.8,
-"v09": 26.5,
-"v10": 29.0,
-"v11": 32.0,
-"v12": 34.2
+"v02": 7.5,
+"v03": 9.85,
+"v04": 13.54,
+"v05": 16.67,
+"v06": 19.88,
+"v07": 22.6,
+"v08": 24.67,
+"v09": 28.35,
+"v10": 30.83,
+"v11": 33.94,
+"v12": 36.17
 },
 "lineDur": {
-"v01": 1.741,
+"v01": 1.754,
 "v02": 2.171,
 "v03": 0.895,
 "v04": 2.932,
@@ -25,674 +25,675 @@
 "v07": 1.774,
 "v08": 3.378,
 "v09": 2.18,
-"v10": 2.711,
-"v11": 1.971,
+"v10": 2.758,
+"v11": 2.027,
 "v12": 1.88
 },
 "pass": [
 2.3,
-5.8
+7.3
 ],
-"card": 31.9,
+"card": 33.84,
+"rw": 14.77,
 "words": [
 {
 "text": "Tu",
 "start": 0.34,
-"end": 0.488,
+"end": 0.489,
 "line": "v01"
 },
 {
 "text": "as",
-"start": 0.504,
-"end": 0.652,
+"start": 0.505,
+"end": 0.654,
 "line": "v01"
 },
 {
-"text": "trois",
-"start": 0.668,
-"end": 0.816,
+"text": "cinq",
+"start": 0.671,
+"end": 0.82,
 "line": "v01"
 },
 {
 "text": "secondes.",
-"start": 0.832,
-"end": 1.275,
+"start": 0.836,
+"end": 1.283,
 "line": "v01"
 },
 {
 "text": "Regarde",
-"start": 1.325,
-"end": 1.768,
+"start": 1.332,
+"end": 1.779,
 "line": "v01"
 },
 {
 "text": "bien.",
-"start": 1.817,
-"end": 1.965,
+"start": 1.829,
+"end": 1.977,
 "line": "v01"
 },
 {
 "text": "Stop.",
-"start": 6.04,
-"end": 6.195,
+"start": 7.54,
+"end": 7.695,
 "line": "v02"
 },
 {
 "text": "Question",
-"start": 6.213,
-"end": 6.523,
+"start": 7.713,
+"end": 8.023,
 "line": "v02"
 },
 {
 "text": ":",
-"start": 6.558,
-"end": 6.713,
+"start": 8.058,
+"end": 8.213,
 "line": "v02"
 },
 {
 "text": "lequel",
-"start": 6.73,
-"end": 7.041,
+"start": 8.23,
+"end": 8.541,
 "line": "v02"
 },
 {
 "text": "vendait",
-"start": 7.075,
-"end": 7.386,
+"start": 8.575,
+"end": 8.886,
 "line": "v02"
 },
 {
 "text": "des",
-"start": 7.421,
-"end": 7.576,
+"start": 8.921,
+"end": 9.076,
 "line": "v02"
 },
 {
 "text": "tacos",
-"start": 7.593,
-"end": 7.904,
+"start": 9.093,
+"end": 9.404,
 "line": "v02"
 },
 {
 "text": "?",
-"start": 7.938,
-"end": 8.094,
+"start": 9.438,
+"end": 9.594,
 "line": "v02"
 },
 {
 "text": "A,",
-"start": 8.39,
-"end": 8.509,
+"start": 9.89,
+"end": 10.009,
 "line": "v03"
 },
 {
 "text": "B,",
-"start": 8.522,
-"end": 8.642,
+"start": 10.022,
+"end": 10.142,
 "line": "v03"
 },
 {
 "text": "C…",
-"start": 8.655,
-"end": 8.774,
+"start": 10.155,
+"end": 10.274,
 "line": "v03"
 },
 {
 "text": "ou",
-"start": 8.787,
-"end": 8.907,
+"start": 10.287,
+"end": 10.407,
 "line": "v03"
 },
 {
 "text": "D",
-"start": 8.92,
-"end": 9.039,
+"start": 10.42,
+"end": 10.539,
 "line": "v03"
 },
 {
 "text": "?",
-"start": 9.053,
-"end": 9.172,
+"start": 10.553,
+"end": 10.672,
 "line": "v03"
 },
 {
 "text": "Pas",
-"start": 12.04,
-"end": 12.167,
+"start": 13.58,
+"end": 13.707,
 "line": "v04"
 },
 {
 "text": "évident,",
-"start": 12.182,
-"end": 12.564,
+"start": 13.722,
+"end": 14.104,
 "line": "v04"
 },
 {
 "text": "hein",
-"start": 12.606,
-"end": 12.734,
+"start": 14.146,
+"end": 14.274,
 "line": "v04"
 },
 {
 "text": "?",
-"start": 12.748,
-"end": 12.875,
+"start": 14.288,
+"end": 14.415,
 "line": "v04"
 },
 {
 "text": "On",
-"start": 12.89,
-"end": 13.017,
+"start": 14.43,
+"end": 14.557,
 "line": "v04"
 },
 {
 "text": "rembobine…",
-"start": 13.031,
-"end": 13.541,
+"start": 14.571,
+"end": 15.081,
 "line": "v04"
 },
 {
 "text": "et",
-"start": 13.598,
-"end": 13.725,
+"start": 15.138,
+"end": 15.265,
 "line": "v04"
 },
 {
 "text": "on",
-"start": 13.739,
-"end": 13.867,
+"start": 15.279,
+"end": 15.407,
 "line": "v04"
 },
 {
 "text": "regarde",
-"start": 13.881,
-"end": 14.263,
+"start": 15.421,
+"end": 15.803,
 "line": "v04"
 },
 {
 "text": "au",
-"start": 14.306,
-"end": 14.433,
+"start": 15.846,
+"end": 15.973,
 "line": "v04"
 },
 {
 "text": "ralenti.",
-"start": 14.447,
-"end": 14.83,
+"start": 15.987,
+"end": 16.37,
 "line": "v04"
 },
 {
 "text": "A",
-"start": 15.14,
-"end": 15.26,
+"start": 16.71,
+"end": 16.83,
 "line": "v05"
 },
 {
 "text": ":",
-"start": 15.274,
-"end": 15.394,
+"start": 16.844,
+"end": 16.964,
 "line": "v05"
 },
 {
 "text": "une",
-"start": 15.407,
-"end": 15.648,
+"start": 16.977,
+"end": 17.218,
 "line": "v05"
 },
 {
 "text": "affiche",
-"start": 15.675,
-"end": 16.036,
+"start": 17.245,
+"end": 17.606,
 "line": "v05"
 },
 {
 "text": "collée",
-"start": 16.076,
-"end": 16.316,
+"start": 17.646,
+"end": 17.886,
 "line": "v05"
 },
 {
 "text": "dans",
-"start": 16.343,
-"end": 16.463,
+"start": 17.913,
+"end": 18.033,
 "line": "v05"
 },
 {
 "text": "une",
-"start": 16.477,
-"end": 16.717,
+"start": 18.047,
+"end": 18.287,
 "line": "v05"
 },
 {
 "text": "vitrine",
-"start": 16.744,
-"end": 17.105,
+"start": 18.314,
+"end": 18.675,
 "line": "v05"
 },
 {
 "text": "sombre.",
-"start": 17.145,
-"end": 17.386,
+"start": 18.715,
+"end": 18.956,
 "line": "v05"
 },
 {
 "text": "On",
-"start": 17.412,
-"end": 17.533,
+"start": 18.982,
+"end": 19.103,
 "line": "v05"
 },
 {
 "text": "ne",
-"start": 17.546,
-"end": 17.666,
+"start": 19.116,
+"end": 19.236,
 "line": "v05"
 },
 {
 "text": "voit",
-"start": 17.68,
-"end": 17.8,
+"start": 19.25,
+"end": 19.37,
 "line": "v05"
 },
 {
 "text": "rien.",
-"start": 17.813,
-"end": 17.934,
+"start": 19.383,
+"end": 19.504,
 "line": "v05"
 },
 {
 "text": "B",
-"start": 18.24,
-"end": 18.37,
+"start": 19.92,
+"end": 20.05,
 "line": "v06"
 },
 {
 "text": ":",
-"start": 18.385,
-"end": 18.515,
+"start": 20.065,
+"end": 20.195,
 "line": "v06"
 },
 {
 "text": "trop",
-"start": 18.53,
-"end": 18.66,
+"start": 20.21,
+"end": 20.34,
 "line": "v06"
 },
 {
 "text": "de",
-"start": 18.675,
-"end": 18.805,
+"start": 20.355,
+"end": 20.485,
 "line": "v06"
 },
 {
 "text": "texte.",
-"start": 18.82,
-"end": 19.081,
+"start": 20.5,
+"end": 20.761,
 "line": "v06"
 },
 {
 "text": "Impossible",
-"start": 19.11,
-"end": 19.631,
+"start": 20.79,
+"end": 21.311,
 "line": "v06"
 },
 {
 "text": "à",
-"start": 19.689,
-"end": 19.82,
+"start": 21.369,
+"end": 21.5,
 "line": "v06"
 },
 {
 "text": "lire",
-"start": 19.834,
-"end": 20.095,
+"start": 21.514,
+"end": 21.775,
 "line": "v06"
 },
 {
 "text": "en",
-"start": 20.124,
-"end": 20.255,
+"start": 21.804,
+"end": 21.935,
 "line": "v06"
 },
 {
 "text": "roulant.",
-"start": 20.269,
-"end": 20.53,
+"start": 21.949,
+"end": 22.21,
 "line": "v06"
 },
 {
 "text": "C",
-"start": 20.84,
-"end": 20.977,
+"start": 22.64,
+"end": 22.777,
 "line": "v07"
 },
 {
 "text": ":",
-"start": 20.992,
-"end": 21.129,
+"start": 22.792,
+"end": 22.929,
 "line": "v07"
 },
 {
 "text": "un",
-"start": 21.144,
-"end": 21.281,
+"start": 22.944,
+"end": 23.081,
 "line": "v07"
 },
 {
 "text": "beau",
-"start": 21.297,
-"end": 21.434,
+"start": 23.097,
+"end": 23.234,
 "line": "v07"
 },
 {
 "text": "nom…",
-"start": 21.449,
-"end": 21.586,
+"start": 23.249,
+"end": 23.386,
 "line": "v07"
 },
 {
 "text": "mais",
-"start": 21.601,
-"end": 21.738,
+"start": 23.401,
+"end": 23.538,
 "line": "v07"
 },
 {
 "text": "aucune",
-"start": 21.753,
-"end": 22.164,
+"start": 23.553,
+"end": 23.964,
 "line": "v07"
 },
 {
 "text": "offre.",
-"start": 22.21,
-"end": 22.484,
+"start": 24.01,
+"end": 24.284,
 "line": "v07"
 },
 {
 "text": "D",
-"start": 22.84,
-"end": 22.968,
+"start": 24.71,
+"end": 24.838,
 "line": "v08"
 },
 {
 "text": ":",
-"start": 22.983,
-"end": 23.111,
+"start": 24.853,
+"end": 24.981,
 "line": "v08"
 },
 {
 "text": "un",
-"start": 23.125,
-"end": 23.253,
+"start": 24.995,
+"end": 25.123,
 "line": "v08"
 },
 {
 "text": "panneau",
-"start": 23.268,
-"end": 23.524,
+"start": 25.138,
+"end": 25.394,
 "line": "v08"
 },
 {
 "text": "lumineux,",
-"start": 23.553,
-"end": 23.937,
+"start": 25.423,
+"end": 25.807,
 "line": "v08"
 },
 {
 "text": "une",
-"start": 23.98,
-"end": 24.237,
+"start": 25.85,
+"end": 26.107,
 "line": "v08"
 },
 {
 "text": "seule",
-"start": 24.265,
-"end": 24.522,
+"start": 26.135,
+"end": 26.392,
 "line": "v08"
 },
 {
 "text": "offre.",
-"start": 24.55,
-"end": 24.807,
+"start": 26.42,
+"end": 26.677,
 "line": "v08"
 },
 {
 "text": "Celui-là,",
-"start": 24.835,
-"end": 25.22,
+"start": 26.705,
+"end": 27.09,
 "line": "v08"
 },
 {
 "text": "tout",
-"start": 25.263,
-"end": 25.391,
+"start": 27.133,
+"end": 27.261,
 "line": "v08"
 },
 {
 "text": "le",
-"start": 25.405,
-"end": 25.534,
+"start": 27.275,
+"end": 27.404,
 "line": "v08"
 },
 {
 "text": "monde",
-"start": 25.548,
-"end": 25.804,
+"start": 27.418,
+"end": 27.674,
 "line": "v08"
 },
 {
 "text": "l'a",
-"start": 25.833,
-"end": 25.961,
+"start": 27.703,
+"end": 27.831,
 "line": "v08"
 },
 {
 "text": "vu.",
-"start": 25.975,
-"end": 26.104,
+"start": 27.845,
+"end": 27.974,
 "line": "v08"
 },
 {
 "text": "Et",
-"start": 26.54,
-"end": 26.674,
+"start": 28.39,
+"end": 28.524,
 "line": "v09"
 },
 {
 "text": "la",
-"start": 26.689,
-"end": 26.822,
+"start": 28.539,
+"end": 28.672,
 "line": "v09"
 },
 {
 "text": "surprise",
-"start": 26.837,
-"end": 27.238,
+"start": 28.687,
+"end": 29.088,
 "line": "v09"
 },
 {
 "text": "?",
-"start": 27.283,
-"end": 27.417,
+"start": 29.133,
+"end": 29.267,
 "line": "v09"
 },
 {
 "text": "A",
-"start": 27.431,
-"end": 27.565,
+"start": 29.281,
+"end": 29.415,
 "line": "v09"
 },
 {
 "text": "vendait",
-"start": 27.58,
-"end": 27.847,
+"start": 29.43,
+"end": 29.697,
 "line": "v09"
 },
 {
 "text": "aussi",
-"start": 27.877,
-"end": 28.145,
+"start": 29.727,
+"end": 29.995,
 "line": "v09"
 },
 {
 "text": "des",
-"start": 28.174,
-"end": 28.308,
+"start": 30.024,
+"end": 30.158,
 "line": "v09"
 },
 {
 "text": "tacos.",
-"start": 28.323,
-"end": 28.59,
+"start": 30.173,
+"end": 30.44,
 "line": "v09"
 },
 {
 "text": "Même",
-"start": 29.04,
-"end": 29.353,
+"start": 30.87,
+"end": 31.189,
 "line": "v10"
 },
 {
 "text": "produit.",
-"start": 29.388,
-"end": 29.701,
+"start": 31.224,
+"end": 31.543,
 "line": "v10"
 },
 {
 "text": "Mais",
-"start": 29.736,
-"end": 29.893,
+"start": 31.579,
+"end": 31.738,
 "line": "v10"
 },
 {
 "text": "en",
-"start": 29.91,
-"end": 30.067,
+"start": 31.756,
+"end": 31.915,
 "line": "v10"
 },
 {
-"text": "trois",
-"start": 30.084,
-"end": 30.241,
+"text": "cinq",
+"start": 31.933,
+"end": 32.093,
 "line": "v10"
 },
 {
 "text": "secondes,",
-"start": 30.258,
-"end": 30.728,
+"start": 32.11,
+"end": 32.589,
 "line": "v10"
 },
 {
 "text": "seul",
-"start": 30.781,
-"end": 30.937,
+"start": 32.642,
+"end": 32.801,
 "line": "v10"
 },
 {
 "text": "D",
-"start": 30.955,
-"end": 31.111,
+"start": 32.819,
+"end": 32.979,
 "line": "v10"
 },
 {
 "text": "existait.",
-"start": 31.129,
-"end": 31.599,
+"start": 32.996,
+"end": 33.475,
 "line": "v10"
 },
 {
 "text": "Ta",
-"start": 32.04,
-"end": 32.17,
+"start": 33.98,
+"end": 34.113,
 "line": "v11"
 },
 {
 "text": "vitrine,",
-"start": 32.184,
-"end": 32.573,
+"start": 34.128,
+"end": 34.528,
 "line": "v11"
 },
 {
 "text": "on",
-"start": 32.616,
-"end": 32.745,
+"start": 34.573,
+"end": 34.706,
 "line": "v11"
 },
 {
 "text": "la",
-"start": 32.76,
-"end": 32.889,
+"start": 34.721,
+"end": 34.855,
 "line": "v11"
 },
 {
 "text": "lit",
-"start": 32.904,
-"end": 33.033,
+"start": 34.869,
+"end": 35.003,
 "line": "v11"
 },
 {
 "text": "en",
-"start": 33.047,
-"end": 33.177,
+"start": 35.018,
+"end": 35.151,
 "line": "v11"
 },
 {
-"text": "trois",
-"start": 33.191,
-"end": 33.321,
+"text": "cinq",
+"start": 35.166,
+"end": 35.299,
 "line": "v11"
 },
 {
 "text": "secondes",
-"start": 33.335,
-"end": 33.724,
+"start": 35.314,
+"end": 35.714,
 "line": "v11"
 },
 {
 "text": "?",
-"start": 33.767,
-"end": 33.897,
+"start": 35.759,
+"end": 35.892,
 "line": "v11"
 },
 {
 "text": "Dis-moi",
-"start": 34.24,
-"end": 34.486,
+"start": 36.21,
+"end": 36.456,
 "line": "v12"
 },
 {
 "text": "en",
-"start": 34.514,
-"end": 34.637,
+"start": 36.484,
+"end": 36.607,
 "line": "v12"
 },
 {
 "text": "commentaire",
-"start": 34.651,
-"end": 35.144,
+"start": 36.621,
+"end": 37.114,
 "line": "v12"
 },
 {
 "text": "si",
-"start": 35.198,
-"end": 35.322,
+"start": 37.168,
+"end": 37.292,
 "line": "v12"
 },
 {
 "text": "tu",
-"start": 35.335,
-"end": 35.459,
+"start": 37.305,
+"end": 37.429,
 "line": "v12"
 },
 {
 "text": "avais",
-"start": 35.472,
-"end": 35.719,
+"start": 37.442,
+"end": 37.689,
 "line": "v12"
 },
 {
 "text": "trouvé.",
-"start": 35.746,
-"end": 35.993,
+"start": 37.716,
+"end": 37.963,
 "line": "v12"
 }
 ]

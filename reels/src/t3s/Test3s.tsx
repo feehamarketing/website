@@ -1,20 +1,33 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Freeze, Img, OffthreadVideo, interpolate, spring, staticFile, useCurrentFrame} from 'remotion';
-import tl from './timeline.json';
+import tlFr from './timeline.json';
+import tlEn from './timeline-en.json';
 
 // « Le test des 3 secondes » — interactive Reel (≈ 37 s). Picture: Lemo clip public/t3s/street.mp4 (source scripts/t3s/lemo-street),
 // the passenger-window drive past four invented restaurants A–D. Remotion: timer, freeze, quiz, verdicts, transitions, captions, card.
 // Every change of subject is carried by a motivated move (freeze → rewind → dolly stops → whip back → split → push into the panel).
 const FPS = 30;
-const V = tl.lines as Record<string, number>;
-const D = tl.lineDur as Record<string, number>;
-const [P0, P1] = tl.pass as number[];
-const CARD = tl.card as number;
-export const T3S_FRAMES = Math.round(tl.dur * FPS);
+type TL = typeof tlFr;
+const COPY = {
+  fr: {hook: 'TU AS 5 SECONDES.', hi: '5', stop: 'STOP.', q: 'LEQUEL VENDAIT DES TACOS ?', qhi: 'TACOS', answer: 'RÉPONDS EN COMMENTAIRE', rewind: 'ON REMBOBINE',
+    vA: 'INVISIBLE', vB: 'ILLISIBLE', vC: 'AUCUNE OFFRE', vD: 'VU DU PREMIER COUP', twist: 'SURPRISE : A AUSSI', splitA: 'A · TACOS · INVISIBLE', splitD: 'D · TACOS · VU',
+    card: ['TA VITRINE,', 'ON LA LIT', 'EN ', '5 SECONDES', ' ?'], cardPill: 'TU AVAIS TROUVÉ ? DIS-LE EN COMMENTAIRE'},
+  en: {hook: "YOU'VE GOT 5 SECONDS.", hi: '5', stop: 'STOP.', q: 'WHICH ONE SELLS TACOS?', qhi: 'TACOS', answer: 'ANSWER IN THE COMMENTS', rewind: 'REWIND',
+    vA: 'INVISIBLE', vB: 'UNREADABLE', vC: 'NO OFFER', vD: 'SEEN AT ONCE', twist: 'PLOT TWIST: A TOO', splitA: 'A · TACOS · INVISIBLE', splitD: 'D · TACOS · SEEN',
+    card: ['CAN PEOPLE', 'READ YOUR', 'STOREFRONT IN ', '5 SECONDS', '?'], cardPill: 'GOT IT RIGHT? TELL ME IN THE COMMENTS'},
+};
+type Lang = keyof typeof COPY;
+const DATA: Record<Lang, {tl: TL; clip: string; mix: string}> = {
+  fr: {tl: tlFr, clip: 't3s/street.mp4', mix: 't3s-mix.wav'},
+  en: {tl: tlEn as TL, clip: 't3s/street-en.mp4', mix: 't3s-mix-en.wav'},
+};
+export const T3S_FRAMES = Math.round(tlFr.dur * FPS);
+export const T3S_EN_FRAMES = Math.round(tlEn.dur * FPS);
+const Ctx = React.createContext<{lang: Lang}>({lang: 'fr'});
+const useD = () => { const {lang} = React.useContext(Ctx); const d = DATA[lang]; const tl = d.tl; return {lang, c: COPY[lang], tl, V: tl.lines as Record<string, number>, D: tl.lineDur as Record<string, number>, P0: tl.pass[0], P1: tl.pass[1], CARD: tl.card, RW: tl.rw, clip: d.clip, mix: d.mix}; };
 const RED = '#E11D2E', INK = '#0B0A0D';
 const ANTON = '"Anton", sans-serif';
 const MONT = '"Montserrat", sans-serif';
-const RW = V.v04 + 1.2; // rewind starts (picture unfreezes)
 const fr = (s: number) => Math.round(s * FPS);
 const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const lin = (t: number, a: number, b: number, from: number, to: number) => interpolate(t, [a, b], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -47,11 +60,11 @@ const Big = ({text, at, out, top, size = 180, color = '#fff', bg, hi}: {text: st
   );
 };
 // the countdown ring
-const Timer = ({from, to, top = 300, size = 260}: {from: number; to: number; top?: number; size?: number}) => {
+const Timer = ({from, to, top = 300, size = 260, count = 3}: {from: number; to: number; top?: number; size?: number; count?: number}) => {
   const t = useT();
   if (t < from - 0.2 || t >= to + 0.35) return null;
   const k = clamp((t - from) / (to - from));
-  const n = Math.max(0, Math.ceil(3 - k * 3 - 1e-6));
+  const n = Math.max(0, Math.ceil(count - k * count - 1e-6));
   const r = size / 2 - 14, c = 2 * Math.PI * r;
   const o = clamp((t - from + 0.2) / 0.2) * clamp((to + 0.35 - t) / 0.25);
   return (
@@ -67,6 +80,7 @@ const Timer = ({from, to, top = 300, size = 260}: {from: number; to: number; top
 // the street (Lemo), frozen between the end of the pass and the rewind; pushes are done here, never big blurry zooms
 const Street = () => {
   const t = useT();
+  const {V, P1, RW, CARD, clip} = useD();
   const frozen = t >= P1 && t < RW;
   // punch into A's poster for the twist, then push into D's panel to reach the card
   const twist = ease(clamp((t - (V.v09 + 1.0)) / 0.6)) * (1 - ease(clamp((t - (V.v10 - 0.3)) / 0.4)));
@@ -76,15 +90,16 @@ const Street = () => {
   return (
     <AbsoluteFill style={{transform: `scale(${scale})`, transformOrigin: origin}}>
       {frozen ? (
-        <Freeze frame={fr(P1)}><OffthreadVideo src={staticFile('t3s/street.mp4')} muted style={{width: 1080, height: 1920, filter: 'saturate(.85)'}} /></Freeze>
+        <Freeze frame={fr(P1)}><OffthreadVideo src={staticFile(clip)} muted style={{width: 1080, height: 1920, filter: 'saturate(.85)'}} /></Freeze>
       ) : (
-        <OffthreadVideo src={staticFile('t3s/street.mp4')} muted style={{width: 1080, height: 1920}} />
+        <OffthreadVideo src={staticFile(clip)} muted style={{width: 1080, height: 1920}} />
       )}
     </AbsoluteFill>
   );
 };
 const Choices = () => {
   const f = useCurrentFrame();
+  const {V, RW} = useD();
   const t = f / FPS;
   if (t < V.v03 || t >= RW) return null;
   return (
@@ -113,6 +128,7 @@ const Verdict = ({letter, text, ok, at, out}: {letter: string; text: string; ok:
 };
 const Rewind = () => {
   const t = useT();
+  const {RW} = useD();
   const k = t - RW;
   if (k < 0 || k > 0.9) return null;
   const a = Math.sin(Math.PI * clamp(k / 0.9));
@@ -126,15 +142,16 @@ const Rewind = () => {
 };
 const Card = () => {
   const f = useCurrentFrame();
+  const {V, CARD, c} = useD();
   const t = f / FPS;
   const p = pop(f, CARD), p2 = pop(f, V.v12), p3 = pop(f, V.v12 + 0.6);
   return (
     <AbsoluteFill style={{background: RED, opacity: clamp((t - CARD + 0.15) / 0.25)}}>
       <div style={{position: 'absolute', top: 300, left: 50, right: 50, textAlign: 'center', fontFamily: ANTON, fontSize: 150, lineHeight: 1, color: '#fff', transform: `scale(${lin(p, 0, 1, 1.3, 1)})`, opacity: p}}>
-        TA VITRINE,<br />ON LA LIT<br />EN <span style={{color: INK}}>3 SECONDES</span> ?
+        {c.card[0]}<br />{c.card[1]}<br />{c.card[2]}<span style={{color: INK}}>{c.card[3]}</span>{c.card[4]}
       </div>
       <div style={{position: 'absolute', top: 900, left: 0, right: 0, textAlign: 'center', opacity: p2, transform: `translateY(${(1 - p2) * 30}px)`}}>
-        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 38, color: RED, background: '#fff', padding: '14px 28px', borderRadius: 999, whiteSpace: 'nowrap'}}>TU AVAIS TROUVÉ ? DIS-LE EN COMMENTAIRE</span>
+        <span style={{fontFamily: MONT, fontWeight: 900, fontSize: 38, color: RED, background: '#fff', padding: '14px 28px', borderRadius: 999, whiteSpace: 'nowrap'}}>{c.cardPill}</span>
       </div>
       <div style={{position: 'absolute', top: 1110, left: 290, right: 290, background: '#fff', borderRadius: 26, padding: '22px 20px', display: 'flex', justifyContent: 'center', opacity: p3, transform: `scale(${lin(p3, 0, 1, 0.8, 1)})`}}>
         <Img src={staticFile('feeha/logo-clean.png')} style={{width: 420}} />
@@ -145,8 +162,7 @@ const Card = () => {
 };
 // captions: word by word, on the car door (black), inside the safe zone
 type Wd = {text: string; start: number; end: number; line: string};
-const WORDS = tl.words as Wd[];
-const CHUNKS: Wd[][] = (() => {
+const chunksOf = (WORDS: Wd[]): Wd[][] => {
   const out: Wd[][] = [];
   let cur: Wd[] = [];
   WORDS.forEach((w, i) => {
@@ -155,9 +171,12 @@ const CHUNKS: Wd[][] = (() => {
     if (cur.length >= 3 || /[.,?!…:]$/.test(w.text) || !nx || nx.line !== w.line) { out.push(cur); cur = []; }
   });
   return out;
-})();
+};
+const CH = {fr: chunksOf(tlFr.words as Wd[]), en: chunksOf(tlEn.words as Wd[])};
 const Captions = () => {
   const t = useT();
+  const {V, lang} = useD();
+  const CHUNKS = CH[lang];
   if (t >= V.v10 - 0.2 || (t >= V.v02 && t < V.v04)) return null; // the question has its own big type
   const c = CHUNKS.find((ch, i) => t >= ch[0].start - 0.05 && t < Math.min((CHUNKS[i + 1]?.[0].start ?? 999) - 0.03, ch[ch.length - 1].end + 0.5));
   if (!c) return null;
@@ -173,37 +192,41 @@ const Captions = () => {
   );
 };
 
-export const FeehaTest3s = ({audio}: {audio: boolean}) => {
+const Film = ({audio}: {audio: boolean}) => {
   const t = useT();
+  const {V, D, P0, P1, RW, CARD, c, tl, mix} = useD();
   const freezeFlash = t >= P1 && t < P1 + 0.25 ? 1 - (t - P1) / 0.25 : 0;
   return (
     <AbsoluteFill style={{background: '#000'}}>
       {t < CARD ? <Street /> : null}
       {/* hook + the 3 seconds */}
-      <Big text="TU AS 3 SECONDES." hi="3" at={V.v01} out={P0 + 0.2} top={300} size={150} />
-      <Timer from={P0} to={P1} />
-      <Big text="STOP." at={P1} out={V.v02 + 0.9} top={330} size={260} color={INK} bg="#fff" />
+      <Big text={c.hook} hi={c.hi} at={V.v01} out={P0 + 0.2} top={300} size={150} />
+      <Timer from={P0} to={P1} count={5} />
+      <Big text={c.stop} at={P1} out={V.v02 + 0.9} top={330} size={260} color={INK} bg="#fff" />
       {/* the question */}
-      <Big text="LEQUEL VENDAIT DES TACOS ?" hi="TACOS" at={V.v02 + 0.9} out={RW} top={260} size={120} />
+      <Big text={c.q} hi={c.qhi} at={V.v02 + 0.9} out={RW} top={260} size={120} />
       <Choices />
       <Timer from={V.v03 + D.v03 + 0.1} to={V.v03 + D.v03 + 2.6} top={1180} size={200} />
-      <Pill text="RÉPONDS EN COMMENTAIRE" at={V.v03 + D.v03 + 0.1} top={1420} bg="#fff" color={RED} out={RW} />
+      <Pill text={c.answer} at={V.v03 + D.v03 + 0.1} top={1420} bg="#fff" color={RED} out={RW} />
       {/* replay */}
-      <Pill text="ON REMBOBINE" at={RW - 0.6} top={190} out={RW + 0.9} />
-      <Verdict letter="A" text="INVISIBLE" ok={false} at={V.v05 + 0.2} out={V.v06 - 0.2} />
-      <Verdict letter="B" text="ILLISIBLE" ok={false} at={V.v06 + 0.2} out={V.v07 - 0.2} />
-      <Verdict letter="C" text="AUCUNE OFFRE" ok={false} at={V.v07 + 0.2} out={V.v08 - 0.2} />
-      <Verdict letter="D" text="LU EN 3 S" ok at={V.v08 + 0.3} out={V.v09 - 0.1} />
+      <Pill text={c.rewind} at={RW - 0.6} top={190} out={RW + 0.9} />
+      <Verdict letter="A" text={c.vA} ok={false} at={V.v05 + 0.2} out={V.v06 - 0.2} />
+      <Verdict letter="B" text={c.vB} ok={false} at={V.v06 + 0.2} out={V.v07 - 0.2} />
+      <Verdict letter="C" text={c.vC} ok={false} at={V.v07 + 0.2} out={V.v08 - 0.2} />
+      <Verdict letter="D" text={c.vD} ok at={V.v08 + 0.3} out={V.v09 - 0.1} />
       {/* the twist and the comparison */}
-      <Pill text="SURPRISE : A AUSSI" at={V.v09 + 1.0} top={190} out={V.v10 - 0.25} />
-      <Pill text="A · TACOS · INVISIBLE" at={V.v10 + 0.4} top={120} bg="rgba(0,0,0,.7)" out={CARD - 0.5} />
-      <Pill text="D · TACOS · VU" at={V.v10 + 1.0} top={1040} bg="#1E9E5A" out={CARD - 0.5} />
+      <Pill text={c.twist} at={V.v09 + 1.0} top={190} out={V.v10 - 0.25} />
+      <Pill text={c.splitA} at={V.v10 + 0.4} top={120} bg="rgba(0,0,0,.7)" out={CARD - 0.5} />
+      <Pill text={c.splitD} at={V.v10 + 1.0} top={1040} bg="#1E9E5A" out={CARD - 0.5} />
       <Rewind />
       {t >= CARD - 0.15 ? <Card /> : null}
       <Captions />
       <AbsoluteFill style={{background: '#fff', opacity: freezeFlash * 0.85, pointerEvents: 'none'}} />
       <div style={{position: 'absolute', top: 0, left: 0, height: 10, width: `${(t / tl.dur) * 100}%`, background: RED}} />
-      {audio ? <Audio src={staticFile('t3s-mix.wav')} /> : null}
+      {audio ? <Audio src={staticFile(mix)} /> : null}
     </AbsoluteFill>
   );
 };
+
+export const FeehaTest3s = ({audio}: {audio: boolean}) => <Ctx.Provider value={{lang: 'fr'}}><Film audio={audio} /></Ctx.Provider>;
+export const FeehaTest3sEN = ({audio}: {audio: boolean}) => <Ctx.Provider value={{lang: 'en'}}><Film audio={audio} /></Ctx.Provider>;
