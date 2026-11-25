@@ -221,7 +221,7 @@ export const FeehaPromo = ({audio}: {audio: boolean}) => {
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.25) 35%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%)'}} />
       <BehindText />
       <Graded>
-        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.12) brightness(0.98)'}} />
+        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.12) brightness(0.92)'}} />
       </Graded>
       <TopLabel />
       <Sticker text="+50 À 60 %" from={6.12} to={10.9} x={560} y={1060} rot={-6} />
