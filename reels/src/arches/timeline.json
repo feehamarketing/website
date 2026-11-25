@@ -1,0 +1,1506 @@
+{
+"fps": 30,
+"dur": 81.06,
+"lines": {
+"a01": 1.5,
+"a02": 3.22,
+"a03": 5.26,
+"a04": 9.18,
+"a05": 10.68,
+"a06": 14.58,
+"a07": 17.25,
+"a08": 20.21,
+"b01": 22.67,
+"b02": 26.1,
+"b03": 30.58,
+"b04": 34.38,
+"b05": 37.13,
+"b06": 38.22,
+"b07": 39.72,
+"b08": 44.44,
+"c01": 47.97,
+"c02": 51.82,
+"c03": 53.86,
+"c04": 59.15,
+"d01": 64.08,
+"d02": 67.52,
+"d03": 70.95,
+"d04": 72.82,
+"d05": 75.33
+},
+"lineDur": {
+"a01": 1.269,
+"a02": 0.941,
+"a03": 3.423,
+"a04": 0.598,
+"a05": 3.594,
+"a06": 2.378,
+"a07": 2.56,
+"a08": 1.561,
+"b01": 2.027,
+"b02": 4.075,
+"b03": 3.3,
+"b04": 2.459,
+"b05": 0.785,
+"b06": 1.101,
+"b07": 4.316,
+"b08": 2.736,
+"c01": 2.645,
+"c02": 0.543,
+"c03": 4.936,
+"c04": 4.434,
+"d01": 3.09,
+"d02": 3.032,
+"d03": 0.869,
+"d04": 2.206,
+"d05": 2.532
+},
+"words": [
+{
+"text": "Regarde",
+"start": 1.54,
+"end": 1.891,
+"line": "a01"
+},
+{
+"text": "bien",
+"start": 1.93,
+"end": 2.047,
+"line": "a01"
+},
+{
+"text": "cette",
+"start": 2.06,
+"end": 2.293,
+"line": "a01"
+},
+{
+"text": "image.",
+"start": 2.319,
+"end": 2.67,
+"line": "a01"
+},
+{
+"text": "Il",
+"start": 3.26,
+"end": 3.386,
+"line": "a02"
+},
+{
+"text": "manque",
+"start": 3.4,
+"end": 3.652,
+"line": "a02"
+},
+{
+"text": "presque",
+"start": 3.681,
+"end": 3.933,
+"line": "a02"
+},
+{
+"text": "tout.",
+"start": 3.961,
+"end": 4.087,
+"line": "a02"
+},
+{
+"text": "Et",
+"start": 5.3,
+"end": 5.425,
+"line": "a03"
+},
+{
+"text": "pourtant…",
+"start": 5.438,
+"end": 5.688,
+"line": "a03"
+},
+{
+"text": "je",
+"start": 5.715,
+"end": 5.84,
+"line": "a03"
+},
+{
+"text": "suis",
+"start": 5.854,
+"end": 5.978,
+"line": "a03"
+},
+{
+"text": "prêt",
+"start": 5.992,
+"end": 6.117,
+"line": "a03"
+},
+{
+"text": "à",
+"start": 6.131,
+"end": 6.255,
+"line": "a03"
+},
+{
+"text": "parier",
+"start": 6.269,
+"end": 6.518,
+"line": "a03"
+},
+{
+"text": "que",
+"start": 6.546,
+"end": 6.671,
+"line": "a03"
+},
+{
+"text": "tu",
+"start": 6.685,
+"end": 6.809,
+"line": "a03"
+},
+{
+"text": "sais",
+"start": 6.823,
+"end": 6.948,
+"line": "a03"
+},
+{
+"text": "déjà",
+"start": 6.962,
+"end": 7.211,
+"line": "a03"
+},
+{
+"text": "de",
+"start": 7.238,
+"end": 7.363,
+"line": "a03"
+},
+{
+"text": "quelle",
+"start": 7.377,
+"end": 7.626,
+"line": "a03"
+},
+{
+"text": "entreprise",
+"start": 7.654,
+"end": 8.152,
+"line": "a03"
+},
+{
+"text": "il",
+"start": 8.208,
+"end": 8.332,
+"line": "a03"
+},
+{
+"text": "s'agit.",
+"start": 8.346,
+"end": 8.595,
+"line": "a03"
+},
+{
+"text": "Mais",
+"start": 9.22,
+"end": 9.332,
+"line": "a04"
+},
+{
+"text": "comment",
+"start": 9.344,
+"end": 9.569,
+"line": "a04"
+},
+{
+"text": "?",
+"start": 9.593,
+"end": 9.706,
+"line": "a04"
+},
+{
+"text": "En",
+"start": 10.72,
+"end": 10.863,
+"line": "a05"
+},
+{
+"text": "2018,",
+"start": 10.879,
+"end": 11.022,
+"line": "a05"
+},
+{
+"text": "quatre",
+"start": 11.038,
+"end": 11.324,
+"line": "a05"
+},
+{
+"text": "panneaux",
+"start": 11.355,
+"end": 11.641,
+"line": "a05"
+},
+{
+"text": "assez",
+"start": 11.673,
+"end": 11.959,
+"line": "a05"
+},
+{
+"text": "étranges",
+"start": 11.991,
+"end": 12.419,
+"line": "a05"
+},
+{
+"text": "apparaissent",
+"start": 12.467,
+"end": 13.039,
+"line": "a05"
+},
+{
+"text": "dans",
+"start": 13.102,
+"end": 13.245,
+"line": "a05"
+},
+{
+"text": "les",
+"start": 13.261,
+"end": 13.404,
+"line": "a05"
+},
+{
+"text": "rues",
+"start": 13.42,
+"end": 13.563,
+"line": "a05"
+},
+{
+"text": "de",
+"start": 13.579,
+"end": 13.722,
+"line": "a05"
+},
+{
+"text": "Toronto.",
+"start": 13.738,
+"end": 14.166,
+"line": "a05"
+},
+{
+"text": "Pas",
+"start": 14.62,
+"end": 14.741,
+"line": "a06"
+},
+{
+"text": "de",
+"start": 14.754,
+"end": 14.875,
+"line": "a06"
+},
+{
+"text": "nourriture.",
+"start": 14.888,
+"end": 15.37,
+"line": "a06"
+},
+{
+"text": "Pas",
+"start": 15.424,
+"end": 15.545,
+"line": "a06"
+},
+{
+"text": "de",
+"start": 15.558,
+"end": 15.679,
+"line": "a06"
+},
+{
+"text": "prix.",
+"start": 15.692,
+"end": 15.813,
+"line": "a06"
+},
+{
+"text": "Pas",
+"start": 15.826,
+"end": 15.947,
+"line": "a06"
+},
+{
+"text": "même",
+"start": 15.96,
+"end": 16.201,
+"line": "a06"
+},
+{
+"text": "un",
+"start": 16.228,
+"end": 16.349,
+"line": "a06"
+},
+{
+"text": "logo",
+"start": 16.362,
+"end": 16.603,
+"line": "a06"
+},
+{
+"text": "complet.",
+"start": 16.63,
+"end": 16.871,
+"line": "a06"
+},
+{
+"text": "Seulement",
+"start": 17.29,
+"end": 17.681,
+"line": "a07"
+},
+{
+"text": "des",
+"start": 17.724,
+"end": 17.854,
+"line": "a07"
+},
+{
+"text": "fragments",
+"start": 17.869,
+"end": 18.129,
+"line": "a07"
+},
+{
+"text": "jaunes",
+"start": 18.158,
+"end": 18.419,
+"line": "a07"
+},
+{
+"text": "sur",
+"start": 18.448,
+"end": 18.578,
+"line": "a07"
+},
+{
+"text": "fond",
+"start": 18.592,
+"end": 18.723,
+"line": "a07"
+},
+{
+"text": "rouge…",
+"start": 18.737,
+"end": 18.998,
+"line": "a07"
+},
+{
+"text": "et",
+"start": 19.026,
+"end": 19.157,
+"line": "a07"
+},
+{
+"text": "deux",
+"start": 19.171,
+"end": 19.301,
+"line": "a07"
+},
+{
+"text": "ou",
+"start": 19.316,
+"end": 19.446,
+"line": "a07"
+},
+{
+"text": "trois",
+"start": 19.461,
+"end": 19.591,
+"line": "a07"
+},
+{
+"text": "mots.",
+"start": 19.605,
+"end": 19.736,
+"line": "a07"
+},
+{
+"text": "Et",
+"start": 20.25,
+"end": 20.36,
+"line": "a08"
+},
+{
+"text": "ce",
+"start": 20.372,
+"end": 20.481,
+"line": "a08"
+},
+{
+"text": "n'était",
+"start": 20.493,
+"end": 20.713,
+"line": "a08"
+},
+{
+"text": "pas",
+"start": 20.737,
+"end": 20.847,
+"line": "a08"
+},
+{
+"text": "une",
+"start": 20.859,
+"end": 21.078,
+"line": "a08"
+},
+{
+"text": "erreur",
+"start": 21.102,
+"end": 21.321,
+"line": "a08"
+},
+{
+"text": "d'impression.",
+"start": 21.346,
+"end": 21.674,
+"line": "a08"
+},
+{
+"text": "Pour",
+"start": 22.71,
+"end": 22.843,
+"line": "b01"
+},
+{
+"text": "comprendre,",
+"start": 22.858,
+"end": 23.258,
+"line": "b01"
+},
+{
+"text": "il",
+"start": 23.303,
+"end": 23.436,
+"line": "b01"
+},
+{
+"text": "faut",
+"start": 23.451,
+"end": 23.585,
+"line": "b01"
+},
+{
+"text": "revenir",
+"start": 23.599,
+"end": 24.0,
+"line": "b01"
+},
+{
+"text": "en",
+"start": 24.044,
+"end": 24.177,
+"line": "b01"
+},
+{
+"text": "arrière.",
+"start": 24.192,
+"end": 24.593,
+"line": "b01"
+},
+{
+"text": "Imagine",
+"start": 26.14,
+"end": 26.587,
+"line": "b02"
+},
+{
+"text": "une",
+"start": 26.637,
+"end": 26.86,
+"line": "b02"
+},
+{
+"text": "agence",
+"start": 26.885,
+"end": 27.221,
+"line": "b02"
+},
+{
+"text": "de",
+"start": 27.258,
+"end": 27.37,
+"line": "b02"
+},
+{
+"text": "publicité",
+"start": 27.382,
+"end": 27.829,
+"line": "b02"
+},
+{
+"text": "canadienne",
+"start": 27.879,
+"end": 28.326,
+"line": "b02"
+},
+{
+"text": "face",
+"start": 28.376,
+"end": 28.6,
+"line": "b02"
+},
+{
+"text": "à",
+"start": 28.624,
+"end": 28.736,
+"line": "b02"
+},
+{
+"text": "une",
+"start": 28.749,
+"end": 28.972,
+"line": "b02"
+},
+{
+"text": "question",
+"start": 28.997,
+"end": 29.221,
+"line": "b02"
+},
+{
+"text": "assez",
+"start": 29.245,
+"end": 29.469,
+"line": "b02"
+},
+{
+"text": "particulière.",
+"start": 29.494,
+"end": 30.053,
+"line": "b02"
+},
+{
+"text": "Jusqu'où",
+"start": 30.62,
+"end": 30.952,
+"line": "b03"
+},
+{
+"text": "peut-on",
+"start": 30.989,
+"end": 31.211,
+"line": "b03"
+},
+{
+"text": "effacer",
+"start": 31.235,
+"end": 31.568,
+"line": "b03"
+},
+{
+"text": "une",
+"start": 31.605,
+"end": 31.826,
+"line": "b03"
+},
+{
+"text": "marque…",
+"start": 31.851,
+"end": 32.072,
+"line": "b03"
+},
+{
+"text": "avant",
+"start": 32.097,
+"end": 32.318,
+"line": "b03"
+},
+{
+"text": "que",
+"start": 32.343,
+"end": 32.454,
+"line": "b03"
+},
+{
+"text": "les",
+"start": 32.466,
+"end": 32.577,
+"line": "b03"
+},
+{
+"text": "gens",
+"start": 32.589,
+"end": 32.7,
+"line": "b03"
+},
+{
+"text": "cessent",
+"start": 32.712,
+"end": 32.934,
+"line": "b03"
+},
+{
+"text": "de",
+"start": 32.958,
+"end": 33.069,
+"line": "b03"
+},
+{
+"text": "la",
+"start": 33.082,
+"end": 33.192,
+"line": "b03"
+},
+{
+"text": "reconnaître",
+"start": 33.205,
+"end": 33.648,
+"line": "b03"
+},
+{
+"text": "?",
+"start": 33.697,
+"end": 33.808,
+"line": "b03"
+},
+{
+"text": "Ils",
+"start": 34.42,
+"end": 34.545,
+"line": "b04"
+},
+{
+"text": "prennent",
+"start": 34.559,
+"end": 34.809,
+"line": "b04"
+},
+{
+"text": "alors",
+"start": 34.836,
+"end": 35.086,
+"line": "b04"
+},
+{
+"text": "l'un",
+"start": 35.114,
+"end": 35.239,
+"line": "b04"
+},
+{
+"text": "des",
+"start": 35.253,
+"end": 35.377,
+"line": "b04"
+},
+{
+"text": "logos",
+"start": 35.391,
+"end": 35.641,
+"line": "b04"
+},
+{
+"text": "les",
+"start": 35.669,
+"end": 35.794,
+"line": "b04"
+},
+{
+"text": "plus",
+"start": 35.808,
+"end": 35.933,
+"line": "b04"
+},
+{
+"text": "célèbres",
+"start": 35.946,
+"end": 36.321,
+"line": "b04"
+},
+{
+"text": "au",
+"start": 36.363,
+"end": 36.488,
+"line": "b04"
+},
+{
+"text": "monde.",
+"start": 36.501,
+"end": 36.751,
+"line": "b04"
+},
+{
+"text": "Ils",
+"start": 37.17,
+"end": 37.293,
+"line": "b05"
+},
+{
+"text": "le",
+"start": 37.307,
+"end": 37.43,
+"line": "b05"
+},
+{
+"text": "découpent.",
+"start": 37.444,
+"end": 37.814,
+"line": "b05"
+},
+{
+"text": "Ils",
+"start": 38.26,
+"end": 38.389,
+"line": "b06"
+},
+{
+"text": "retirent",
+"start": 38.403,
+"end": 38.789,
+"line": "b06"
+},
+{
+"text": "presque",
+"start": 38.832,
+"end": 39.089,
+"line": "b06"
+},
+{
+"text": "tout.",
+"start": 39.118,
+"end": 39.247,
+"line": "b06"
+},
+{
+"text": "Et",
+"start": 39.76,
+"end": 39.886,
+"line": "b07"
+},
+{
+"text": "avec",
+"start": 39.901,
+"end": 40.153,
+"line": "b07"
+},
+{
+"text": "ce",
+"start": 40.182,
+"end": 40.308,
+"line": "b07"
+},
+{
+"text": "qu'il",
+"start": 40.322,
+"end": 40.575,
+"line": "b07"
+},
+{
+"text": "reste,",
+"start": 40.603,
+"end": 40.856,
+"line": "b07"
+},
+{
+"text": "ils",
+"start": 40.884,
+"end": 41.011,
+"line": "b07"
+},
+{
+"text": "créent",
+"start": 41.025,
+"end": 41.151,
+"line": "b07"
+},
+{
+"text": "des",
+"start": 41.165,
+"end": 41.292,
+"line": "b07"
+},
+{
+"text": "indications",
+"start": 41.306,
+"end": 41.812,
+"line": "b07"
+},
+{
+"text": "pour",
+"start": 41.868,
+"end": 41.994,
+"line": "b07"
+},
+{
+"text": "guider",
+"start": 42.009,
+"end": 42.261,
+"line": "b07"
+},
+{
+"text": "les",
+"start": 42.29,
+"end": 42.416,
+"line": "b07"
+},
+{
+"text": "automobilistes",
+"start": 42.43,
+"end": 43.189,
+"line": "b07"
+},
+{
+"text": "vers",
+"start": 43.273,
+"end": 43.4,
+"line": "b07"
+},
+{
+"text": "les",
+"start": 43.414,
+"end": 43.54,
+"line": "b07"
+},
+{
+"text": "restaurants.",
+"start": 43.554,
+"end": 43.934,
+"line": "b07"
+},
+{
+"text": "Cette",
+"start": 44.48,
+"end": 44.744,
+"line": "b08"
+},
+{
+"text": "campagne",
+"start": 44.773,
+"end": 45.168,
+"line": "b08"
+},
+{
+"text": "remportera",
+"start": 45.212,
+"end": 45.739,
+"line": "b08"
+},
+{
+"text": "le",
+"start": 45.798,
+"end": 45.93,
+"line": "b08"
+},
+{
+"text": "Grand",
+"start": 45.944,
+"end": 46.076,
+"line": "b08"
+},
+{
+"text": "Prix",
+"start": 46.091,
+"end": 46.223,
+"line": "b08"
+},
+{
+"text": "Outdoor",
+"start": 46.237,
+"end": 46.501,
+"line": "b08"
+},
+{
+"text": "aux",
+"start": 46.53,
+"end": 46.662,
+"line": "b08"
+},
+{
+"text": "Cannes",
+"start": 46.677,
+"end": 46.94,
+"line": "b08"
+},
+{
+"text": "Lions.",
+"start": 46.97,
+"end": 47.101,
+"line": "b08"
+},
+{
+"text": "Mais",
+"start": 48.01,
+"end": 48.131,
+"line": "c01"
+},
+{
+"text": "le",
+"start": 48.144,
+"end": 48.264,
+"line": "c01"
+},
+{
+"text": "plus",
+"start": 48.278,
+"end": 48.398,
+"line": "c01"
+},
+{
+"text": "fascinant",
+"start": 48.412,
+"end": 48.774,
+"line": "c01"
+},
+{
+"text": "dans",
+"start": 48.814,
+"end": 48.934,
+"line": "c01"
+},
+{
+"text": "cette",
+"start": 48.948,
+"end": 49.189,
+"line": "c01"
+},
+{
+"text": "histoire…",
+"start": 49.216,
+"end": 49.577,
+"line": "c01"
+},
+{
+"text": "ce",
+"start": 49.617,
+"end": 49.738,
+"line": "c01"
+},
+{
+"text": "ne",
+"start": 49.751,
+"end": 49.872,
+"line": "c01"
+},
+{
+"text": "sont",
+"start": 49.885,
+"end": 50.006,
+"line": "c01"
+},
+{
+"text": "pas",
+"start": 50.019,
+"end": 50.14,
+"line": "c01"
+},
+{
+"text": "les",
+"start": 50.153,
+"end": 50.274,
+"line": "c01"
+},
+{
+"text": "panneaux.",
+"start": 50.287,
+"end": 50.528,
+"line": "c01"
+},
+{
+"text": "C'est",
+"start": 51.86,
+"end": 52.059,
+"line": "c02"
+},
+{
+"text": "toi.",
+"start": 52.081,
+"end": 52.281,
+"line": "c02"
+},
+{
+"text": "Parce",
+"start": 53.9,
+"end": 54.156,
+"line": "c03"
+},
+{
+"text": "qu'au",
+"start": 54.184,
+"end": 54.44,
+"line": "c03"
+},
+{
+"text": "début",
+"start": 54.469,
+"end": 54.725,
+"line": "c03"
+},
+{
+"text": "de",
+"start": 54.753,
+"end": 54.881,
+"line": "c03"
+},
+{
+"text": "cette",
+"start": 54.896,
+"end": 55.152,
+"line": "c03"
+},
+{
+"text": "vidéo,",
+"start": 55.18,
+"end": 55.436,
+"line": "c03"
+},
+{
+"text": "tu",
+"start": 55.465,
+"end": 55.593,
+"line": "c03"
+},
+{
+"text": "avais",
+"start": 55.607,
+"end": 55.863,
+"line": "c03"
+},
+{
+"text": "probablement",
+"start": 55.891,
+"end": 56.403,
+"line": "c03"
+},
+{
+"text": "reconnu",
+"start": 56.46,
+"end": 56.844,
+"line": "c03"
+},
+{
+"text": "la",
+"start": 56.887,
+"end": 57.015,
+"line": "c03"
+},
+{
+"text": "marque…",
+"start": 57.029,
+"end": 57.285,
+"line": "c03"
+},
+{
+"text": "sans",
+"start": 57.314,
+"end": 57.442,
+"line": "c03"
+},
+{
+"text": "même",
+"start": 57.456,
+"end": 57.712,
+"line": "c03"
+},
+{
+"text": "voir",
+"start": 57.74,
+"end": 57.868,
+"line": "c03"
+},
+{
+"text": "son",
+"start": 57.883,
+"end": 58.011,
+"line": "c03"
+},
+{
+"text": "logo",
+"start": 58.025,
+"end": 58.281,
+"line": "c03"
+},
+{
+"text": "au",
+"start": 58.309,
+"end": 58.437,
+"line": "c03"
+},
+{
+"text": "complet.",
+"start": 58.452,
+"end": 58.708,
+"line": "c03"
+},
+{
+"text": "Des",
+"start": 59.19,
+"end": 59.34,
+"line": "c04"
+},
+{
+"text": "décennies",
+"start": 59.357,
+"end": 59.807,
+"line": "c04"
+},
+{
+"text": "de",
+"start": 59.857,
+"end": 60.007,
+"line": "c04"
+},
+{
+"text": "branding",
+"start": 60.023,
+"end": 60.324,
+"line": "c04"
+},
+{
+"text": "ont",
+"start": 60.357,
+"end": 60.507,
+"line": "c04"
+},
+{
+"text": "suffi",
+"start": 60.524,
+"end": 60.824,
+"line": "c04"
+},
+{
+"text": "pour",
+"start": 60.857,
+"end": 61.007,
+"line": "c04"
+},
+{
+"text": "inscrire",
+"start": 61.024,
+"end": 61.474,
+"line": "c04"
+},
+{
+"text": "ces",
+"start": 61.524,
+"end": 61.674,
+"line": "c04"
+},
+{
+"text": "formes",
+"start": 61.69,
+"end": 61.99,
+"line": "c04"
+},
+{
+"text": "et",
+"start": 62.024,
+"end": 62.174,
+"line": "c04"
+},
+{
+"text": "ces",
+"start": 62.19,
+"end": 62.34,
+"line": "c04"
+},
+{
+"text": "couleurs",
+"start": 62.357,
+"end": 62.657,
+"line": "c04"
+},
+{
+"text": "dans",
+"start": 62.691,
+"end": 62.841,
+"line": "c04"
+},
+{
+"text": "ta",
+"start": 62.857,
+"end": 63.007,
+"line": "c04"
+},
+{
+"text": "mémoire.",
+"start": 63.024,
+"end": 63.474,
+"line": "c04"
+},
+{
+"text": "Maintenant,",
+"start": 64.12,
+"end": 64.456,
+"line": "d01"
+},
+{
+"text": "imagine",
+"start": 64.494,
+"end": 64.942,
+"line": "d01"
+},
+{
+"text": "qu'on",
+"start": 64.992,
+"end": 65.216,
+"line": "d01"
+},
+{
+"text": "fasse",
+"start": 65.241,
+"end": 65.466,
+"line": "d01"
+},
+{
+"text": "la",
+"start": 65.49,
+"end": 65.603,
+"line": "d01"
+},
+{
+"text": "même",
+"start": 65.615,
+"end": 65.839,
+"line": "d01"
+},
+{
+"text": "expérience",
+"start": 65.864,
+"end": 66.313,
+"line": "d01"
+},
+{
+"text": "avec",
+"start": 66.363,
+"end": 66.587,
+"line": "d01"
+},
+{
+"text": "ton",
+"start": 66.612,
+"end": 66.724,
+"line": "d01"
+},
+{
+"text": "restaurant.",
+"start": 66.736,
+"end": 67.073,
+"line": "d01"
+},
+{
+"text": "Qu'on",
+"start": 67.56,
+"end": 67.8,
+"line": "d02"
+},
+{
+"text": "retire",
+"start": 67.827,
+"end": 68.186,
+"line": "d02"
+},
+{
+"text": "son",
+"start": 68.226,
+"end": 68.346,
+"line": "d02"
+},
+{
+"text": "nom",
+"start": 68.36,
+"end": 68.48,
+"line": "d02"
+},
+{
+"text": "de",
+"start": 68.493,
+"end": 68.613,
+"line": "d02"
+},
+{
+"text": "son",
+"start": 68.626,
+"end": 68.746,
+"line": "d02"
+},
+{
+"text": "enseigne,",
+"start": 68.759,
+"end": 69.119,
+"line": "d02"
+},
+{
+"text": "de",
+"start": 69.159,
+"end": 69.279,
+"line": "d02"
+},
+{
+"text": "ses",
+"start": 69.293,
+"end": 69.412,
+"line": "d02"
+},
+{
+"text": "menus,",
+"start": 69.426,
+"end": 69.666,
+"line": "d02"
+},
+{
+"text": "de",
+"start": 69.692,
+"end": 69.812,
+"line": "d02"
+},
+{
+"text": "ses",
+"start": 69.826,
+"end": 69.946,
+"line": "d02"
+},
+{
+"text": "emballages.",
+"start": 69.959,
+"end": 70.439,
+"line": "d02"
+},
+{
+"text": "Qu'est-ce",
+"start": 70.99,
+"end": 71.25,
+"line": "d03"
+},
+{
+"text": "qu'il",
+"start": 71.278,
+"end": 71.451,
+"line": "d03"
+},
+{
+"text": "reste",
+"start": 71.471,
+"end": 71.644,
+"line": "d03"
+},
+{
+"text": "?",
+"start": 71.663,
+"end": 71.749,
+"line": "d03"
+},
+{
+"text": "Chez",
+"start": 72.86,
+"end": 72.978,
+"line": "d04"
+},
+{
+"text": "Feeha,",
+"start": 72.992,
+"end": 73.229,
+"line": "d04"
+},
+{
+"text": "c'est",
+"start": 73.255,
+"end": 73.373,
+"line": "d04"
+},
+{
+"text": "justement",
+"start": 73.386,
+"end": 73.742,
+"line": "d04"
+},
+{
+"text": "ce",
+"start": 73.781,
+"end": 73.9,
+"line": "d04"
+},
+{
+"text": "qu'on",
+"start": 73.913,
+"end": 74.15,
+"line": "d04"
+},
+{
+"text": "cherche",
+"start": 74.176,
+"end": 74.413,
+"line": "d04"
+},
+{
+"text": "à",
+"start": 74.439,
+"end": 74.558,
+"line": "d04"
+},
+{
+"text": "construire.",
+"start": 74.571,
+"end": 74.927,
+"line": "d04"
+},
+{
+"text": "Une",
+"start": 75.37,
+"end": 75.6,
+"line": "d05"
+},
+{
+"text": "identité",
+"start": 75.626,
+"end": 76.087,
+"line": "d05"
+},
+{
+"text": "qu'on",
+"start": 76.138,
+"end": 76.368,
+"line": "d05"
+},
+{
+"text": "reconnaît…",
+"start": 76.394,
+"end": 76.74,
+"line": "d05"
+},
+{
+"text": "même",
+"start": 76.778,
+"end": 77.008,
+"line": "d05"
+},
+{
+"text": "quand",
+"start": 77.034,
+"end": 77.149,
+"line": "d05"
+},
+{
+"text": "son",
+"start": 77.162,
+"end": 77.277,
+"line": "d05"
+},
+{
+"text": "nom",
+"start": 77.29,
+"end": 77.405,
+"line": "d05"
+},
+{
+"text": "disparaît.",
+"start": 77.418,
+"end": 77.764,
+"line": "d05"
+}
+]
+}

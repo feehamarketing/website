@@ -27,6 +27,7 @@ import {FeehaBirdBoyz} from './birdboyz/BB';
 import {FeehaProcess} from './process/Process';
 import {FeehaPromo, PROMO_FRAMES} from './promo/Promo';
 import {FeehaPlat, PLAT_FRAMES} from './plat/Plat';
+import {FeehaArches, ARCHES_FRAMES} from './arches/Arches';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
 import ma2 from './ma2/timeline.json';
@@ -59,6 +60,15 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaArches"
+      component={FeehaArches}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={ARCHES_FRAMES}
+      defaultProps={{audio: true}}
+    />
     <Composition
       id="FeehaPlat"
       component={FeehaPlat}
