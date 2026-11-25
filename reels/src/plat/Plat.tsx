@@ -21,8 +21,9 @@ const WORDS = tl.words as Wd[];
 const GRADE = 'brightness(1.14) contrast(1.06) saturate(1.12)';
 
 // ---------- cuts (same list as the Lemo clip) ----------
-const CUTS = [0, L.l02, 3.8, 5.9, 7.6, 9.6, 10.0, 10.8, 11.6, 12.4, 13.2, 15.4, 17.4, 19.7, L.l11];
-const CARD = L.l11 - 0.2;
+const CUTS = [0, 1.4, 2.7, 4.0, 5.3, 7.2, 10.9, 11.55, 12.2, 12.85, 13.5, 15.8, 17.2, 20.4];
+const CARD = 20.4;
+const FB_IN = 2.7; // flashback starts (rewind)
 const cutAt = (t: number) => { let i = 0; CUTS.forEach((c, k) => { if (t >= c) i = k; }); return {i, local: t - CUTS[i]}; };
 const clamp = (x: number, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const lin = (t: number, a: number, b: number, from: number, to: number) => interpolate(t, [a, b], [from, to], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -35,7 +36,7 @@ const World = () => {
   const scale = 1.045 - 0.045 * punch;
   return (
     <AbsoluteFill style={{transform: `translateX(${(i % 2 ? -8 : 8) * (1 - punch)}px) scale(${scale})`}}>
-      <OffthreadVideo src={staticFile('plat/world.mp4')} muted style={{width: 1080, height: 1920, filter: 'brightness(1.06) contrast(1.04) saturate(1.08)'}} />
+      <OffthreadVideo src={staticFile('plat/world.mp4')} muted style={{width: 1080, height: 1920, filter: t >= FB_IN && t < CLICK ? 'saturate(.32) sepia(.28) contrast(1.06) brightness(1.08)' : 'brightness(1.06) contrast(1.04) saturate(1.08)'}} />
     </AbsoluteFill>
   );
 };
@@ -130,17 +131,44 @@ const Card = () => {
 };
 
 // ---------- the edit ----------
+// rewind into the flashback: tape lines, colour split, a fast reverse blur
+const Rewind = () => {
+  const t = useCurrentFrame() / FPS;
+  const k = t - FB_IN + 0.35;
+  if (k < 0 || k > 0.6) return null;
+  const a = Math.sin(Math.PI * clamp(k / 0.6));
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      {[0, 1, 2, 3, 4, 5].map((i) => <div key={i} style={{position: 'absolute', left: 0, right: 0, top: ((i * 331 + k * 4200) % 1920), height: 26 + (i % 3) * 18, background: 'rgba(255,255,255,.35)', opacity: a, mixBlendMode: 'screen'}} />)}
+      <AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(255,0,60,.18), rgba(0,200,255,.18))', opacity: a, mixBlendMode: 'screen'}} />
+    </AbsoluteFill>
+  );
+};
+// flashback frame: soft vignette + film grain while we are in the past
+const PastFrame = () => {
+  const f = useCurrentFrame();
+  const t = f / FPS;
+  if (t < FB_IN || t >= CLICK) return null;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(30,20,10,.45) 100%)'}} />
+      <AbsoluteFill style={{opacity: 0.08, backgroundImage: `repeating-linear-gradient(${(f * 37) % 180}deg, rgba(255,255,255,.6) 0 1px, transparent 1px 3px)`, mixBlendMode: 'overlay'}} />
+    </AbsoluteFill>
+  );
+};
 const Labels = () => {
   const t = useCurrentFrame() / FPS;
   return (
     <>
-      {t >= 3.8 && t < 5.9 ? <Pill text="21 H · VITRINE ÉTEINTE" from={3.8} /> : null}
-      {t >= 7.6 && t < 9.6 ? <Pill text="LA RECETTE : PARFAITE" from={L.l05 + 0.2} /> : null}
-      {t >= 10.0 && t < 13.2 ? <Pill text="INSTALLATION EN ACCÉLÉRÉ" from={10.0} /> : null}
-      {t >= CLICK && t < 15.4 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
-      {t >= 15.4 && t < 17.4 ? <Sticker text="+60 %" from={L.l09 + 0.6} x={680} y={560} rot={6} /> : null}
-      {t >= 17.4 && t < 19.7 ? <Pill text="ILS POINTENT · ILS FONT LA FILE" from={17.4} /> : null}
-      {t >= 19.7 && t < CARD ? <Pill text="LA SEULE VITRINE QU'ON VOIT" from={19.7} /> : null}
+      {t < FB_IN ? <Pill text="MAINTENANT" from={0.1} /> : null}
+      {t >= FB_IN && t < 5.3 ? <Pill text="IL Y A 3 MOIS" from={FB_IN} /> : null}
+      {t >= 5.3 && t < 7.2 ? <Pill text="LA RECETTE : PARFAITE" from={5.5} /> : null}
+      {t >= 7.2 && t < 9.6 ? <Pill text="ESSAI : UN BEAU POSTER" from={7.2} /> : null}
+      {t >= 9.6 && t < 10.9 ? <Pill text="18 H → 21 H" from={9.6} /> : null}
+      {t >= 10.9 && t < 13.5 ? <Pill text="SOLUTION : PANNEAU LUMINEUX" from={10.9} /> : null}
+      {t >= CLICK && t < 15.8 ? <Big text="CLIC." from={CLICK} top={230} size={230} color={INK} bg="#fff" /> : null}
+      {t >= 15.8 && t < 17.2 ? <><Pill text="AUJOURD'HUI" from={15.8} /><Sticker text="+60 %" from={16.2} x={660} y={1000} rot={6} /></> : null}
+      {t >= 17.2 && t < CARD ? <Pill text="LA SEULE VITRINE QU'ON VOIT" from={17.2} /> : null}
     </>
   );
 };
@@ -155,7 +183,9 @@ export const FeehaPlat = ({audio}: {audio: boolean}) => {
     <AbsoluteFill style={{background: '#000'}}>
       {t < CARD ? <World /> : <Card />}
       {t < CARD ? <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 64%, rgba(0,0,0,.28) 100%)', pointerEvents: 'none'}} /> : null}
+      {t < CARD ? <PastFrame /> : null}
       {t < CARD ? <Labels /> : null}
+      <Rewind />
       <Captions />
       <AbsoluteFill style={{background: '#fff', opacity: Math.max(cutFlash, clickFlash), pointerEvents: 'none'}} />
       <div style={{position: 'absolute', top: 0, left: 0, height: 10, width: `${(f / PLAT_FRAMES) * 100}%`, background: RED}} />

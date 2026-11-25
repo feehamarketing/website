@@ -11,10 +11,10 @@ const hash = (i, j) => { let h = (i * 374761393 + j * 668265263) | 0; h = (h ^ (
 const RED = '#E11D2E', INK = '#0E0C12', CREAM = '#FFF6EC';
 export const CLICK = L.l07 + .45;
 export const SHOTS = [
-  ['hookA', 0], ['hookB', L.l02], ['dark', 3.8], ['walk', 5.9], ['plat', 7.6], ['back', 9.6],
-  ['kit', 10.0], ['hang', 10.8], ['slide', 11.6], ['ready', 12.4], ['switch', 13.2], ['stop', 15.4], ['queue', 17.4], ['hero', 19.7],
+  ['stop', 0], ['queue', 1.4], ['hookA', 2.7], ['walk', 4.0], ['plat', 5.3], ['poster', 7.2],
+  ['kit', 10.9], ['hang', 11.55], ['slide', 12.2], ['ready', 12.85], ['switch', 13.5], ['queue', 15.8], ['hero', 17.2],
 ];
-export const DUR = 21.8;
+export const DUR = 20.4;
 const shotAt = t => { let i = 0; SHOTS.forEach((s, k) => { if (t >= s[1]) i = k; }); return { id: SHOTS[i][0], t0: SHOTS[i][1], t1: (SHOTS[i + 1] || [0, DUR])[1], i }; };
 
 // ---------------- the world: one street, one restaurant ----------------
@@ -96,9 +96,9 @@ function windowContent(g, mode, k = 1, glow = 0) {
   }
   panelArt(g, PAN.x, PAN.y, PAN.w, PAN.h, k, glow);
 }
-function panelArt(g, x, y, w, h, k, glow) {   // aluminium frame, light guide, poster sliding in from the top
-  g.fillStyle = '#C9CED6'; g.fillRect(x - w * .045, y - w * .045, w * 1.09, h + w * .09);
-  g.fillStyle = glow > 0 ? `rgb(${210 + 45 * glow},${212 + 40 * glow},${215 + 35 * glow})` : '#B9BDC4'; g.fillRect(x, y, w, h);
+function panelArt(g, x, y, w, h, k, glow, frame = true) {   // aluminium frame, light guide, poster sliding in from the top
+  if (frame) { g.fillStyle = '#C9CED6'; g.fillRect(x - w * .045, y - w * .045, w * 1.09, h + w * .09); }
+  if (frame) g.fillStyle = glow > 0 ? `rgb(${210 + 45 * glow},${212 + 40 * glow},${215 + 35 * glow})` : '#B9BDC4'; g.fillRect(x, y, w, h);
   g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
   g.translate(0, (k - 1) * h * 1.05);
   g.shadowColor = `rgba(255,230,200,${glow})`; g.shadowBlur = 70 * glow;
@@ -199,14 +199,26 @@ export function render(g, t) {
   g.save();
   switch (sh.id) {
     case 'hookA': {
-      g.save(); cam(g, 540, 820, 1.0 * push(t, 0, len, 0, .04)); facade(g, 0, false); windowContent(g, 'taped'); walkers(g, t * .6, 0); g.restore();
-      giant(g, ['LE MEILLEUR', 'PLAT'], [1], 560, 210, seg(t, .15, .55));
-      person(g, 900 - 120 * lt, 2440, 2.75, { face: -1, ph: t * 6, coat: '#33384E', scarf: '#E9B949' });   // close passer-by, in front of the type
+      g.save(); cam(g, 540, 820, 1.0 * push(lt, 0, len, 0, .04)); facade(g, 0, false); windowContent(g, 'taped'); walkers(g, lt * .6 + 1, 0); g.restore();
+      giant(g, ['IL Y A', '3 MOIS'], [1], 560, 220, seg(lt, .15, .55));
+      person(g, 1000 - 150 * lt, 2440, 2.75, { face: -1, ph: t * 6, coat: '#33384E', scarf: '#E9B949' });   // close passer-by, in front of the type
       break; }
     case 'hookB': {
       g.save(); cam(g, 470, 860, 1.32 * push(lt, 0, len, 0, .04)); facade(g, 0, false); windowContent(g, 'taped'); g.restore();
       giant(g, ['INVISIBLE.'], [0], 700, 230, seg(lt, .0, .4));
       person(g, 120 + 140 * lt, 2440, 2.85, { face: 1, ph: t * 6 + 1, coat: '#2B3B35', scarf: RED });
+      break; }
+    case 'poster': {   // attempt 1: a nicer poster, taped in the window. Fine by day… invisible once night falls
+      const day = 1 - eio(seg(lt, 2.3, 3.1));
+      g.save(); cam(g, 465, 845, 1.5 * push(lt, 0, len, 0, .05)); facade(g, 0, false);
+      g.save(); g.translate(PAN.x + PAN.w / 2, PAN.y + PAN.h / 2); g.rotate(-.025); g.translate(-(PAN.x + PAN.w / 2), -(PAN.y + PAN.h / 2));
+      panelArt(g, PAN.x, PAN.y, PAN.w, PAN.h, 1, .0001, false);
+      g.fillStyle = 'rgba(14,18,34,1)'; g.globalAlpha = .84 * (1 - day); g.fillRect(PAN.x - 16, PAN.y - 16, PAN.w + 32, PAN.h + 32); g.globalAlpha = 1;
+      g.fillStyle = 'rgba(235,230,205,.85)'; [[PAN.x - 30, PAN.y - 26, .5], [PAN.x + PAN.w - 40, PAN.y - 26, -.5], [PAN.x - 30, PAN.y + PAN.h - 4, -.5], [PAN.x + PAN.w - 40, PAN.y + PAN.h - 4, .5]].forEach(([x, y, r]) => { g.save(); g.translate(x + 35, y + 14); g.rotate(r); g.fillRect(-35, -12, 70, 24); g.restore(); });
+      g.restore();
+      g.restore();
+      // daylight: lift the whole frame, then let night fall
+      g.globalCompositeOperation = 'screen'; g.fillStyle = `rgba(150,175,215,${.42 * day})`; g.fillRect(0, 0, W, H); g.globalCompositeOperation = 'source-over';
       break; }
     case 'dark': case 'back': {
       g.save(); cam(g, 470, 830, (sh.id === 'dark' ? 1.75 : 1.55) * push(lt, 0, len)); facade(g, 0, false); windowContent(g, 'taped'); g.restore();
@@ -254,11 +266,11 @@ export function render(g, t) {
       break; }
     case 'stop': {
       g.save(); cam(g, 480, 880, 1.12 * push(lt, 0, len, 0, .04)); facade(g, 1, true); windowContent(g, 'panel', 1, 1); g.restore();
-      giant(g, ["ILS S'ARRÊTENT."], [], 1010, 158, seg(lt, .1, .5));
+      giant(g, ['TOUS LES SOIRS.'], [], 1010, 160, seg(lt, .05, .4));
       person(g, 600, 2600, 2.55, { face: 0, moving: false, look: seg(lt, .2, .8), coat: '#2F3550', scarf: RED, lit: 1 });
       break; }
     case 'queue': {
-      g.save(); cam(g, 560, 930, 1.05 * push(lt, 0, len, 0, .04)); facade(g, 1, true); windowContent(g, 'panel', 1, 1); queueScene(g, lt + .9); g.restore();
+      g.save(); cam(g, 560, 930, 1.05 * push(lt, 0, len, 0, .04)); facade(g, 1, true); windowContent(g, 'panel', 1, 1); queueScene(g, lt + (sh.i < 2 ? 2.4 : .9)); g.restore();
       break; }
     case 'hero': {   // pull back: the whole street is dark, one window shines
       const z = 1.0 - .22 * eio(seg(lt, 0, len));
