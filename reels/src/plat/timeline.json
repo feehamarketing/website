@@ -1,0 +1,404 @@
+{
+"fps": 30,
+"dur": 25.0,
+"lines": {
+"l01": 0.15,
+"l02": 2.75,
+"l03": 4.45,
+"l04": 6.55,
+"l05": 8.6,
+"l06": 10.9,
+"l07": 13.9,
+"l08": 14.8,
+"l09": 16.2,
+"l10": 20.0,
+"l11": 22.2
+},
+"lineDur": {
+"l01": 2.527,
+"l02": 1.394,
+"l03": 1.992,
+"l04": 1.887,
+"l05": 2.061,
+"l06": 2.249,
+"l07": 0.762,
+"l08": 1.091,
+"l09": 3.531,
+"l10": 1.885,
+"l11": 1.438
+},
+"words": [
+{
+"text": "Ce",
+"start": 0.2,
+"end": 0.378,
+"line": "l01"
+},
+{
+"text": "resto",
+"start": 0.398,
+"end": 0.755,
+"line": "l01"
+},
+{
+"text": "vendait",
+"start": 0.794,
+"end": 1.151,
+"line": "l01"
+},
+{
+"text": "le",
+"start": 1.19,
+"end": 1.369,
+"line": "l01"
+},
+{
+"text": "meilleur",
+"start": 1.389,
+"end": 1.745,
+"line": "l01"
+},
+{
+"text": "plat",
+"start": 1.785,
+"end": 1.963,
+"line": "l01"
+},
+{
+"text": "de",
+"start": 1.983,
+"end": 2.161,
+"line": "l01"
+},
+{
+"text": "la",
+"start": 2.181,
+"end": 2.359,
+"line": "l01"
+},
+{
+"text": "rue…",
+"start": 2.379,
+"end": 2.557,
+"line": "l01"
+},
+{
+"text": "et",
+"start": 2.8,
+"end": 2.94,
+"line": "l02"
+},
+{
+"text": "personne",
+"start": 2.955,
+"end": 3.375,
+"line": "l02"
+},
+{
+"text": "ne",
+"start": 3.422,
+"end": 3.562,
+"line": "l02"
+},
+{
+"text": "le",
+"start": 3.577,
+"end": 3.717,
+"line": "l02"
+},
+{
+"text": "savait.",
+"start": 3.733,
+"end": 4.013,
+"line": "l02"
+},
+{
+"text": "Le",
+"start": 4.5,
+"end": 4.651,
+"line": "l03"
+},
+{
+"text": "soir,",
+"start": 4.667,
+"end": 4.818,
+"line": "l03"
+},
+{
+"text": "sa",
+"start": 4.835,
+"end": 4.986,
+"line": "l03"
+},
+{
+"text": "vitrine",
+"start": 5.002,
+"end": 5.454,
+"line": "l03"
+},
+{
+"text": "restait",
+"start": 5.505,
+"end": 5.806,
+"line": "l03"
+},
+{
+"text": "éteinte.",
+"start": 5.84,
+"end": 6.292,
+"line": "l03"
+},
+{
+"text": "Les",
+"start": 6.6,
+"end": 6.795,
+"line": "l04"
+},
+{
+"text": "gens",
+"start": 6.817,
+"end": 7.013,
+"line": "l04"
+},
+{
+"text": "passaient",
+"start": 7.034,
+"end": 7.425,
+"line": "l04"
+},
+{
+"text": "sans",
+"start": 7.469,
+"end": 7.664,
+"line": "l04"
+},
+{
+"text": "regarder.",
+"start": 7.686,
+"end": 8.272,
+"line": "l04"
+},
+{
+"text": "Le",
+"start": 8.65,
+"end": 8.806,
+"line": "l05"
+},
+{
+"text": "problème,",
+"start": 8.824,
+"end": 9.293,
+"line": "l05"
+},
+{
+"text": "c'était",
+"start": 9.345,
+"end": 9.658,
+"line": "l05"
+},
+{
+"text": "pas",
+"start": 9.692,
+"end": 9.849,
+"line": "l05"
+},
+{
+"text": "la",
+"start": 9.866,
+"end": 10.022,
+"line": "l05"
+},
+{
+"text": "recette.",
+"start": 10.04,
+"end": 10.509,
+"line": "l05"
+},
+{
+"text": "Alors",
+"start": 10.95,
+"end": 11.265,
+"line": "l06"
+},
+{
+"text": "on",
+"start": 11.3,
+"end": 11.457,
+"line": "l06"
+},
+{
+"text": "a",
+"start": 11.475,
+"end": 11.632,
+"line": "l06"
+},
+{
+"text": "installé",
+"start": 11.65,
+"end": 12.122,
+"line": "l06"
+},
+{
+"text": "un",
+"start": 12.174,
+"end": 12.332,
+"line": "l06"
+},
+{
+"text": "panneau",
+"start": 12.349,
+"end": 12.664,
+"line": "l06"
+},
+{
+"text": "Feeha.",
+"start": 12.699,
+"end": 13.014,
+"line": "l06"
+},
+{
+"text": "Un",
+"start": 13.95,
+"end": 14.225,
+"line": "l07"
+},
+{
+"text": "clic…",
+"start": 14.256,
+"end": 14.531,
+"line": "l07"
+},
+{
+"text": "et",
+"start": 14.85,
+"end": 15.062,
+"line": "l08"
+},
+{
+"text": "tout",
+"start": 15.085,
+"end": 15.297,
+"line": "l08"
+},
+{
+"text": "change.",
+"start": 15.321,
+"end": 15.744,
+"line": "l08"
+},
+{
+"text": "Les",
+"start": 16.25,
+"end": 16.484,
+"line": "l09"
+},
+{
+"text": "gens",
+"start": 16.51,
+"end": 16.744,
+"line": "l09"
+},
+{
+"text": "s'arrêtent.",
+"start": 16.77,
+"end": 17.472,
+"line": "l09"
+},
+{
+"text": "Ils",
+"start": 17.55,
+"end": 17.784,
+"line": "l09"
+},
+{
+"text": "pointent.",
+"start": 17.81,
+"end": 18.279,
+"line": "l09"
+},
+{
+"text": "Ils",
+"start": 18.331,
+"end": 18.565,
+"line": "l09"
+},
+{
+"text": "font",
+"start": 18.591,
+"end": 18.825,
+"line": "l09"
+},
+{
+"text": "la",
+"start": 18.851,
+"end": 19.085,
+"line": "l09"
+},
+{
+"text": "file.",
+"start": 19.111,
+"end": 19.579,
+"line": "l09"
+},
+{
+"text": "Ton",
+"start": 20.05,
+"end": 20.206,
+"line": "l10"
+},
+{
+"text": "meilleur",
+"start": 20.224,
+"end": 20.536,
+"line": "l10"
+},
+{
+"text": "plat",
+"start": 20.571,
+"end": 20.727,
+"line": "l10"
+},
+{
+"text": "mérite",
+"start": 20.744,
+"end": 21.212,
+"line": "l10"
+},
+{
+"text": "d'être",
+"start": 21.265,
+"end": 21.577,
+"line": "l10"
+},
+{
+"text": "vu.",
+"start": 21.612,
+"end": 21.768,
+"line": "l10"
+},
+{
+"text": "Écris",
+"start": 22.25,
+"end": 22.636,
+"line": "l11"
+},
+{
+"text": "PANNEAU",
+"start": 22.679,
+"end": 23.066,
+"line": "l11"
+},
+{
+"text": "en",
+"start": 23.109,
+"end": 23.302,
+"line": "l11"
+},
+{
+"text": "DM.",
+"start": 23.323,
+"end": 23.517,
+"line": "l11"
+}
+]
+}
