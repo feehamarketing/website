@@ -82,8 +82,8 @@ export function build(canvas, T, lang) {
   const tape = makeTape(); scene.add(tape);
   const centerTick = new THREE.Mesh(new THREE.PlaneGeometry(0.004, 0.06), M.red); centerTick.rotation.x = Math.PI / 2; centerTick.position.set(0, HY - 0.0012, MZ); scene.add(centerTick);
   const dimL = new THREE.Mesh(new THREE.BoxGeometry(1, 0.0025, 0.0025), M.red); scene.add(dimL); const dimR = dimL.clone(); scene.add(dimR);
-  const alt = { anchor: makeAnchor(), screw: makeWallScrew(), hole: disc(0.0045, M.hole), gr: makeGripper(), P: new THREE.Vector3(-0.85, HY, MZ) };
-  scene.add(alt.anchor); scene.add(alt.screw); alt.hole.rotation.x = Math.PI / 2; alt.hole.position.set(alt.P.x, HY - 0.001, MZ); scene.add(alt.hole); scene.add(alt.gr);
+  const alt = { P: new THREE.Vector3(-0.85, HY, MZ), gr: makeGripper(), pts: [] }; scene.add(alt.gr);
+  for (const dx of [-0.025, 0.025]) { const o = { x: -0.85 + dx, anchor: makeAnchor(), screw: makeWallScrew(), hole: disc(0.0045, M.hole) }; o.hole.rotation.x = Math.PI / 2; o.hole.position.set(o.x, HY - 0.001, MZ); scene.add(o.anchor); scene.add(o.screw); scene.add(o.hole); alt.pts.push(o); }
   const arr = arrow(); scene.add(arr);
   const dst = dust(50); scene.add(dst);
   const headerAlu = new THREE.Color(0x1b1d21), headerDry = new THREE.Color(0xe4ddd2);
@@ -155,7 +155,7 @@ export function build(canvas, T, lang) {
 
   const zero = () => {
     panel.visible = true; setLit(panel, 0); glowIn.material.opacity = 0;
-    [drill, level, pencil, tape, arr, alt.anchor, alt.screw, alt.hole, alt.gr, centerTick, dimL, dimR].forEach(o => o.visible = false);
+    [drill, level, pencil, tape, arr, alt.gr, centerTick, dimL, dimR].forEach(o => o.visible = false); alt.pts.forEach(o => { o.anchor.visible = o.screw.visible = o.hole.visible = false; });
     for (const m of mounts) { mountState(m, 1, 1); m.cable.visible = m.tail.visible = m.hook.visible = false; m.marks.visible = false; m.gr.userData.pin.position.y = -0.061; m.gr.userData.ring.material.opacity = 0; }
     bracketsOn(1, 1); screwsIn(-1, 0, 1); screwsIn(1, 1, 1);
     header.material.color.copy(headerAlu); header.material.metalness = 0.75; header.material.roughness = 0.38;
@@ -198,12 +198,15 @@ export function build(canvas, T, lang) {
         panel.visible = false; const dry = seg(u, 0, 0.1) * (1 - seg(u, 0.9, 1));
         header.material.color.copy(headerAlu).lerp(headerDry, dry); header.material.metalness = lerp(0.75, 0, dry); header.material.roughness = lerp(0.38, 0.9, dry);
         mounts.forEach(m => cableTo(m, gripTip(m).add(new THREE.Vector3(0, -0.5, 0)), 0.1, Math.sin(t * 3) * 0.01));
-        const P = alt.P;
-        drillUp(P.x, segL(u, 0.08, 0.38)); alt.hole.visible = u > 0.25 && dry > 0.05;
-        const a = segL(u, 0.38, 0.58); alt.anchor.visible = a > 0 && dry > 0.05; alt.anchor.rotation.set(Math.PI / 2, 0, 0); alt.anchor.position.set(P.x, lerp(HY - 0.3, HY - 0.06, easeOut(clamp(a * 1.6))) + ease(clamp(a * 1.6 - 0.6)) * 0.06 - 0.0008, MZ);
-        const g = segL(u, 0.56, 0.68); alt.gr.visible = g > 0 && dry > 0.05; alt.gr.position.set(P.x, HY - (1 - easeOut(g)) * 0.15, MZ);
-        const s = segL(u, 0.66, 0.88); alt.screw.visible = s > 0 && dry > 0.05; alt.screw.rotation.set(Math.PI / 2, 0, 0); alt.screw.position.set(P.x + alt.gr.userData.holes[0] * 0 , lerp(HY - 0.2, HY - 0.0045, ease(s)), MZ); alt.screw.rotateZ(s * 16);
-        if (s > 0) drillUp(P.x, 0.25 + s * 0.5);
+        const P = alt.P, on = dry > 0.05;
+        alt.pts.forEach((o, q) => {
+          const d0 = 0.06 + q * 0.18; if (u >= d0 && u < d0 + 0.18) drillUp(o.x, segL(u, d0, d0 + 0.18)); o.hole.visible = on && u > d0 + 0.08;
+          const a = segL(u, 0.42 + q * 0.05, 0.54 + q * 0.05); o.anchor.visible = on && a > 0; o.anchor.rotation.set(Math.PI / 2, 0, 0);
+          o.anchor.position.set(o.x, lerp(HY - 0.3, HY - 0.06, easeOut(clamp(a * 1.6))) + ease(clamp(a * 1.6 - 0.6)) * 0.06 - 0.0008, MZ);
+          const s0 = 0.66 + q * 0.12, sc = segL(u, s0, s0 + 0.12); o.screw.visible = on && sc > 0; o.screw.rotation.set(Math.PI / 2, 0, 0);
+          o.screw.position.set(o.x, lerp(HY - 0.2, HY - 0.0045, ease(sc)), MZ); o.screw.rotateZ(sc * 16); if (sc > 0 && sc < 1) drillUp(o.x, 0.25 + sc * 0.5);
+        });
+        const g = segL(u, 0.56, 0.66); alt.gr.visible = on && g > 0; alt.gr.position.set(P.x, HY - (1 - easeOut(g)) * 0.15, MZ);
       } else if (i === 5) { // hooks into the brackets
         const rise = seg(tau, 0, Math.min(1.3, len * 0.4)); hang(1.65 - (1 - rise) * 0.5, 1.65 - (1 - rise) * 0.5, 0);
         const clip = seg(u, 0.38, 0.62);
