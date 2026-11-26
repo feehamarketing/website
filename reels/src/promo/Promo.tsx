@@ -211,13 +211,13 @@ export const FeehaPromo = ({audio}: {audio: boolean}) => {
   return (
     <AbsoluteFill style={{background: '#000'}}>
       <Graded>
-        <OffthreadVideo src={staticFile('promo/base.mp4')} muted style={{width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.1) brightness(1.06)'}} />
+        <OffthreadVideo src={staticFile('promo/base.mp4')} muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.08) brightness(1.01)'}} />
       </Graded>
       {/* darken the top so the giant type reads */}
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,.3) 100%)'}} />
       <BehindText />
       <Graded>
-        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.1) brightness(1.06)'}} />
+        <OffthreadVideo src={staticFile('promo/person.webm')} transparent muted style={{width: 1080, height: 1920, filter: 'contrast(1.06) saturate(1.08) brightness(1.01)'}} />
       </Graded>
       <TopLabel />
       <Sticker text="+50 À 60 %" from={6.12} to={10.9} x={560} y={1060} rot={-6} />
