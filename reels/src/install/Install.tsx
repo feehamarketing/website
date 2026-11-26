@@ -17,15 +17,15 @@ export const installFrames = (k: Kind, l: Lang) => Math.round(TLS[`${k}-${l}`].d
 type Step = {line: string; n: number; text: string; sub?: string};
 const COPY = {
   wall: {
-    fr: {hook: ['INSTALLE TON PANNEAU', 'À NIVEAU'], hookSub: 'MÊME POUR UN DÉBUTANT', tools: ['PERCEUSE', 'NIVEAU', 'CRAYON', '2 CHEVILLES', '2 VIS'],
+    fr: {hook: ['L\'ASTUCE', 'À NIVEAU'], hookSub: 'SANS RIEN MESURER · MÊME DÉBUTANT', tools: ['PERCEUSE', 'NIVEAU', 'CRAYON', '2 CHEVILLES', '2 VIS'],
       steps: [{line: 'w03', n: 1, text: 'LES ATTACHES', sub: 'en haut, bien droites'}, {line: 'w04', n: 2, text: '1er TROU', sub: 'point · cheville · vis'}, {line: 'w05', n: 3, text: 'ACCROCHE', sub: 'sur la 1re vis'},
-        {line: 'w06', n: 4, text: 'À NIVEAU', sub: 'trace le 2e point'}, {line: 'w07', n: 5, text: '2e TROU', sub: 'cheville + vis'}, {line: 'w08', n: 6, text: 'ON VÉRIFIE', sub: 'tout est beau ? ✓'},
-        {line: 'w09', n: 7, text: 'ATTACHES À L\'ENVERS', sub: 'cachées derrière le cadre'}, {line: 'w10', n: 8, text: 'RACCROCHE', sub: 'à niveau, rien ne dépasse'}],
+        {line: 'w06', n: 4, text: 'À NIVEAU', sub: 'trace le 2e point'}, {line: 'w07', n: 5, text: '2e TROU', sub: 'cheville + vis'},
+        {line: 'w08', n: 6, text: 'ATTACHES À L\'ENVERS', sub: 'cachées derrière le cadre'}, {line: 'w09', n: 7, text: 'RACCROCHE', sub: 'à niveau, rien ne dépasse'}],
       cta: 'COMMANDE TON PANNEAU'},
-    en: {hook: ['MOUNT YOUR PANEL', 'PERFECTLY LEVEL'], hookSub: 'EVEN FOR BEGINNERS', tools: ['DRILL', 'LEVEL', 'PENCIL', '2 ANCHORS', '2 SCREWS'],
+    en: {hook: ['THE TRICK', 'PERFECTLY LEVEL'], hookSub: 'NO MEASURING · BEGINNER-PROOF', tools: ['DRILL', 'LEVEL', 'PENCIL', '2 ANCHORS', '2 SCREWS'],
       steps: [{line: 'w03', n: 1, text: 'BRACKETS', sub: 'on top, nice and straight'}, {line: 'w04', n: 2, text: '1st HOLE', sub: 'mark · anchor · screw'}, {line: 'w05', n: 3, text: 'HANG IT', sub: 'on the 1st screw'},
-        {line: 'w06', n: 4, text: 'LEVEL IT', sub: 'mark the 2nd point'}, {line: 'w07', n: 5, text: '2nd HOLE', sub: 'anchor + screw'}, {line: 'w08', n: 6, text: 'TEST FIT', sub: 'all good? ✓'},
-        {line: 'w09', n: 7, text: 'FLIP THE BRACKETS', sub: 'hidden behind the frame'}, {line: 'w10', n: 8, text: 'HANG IT BACK', sub: 'level, nothing shows'}],
+        {line: 'w06', n: 4, text: 'LEVEL IT', sub: 'mark the 2nd point'}, {line: 'w07', n: 5, text: '2nd HOLE', sub: 'anchor + screw'},
+        {line: 'w08', n: 6, text: 'FLIP THE BRACKETS', sub: 'hidden behind the frame'}, {line: 'w09', n: 7, text: 'HANG IT BACK', sub: 'level, nothing shows'}],
       cta: 'ORDER YOUR PANEL'},
   },
   cable: {

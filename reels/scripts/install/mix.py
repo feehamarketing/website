@@ -51,12 +51,11 @@ if KIND == 'wall':
     F(metal(), Sx[4] + min(1.6, LEN[4] * .85), .3)
     F(ding(), at(5, .5), .22); F(scratch(.4), at(5, .8), .2)
     F(drill(at(6, .4) - at(6, .2)), at(6, .2), .22); F(thump(1, 90), at(6, .62), .35); F(drill(at(6, .98) - at(6, .84)), at(6, .84), .16)
-    F(metal(), Sx[7] + min(1.1, LEN[7] * .35), .3); F(ding(), at(7, .55), .22)
-    F(whoosh(.4, 1), at(8, .02), .12)
+    F(whoosh(.4, 1), at(7, .02), .12)
     for a0 in [0.3, 0.62]:
-        F(drill(at(8, a0 + .08) - at(8, a0)), at(8, a0), .14); F(whoosh(.3, 1), at(8, a0 + .08), .1); F(drill(at(8, a0 + .26) - at(8, a0 + .16)), at(8, a0 + .16), .14)
-    F(metal(), Sx[9] + min(1.1, LEN[9] * .3), .3); F(ding(), at(9, .36), .2)
-    ON = at(9, .6)
+        F(drill(at(7, a0 + .08) - at(7, a0)), at(7, a0), .14); F(whoosh(.3, 1), at(7, a0 + .08), .1); F(drill(at(7, a0 + .26) - at(7, a0 + .16)), at(7, a0 + .16), .14)
+    F(metal(), Sx[8] + min(1.1, LEN[8] * .3), .3); F(ding(), at(8, .36), .2)
+    ON = at(8, .6)
 else:
     F(whoosh(.8, 1), at(0, 1) - .5, .2)                                   # through the glass
     for u0 in [0.08, 0.55]: F(whoosh(.3, 1), at(1, u0), .12)

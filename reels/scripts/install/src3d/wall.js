@@ -58,7 +58,6 @@ export function build(canvas, T, lang) {
     (u) => u < 0.6 ? { p: lerpV([0.05, 1.47, 2.25], [0.02, 1.64, 1.7], ease(u / 0.6)), l: lerpV([0, 1.42, 0], [0, 1.62, 0], ease(u / 0.6)) }
       : { p: lerpV([0.02, 1.64, 1.7], [P2.x + 0.1, P2.y + 0.05, 0.42], ease((u - 0.6) / 0.2)), l: lerpV([0, 1.62, 0], [P2.x, P2.y, 0], ease((u - 0.6) / 0.2)) }, // w06 level + mark 2
     (u) => { const c = W(P2, -0.18, 0.03, 0.46); c.p[0] += u * 0.05; return c; },                               // w07 2nd hole
-    (u) => ({ p: lerpV([0.0, 1.55, 2.0], [0.04, 1.58, 1.8], u), l: [0, 1.5, 0] }),                              // w08 test fit
     (u) => pan2(u, corner(BACK2, 1, 0.42), corner(BACK2, -1, 0.42), 0.6, 0.3, 0.88),                            // w09 flip the brackets
     (u) => ({ p: lerpV([0.05, 1.55, 2.0], [0.3, 1.35, 3.3], ease(clamp((u - 0.4) / 0.6))), l: [0, 1.42, 0] }),  // w10 final hang + light
     (u) => ({ p: lerpV([0.3, 1.35, 3.3], [0.15, 1.4, 2.9], u), l: [0, 1.42, 0] }),                              // w11 CTA
@@ -171,15 +170,10 @@ export function build(canvas, T, lang) {
         const d = drillAt(P2, u, [0.08, 0.2], [0.2, 0.4], [0.4, 0.5]);
         hw[1].hole.visible = d > 0.6; anchorIn(hw[1], segL(u, 0.48, 0.7)); if (u > 0.7) hw[1].mark.visible = false;
         screwIn(hw[1], segL(u, 0.7, 0.98));
-      } else if (i === 7) { // test fit on both screws
-        install(2); const a = seg(tau, 0, Math.min(1.1, len * 0.35));
-        hangBy(-1, P1, 0); panel.position.x -= (1 - a) * 0.6; panel.position.z += (1 - a) * 0.6;
-        const lv = segL(u, 0.4, 0.55); if (lv > 0) levelOnPanel(0, lv);
-      } else if (i === 8) { // take it down, flip the brackets so they hide behind the frame
+      } else if (i === 7) { // flip the brackets so they hide behind the frame
         install(2);
-        const off = seg(u, 0, 0.12), turn = seg(u, 0.12, 0.28), back2 = seg(u, 0.9, 1);
-        hangBy(-1, P1, 0); const hung = panel.position.clone();
-        const p0 = hung.clone().add(OFF.clone().multiplyScalar(off));
+        const turn = seg(u, 0, 0.26), back2 = seg(u, 0.9, 1);
+        hangBy(-1, P1, 0); const p0 = panel.position.clone().add(new THREE.Vector3(-0.9, 0.12, 0.8));
         panel.position.copy(p0.lerp(BACK2, turn)); panel.rotation.set(0, Math.PI * (turn - back2), 0);
         // world-left (local +1, index 1) first, then the other
         for (const [j, s, a0] of [[1, 1, 0.3], [0, -1, 0.62]]) {
@@ -189,10 +183,10 @@ export function build(canvas, T, lang) {
         }
       } else { // final hang (brackets hidden), light up, CTA
         install(2); allBrackets('dn');
-        const a = i === 9 ? seg(tau, 0, Math.min(1.1, len * 0.3)) : 1;
+        const a = i === 8 ? seg(tau, 0, Math.min(1.1, len * 0.3)) : 1;
         hangBy(-1, P1, 0, 'dn'); panel.position.z += (1 - a) * 0.5; panel.position.y += (1 - a) * -0.02;
-        if (i === 9) { const lv = segL(tau, len * 0.28, len * 0.38), lo = segL(tau, len * 0.52, len * 0.58); if (lv > 0 && lo < 1) { levelOnPanel(0, lv); level.position.y += ease(lo) * 0.4; } }
-        const lit = i === 9 ? easeOut(segL(tau, len * 0.6, len * 0.75)) : 1; setLit(panel, lit); glow.material.opacity = lit * 0.75;
+        if (i === 8) { const lv = segL(tau, len * 0.28, len * 0.38), lo = segL(tau, len * 0.52, len * 0.58); if (lv > 0 && lo < 1) { levelOnPanel(0, lv); level.position.y += ease(lo) * 0.4; } }
+        const lit = i === 8 ? easeOut(segL(tau, len * 0.6, len * 0.75)) : 1; setLit(panel, lit); glow.material.opacity = lit * 0.75;
       }
       applyCam(camera, cameraAt(shots, t));
       renderer.render(scene, camera);
