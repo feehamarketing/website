@@ -45,15 +45,18 @@ for i in range(1, len(ids)): F(whoosh(.45, 1), Sx[i] - .12, .1, (-1) ** i * .3)
 if KIND == 'wall':
     F(click(1.2, 1), at(0, 1) - .35, .25)                                   # light off
     for k in [0.18, 0.36, 0.52, 0.7, 0.86]: F(pop(), L[ids[1]] + k * D[ids[1]] - .15, .18)
-    for u0, u1 in [(0.08, 0.26), (0.55, 0.7)]: F(whoosh(.3, 1), at(2, u0), .12)
+    for u0 in [0.08, 0.55]: F(whoosh(.3, 1), at(2, u0), .12)
     for u0, u1 in [(0.22, 0.42), (0.64, 0.84)]: F(drill(at(2, u1) - at(2, u0)), at(2, u0), .14)
-    F(scratch(.45), at(3, 0) + 0.5 + .35 * (min(LEN[3], 2.4) - .5), .2)
-    F(drill(at(4, .36) - at(4, .14)), at(4, .14), .22); F(thump(1, 90), at(4, .62), .35); F(drill(at(4, .97) - at(4, .83)), at(4, .83), .16)
-    F(metal(), Sx[5] + min(1.6, LEN[5] * .85), .3)
-    F(ding(), at(6, .5), .22); F(scratch(.4), at(6, .8), .2)
-    F(drill(at(7, .4) - at(7, .2)), at(7, .2), .22); F(thump(1, 90), at(7, .62), .35); F(drill(at(7, .98) - at(7, .84)), at(7, .84), .16)
-    F(metal(), Sx[8] + min(1.1, LEN[8] * .35), .3); F(metal(), Sx[8] + min(1.1, LEN[8] * .35) + .08, .2); F(ding(), at(8, .4), .2)
-    ON = at(8, .6)
+    F(scratch(.4), at(3, .16), .2); F(drill(at(3, .46) - at(3, .32)), at(3, .32), .22); F(thump(1, 90), at(3, .62), .35); F(drill(at(3, .97) - at(3, .84)), at(3, .84), .16)
+    F(metal(), Sx[4] + min(1.6, LEN[4] * .85), .3)
+    F(ding(), at(5, .5), .22); F(scratch(.4), at(5, .8), .2)
+    F(drill(at(6, .4) - at(6, .2)), at(6, .2), .22); F(thump(1, 90), at(6, .62), .35); F(drill(at(6, .98) - at(6, .84)), at(6, .84), .16)
+    F(metal(), Sx[7] + min(1.1, LEN[7] * .35), .3); F(ding(), at(7, .55), .22)
+    F(whoosh(.4, 1), at(8, .02), .12)
+    for a0 in [0.3, 0.62]:
+        F(drill(at(8, a0 + .08) - at(8, a0)), at(8, a0), .14); F(whoosh(.3, 1), at(8, a0 + .08), .1); F(drill(at(8, a0 + .26) - at(8, a0 + .16)), at(8, a0 + .16), .14)
+    F(metal(), Sx[9] + min(1.1, LEN[9] * .3), .3); F(ding(), at(9, .36), .2)
+    ON = at(9, .6)
 else:
     F(whoosh(.8, 1), at(0, 1) - .5, .2)                                   # through the glass
     for u0 in [0.08, 0.55]: F(whoosh(.3, 1), at(1, u0), .12)
