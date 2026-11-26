@@ -29,6 +29,7 @@ import {FeehaPromo, PROMO_FRAMES} from './promo/Promo';
 import {FeehaPlat, PLAT_FRAMES} from './plat/Plat';
 import {FeehaArches, ARCHES_FRAMES} from './arches/Arches';
 import {FeehaTest3s, FeehaTest3sEN, T3S_FRAMES, T3S_EN_FRAMES} from './t3s/Test3s';
+import {InstallWallFr, InstallWallEn, InstallCableFr, InstallCableEn, installFrames} from './install/Install';
 import feeha from './feeha/timeline.json';
 import ma from './ma/timeline.json';
 import ma2 from './ma2/timeline.json';
@@ -61,6 +62,38 @@ Promise.all([
 
 export const Root = () => (
   <>
+    <Composition
+      id="FeehaInstallWall"
+      component={InstallWallFr}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={installFrames('wall', 'fr')}
+    />
+    <Composition
+      id="FeehaInstallWallEN"
+      component={InstallWallEn}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={installFrames('wall', 'en')}
+    />
+    <Composition
+      id="FeehaInstallCable"
+      component={InstallCableFr}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={installFrames('cable', 'fr')}
+    />
+    <Composition
+      id="FeehaInstallCableEN"
+      component={InstallCableEn}
+      width={1080}
+      height={1920}
+      fps={30}
+      durationInFrames={installFrames('cable', 'en')}
+    />
     <Composition
       id="FeehaTest3s"
       component={FeehaTest3s}
